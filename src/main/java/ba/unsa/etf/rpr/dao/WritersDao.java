@@ -1,4 +1,8 @@
 package ba.unsa.etf.rpr.dao;
-
-public interface WritersDao {
+import ba.unsa.etf.rpr.domain.Writers;
+/**
+ * Dao interface for Writers domain bean
+ * @author Adna Herak
+ */
+public interface WritersDao extends Dao<Writers> {
 }

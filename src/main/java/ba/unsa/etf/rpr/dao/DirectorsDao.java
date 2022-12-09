@@ -1,4 +1,10 @@
 package ba.unsa.etf.rpr.dao;
+import ba.unsa.etf.rpr.domain.Directors;
 
-public interface DirectorsDao {
+/**
+ * Dao interface for Directors domain bean
+ * @author Adna Herak
+ */
+public interface DirectorsDao extends Dao<Directors> {
+
 }
