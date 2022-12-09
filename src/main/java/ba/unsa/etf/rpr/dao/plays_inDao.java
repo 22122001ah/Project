@@ -1,4 +1,4 @@
 package ba.unsa.etf.rpr.dao;
 
-public interface Writers {
+public interface plays_inDao {
 }
