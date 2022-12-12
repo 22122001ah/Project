@@ -4,14 +4,22 @@ import ba.unsa.etf.rpr.domain.Directors;
 import ba.unsa.etf.rpr.domain.Plays;
 import ba.unsa.etf.rpr.domain.Writers;
 
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Date;
 import java.sql.*;
+import java.util.Properties;
 public class PlaysDaoSQLimpl implements PlaysDao{
     private Connection connection;
     public PlaysDaoSQLimpl(){
         try {
+            FileReader reader = new FileReader("");
+            Properties p = new Properties();
+            p.load(reader);
+            String url = p.getProperty("url");
+            String user = p.getProperty("username");
+            String password = p.getProperty("password");
             this.connection = DriverManager.getConnection("jdbc:mysql://sql7.freemysqlhosting.net:3306/sql7582716", "sql7582716", "yx92Ppzp5V");
         } catch (Exception e) {
             e.printStackTrace();
