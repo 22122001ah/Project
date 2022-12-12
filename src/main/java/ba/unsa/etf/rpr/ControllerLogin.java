@@ -2,7 +2,7 @@ package ba.unsa.etf.rpr;
 
 import javafx.fxml.FXML;
 
-public class Controller {
+public class ControllerLogin {
     @FXML
     public void initialize() {
 

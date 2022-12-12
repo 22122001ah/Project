@@ -8,14 +8,19 @@ import javafx.stage.Stage;
 
 public class MainFX extends Application {
     public void start(Stage stage) throws Exception {
-        FXMLLoader fl=new FXMLLoader(getClass().getResource("/fxml/home-layout.fxml"));
-        Controller controller = new Controller();
-        fl.setController(controller);
-        Parent root = null;
-        root = fl.load();
-        stage.setTitle("Hello, World!");
-        stage.setScene(new Scene(root, 300, 275));
-        stage.show();
+        try{
+            FXMLLoader fl=new FXMLLoader(getClass().getResource("/fxml/home-layeout.fxml"));
+            ControllerLogin controller = new ControllerLogin();
+            fl.setController(controller);
+            Parent root = null;
+            root = fl.load();
+            stage.setTitle("Hello, World!");
+            stage.setScene(new Scene(root, 300, 275));
+            stage.show();
+        }
+
+    catch(Exception E){
+        System.out.println(E);}
     }
     public static void main(String[] args) {
         launch(args);
