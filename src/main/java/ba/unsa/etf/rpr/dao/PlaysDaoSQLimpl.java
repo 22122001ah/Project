@@ -3,6 +3,8 @@ import ba.unsa.etf.rpr.domain.Artist;
 import ba.unsa.etf.rpr.domain.Directors;
 import ba.unsa.etf.rpr.domain.Plays;
 import ba.unsa.etf.rpr.domain.Writers;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Date;
 import java.sql.*;
@@ -42,8 +44,25 @@ return null;
      */
     @Override
     public List<Plays> searchByPrice(int prices){
+        String query = "SELECT * FROM quotes WHERE quote LIKE concat('%', ?, '%')";
+        try {
+            PreparedStatement stmt = this.connection.prepareStatement(query);
+            stmt.setString(1, String.valueOf(prices));
+            ResultSet rs = stmt.executeQuery();
+            ArrayList<Plays> quoteLista = new ArrayList<>();
+            while (rs.next()) {
+                Plays q = new Plays();
+                q.setPlay_id(rs.getInt(1));
+                q.setPlay_name(rs.getString(2));
+                q.setPrice((rs.getInt(4)));
+                q.setDate(rs.getDate(3));
+                quoteLista.add(q);
+            }
+            return quoteLista;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return null;
-
     }
 
     /**
