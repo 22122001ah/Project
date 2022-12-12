@@ -20,31 +20,61 @@ public class PlaysDaoSQLimpl implements PlaysDao{
             String url = p.getProperty("url");
             String user = p.getProperty("username");
             String password = p.getProperty("password");
-            this.connection = DriverManager.getConnection("jdbc:mysql://sql7.freemysqlhosting.net:3306/sql7582716", "sql7582716", "yx92Ppzp5V");
+            this.connection = DriverManager.getConnection(url, user, password);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
     @Override
     public List<Plays> getAll(){
-        return null;
+        String query = "SELECT * FROM Plays";
+        List<Plays> plays = new ArrayList<Plays>();
+        try{
+            PreparedStatement stmt = this.connection.prepareStatement(query);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()){ // result set is iterator.
+                Plays play = new Plays();
+                play.setPlay_id(rs.getInt("play_id"));
+                play.setPlay_name(rs.getString("play_name"));
+                play.setDate(rs.getDate("date"));
+                play.setPrice(rs.getInt("price"));
+                play.setPick_up_location(rs.getString("pick_up_location"));
+                play.setGenre(rs.getString("genre"));
+                plays.add(play);
+            }
+            rs.close();
+        }catch (SQLException e){
+            e.printStackTrace(); // poor error handling
+        }
+        return plays;
+
     }
     @Override
     public Plays getById(int id){
-return null;
-    }
-    @Override
-    public Plays add(Plays P){
+        String query = "SELECT * FROM Plays WHERE play_name = ?";
+        try {
+            PreparedStatement stmt = this.connection.prepareStatement(query);
+            stmt.setInt(1,id);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) { // result set is iterator.
+                Plays play = new Plays();
+                play.setPlay_id(rs.getInt("play_id"));
+                play.setPlay_name(rs.getString("play_name"));
+                play.setDate(rs.getDate("date"));
+                play.setPrice(rs.getInt("price"));
+                play.setPick_up_location(rs.getString("pick_up_location"));
+                play.setGenre(rs.getString("genre"));
+                rs.close();
+                return play;
+            } else {
+                return null; // if there is no elements in the result set return null
+            }
+        } catch (SQLException e) {
+            e.printStackTrace(); // poor error handling
+        }
         return null;
     }
-    @Override
-    public Plays update(Plays P){
-       return null;
-    }
-    @Override
-    public void delete(int id){
 
-    }
     /**
      * searches Plays based on prices
      * @param prices
@@ -52,21 +82,23 @@ return null;
      */
     @Override
     public List<Plays> searchByPrice(int prices){
-        String query = "SELECT * FROM quotes WHERE quote LIKE concat('%', ?, '%')";
+        String query = "SELECT * FROM Plays WHERE price LIKE concat('%', ?, '%')";
         try {
             PreparedStatement stmt = this.connection.prepareStatement(query);
-            stmt.setString(1, String.valueOf(prices));
+            stmt.setInt(5, prices);
             ResultSet rs = stmt.executeQuery();
-            ArrayList<Plays> quoteLista = new ArrayList<>();
+            ArrayList<Plays> PlaysLista = new ArrayList<>();
             while (rs.next()) {
                 Plays q = new Plays();
-                q.setPlay_id(rs.getInt(1));
-                q.setPlay_name(rs.getString(2));
-                q.setPrice((rs.getInt(4)));
-                q.setDate(rs.getDate(3));
-                quoteLista.add(q);
+                q.setPlay_id(rs.getInt("play_id"));
+                q.setPlay_name(rs.getString("play_name"));
+                q.setPrice((rs.getInt("price")));
+                q.setDate(rs.getDate("date"));
+                q.setPick_up_location(rs.getString("pick_up_location"));
+                q.setGenre(rs.getString("genre"));
+                PlaysLista.add(q);
             }
-            return quoteLista;
+            return PlaysLista;
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -91,8 +123,27 @@ return null;
      */
     @Override
    public List<Plays> searchByWriter(Writers writer){
+        String query = "SELECT * FROM Plays WHERE writer LIKE concat('%', ?, '%')";
+        try {
+            PreparedStatement stmt = this.connection.prepareStatement(query);
+            stmt.setInt(8, writer.getWriter_id());
+            ResultSet rs = stmt.executeQuery();
+            ArrayList<Plays> PlaysLista = new ArrayList<>();
+            while (rs.next()) {
+                Plays q = new Plays();
+                q.setPlay_id(rs.getInt("play_id"));
+                q.setPlay_name(rs.getString("play_name"));
+                q.setPrice((rs.getInt("price")));
+                q.setDate(rs.getDate("date"));
+                q.setPick_up_location(rs.getString("pick_up_location"));
+                q.setGenre(rs.getString("genre"));
+                PlaysLista.add(q);
+            }
+            return PlaysLista;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return null;
-
     }
 
     /**
@@ -102,8 +153,27 @@ return null;
      */
     @Override
     public List<Plays> searchByDirector(Directors director){
+        String query = "SELECT * FROM Plays WHERE director LIKE concat('%', ?, '%')";
+        try {
+            PreparedStatement stmt = this.connection.prepareStatement(query);
+            stmt.setInt(7, director.getDirector_id());
+            ResultSet rs = stmt.executeQuery();
+            ArrayList<Plays> PlaysLista = new ArrayList<>();
+            while (rs.next()) {
+                Plays q = new Plays();
+                q.setPlay_id(rs.getInt("play_id"));
+                q.setPlay_name(rs.getString("play_name"));
+                q.setPrice((rs.getInt("price")));
+                q.setDate(rs.getDate("date"));
+                q.setPick_up_location(rs.getString("pick_up_location"));
+                q.setGenre(rs.getString("genre"));
+                PlaysLista.add(q);
+            }
+            return PlaysLista;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return null;
-
     }
 
     /**
@@ -111,11 +181,6 @@ return null;
      * @param artist
      * @return List of Plays staring a certain Actor
      */
-    @Override
-    public List<Plays> searchByArtist(Artist artist){
-        return null;
-
-    }
 
     /**
      * searches for Plays that are playing on a certain date
@@ -124,8 +189,27 @@ return null;
      */
     @Override
     public List<Plays> searchByDate(Date date){
+        String query = "SELECT * FROM Plays WHERE date LIKE concat('%', ?, '%')";
+        try {
+            PreparedStatement stmt = this.connection.prepareStatement(query);
+            stmt.setDate(4, (java.sql.Date) date);
+            ResultSet rs = stmt.executeQuery();
+            ArrayList<Plays> PlaysLista = new ArrayList<>();
+            while (rs.next()) {
+                Plays q = new Plays();
+                q.setPlay_id(rs.getInt("play_id"));
+                q.setPlay_name(rs.getString("play_name"));
+                q.setPrice((rs.getInt("price")));
+                q.setDate(rs.getDate("date"));
+                q.setPick_up_location(rs.getString("pick_up_location"));
+                q.setGenre(rs.getString("genre"));
+                PlaysLista.add(q);
+            }
+            return PlaysLista;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return null;
-
     }
 
     /**
@@ -135,7 +219,27 @@ return null;
      */
     @Override
    public Plays searchByPlayName(String play_name){
+        String query = "SELECT * FROM Plays WHERE play_name = ?";
+        try {
+            PreparedStatement stmt = this.connection.prepareStatement(query);
+            stmt.setString(2,play_name);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) { // result set is iterator.
+                Plays play = new Plays();
+                play.setPlay_id(rs.getInt("play_id"));
+                play.setPlay_name(rs.getString("play_name"));
+                play.setDate(rs.getDate("date"));
+                play.setPrice(rs.getInt("price"));
+                play.setPick_up_location(rs.getString("pick_up_location"));
+                play.setGenre(rs.getString("genre"));
+                rs.close();
+                return play;
+            } else {
+                return null; // if there is no elements in the result set return null
+            }
+        } catch (SQLException e) {
+            e.printStackTrace(); // poor error handling
+        }
         return null;
-
     }
 }

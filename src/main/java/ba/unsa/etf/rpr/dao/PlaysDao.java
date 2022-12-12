@@ -39,12 +39,6 @@ public interface PlaysDao extends Dao<Plays> {
      */
     List<Plays> searchByDirector(Directors director);
 
-    /**
-     * searches for Plays staring a certain Actor
-     * @param artist
-     * @return List of Plays staring a certain Actor
-     */
-    List<Plays> searchByArtist(Artist artist);
 
     /**
      * searches for Plays that are playing on a certain date
