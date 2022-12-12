@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 public class MainFX extends Application {
     public void start(Stage stage) throws Exception {
         try{
-            FXMLLoader fl=new FXMLLoader(getClass().getResource("/fxml/home-layeout.fxml"));
+            FXMLLoader fl=new FXMLLoader(getClass().getResource("/fxml/home-layout.fxml"));
             ControllerLogin controller = new ControllerLogin();
             fl.setController(controller);
             Parent root = null;
