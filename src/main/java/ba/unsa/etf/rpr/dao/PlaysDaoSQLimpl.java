@@ -47,11 +47,10 @@ public class PlaysDaoSQLimpl implements PlaysDao{
             e.printStackTrace(); // poor error handling
         }
         return plays;
-
     }
     @Override
     public Plays getById(int id){
-        String query = "SELECT * FROM Plays WHERE play_name = ?";
+        String query = "SELECT * FROM Plays WHERE play_id = ?";
         try {
             PreparedStatement stmt = this.connection.prepareStatement(query);
             stmt.setInt(1,id);
