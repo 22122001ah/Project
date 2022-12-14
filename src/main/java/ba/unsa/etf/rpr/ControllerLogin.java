@@ -11,6 +11,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+
 import java.io.IOException;
 
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
@@ -37,18 +38,24 @@ public class ControllerLogin {
 
 
 
-    public void ButtonClick(ActionEvent actionEvent) throws Exception {
-        if (fieldUsername.getText().isEmpty()){
+    public void ButtonClick(ActionEvent actionEvent) throws IOException {
+       try{ if (fieldUsername.getText().isEmpty()){
             return;
         }
-        Stage stage=new Stage();
-        Parent root= FXMLLoader.load(getClass().getResource("/fxml/noviProzor.fxml"));
-        stage.setTitle("Novi prozor");
-        stage.setScene(new Scene(root,USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
-        Alert alert=new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Pozdrav");
+        Stage Secondstage=new Stage();
+        FXMLLoader fl=new FXMLLoader(getClass().getResource("/fxml/noviProzor.fxml"));
+        Parent root =fl.load();
+        noviProzor noviprozor=fl.getController();
+        noviprozor.labels.setText(noviprozor.labels.getText()+fieldUsername.getText());
+        Secondstage.setTitle("Novi prozor");
+       Secondstage.setScene(new Scene(root,USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
+        //Alert alert=new Alert(Alert.AlertType.INFORMATION);
+        //alert.setTitle("Pozdrav");
 
-        alert.show();
-
+        //alert.show();
+Secondstage.show();}
+       catch(Exception e){
+           System.out.println(e);
+       }
     }
 }
