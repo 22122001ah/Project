@@ -176,12 +176,6 @@ public class PlaysDaoSQLimpl implements PlaysDao{
     }
 
     /**
-     * searches for Plays staring a certain Actor
-     * @param artist
-     * @return List of Plays staring a certain Actor
-     */
-
-    /**
      * searches for Plays that are playing on a certain date
      * @param date
      * @return List of Plays playing on a certain date

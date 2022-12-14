@@ -14,7 +14,7 @@ public class MainFX extends Application {
             fl.setController(controller);
             Parent root = null;
             root = fl.load();
-            stage.setTitle("Hello, World!");
+            stage.setTitle("Register");
             stage.setScene(new Scene(root, 300, 275));
             stage.show();
         }
