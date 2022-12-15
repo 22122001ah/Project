@@ -1,8 +1,10 @@
 package ba.unsa.etf.rpr.domain;
 
+import ba.unsa.etf.rpr.dao.plays_inDaoSQLimpl;
+
 import java.util.Objects;
 
-public class plays_in {
+public class plays_in extends plays_inDaoSQLimpl {
     private int playsIn_id;
     private int Artist_id;
     private int Plays_id;

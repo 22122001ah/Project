@@ -1,8 +1,10 @@
 package ba.unsa.etf.rpr.domain;
 
+import ba.unsa.etf.rpr.dao.DirectorsDaoSQLimpl;
+
 import java.util.Objects;
 
-public class Directors {
+public class Directors extends DirectorsDaoSQLimpl {
     private int director_id;
     private String first_name;
     private String last_name;

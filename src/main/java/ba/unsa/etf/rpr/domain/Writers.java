@@ -1,8 +1,10 @@
 package ba.unsa.etf.rpr.domain;
 
+import ba.unsa.etf.rpr.dao.WritersDaoSQLimpl;
+
 import java.util.Objects;
 
-public class Writers {
+public class Writers extends WritersDaoSQLimpl {
     private int writer_id;
     private String first_name;
     private String last_name;

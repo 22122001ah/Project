@@ -1,4 +1,6 @@
 package ba.unsa.etf.rpr.domain;
+import ba.unsa.etf.rpr.dao.PlaysDaoSQLimpl;
+
 import java.util.Date;
 import java.util.Objects;
 
@@ -6,7 +8,7 @@ import java.util.Objects;
  * Java bean class for table Plays
  * @author Adna Herak
  */
-public class Plays {
+public class Plays extends PlaysDaoSQLimpl {
     private int play_id;
     private String play_name;
     private String genre;
@@ -15,9 +17,25 @@ public class Plays {
     private String pick_up_location;
     private Directors director;
     private Writers writer;
+
+    public Plays() {
+    }
+
+    public Plays(int play_id, String play_name, String genre, Date date, int price, String pick_up_location, Directors director, Writers writer) {
+        this.play_id = play_id;
+        this.play_name = play_name;
+        this.genre = genre;
+        this.date = date;
+        this.price = price;
+        this.pick_up_location = pick_up_location;
+        this.director = director;
+        this.writer = writer;
+    }
+
     /**
      * setters and getters for each private attribute
      */
+
     public void setPlay_id(int play_id) {
         this.play_id = play_id;
     }

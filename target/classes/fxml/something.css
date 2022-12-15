@@ -2,7 +2,7 @@
    -fx-background-color: lightskyblue;
 }
 .poljeNijeIspravno {
-   -fx-background-color: lightpink;
+   -fx-background-color: red;
 }
 .poljeJeIspravno {
 -fx-background-color: yellowgreen;

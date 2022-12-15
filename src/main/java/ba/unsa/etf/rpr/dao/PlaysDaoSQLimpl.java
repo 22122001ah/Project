@@ -14,7 +14,7 @@ public class PlaysDaoSQLimpl implements PlaysDao{
     private Connection connection;
     public PlaysDaoSQLimpl(){
         try {
-            FileReader reader = new FileReader("");
+            FileReader reader = new FileReader("src/main/resources/database.properties");
             Properties p = new Properties();
             p.load(reader);
             String url = p.getProperty("url");
@@ -84,7 +84,7 @@ public class PlaysDaoSQLimpl implements PlaysDao{
         String query = "SELECT * FROM Plays WHERE price LIKE concat('%', ?, '%')";
         try {
             PreparedStatement stmt = this.connection.prepareStatement(query);
-            stmt.setInt(5, prices);
+            stmt.setInt(1, prices);
             ResultSet rs = stmt.executeQuery();
             ArrayList<Plays> PlaysLista = new ArrayList<>();
             while (rs.next()) {
@@ -125,7 +125,7 @@ public class PlaysDaoSQLimpl implements PlaysDao{
         String query = "SELECT * FROM Plays WHERE writer LIKE concat('%', ?, '%')";
         try {
             PreparedStatement stmt = this.connection.prepareStatement(query);
-            stmt.setInt(8, writer.getWriter_id());
+            stmt.setInt(1, writer.getWriter_id());
             ResultSet rs = stmt.executeQuery();
             ArrayList<Plays> PlaysLista = new ArrayList<>();
             while (rs.next()) {
@@ -155,7 +155,7 @@ public class PlaysDaoSQLimpl implements PlaysDao{
         String query = "SELECT * FROM Plays WHERE director LIKE concat('%', ?, '%')";
         try {
             PreparedStatement stmt = this.connection.prepareStatement(query);
-            stmt.setInt(7, director.getDirector_id());
+            stmt.setInt(1, director.getDirector_id());
             ResultSet rs = stmt.executeQuery();
             ArrayList<Plays> PlaysLista = new ArrayList<>();
             while (rs.next()) {
@@ -185,7 +185,7 @@ public class PlaysDaoSQLimpl implements PlaysDao{
         String query = "SELECT * FROM Plays WHERE date LIKE concat('%', ?, '%')";
         try {
             PreparedStatement stmt = this.connection.prepareStatement(query);
-            stmt.setDate(4, (java.sql.Date) date);
+            stmt.setDate(1, (java.sql.Date) date);
             ResultSet rs = stmt.executeQuery();
             ArrayList<Plays> PlaysLista = new ArrayList<>();
             while (rs.next()) {
@@ -215,7 +215,7 @@ public class PlaysDaoSQLimpl implements PlaysDao{
         String query = "SELECT * FROM Plays WHERE play_name = ?";
         try {
             PreparedStatement stmt = this.connection.prepareStatement(query);
-            stmt.setString(2,play_name);
+            stmt.setString(1,play_name);
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) { // result set is iterator.
                 Plays play = new Plays();

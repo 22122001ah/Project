@@ -1,4 +1,6 @@
 package ba.unsa.etf.rpr.domain;
+import ba.unsa.etf.rpr.dao.ArtistDaoSQLimpl;
+
 import java.util.Objects;
 
 
@@ -6,7 +8,7 @@ import java.util.Objects;
  * List of possible actors for plays
  * @author Adna Herak
  */
-public class Artist {
+public class Artist extends ArtistDaoSQLimpl {
     private int artist_id;
     private String artist_name;
 
