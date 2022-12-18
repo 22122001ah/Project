@@ -107,7 +107,7 @@ public class Plays extends PlaysDaoSQLimpl {
                 ",price="+price+
                 ",pick up location="+pick_up_location+
                 ",director="+director+
-                ",writer="+writer;
+                ",writer="+writer+"\n";
     }
     @Override
     public boolean equals(Object o){

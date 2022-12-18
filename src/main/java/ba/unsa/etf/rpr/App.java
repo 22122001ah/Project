@@ -12,7 +12,8 @@ public class App
 {
     private static void testiranje(){
       try{  Plays play=new Plays();
-        System.out.println(play.searchByPrice(10));}
+        System.out.println(play.searchByPrice(10));
+      }
       catch (Exception e)
       {
           System.out.println(e);
