@@ -4,10 +4,14 @@ import ba.unsa.etf.rpr.dao.plays_inDaoSQLimpl;
 
 import java.util.Objects;
 
-public class plays_in extends plays_inDaoSQLimpl {
+public class plays_in extends plays_inDaoSQLimpl implements Idable {
     private int playsIn_id;
     private int Artist_id;
     private int Plays_id;
+
+    public plays_in() {
+
+    }
 
     public int getPlaysIn_id() {
         return playsIn_id;
@@ -53,5 +57,10 @@ public class plays_in extends plays_inDaoSQLimpl {
                 ", Artist_id=" + Artist_id +
                 ", Plays_id=" + Plays_id +
                 '}';
+    }
+
+    @Override
+    public int getId() {
+        return 0;
     }
 }

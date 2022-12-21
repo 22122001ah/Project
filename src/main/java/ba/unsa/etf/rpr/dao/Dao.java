@@ -14,12 +14,12 @@ public interface Dao<T> {
      * @param id primary key of entity
      * @return Entity from database
      */
-    T getById(int id);
+    T getById(int id) throws Exception;
 
 
     /**
      * Lists all entities from database. WARNING: Very slow operation because it reads all records.
      * @return List of entities from database
      */
-    List<T> getAll();
+    List<T> getAll() throws Exception;
 }

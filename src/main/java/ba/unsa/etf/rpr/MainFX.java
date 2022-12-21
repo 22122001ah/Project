@@ -9,13 +9,13 @@ import javafx.stage.Stage;
 public class MainFX extends Application {
     public void start(Stage stage) throws Exception {
         try{
-            FXMLLoader fl=new FXMLLoader(getClass().getResource("/fxml/home-layout.fxml"));
+            FXMLLoader fl=new FXMLLoader(getClass().getResource("/fxml/NOVO.fxml"));
             ControllerLogin controller = new ControllerLogin();
             fl.setController(controller);
             Parent root = null;
             root = fl.load();
-            stage.setTitle("Register");
-            stage.setScene(new Scene(root, 300, 275));
+            stage.setTitle("BuyTickets.com");
+            stage.setScene(new Scene(root, 600, 400));
             stage.show();
         }
 

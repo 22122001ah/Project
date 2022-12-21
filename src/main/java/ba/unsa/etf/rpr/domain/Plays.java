@@ -1,14 +1,19 @@
 package ba.unsa.etf.rpr.domain;
 import ba.unsa.etf.rpr.dao.PlaysDaoSQLimpl;
 
+import java.io.FileReader;
+import java.io.IOException;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.Date;
 import java.util.Objects;
+import java.util.Properties;
 
 /**
  * Java bean class for table Plays
  * @author Adna Herak
  */
-public class Plays extends PlaysDaoSQLimpl {
+public class Plays extends PlaysDaoSQLimpl implements Idable {
     private int play_id;
     private String play_name;
     private String genre;
@@ -18,18 +23,16 @@ public class Plays extends PlaysDaoSQLimpl {
     private Directors director;
     private Writers writer;
 
-    public Plays() {
-    }
 
-    public Plays(int play_id, String play_name, String genre, Date date, int price, String pick_up_location, Directors director, Writers writer) {
-        this.play_id = play_id;
-        this.play_name = play_name;
-        this.genre = genre;
-        this.date = date;
-        this.price = price;
-        this.pick_up_location = pick_up_location;
-        this.director = director;
-        this.writer = writer;
+
+    public Plays() throws SQLException, IOException {
+    /*    FileReader reader = new FileReader("src/main/resources/database.properties");
+        Properties p = new Properties();
+        p.load(reader);
+        String url = p.getProperty("url");
+        String user = p.getProperty("username");
+        String password = p.getProperty("password");
+        this.connection = DriverManager.getConnection(url,user,password);*/
     }
 
     /**
@@ -101,13 +104,13 @@ public class Plays extends PlaysDaoSQLimpl {
     }
     @Override
     public String toString(){
-        return "Play{ id="+play_id+",name="+play_name+
+        return "Play{id="+play_id+",name="+play_name+
                 ",genre="+genre+
                 ",date="+date+
                 ",price="+price+
                 ",pick up location="+pick_up_location+
                 ",director="+director+
-                ",writer="+writer+"\n";
+                ",writer="+writer+"}\n";
     }
     @Override
     public boolean equals(Object o){
@@ -119,5 +122,10 @@ public class Plays extends PlaysDaoSQLimpl {
     @Override
     public int hashCode(){
         return Objects.hash(play_id,play_name,genre,date,price,pick_up_location,director,writer);
+    }
+
+    @Override
+    public int getId() {
+        return 0;
     }
 }

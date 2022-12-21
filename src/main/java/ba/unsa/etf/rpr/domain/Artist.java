@@ -8,7 +8,7 @@ import java.util.Objects;
  * List of possible actors for plays
  * @author Adna Herak
  */
-public class Artist extends ArtistDaoSQLimpl {
+public class Artist extends ArtistDaoSQLimpl implements Idable {
     private int artist_id;
     private String artist_name;
 
@@ -43,5 +43,10 @@ public class Artist extends ArtistDaoSQLimpl {
             return false;
         Artist A=(Artist) o;
         return A.artist_id==artist_id;
+    }
+
+    @Override
+    public int getId() {
+        return 0;
     }
 }

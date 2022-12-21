@@ -4,7 +4,7 @@ import ba.unsa.etf.rpr.dao.DirectorsDaoSQLimpl;
 
 import java.util.Objects;
 
-public class Directors extends DirectorsDaoSQLimpl {
+public class Directors extends DirectorsDaoSQLimpl implements Idable {
     private int director_id;
     private String first_name;
     private String last_name;
@@ -48,5 +48,10 @@ public class Directors extends DirectorsDaoSQLimpl {
     @Override
     public int hashCode(){
         return Objects.hash(director_id,first_name,last_name);
+    }
+
+    @Override
+    public int getId() {
+        return 0;
     }
 }
