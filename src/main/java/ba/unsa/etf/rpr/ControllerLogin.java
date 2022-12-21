@@ -22,34 +22,18 @@ public class ControllerLogin {
     public TextField fieldUsername;
     @FXML
     public void initialize() {
-        fieldUsername.getStyleClass().add("poljeNijeIspravno");
-        fieldUsername.textProperty().addListener(new ChangeListener<String>() {
-             @Override
-             public void changed(ObservableValue<? extends String> observableValue, String o, String n) {
-                 if (fieldUsername.getText().trim().isEmpty()) {
-                     fieldUsername.getStyleClass().removeAll("poljeJeIspravno");
-                     fieldUsername.getStyleClass().add("poljeNijeIspravno");
-                 } else {
-                     fieldUsername.getStyleClass().removeAll("poljeNijeIspravno");
-                     fieldUsername.getStyleClass().add("poljeJeIspravno");
-                 }
-             }
-         });
+
 
 }
 
 
-
     public void ButtonClick(ActionEvent actionEvent) throws IOException {
-       try{ if (fieldUsername.getText().isEmpty()){
-            return;
-        }
+       try{
         Stage Secondstage=new Stage();
-        FXMLLoader fl=new FXMLLoader(getClass().getResource("/fxml/noviProzor.fxml"));
+        FXMLLoader fl=new FXMLLoader(getClass().getResource("/fxml/home-layout.fxml"));
         Parent root =fl.load();
         noviProzor noviprozor=fl.getController();
-        noviprozor.labels.setText(noviprozor.labels.getText()+fieldUsername.getText());
-        Secondstage.setTitle("Log in");
+        Secondstage.setTitle("Register");
        Secondstage.setScene(new Scene(root,USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
         //Alert alert=new Alert(Alert.AlertType.INFORMATION);
         //alert.setTitle("Pozdrav");
@@ -59,9 +43,21 @@ Secondstage.show();}
            System.out.println(e);
        }
     }
-    public void zatvoriProzorPropuhJe(ActionEvent actionEvent) {
-        Stage stage = (Stage) labels.getScene().getWindow();
-        stage.close();
+    public void ButtonClick1(ActionEvent actionEvent) throws IOException {
+        try{
+            Stage Secondstage=new Stage();
+            FXMLLoader fl=new FXMLLoader(getClass().getResource("/fxml/noviProzor.fxml"));
+            Parent root =fl.load();
+            noviProzor noviprozor=fl.getController();
+            Secondstage.setTitle("Login");
+            Secondstage.setScene(new Scene(root,USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
+            //Alert alert=new Alert(Alert.AlertType.INFORMATION);
+            //alert.setTitle("Pozdrav");
+            //alert.show();
+            Secondstage.show();}
+        catch(Exception e){
+            System.out.println(e);
+        }
     }
 
 }

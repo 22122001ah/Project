@@ -2,9 +2,9 @@ package ba.unsa.etf.rpr.domain;
 
 import ba.unsa.etf.rpr.dao.WritersDaoSQLimpl;
 
+import java.util.Map;
 import java.util.Objects;
-
-public class Writers extends WritersDaoSQLimpl {
+public class Writers extends WritersDaoSQLimpl implements Idable {
     private int writer_id;
     private String first_name;
     private String last_name;
@@ -48,5 +48,15 @@ public class Writers extends WritersDaoSQLimpl {
     @Override
     public int hashCode(){
         return Objects.hash(writer_id,first_name,last_name);
+    }
+
+    @Override
+    public Map<String, Object> object2row(Writers object) {
+        return null;
+    }
+
+    @Override
+    public int getId() {
+        return 0;
     }
 }

@@ -1,5 +1,6 @@
 package ba.unsa.etf.rpr.dao;
 
+import ba.unsa.etf.rpr.domain.Directors;
 import ba.unsa.etf.rpr.domain.Plays;
 import ba.unsa.etf.rpr.domain.Writers;
 
@@ -7,42 +8,65 @@ import java.io.FileReader;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 
-public class WritersDaoSQLimpl implements WritersDao {
-    private Connection connection;
+public class WritersDaoSQLimpl extends AbstractDao1<Writers> implements WritersDao {
+
     public WritersDaoSQLimpl(){
-        try {
-            FileReader reader = new FileReader("");
+        super("Writer");
+     /*   try {
+            FileReader reader = new FileReader("src/main/resources/database.properties");
             Properties p = new Properties();
             p.load(reader);
             String url = p.getProperty("url");
             String user = p.getProperty("username");
             String password = p.getProperty("password");
-            this.connection = DriverManager.getConnection("jdbc:mysql://sql7.freemysqlhosting.net:3306/sql7582716", "sql7582716", "yx92Ppzp5V");
+            this.connection = DriverManager.getConnection(url,user,password);
         } catch (Exception e) {
             e.printStackTrace();
-        }
+        }*/
     }
 
     @Override
-    public Writers getById(int id) {
-        String query = "SELECT * FROM Writers where writer_id=?";
-        List<Writers> writers = new ArrayList<Writers>();
+    public Writers row2object(ResultSet rs) throws Exception {
         try{
-            PreparedStatement stmt = this.connection.prepareStatement(query);
+           Writers w=new Writers();
+            w.setWriter_id(rs.getInt("writer_id"));
+            w.setFirst_name(rs.getString("FirstName"));
+            w.setLast_name(rs.getString("LastName"));
+           return w;}
+        catch (Exception e){
+            System.out.println(e);
+        }
+        return null;
+    }
+
+    @Override
+    public Map<String, Object> object2row(Writers object) {
+        return null;
+    }
+
+
+
+    @Override
+    public Writers getById(int id) {
+        String query = "SELECT * FROM Writers where Writer_id = ?";
+        try{
+
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setObject(1,id);
             ResultSet rs = stmt.executeQuery();
             if (rs.next()){ // result set is iterator.
-                Writers writer = new Writers();
-                writer.setWriter_id(rs.getInt("writer_id"));
-                writer.setFirst_name(rs.getString("first_name"));
-                writer.setLast_name(rs.getString("last_name"));
-                rs.close();
-                return writer;
+
+
+                return row2object(rs);
             }
 
         }catch (SQLException e){
             e.printStackTrace(); // poor error handling
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
         return null;
 
@@ -53,18 +77,16 @@ public class WritersDaoSQLimpl implements WritersDao {
         String query = "SELECT * FROM Writers";
         List<Writers> writers = new ArrayList<Writers>();
         try{
-            PreparedStatement stmt = this.connection.prepareStatement(query);
+            PreparedStatement stmt = connection.prepareStatement(query);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()){ // result set is iterator.
-                Writers writer = new Writers();
-                writer.setWriter_id(rs.getInt("writer_id"));
-                writer.setFirst_name(rs.getString("first_name"));
-                writer.setLast_name(rs.getString("last_name"));
-                writers.add(writer);
+                writers.add(row2object(rs));
             }
             rs.close();
         }catch (SQLException e){
             e.printStackTrace(); // poor error handling
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
         return writers ;
 
