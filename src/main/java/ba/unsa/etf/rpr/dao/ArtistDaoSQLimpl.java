@@ -1,16 +1,13 @@
 package ba.unsa.etf.rpr.dao;
 
 import ba.unsa.etf.rpr.domain.Artist;
-import ba.unsa.etf.rpr.domain.Writers;
 
-import java.io.FileReader;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Properties;
 
-public class ArtistDaoSQLimpl extends AbstractDao<Artist> implements ArtistDao {
+public class ArtistDaoSQLimpl  extends AbstractDao1<Artist> implements ArtistDao {
     private Connection connection;
     public ArtistDaoSQLimpl(){
         super("Artist");
@@ -78,5 +75,10 @@ public class ArtistDaoSQLimpl extends AbstractDao<Artist> implements ArtistDao {
         }
         return artists ;
 
+    }
+
+    @Override
+    public Artist add(Artist A) throws Exception {
+        return null;
     }
 }

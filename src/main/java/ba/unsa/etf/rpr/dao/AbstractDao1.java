@@ -52,12 +52,14 @@ public abstract class AbstractDao1 <T extends Idable> implements Dao<T> {
             throw new Exception(e.getMessage(), e);
         }
     }
-
+    public Connection getConnection(){
+        return this.connection;
+    }
     public List<T> getAll() throws Exception {
         String query = "SELECT * FROM "+ Table;
         List<T> results = new ArrayList<T>();
         try{
-            PreparedStatement stmt = getConnection(connection).prepareStatement(query);
+            PreparedStatement stmt = getConnection().prepareStatement(query);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()){ // result set is iterator.
                 T object = row2object(rs);
@@ -68,5 +70,52 @@ public abstract class AbstractDao1 <T extends Idable> implements Dao<T> {
         }catch (SQLException e){
             throw new Exception(e.getMessage(), e);
         }
+    }
+    public T add(T item) throws Exception{
+        Map<String, Object> row = object2row(item);
+        Map.Entry<String, String> columns = prepareInsertParts(row);
+
+        StringBuilder builder = new StringBuilder();
+        builder.append("INSERT INTO ").append(Table);
+        builder.append(" (").append(columns.getKey()).append(") ");
+        builder.append("VALUES (").append(columns.getValue()).append(")");
+
+        try{
+            PreparedStatement stmt = getConnection().prepareStatement(builder.toString(), Statement.RETURN_GENERATED_KEYS);
+            // bind params. IMPORTANT treeMap is used to keep columns sorted so params are bind correctly
+            int counter = 1;
+            for (Map.Entry<String, Object> entry: row.entrySet()) {
+                if (entry.getKey().equals("id")) continue; // skip ID
+                stmt.setObject(counter, entry.getValue());
+                counter++;
+            }
+            stmt.executeUpdate();
+
+            ResultSet rs = stmt.getGeneratedKeys();
+            rs.next(); // we know that there is one key
+            item.setId(rs.getInt(1)); //set id to return it back */
+
+            return item;
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        return item;
+    }
+    private Map.Entry<String, String> prepareInsertParts(Map<String, Object> row){
+        StringBuilder columns = new StringBuilder();
+        StringBuilder questions = new StringBuilder();
+
+        int counter = 0;
+        for (Map.Entry<String, Object> entry: row.entrySet()) {
+            counter++;
+            if (entry.getKey().equals("id")) continue; //skip insertion of id due autoincrement
+            columns.append(entry.getKey());
+            questions.append("?");
+            if (row.size() != counter) {
+                columns.append(",");
+                questions.append(",");
+            }
+        }
+        return new AbstractMap.SimpleEntry<String,String>(columns.toString(), questions.toString());
     }
 }

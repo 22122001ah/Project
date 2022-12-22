@@ -54,4 +54,9 @@ public class Directors extends DirectorsDaoSQLimpl implements Idable {
     public int getId() {
         return 0;
     }
+
+    @Override
+    public void setId(int anInt) {
+
+    }
 }

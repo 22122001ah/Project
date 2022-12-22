@@ -91,4 +91,9 @@ public class WritersDaoSQLimpl extends AbstractDao1<Writers> implements WritersD
         return writers ;
 
     }
+
+    @Override
+    public Writers add(Writers write) throws Exception {
+        return null;
+    }
 }

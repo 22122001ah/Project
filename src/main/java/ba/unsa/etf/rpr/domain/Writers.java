@@ -4,6 +4,7 @@ import ba.unsa.etf.rpr.dao.WritersDaoSQLimpl;
 
 import java.util.Map;
 import java.util.Objects;
+
 public class Writers extends WritersDaoSQLimpl implements Idable {
     private int writer_id;
     private String first_name;
@@ -58,5 +59,10 @@ public class Writers extends WritersDaoSQLimpl implements Idable {
     @Override
     public int getId() {
         return 0;
+    }
+
+    @Override
+    public void setId(int anInt) {
+
     }
 }

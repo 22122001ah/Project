@@ -8,7 +8,7 @@ import java.sql.ResultSet;
 import java.util.List;
 import java.util.Map;
 
-public class plays_inDaoSQLimpl extends AbstractDao<plays_in> implements plays_inDao{
+public class plays_inDaoSQLimpl extends AbstractDao1<plays_in> implements plays_inDao{
     public plays_inDaoSQLimpl() {
         super("plays_in");
     }
@@ -23,13 +23,14 @@ public class plays_inDaoSQLimpl extends AbstractDao<plays_in> implements plays_i
         return null;
     }
 
+
     @Override
-    public plays_in getById(int id) {
+    public List<plays_in> getAll() {
         return null;
     }
 
     @Override
-    public List<plays_in> getAll() {
+    public plays_in add(plays_in playsin) throws Exception {
         return null;
     }
 

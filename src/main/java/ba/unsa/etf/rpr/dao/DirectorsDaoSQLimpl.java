@@ -54,7 +54,7 @@ public class DirectorsDaoSQLimpl extends AbstractDao1<Directors> implements Dire
         String query = "SELECT * FROM Directors where director_id=?";
         List<Directors> directors = new ArrayList<Directors>();
         try{
-            PreparedStatement stmt = connection.prepareStatement(query);
+            PreparedStatement stmt = getConnection().prepareStatement(query);
             stmt.setObject(1,id);
             ResultSet rs = stmt.executeQuery();
             if (rs.next()){ // result set is iterator.
@@ -77,7 +77,7 @@ public class DirectorsDaoSQLimpl extends AbstractDao1<Directors> implements Dire
         String query = "SELECT * FROM Directors";
         List<Directors> directors = new ArrayList<Directors>();
         try{
-            PreparedStatement stmt = this.connection.prepareStatement(query);
+            PreparedStatement stmt = getConnection().prepareStatement(query);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()){ // result set is iterator.
 
@@ -91,5 +91,10 @@ public class DirectorsDaoSQLimpl extends AbstractDao1<Directors> implements Dire
         }
         return directors ;
 
+    }
+
+    @Override
+    public Directors add(Directors director) throws Exception {
+        return null;
     }
 }

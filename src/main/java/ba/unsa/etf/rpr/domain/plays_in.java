@@ -59,8 +59,14 @@ public class plays_in extends plays_inDaoSQLimpl implements Idable {
                 '}';
     }
 
+
     @Override
     public int getId() {
         return 0;
+    }
+
+    @Override
+    public void setId(int anInt) {
+
     }
 }

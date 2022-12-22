@@ -1,20 +1,25 @@
 package ba.unsa.etf.rpr;
 
+import ba.unsa.etf.rpr.dao.UserDaoSQLimpl;
+import ba.unsa.etf.rpr.domain.Users;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
-import javafx.scene.Node;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
+import java.util.Date;
+
 public class noviProzor {
+    public Button okBttn;
     public Label labels;
     public TextField fieldUsername,fieldFirstname,fieldLastname;
     public PasswordField fieldPass;
-
+    public DatePicker date;
+    private Users u;
+    private UserDaoSQLimpl dao=new UserDaoSQLimpl();
     public void zatvoriProzorPropuhJe(ActionEvent actionEvent) {
+        u=new Users();
         fieldUsername.getStyleClass().add("poljeNijeIspravno");
 
         fieldUsername.textProperty().addListener(new ChangeListener<String>() {
@@ -31,8 +36,19 @@ public class noviProzor {
         });
         if (fieldUsername.getText().isEmpty()  || fieldFirstname.getText().isEmpty() || fieldLastname.getText().isEmpty() || fieldPass.getText().isEmpty())
             return;
+        u.setFirst_name(fieldFirstname.getText());
+        u.setLast_name(fieldLastname.getText());
+        u.setPassword(fieldPass.getText());
+        u.setUsername(fieldUsername.getText());
 
-        Stage stage = (Stage) labels.getScene().getWindow();
+        try {
+            dao.add(u);
+        } catch (Exception e) {
+            System.out.println("Problem with adding a new category in the database");
+            throw new RuntimeException(e);
+        }
+        //Ovdje bi trebali da dodamo ako je prazno polje da izbaci error al nema veze
+        Stage stage = (Stage) okBttn.getScene().getWindow();
         stage.close();
 
 

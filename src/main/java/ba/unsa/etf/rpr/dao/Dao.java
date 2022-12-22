@@ -22,4 +22,5 @@ public interface Dao<T> {
      * @return List of entities from database
      */
     List<T> getAll() throws Exception;
+    T add( T item) throws Exception;
 }

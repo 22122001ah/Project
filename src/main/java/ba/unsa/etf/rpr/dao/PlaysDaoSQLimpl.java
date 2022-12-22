@@ -26,7 +26,7 @@ public class PlaysDaoSQLimpl extends AbstractDao1<Plays> implements PlaysDao{
         String query = "SELECT * FROM Plays";
         List<Plays> plays = new ArrayList<Plays>();
         try{
-            PreparedStatement stmt = connection.prepareStatement(query);
+            PreparedStatement stmt = getConnection().prepareStatement(query);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()){ // result set is iterator.
 
@@ -42,6 +42,11 @@ public class PlaysDaoSQLimpl extends AbstractDao1<Plays> implements PlaysDao{
             throw new RuntimeException(e);
         }
         return plays;
+    }
+
+    @Override
+    public Plays add(Plays play) throws Exception {
+        return null;
     }
 
     @Override
@@ -87,7 +92,7 @@ return null;
     public Plays getById(int id){
         String query = "SELECT * FROM Plays WHERE play_id = ?";
         try {
-            PreparedStatement stmt = connection.prepareStatement(query);
+            PreparedStatement stmt = getConnection().prepareStatement(query);
             stmt.setInt(1,id);
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) { // result set is iterator.
@@ -115,7 +120,7 @@ return null;
     public List<Plays> searchByPrice(int prices){
         String query = "SELECT * FROM Plays WHERE price = ? ";
         try {
-            PreparedStatement stmt = connection.prepareStatement(query);
+            PreparedStatement stmt = getConnection().prepareStatement(query);
             stmt.setInt(1, prices);
             ResultSet rs = stmt.executeQuery();
             ArrayList<Plays> PlaysLista = new ArrayList<>();
@@ -142,7 +147,7 @@ return null;
         List<Plays> plays = new ArrayList<>();
         try{
 
-            PreparedStatement stmt = connection.prepareStatement("SELECT * FROM Plays WHERE price BETWEEN ? AND ?;");
+            PreparedStatement stmt = getConnection().prepareStatement("SELECT * FROM Plays WHERE price BETWEEN ? AND ?;");
             stmt.setObject(1, price1);
             stmt.setObject(2, price2);
             ResultSet rs = stmt.executeQuery();
@@ -167,7 +172,7 @@ return null;
    public List<Plays> searchByWriter(Writers writer){
         String query = "SELECT * FROM Plays WHERE writer LIKE concat('%', ?, '%')";
         try {
-            PreparedStatement stmt = connection.prepareStatement(query);
+            PreparedStatement stmt = getConnection().prepareStatement(query);
             stmt.setInt(1, writer.getWriter_id());
             ResultSet rs = stmt.executeQuery();
             ArrayList<Plays> PlaysLista = new ArrayList<>();
@@ -194,7 +199,7 @@ return null;
     public List<Plays> searchByDirector(Directors director){
         String query = "SELECT * FROM Plays WHERE director LIKE concat('%', ?, '%')";
         try {
-            PreparedStatement stmt = connection.prepareStatement(query);
+            PreparedStatement stmt = getConnection().prepareStatement(query);
             stmt.setInt(1, director.getDirector_id());
             ResultSet rs = stmt.executeQuery();
             ArrayList<Plays> PlaysLista = new ArrayList<>();
@@ -221,7 +226,7 @@ return null;
     public List<Plays> searchByDate(Date date){
         String query = "SELECT * FROM Plays WHERE date LIKE concat('%', ?, '%')";
         try {
-            PreparedStatement stmt = connection.prepareStatement(query);
+            PreparedStatement stmt = getConnection().prepareStatement(query);
             stmt.setDate(1, (java.sql.Date) date);
             ResultSet rs = stmt.executeQuery();
             ArrayList<Plays> PlaysLista = new ArrayList<>();
@@ -248,7 +253,7 @@ return null;
    public Plays searchByPlayName(String play_name){
         String query = "SELECT * FROM Plays WHERE play_name = ?";
         try {
-            PreparedStatement stmt = connection.prepareStatement(query);
+            PreparedStatement stmt = getConnection().prepareStatement(query);
             stmt.setString(1,play_name);
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) { // result set is iterator.
