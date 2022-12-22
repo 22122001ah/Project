@@ -1,55 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.collections.*?>
-<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane hgap="5.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="500.0" vgap="5.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.noviProzor">
-   <columnConstraints>
-      <ColumnConstraints />
-      <ColumnConstraints />
-      <ColumnConstraints />
-      <ColumnConstraints />
-   </columnConstraints>
-   <rowConstraints>
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-   </rowConstraints>
-   <children>
-      <Label fx:id="labels" text="First name" />
-      <TextField fx:id="fieldFirstname" GridPane.columnIndex="1" />
-      <Label text="Last name" GridPane.columnIndex="2" />
-      <TextField fx:id="fieldLastname" GridPane.columnIndex="3" />
-      <Separator GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="1" />
-      <Label text="Date of birth" GridPane.rowIndex="2" />
-      <DatePicker fx:id="date" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-      <Label text="Gender" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-      <CheckBox mnemonicParsing="false" text="Male" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-      <CheckBox mnemonicParsing="false" text="Female" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
-      <Label text="Username" GridPane.rowIndex="3" />
-      <TextField fx:id="fieldUsername" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-      <Label text="Password" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-      <PasswordField fx:id="fieldPass" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-      <Label text="Location" GridPane.rowIndex="4" />
-      <ChoiceBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
-         <items>
-            <FXCollections fx:factory="observableArrayList">
-               <String fx:value="Sarajevo" />
-               <String fx:value="Tuzla" />
-               <String fx:value="Mostar" />
-               <String fx:value="Bihać" />
-               <String fx:value="Zenica" />
-            </FXCollections>
-         </items>
-      </ChoiceBox>
-      <Button fx:id="okBttn" mnemonicParsing="false" onAction="#zatvoriProzorPropuhJe" prefHeight="25.0" prefWidth="138.0" text="Button" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="4" />
-   </children>
-   <padding>
-      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-   </padding>
-</GridPane>
+<BorderPane fx:id="Border" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <MenuBar style="-fx-background-color: white" BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="View">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <GridPane fx:id="grid" prefHeight="400.0" prefWidth="400.0" style="-fx-background-color: white" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <ImageView fitHeight="80.0" fitWidth="154.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.columnSpan="2">
+               <image>
+                  <Image url="https://cdnuploads.aa.com.tr/uploads/Contents/2020/03/11/thumbs_b_c_2433fdd4ab76bc91d72a9e4525e50b96.jpg?v=173752" />
+               </image>
+            </ImageView>
+            <Separator orientation="VERTICAL" prefHeight="200.0" GridPane.rowIndex="1" GridPane.rowSpan="2" />
+         </children>
+      </GridPane>
+   </center>
+   <left>
+      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox prefHeight="200.0" prefWidth="2000.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#ButtonClick" prefHeight="25.0" prefWidth="200.0" style="-fx-background-color: #FF1493  ; -fx-text-fill: white" text="REGISTER" />
+                  <Button mnemonicParsing="false" onAction="#ButtonClick1" prefHeight="25.0" prefWidth="203.0" style="-fx-background-color: purple  ; -fx-text-fill: white" text="LOGIN" />
+                  <Label fx:id="labels" prefHeight="17.0" prefWidth="199.0" text="Our suggestions" />
+                  <Separator prefWidth="200.0" />
+                  <ListView fx:id="playsListView" maxWidth="1.7976931348623157E308" prefHeight="280.0" prefWidth="200.0" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </left>
+</BorderPane>
