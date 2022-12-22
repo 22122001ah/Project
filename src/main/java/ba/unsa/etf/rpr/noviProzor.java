@@ -5,12 +5,14 @@ import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class noviProzor {
     public Label labels;
-    public TextField fieldUsername;
+    public TextField fieldUsername,fieldFirstname,fieldLastname;
+    public PasswordField fieldPass;
 
     public void zatvoriProzorPropuhJe(ActionEvent actionEvent) {
         fieldUsername.getStyleClass().add("poljeNijeIspravno");
@@ -27,7 +29,7 @@ public class noviProzor {
                 }
             }
         });
-        if (fieldUsername.getText().isEmpty())
+        if (fieldUsername.getText().isEmpty()  || fieldFirstname.getText().isEmpty() || fieldLastname.getText().isEmpty() || fieldPass.getText().isEmpty())
             return;
 
         Stage stage = (Stage) labels.getScene().getWindow();
