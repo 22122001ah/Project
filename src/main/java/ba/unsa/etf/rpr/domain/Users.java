@@ -1,9 +1,11 @@
 package ba.unsa.etf.rpr.domain;
 
+import ba.unsa.etf.rpr.dao.UserDaoSQLimpl;
+
 import java.util.Date;
 import java.util.Objects;
 
-public class Users implements Idable {
+public class Users extends UserDaoSQLimpl implements Idable {
 private String username;
 private int Id;
 private String first_name;
