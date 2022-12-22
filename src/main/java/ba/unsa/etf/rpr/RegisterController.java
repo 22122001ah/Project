@@ -8,9 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
-import java.util.Date;
-
-public class noviProzor {
+public class RegisterController {
     public Button okBttn;
     public Label labels;
     public TextField fieldUsername,fieldFirstname,fieldLastname;
@@ -35,6 +33,10 @@ public class noviProzor {
             }
         });
         if (fieldUsername.getText().isEmpty()  || fieldFirstname.getText().isEmpty() || fieldLastname.getText().isEmpty() || fieldPass.getText().isEmpty())
+            return;
+        Users   k=new Users();
+        k=k.searchByUsername(fieldUsername.getText());
+        if (k!=null)
             return;
         u.setFirst_name(fieldFirstname.getText());
         u.setLast_name(fieldLastname.getText());

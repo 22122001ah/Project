@@ -9,8 +9,8 @@ import javafx.stage.Stage;
 public class MainFX extends Application {
     public void start(Stage stage) throws Exception {
         try{
-            FXMLLoader fl=new FXMLLoader(getClass().getResource("/fxml/NOVO.fxml"));
-            ControllerLogin controller = new ControllerLogin();
+            FXMLLoader fl=new FXMLLoader(getClass().getResource("/fxml/home-layout.fxml"));
+            MainController controller = new MainController();
             fl.setController(controller);
             Parent root = null;
             root = fl.load();
@@ -22,6 +22,7 @@ public class MainFX extends Application {
     catch(Exception E){
         System.out.println(E);}
     }
+
     public static void main(String[] args) {
         launch(args);
     }
