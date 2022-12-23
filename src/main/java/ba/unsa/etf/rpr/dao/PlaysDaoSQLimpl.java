@@ -29,8 +29,6 @@ public class PlaysDaoSQLimpl extends AbstractDao1<Plays> implements PlaysDao{
             PreparedStatement stmt = getConnection().prepareStatement(query);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()){ // result set is iterator.
-
-
                 plays.add(row2object(rs));
             }
             rs.close();
@@ -59,14 +57,8 @@ try{
             play.setPrice(rs.getInt("price"));
             play.setPick_up_location(rs.getString("pick_up_location"));
             play.setGenre(rs.getString("genre"));
-           Writers w=new Writers();
-           w.setWriter_id(rs.getInt("writer_id"));
-           w.setLast_name(w.getById(w.getWriter_id()).getLast_name());
-           w.setFirst_name(w.getById(w.getWriter_id()).getFirst_name());
-           play.setWriter(w);
-        Directors d=new Directors();
-        d.setDirector_id(rs.getInt("dir_id"));
-        play.setDirector(d);
+       play.setWriter(DaoFactory.writersDao().getById(rs.getInt("writer_id")));
+    play.setDirector(DaoFactory.directorsDao().getById(rs.getInt("dir_id")));
         return play;}
 catch (Exception e){
     System.out.println(e);
@@ -96,10 +88,9 @@ return null;
             stmt.setInt(1,id);
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) { // result set is iterator.
-                Plays play=new Plays();
-              play=row2object(rs);
-                rs.close();
-                return play;
+
+              return row2object(rs);
+
             } else {
                 return null; // if there is no elements in the result set return null
             }
