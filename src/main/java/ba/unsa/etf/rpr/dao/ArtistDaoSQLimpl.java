@@ -1,14 +1,15 @@
 package ba.unsa.etf.rpr.dao;
 
 import ba.unsa.etf.rpr.domain.Artist;
+import ba.unsa.etf.rpr.domain.Plays;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class ArtistDaoSQLimpl  extends AbstractDao1<Artist> implements ArtistDao {
-    private Connection connection;
     public ArtistDaoSQLimpl(){
         super("Artist");
       /*  try {
@@ -26,31 +27,39 @@ public class ArtistDaoSQLimpl  extends AbstractDao1<Artist> implements ArtistDao
 
     @Override
     public Artist row2object(ResultSet rs) throws Exception {
-        return null;
+       try{ Artist artist = new Artist();
+        artist.setArtist_id(rs.getInt("artist_id"));
+        artist.setArtist_name(rs.getString("artist_name"));
+
+        return artist;}
+       catch(Exception e){
+           System.out.println(e);
+       }
+       return null;
     }
 
     @Override
     public Map<String, Object> object2row(Artist object) {
-        return null;
+        Map<String, Object> item = new TreeMap<String, Object>();
+        item.put("artist_name",object.getArtist_name());
+        item.put("artist_id",object.getArtist_id());
+        return item;
     }
 
     @Override
     public Artist getById(int id) {
         String query = "SELECT * FROM Artist where artist_id=?";
-        List<Artist> artists = new ArrayList<Artist>();
         try{
-            PreparedStatement stmt = this.connection.prepareStatement(query);
+            PreparedStatement stmt = getConnection().prepareStatement(query);
             ResultSet rs = stmt.executeQuery();
             if (rs.next()){ // result set is iterator.
-                Artist artist = new Artist();
-                artist.setArtist_id(rs.getInt("artist_id"));
-                artist.setArtist_name(rs.getString("artist_name"));
-                rs.close();
-                return artist;
+              return row2object(rs);
             }
 
         }catch (SQLException e){
             e.printStackTrace(); // poor error handling
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
         return null;
 
@@ -61,19 +70,19 @@ public class ArtistDaoSQLimpl  extends AbstractDao1<Artist> implements ArtistDao
         String query = "SELECT * FROM Artist";
         List<Artist> artists = new ArrayList<Artist>();
         try{
-            PreparedStatement stmt = this.connection.prepareStatement(query);
+            PreparedStatement stmt = getConnection().prepareStatement(query);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()){ // result set is iterator.
-                Artist artist = new Artist();
-                artist.setArtist_id(rs.getInt("artist_id"));
-                artist.setArtist_name(rs.getString("Name"));
-                artists.add(artist);
+
+                artists.add(row2object(rs));
             }
-            rs.close();
+            return artists;
         }catch (SQLException e){
             e.printStackTrace(); // poor error handling
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
-        return artists ;
+        return null ;
 
     }
 
