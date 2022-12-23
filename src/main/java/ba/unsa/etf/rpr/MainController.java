@@ -22,7 +22,7 @@ public class MainController  {
 }
 
 
-    public void ButtonClick(ActionEvent actionEvent) throws IOException {
+    public void RegisterBttn(ActionEvent actionEvent) throws IOException {
        try{
 
         Stage Secondstage=new Stage();
@@ -39,13 +39,29 @@ Secondstage.show();}
            System.out.println(e);
        }
     }
-    public void ButtonClick1(ActionEvent actionEvent) throws IOException {
+    public void LoginBttn(ActionEvent actionEvent) throws IOException {
         try{
             Stage Secondstage=new Stage();
             FXMLLoader fl=new FXMLLoader(getClass().getResource("/fxml/Login.fxml"));
             Parent root =fl.load();
             LoginController noviprozor=fl.getController();
             Secondstage.setTitle("Login");
+            Secondstage.setScene(new Scene(root,USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
+            //Alert alert=new Alert(Alert.AlertType.INFORMATION);
+            //alert.setTitle("Pozdrav");
+            //alert.show();
+            Secondstage.show();}
+        catch(Exception e){
+            System.out.println(e);
+        }
+    }
+    public void showPlays(ActionEvent actionEvent) throws IOException{
+        try{
+            Stage Secondstage=new Stage();
+            FXMLLoader fl=new FXMLLoader(getClass().getResource("/fxml/showPlays.fxml"));
+            Parent root =fl.load();
+            ShowPlaysController noviprozor=fl.getController();
+            Secondstage.setTitle("Plays");
             Secondstage.setScene(new Scene(root,USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
             //Alert alert=new Alert(Alert.AlertType.INFORMATION);
             //alert.setTitle("Pozdrav");

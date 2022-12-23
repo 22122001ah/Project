@@ -15,8 +15,8 @@ public class App
 {
     private static void testiranje(){
       try{  Plays play=new Plays();
-         List<Plays> p=new ArrayList<>();
-        p=(play.searchByPrice(10));
+         List<String> p=new ArrayList<>();
+        p=(play.getAllGenres());
         for(int i=0;i<p.size();i++)
             System.out.println(p.get(i).toString());
       }

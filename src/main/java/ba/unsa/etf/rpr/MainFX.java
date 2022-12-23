@@ -11,7 +11,7 @@ public class MainFX extends Application {
         try{
             FXMLLoader fl=new FXMLLoader(getClass().getResource("/fxml/home-layout.fxml"));
 
-            HomeController controller = new HomeController();
+            MainController controller = new MainController();
 
             fl.setController(controller);
             Parent root = null;
