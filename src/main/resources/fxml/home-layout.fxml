@@ -52,13 +52,13 @@
                <children>
                   <TableView fx:id="playsTableView" prefHeight="200.0" prefWidth="200.0">
                     <columns>
-                      <TableColumn prefWidth="75.0" text="Genre" />
-                      <TableColumn prefWidth="75.0" text="Name" />
-                        <TableColumn prefWidth="75.0" text="Date" />
-                        <TableColumn prefWidth="75.0" text="Price" />
+                      <TableColumn fx:id="colPlayGenre" prefWidth="75.0" text="Genre" />
+                      <TableColumn fx:id="colPlayName" prefWidth="75.0" text="Name" />
+                        <TableColumn fx:id="colPlayDate" prefWidth="75.0" text="Date" />
+                        <TableColumn fx:id="colPlayPrice" prefWidth="75.0" text="Price" />
                     </columns>
                   </TableView>
-                   <Button fx:id="showPlaysBtn" alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#onActionShowPlays" text="Show quote details">
+                   <Button fx:id="showPlaysBtn" alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#onActionShowPlays" text="Show quote details"/>
                </children>
             </VBox>
          </children>
