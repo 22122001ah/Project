@@ -6,10 +6,7 @@ import ba.unsa.etf.rpr.domain.Writers;
 
 import java.io.FileReader;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Properties;
+import java.util.*;
 
 public class WritersDaoSQLimpl extends AbstractDao1<Writers> implements WritersDao {
 
@@ -44,7 +41,12 @@ public class WritersDaoSQLimpl extends AbstractDao1<Writers> implements WritersD
 
     @Override
     public Map<String, Object> object2row(Writers object) {
-        return null;
+
+        Map<String, Object> item = new TreeMap<String, Object>();
+        item.put("writer_id",object.getWriter_id());
+        item.put("first_name",object.getFirst_name());
+        item.put("last_name",object.getLast_name());
+        return item;
     }
 
 
@@ -54,12 +56,10 @@ public class WritersDaoSQLimpl extends AbstractDao1<Writers> implements WritersD
         String query = "SELECT * FROM Writers where Writer_id = ?";
         try{
 
-            PreparedStatement stmt = connection.prepareStatement(query);
+            PreparedStatement stmt = getConnection().prepareStatement(query);
             stmt.setObject(1,id);
             ResultSet rs = stmt.executeQuery();
             if (rs.next()){ // result set is iterator.
-
-
                 return row2object(rs);
             }
 
@@ -77,18 +77,18 @@ public class WritersDaoSQLimpl extends AbstractDao1<Writers> implements WritersD
         String query = "SELECT * FROM Writers";
         List<Writers> writers = new ArrayList<Writers>();
         try{
-            PreparedStatement stmt = connection.prepareStatement(query);
+            PreparedStatement stmt = getConnection().prepareStatement(query);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()){ // result set is iterator.
                 writers.add(row2object(rs));
             }
-            rs.close();
+            return  writers;
         }catch (SQLException e){
             e.printStackTrace(); // poor error handling
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-        return writers ;
+        return null ;
 
     }
 
