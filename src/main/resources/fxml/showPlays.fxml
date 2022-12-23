@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
@@ -74,22 +75,70 @@
        <ImageView fitHeight="116.0" fitWidth="105.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="5">
 <Image url="https://www.kamerniteatar55.ba/wp-content/uploads/2021/12/slide-mob-2.jpg" />
        </ImageView>
-      <Button mnemonicParsing="false" prefHeight="136.0" prefWidth="84.0" text="Button" visible="false" />
-      <Button mnemonicParsing="false" prefHeight="120.0" prefWidth="86.0" text="Button" visible="false" GridPane.columnIndex="1" />
-      <Button mnemonicParsing="false" prefHeight="140.0" prefWidth="89.0" text="Button" visible="false" GridPane.columnIndex="2" />
-      <Button mnemonicParsing="false" prefHeight="150.0" prefWidth="84.0" text="Button" visible="false" GridPane.rowIndex="1" />
-      <Button mnemonicParsing="false" prefHeight="134.0" prefWidth="86.0" text="Button" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-      <Button mnemonicParsing="false" prefHeight="124.0" prefWidth="102.0" text="Button" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-      <Button mnemonicParsing="false" prefHeight="124.0" prefWidth="84.0" text="Button" visible="false" GridPane.rowIndex="2" />
-      <Button mnemonicParsing="false" prefHeight="139.0" prefWidth="84.0" text="Button" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-      <Button mnemonicParsing="false" prefHeight="147.0" prefWidth="87.0" text="Button" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-      <Button mnemonicParsing="false" prefHeight="128.0" prefWidth="90.0" text="Button" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-      <Button mnemonicParsing="false" prefHeight="126.0" prefWidth="82.0" text="Button" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-      <Button mnemonicParsing="false" prefHeight="125.0" prefWidth="82.0" text="Button" visible="false" GridPane.rowIndex="3" />
-      <Button mnemonicParsing="false" prefHeight="53.0" prefWidth="92.0" text="Button" visible="false" GridPane.rowIndex="4" />
-      <Button mnemonicParsing="false" prefHeight="131.0" prefWidth="81.0" text="Button" visible="false" GridPane.rowIndex="5" />
-      <Button mnemonicParsing="false" prefHeight="98.0" prefWidth="68.0" text="Button" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-      <Button mnemonicParsing="false" prefHeight="149.0" prefWidth="101.0" text="Button" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+      <Button mnemonicParsing="false" onAction="#LoginBttn" prefHeight="136.0" prefWidth="84.0" text="Button" visible="false">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button mnemonicParsing="false" prefHeight="120.0" prefWidth="86.0" text="Button" visible="false" GridPane.columnIndex="1">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button mnemonicParsing="false" prefHeight="140.0" prefWidth="89.0" text="Button" visible="false" GridPane.columnIndex="2">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button mnemonicParsing="false" prefHeight="150.0" prefWidth="84.0" text="Button" visible="false" GridPane.rowIndex="1">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button mnemonicParsing="false" prefHeight="134.0" prefWidth="86.0" text="Button" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button mnemonicParsing="false" prefHeight="124.0" prefWidth="102.0" text="Button" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="1">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button mnemonicParsing="false" prefHeight="124.0" prefWidth="84.0" text="Button" visible="false" GridPane.rowIndex="2">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button mnemonicParsing="false" prefHeight="139.0" prefWidth="84.0" text="Button" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="2">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button mnemonicParsing="false" prefHeight="147.0" prefWidth="87.0" text="Button" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="2">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button mnemonicParsing="false" prefHeight="128.0" prefWidth="90.0" text="Button" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="3">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button mnemonicParsing="false" prefHeight="126.0" prefWidth="82.0" text="Button" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="3">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button mnemonicParsing="false" prefHeight="125.0" prefWidth="82.0" text="Button" visible="false" GridPane.rowIndex="3">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button mnemonicParsing="false" prefHeight="53.0" prefWidth="92.0" text="Button" visible="false" GridPane.rowIndex="4">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button mnemonicParsing="false" prefHeight="131.0" prefWidth="81.0" text="Button" visible="false" GridPane.rowIndex="5">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button mnemonicParsing="false" prefHeight="98.0" prefWidth="68.0" text="Button" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="5">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button mnemonicParsing="false" prefHeight="149.0" prefWidth="101.0" text="Button" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="5">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
       <Label prefHeight="47.0" prefWidth="269.0" text="Umri muški" GridPane.halignment="CENTER" GridPane.valignment="TOP">
          <font>
             <Font name="Arial Black" size="23.0" />
@@ -160,7 +209,7 @@
             <Font name="Arial Black" size="23.0" />
          </font>
       </Label>
-      <Label prefHeight="35.0" prefWidth="218.0" text="Slavna Florens" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="TOP">
+      <Label prefHeight="35.0" prefWidth="238.0" text="Slavna Florens" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="TOP">
          <font>
             <Font name="Arial Black" size="23.0" />
          </font>
@@ -198,5 +247,92 @@
       <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" text="Buy tickets" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
       <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="88.0" text="Buy tickets" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
       <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" text="Buy tickets" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
+      <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="342.0" text="Button" visible="false" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="5" GridPane.valignment="TOP">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="362.0" text="Button" visible="false" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="TOP">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="366.0" text="Button" visible="false" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="TOP">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="363.0" text="Button" visible="false" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="TOP">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="349.0" text="Button" visible="false" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="TOP">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="366.0" text="Button" visible="false" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.valignment="TOP">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="368.0" text="Button" visible="false" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="TOP">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="369.0" text="Button" visible="false" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="TOP">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="372.0" text="Button" visible="false" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="TOP">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="368.0" text="Button" visible="false" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="TOP">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="368.0" text="Button" visible="false" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="TOP">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button mnemonicParsing="false" prefHeight="41.0" prefWidth="384.0" text="Button" visible="false" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="5" GridPane.valignment="TOP">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="363.0" text="Button" visible="false" GridPane.halignment="RIGHT" GridPane.valignment="TOP">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="373.0" text="Button" visible="false" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="TOP">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="363.0" text="Button" visible="false" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="TOP">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="369.0" text="Button" visible="false" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="TOP">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button mnemonicParsing="false" prefHeight="33.0" prefWidth="357.0" text="Button" visible="false" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="TOP">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button mnemonicParsing="false" prefHeight="41.0" prefWidth="371.0" text="Button" visible="false" GridPane.halignment="RIGHT" GridPane.rowIndex="5" GridPane.valignment="TOP">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
    </children>
 </GridPane>
