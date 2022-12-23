@@ -55,7 +55,7 @@ try{
             play.setPlay_name(rs.getString("play_name"));
             play.setDate(rs.getDate("date"));
             play.setPrice(rs.getInt("price"));
-            play.setPick_up_location(rs.getString("pick_up_location"));
+            play.setDescription(rs.getString("Description"));
             play.setGenre(rs.getString("genre"));
        play.setWriter(DaoFactory.writersDao().getById(rs.getInt("writer_id")));
     play.setDirector(DaoFactory.directorsDao().getById(rs.getInt("dir_id")));
@@ -72,7 +72,7 @@ return null;
         item.put("play_name",object.getPlay_name());
         item.put("play_id",object.getPlay_id());
         item.put("genre",object.getGenre());
-        item.put("pick_up_location",object.getPick_up_location());
+        item.put("Description",object.getDescription());
         item.put("price",object.getPrice());
         item.put("writer_id",object.getWriter());
         item.put("dir_id",object.getDirector());
@@ -260,4 +260,52 @@ return null;
         }
         return null;
     }
+    @Override
+    public List<String>getAllGenres(){
+        Plays p= null;
+        try {
+            p = new Plays();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        ArrayList<String>genres=new ArrayList<String>();
+        ArrayList<Plays>play=new ArrayList<>();
+        play=(ArrayList<Plays>) p.getAll();
+        genres.add(play.get(0).getGenre());
+        for(int i=0;i<play.size();i++)
+        { int j=0;
+            for(j=0;j<genres.size();j++)
+            {
+                if(Objects.equals(genres.get(j),play.get(i).getGenre()))
+                    break;
+            }
+            if(j==genres.size())
+                genres.add(play.get(i).getGenre());
+        }
+        return genres;
+    }
+    @Override
+    public List<Plays> searchByGenre(String genre){
+        String query = "SELECT * FROM Plays WHERE genre LIKE concat('%', ?, '%')";
+        try {
+            PreparedStatement stmt = getConnection().prepareStatement(query);
+            stmt.setString(1, genre);
+            ResultSet rs = stmt.executeQuery();
+            ArrayList<Plays> PlaysLista = new ArrayList<>();
+            while (rs.next()) {
+
+                PlaysLista.add(row2object(rs));
+            }
+            rs.close();
+            return PlaysLista;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        return null;
+    }
+
 }

@@ -19,7 +19,16 @@ public class Plays extends PlaysDaoSQLimpl implements Idable {
     private String genre;
     private Date date;
     private int price;
-    private String pick_up_location;
+
+    public String getDescription() {
+        return Description;
+    }
+
+    public void setDescription(String about) {
+        Description = about;
+    }
+
+    private String Description;
     private Directors director;
     private Writers writer;
 
@@ -59,10 +68,6 @@ public class Plays extends PlaysDaoSQLimpl implements Idable {
         this.price = price;
     }
 
-    public void setPick_up_location(String pick_up_location) {
-        this.pick_up_location = pick_up_location;
-    }
-
     public void setDirector(Directors director) {
         this.director = director;
     }
@@ -91,9 +96,7 @@ public class Plays extends PlaysDaoSQLimpl implements Idable {
         return price;
     }
 
-    public String getPick_up_location() {
-        return pick_up_location;
-    }
+
 
     public Directors getDirector() {
         return director;
@@ -102,16 +105,26 @@ public class Plays extends PlaysDaoSQLimpl implements Idable {
     public Writers getWriter() {
         return writer;
     }
+
     @Override
-    public String toString(){
-        return "Play{id="+play_id+",name="+play_name+
-                ",genre="+genre+
-                ",date="+date+
-                ",price="+price+
-                ",pick up location="+pick_up_location+
-                ",director="+director+
-                ",writer="+writer+"}\n";
+    public String toString() {
+        return "Plays{" +
+                "play_id=" + play_id +
+                ", play_name='" + play_name + '\'' +
+                ", genre='" + genre + '\'' +
+                ", date=" + date +
+                ", price=" + price +
+                ", About='" + Description + '\'' +
+                ", director=" + director +
+                ", writer=" + writer +
+                '}';
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(play_id, play_name, genre, date, price, Description, director, writer);
+    }
+
     @Override
     public boolean equals(Object o){
         if(this==o) return true;
@@ -119,10 +132,7 @@ public class Plays extends PlaysDaoSQLimpl implements Idable {
         Plays p=(Plays) o;
         return play_id==p.play_id;
     }
-    @Override
-    public int hashCode(){
-        return Objects.hash(play_id,play_name,genre,date,price,pick_up_location,director,writer);
-    }
+
 
     @Override
     public int getId() {

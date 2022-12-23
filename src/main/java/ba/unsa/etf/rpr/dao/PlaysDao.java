@@ -53,5 +53,7 @@ public interface PlaysDao extends Dao<Plays> {
      * @return Play with that name
      */
     Plays searchByPlayName(String play_name);
+    List<String>getAllGenres();
+    List<Plays>searchByGenre(String genre);
 
 }
