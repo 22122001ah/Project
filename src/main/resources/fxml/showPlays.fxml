@@ -2,11 +2,12 @@
 
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="700.0" prefWidth="1350.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.ShowPlaysController">
+<GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="700.0" prefWidth="1350.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.ShowPlaysController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -75,160 +76,6 @@
        <ImageView fitHeight="116.0" fitWidth="105.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="5">
 <Image url="https://www.kamerniteatar55.ba/wp-content/uploads/2021/12/slide-mob-2.jpg" />
        </ImageView>
-      <Button mnemonicParsing="false" onAction="#LoginBttn" prefHeight="136.0" prefWidth="84.0" text="Button" visible="false">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button mnemonicParsing="false" prefHeight="120.0" prefWidth="86.0" text="Button" visible="false" GridPane.columnIndex="1">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button mnemonicParsing="false" prefHeight="140.0" prefWidth="89.0" text="Button" visible="false" GridPane.columnIndex="2">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button mnemonicParsing="false" prefHeight="150.0" prefWidth="84.0" text="Button" visible="false" GridPane.rowIndex="1">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button mnemonicParsing="false" prefHeight="134.0" prefWidth="86.0" text="Button" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button mnemonicParsing="false" prefHeight="124.0" prefWidth="102.0" text="Button" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="1">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button mnemonicParsing="false" prefHeight="124.0" prefWidth="84.0" text="Button" visible="false" GridPane.rowIndex="2">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button mnemonicParsing="false" prefHeight="139.0" prefWidth="84.0" text="Button" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="2">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button mnemonicParsing="false" prefHeight="147.0" prefWidth="87.0" text="Button" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="2">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button mnemonicParsing="false" prefHeight="128.0" prefWidth="90.0" text="Button" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="3">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button mnemonicParsing="false" prefHeight="126.0" prefWidth="82.0" text="Button" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="3">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button mnemonicParsing="false" prefHeight="125.0" prefWidth="82.0" text="Button" visible="false" GridPane.rowIndex="3">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button mnemonicParsing="false" prefHeight="53.0" prefWidth="92.0" text="Button" visible="false" GridPane.rowIndex="4">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button mnemonicParsing="false" prefHeight="131.0" prefWidth="81.0" text="Button" visible="false" GridPane.rowIndex="5">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button mnemonicParsing="false" prefHeight="98.0" prefWidth="68.0" text="Button" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="5">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button mnemonicParsing="false" prefHeight="149.0" prefWidth="101.0" text="Button" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="5">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Label prefHeight="47.0" prefWidth="269.0" text="Umri muški" GridPane.halignment="CENTER" GridPane.valignment="TOP">
-         <font>
-            <Font name="Arial Black" size="23.0" />
-         </font>
-      </Label>
-      <Label prefHeight="19.0" prefWidth="269.0" text="Knjiga mojih života" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
-         <font>
-            <Font name="Arial Black" size="23.0" />
-         </font>
-      </Label>
-      <Label prefHeight="35.0" prefWidth="255.0" text="Radnja na uglu" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP">
-         <font>
-            <Font name="Arial Black" size="23.0" />
-         </font>
-      </Label>
-      <Label prefHeight="35.0" prefWidth="256.0" text="Hadesfild" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="TOP">
-         <font>
-            <Font name="Arial Black" size="23.0" />
-         </font>
-      </Label>
-      <Label text="Sjećaš li se Doli Bel" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
-         <font>
-            <Font name="Arial Black" size="23.0" />
-         </font>
-      </Label>
-      <Label prefHeight="35.0" prefWidth="250.0" text="Mirna Bosna" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
-         <font>
-            <Font name="Arial Black" size="23.0" />
-         </font>
-      </Label>
-      <Label prefHeight="35.0" prefWidth="246.0" text="Žaba" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP">
-         <font>
-            <Font name="Arial Black" size="23.0" />
-         </font>
-      </Label>
-      <Label prefHeight="35.0" prefWidth="259.0" text="Tri sestre" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="TOP">
-         <font>
-            <Font name="Arial Black" size="23.0" />
-         </font>
-      </Label>
-      <Label prefHeight="35.0" prefWidth="251.0" text="Ljubičasto" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="TOP">
-         <font>
-            <Font name="Arial Black" size="23.0" />
-         </font>
-      </Label>
-      <Label prefHeight="35.0" prefWidth="261.0" text="Schindlerov lift" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="TOP">
-         <font>
-            <Font name="Arial Black" size="23.0" />
-         </font>
-      </Label>
-      <Label prefHeight="35.0" prefWidth="263.0" text="Djelidba" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="TOP">
-         <font>
-            <Font name="Arial Black" size="23.0" />
-         </font>
-      </Label>
-      <Label prefHeight="35.0" prefWidth="207.0" text="Naš razred" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="TOP">
-         <font>
-            <Font name="Arial Black" size="23.0" />
-         </font>
-      </Label>
-      <Label prefHeight="35.0" prefWidth="338.0" text="Kad bi naglas govorili" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="TOP">
-         <font>
-            <Font name="Arial Black" size="23.0" />
-         </font>
-      </Label>
-      <Label prefHeight="35.0" prefWidth="223.0" text="Helverova noć" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP">
-         <font>
-            <Font name="Arial Black" size="23.0" />
-         </font>
-      </Label>
-      <Label prefHeight="35.0" prefWidth="238.0" text="Slavna Florens" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="TOP">
-         <font>
-            <Font name="Arial Black" size="23.0" />
-         </font>
-      </Label>
-      <Label prefHeight="35.0" prefWidth="327.0" text="Ih, kako sam te ja" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="TOP">
-         <font>
-            <Font name="Arial Black" size="23.0" />
-         </font>
-      </Label>
-      <Label prefHeight="35.0" prefWidth="330.0" text="Pozorište za početnike" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="5" GridPane.valignment="TOP">
-         <font>
-            <Font name="Arial Black" size="23.0" />
-         </font>
-      </Label>
-      <Label prefHeight="35.0" prefWidth="252.0" text="Bez portfelja" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="TOP">
-         <font>
-            <Font name="Arial Black" size="23.0" />
-         </font>
-      </Label>
       <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" text="Buy tickets" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
       <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" text="Buy tickets" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
       <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" text="Buy tickets" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
@@ -304,11 +151,6 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="363.0" text="Button" visible="false" GridPane.halignment="RIGHT" GridPane.valignment="TOP">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
       <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="373.0" text="Button" visible="false" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="TOP">
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -330,6 +172,153 @@
          </cursor>
       </Button>
       <Button mnemonicParsing="false" prefHeight="41.0" prefWidth="371.0" text="Button" visible="false" GridPane.halignment="RIGHT" GridPane.rowIndex="5" GridPane.valignment="TOP">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button accessibleRole="TEXT" mnemonicParsing="false" prefHeight="38.0" prefWidth="366.0" style="-fx-background-color: white;" text="Umri muški" GridPane.halignment="RIGHT" GridPane.valignment="TOP">
+         <font>
+            <Font name="Arial Black" size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <effect>
+            <Blend />
+         </effect>
+      </Button>
+      <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="370.0" style="-fx-background-color: white;" text="Knjiga mojih života" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="TOP">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="Arial Black" size="17.0" />
+         </font>
+      </Button>
+      <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="368.0" style="-fx-background-color: White;" text="Radnja na uglu" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="TOP">
+         <font>
+            <Font name="Arial Black" size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="368.0" style="-fx-background-color: white;" text="Hadersfild" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="TOP">
+         <font>
+            <Font name="Arial Black" size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="356.0" style="-fx-background-color: white;" text="Bez portfelja" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="TOP">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="Arial Black" size="17.0" />
+         </font>
+      </Button>
+      <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="366.0" style="-fx-background-color: WHITE;" text="Sjećaš li se Doli Bel" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="TOP">
+         <font>
+            <Font name="Arial Black" size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="367.0" style="-fx-background-color: WHITE;" text="Mirna Bosna" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="TOP">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="Arial Black" size="17.0" />
+         </font>
+      </Button>
+      <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="368.0" style="-fx-background-color: white;" text="Žaba" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="TOP">
+         <font>
+            <Font name="Arial Black" size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="372.0" style="-fx-background-color: white;" text="Ljubičasto" GridPane.halignment="RIGHT" GridPane.rowIndex="5" GridPane.valignment="TOP">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="Arial Black" size="17.0" />
+         </font>
+      </Button>
+      <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="366.0" style="-fx-background-color: white;" text="Tri sestre" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="TOP">
+         <font>
+            <Font name="Arial Black" size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="364.0" style="-fx-background-color: white;" text="Schindlerov lift" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="TOP">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="Arial Black" size="17.0" />
+         </font>
+      </Button>
+      <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="380.0" style="-fx-background-color: white;" text="Djelidba" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="5" GridPane.valignment="TOP">
+         <font>
+            <Font name="Arial Black" size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="363.0" style="-fx-background-color: white;" text="Naš razred" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.valignment="TOP">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="Arial Black" size="17.0" />
+         </font>
+      </Button>
+      <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="346.0" style="-fx-background-color: white;" text="Kad bi naglas govorili" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="TOP">
+         <font>
+            <Font name="Arial Black" size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="369.0" style="-fx-background-color: white;" text="Helverova noć" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="TOP">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="Arial Black" size="17.0" />
+         </font>
+      </Button>
+      <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="367.0" style="-fx-background-color: white;" text="Slavna Florens" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="TOP">
+         <font>
+            <Font name="Arial Black" size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="359.0" style="-fx-background-color: white;" text="Ih, kako sam te ja" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="TOP">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="Arial Black" size="17.0" />
+         </font>
+      </Button>
+      <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="345.0" style="-fx-background-color: white;" text="Pozorište za početnike" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="5" GridPane.valignment="TOP">
+         <font>
+            <Font name="Arial Black" size="17.0" />
+         </font>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
