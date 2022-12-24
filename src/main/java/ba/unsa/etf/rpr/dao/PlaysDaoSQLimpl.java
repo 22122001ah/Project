@@ -21,26 +21,6 @@ public class PlaysDaoSQLimpl extends AbstractDao1<Plays> implements PlaysDao{
 
         super("Plays");
     }
-    @Override
-    public List<Plays> getAll(){
-        String query = "SELECT * FROM Plays";
-        List<Plays> plays = new ArrayList<Plays>();
-        try{
-            PreparedStatement stmt = getConnection().prepareStatement(query);
-            ResultSet rs = stmt.executeQuery();
-            while (rs.next()){ // result set is iterator.
-                plays.add(row2object(rs));
-            }
-            rs.close();
-        }catch (SQLException e){
-            e.printStackTrace(); // poor error handling
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-        return plays;
-    }
 
     @Override
     public Plays add(Plays play) throws Exception {
@@ -51,7 +31,7 @@ public class PlaysDaoSQLimpl extends AbstractDao1<Plays> implements PlaysDao{
     public Plays row2object(ResultSet rs) throws Exception {
 try{
             Plays play = new Plays();
-            play.setPlay_id(rs.getInt("play_id"));
+            play.setId(rs.getInt("play_id"));
             play.setPlay_name(rs.getString("play_name"));
             play.setDate(rs.getDate("date"));
             play.setPrice(rs.getInt("price"));
@@ -70,7 +50,7 @@ return null;
     public Map<String, Object> object2row(Plays object) {
         Map<String, Object> item = new TreeMap<String, Object>();
         item.put("play_name",object.getPlay_name());
-        item.put("play_id",object.getPlay_id());
+        item.put("play_id",object.getId());
         item.put("genre",object.getGenre());
         item.put("Description",object.getDescription());
         item.put("price",object.getPrice());
@@ -78,28 +58,6 @@ return null;
         item.put("dir_id",object.getDirector());
         item.put("date",object.getDate());
         return item;
-    }
-
-    @Override
-    public Plays getById(int id){
-        String query = "SELECT * FROM Plays WHERE play_id = ?";
-        try {
-            PreparedStatement stmt = getConnection().prepareStatement(query);
-            stmt.setInt(1,id);
-            ResultSet rs = stmt.executeQuery();
-            if (rs.next()) { // result set is iterator.
-
-              return row2object(rs);
-
-            } else {
-                return null; // if there is no elements in the result set return null
-            }
-        } catch (SQLException e) {
-            e.printStackTrace(); // poor error handling
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-        return null;
     }
 
     /**
@@ -164,7 +122,7 @@ return null;
         String query = "SELECT * FROM Plays WHERE writer LIKE concat('%', ?, '%')";
         try {
             PreparedStatement stmt = getConnection().prepareStatement(query);
-            stmt.setInt(1, writer.getWriter_id());
+            stmt.setInt(1, writer.getId());
             ResultSet rs = stmt.executeQuery();
             ArrayList<Plays> PlaysLista = new ArrayList<>();
             while (rs.next()) {
@@ -191,7 +149,7 @@ return null;
         String query = "SELECT * FROM Plays WHERE director LIKE concat('%', ?, '%')";
         try {
             PreparedStatement stmt = getConnection().prepareStatement(query);
-            stmt.setInt(1, director.getDirector_id());
+            stmt.setInt(1, director.getId());
             ResultSet rs = stmt.executeQuery();
             ArrayList<Plays> PlaysLista = new ArrayList<>();
             while (rs.next()) {
@@ -272,7 +230,12 @@ return null;
         }
         ArrayList<String>genres=new ArrayList<String>();
         ArrayList<Plays>play=new ArrayList<>();
-        play=(ArrayList<Plays>) p.getAll();
+        try {
+            play=(ArrayList<Plays>) p.getAll();
+        }
+        catch (Exception e){
+            System.out.println(e);
+        }
         genres.add(play.get(0).getGenre());
         for(int i=0;i<play.size();i++)
         { int j=0;

@@ -6,13 +6,9 @@ import java.util.Map;
 import java.util.Objects;
 
 public class Writers extends WritersDaoSQLimpl implements Idable {
-    private int writer_id;
+    private int Id;
     private String first_name;
     private String last_name;
-
-    public void setWriter_id(int writer_id) {
-        this.writer_id = writer_id;
-    }
 
     public void setFirst_name(String first_name) {
         this.first_name = first_name;
@@ -22,9 +18,6 @@ public class Writers extends WritersDaoSQLimpl implements Idable {
         this.last_name = last_name;
     }
 
-    public int getWriter_id() {
-        return writer_id;
-    }
 
     public String getFirst_name() {
         return first_name;
@@ -35,7 +28,7 @@ public class Writers extends WritersDaoSQLimpl implements Idable {
     }
     @Override
     public String toString(){
-     return "Writer{ id="+writer_id+
+     return "Writer{ id="+Id+
      ",first name="+first_name+
      ",last name="+last_name;
     }
@@ -44,25 +37,19 @@ public class Writers extends WritersDaoSQLimpl implements Idable {
         if(this==o) return true;
         if(o==null || o.getClass()!=getClass()) return false;
         Writers w=(Writers) o;
-        return w.writer_id==writer_id;
+        return w.Id==Id;
     }
     @Override
     public int hashCode(){
-        return Objects.hash(writer_id,first_name,last_name);
+        return Objects.hash(Id,first_name,last_name);
     }
-
-    @Override
-    public Map<String, Object> object2row(Writers object) {
-        return null;
-    }
-
     @Override
     public int getId() {
-        return 0;
+        return Id;
     }
 
     @Override
     public void setId(int anInt) {
-
+this.Id=anInt;
     }
 }

@@ -5,20 +5,20 @@ import ba.unsa.etf.rpr.dao.plays_inDaoSQLimpl;
 import java.util.Objects;
 
 public class plays_in extends plays_inDaoSQLimpl implements Idable {
-    private int playsIn_id;
+    private int Id;
     private int Artist_id;
     private int Plays_id;
 
     public plays_in() {
 
+    }  @Override
+    public int getId() {
+        return Id;
     }
 
-    public int getPlaysIn_id() {
-        return playsIn_id;
-    }
-
-    public void setPlaysIn_id(int playsIn_id) {
-        this.playsIn_id = playsIn_id;
+    @Override
+    public void setId(int anInt) {
+        this.Id=anInt;
     }
 
     public int getArtist_id() {
@@ -42,31 +42,23 @@ public class plays_in extends plays_inDaoSQLimpl implements Idable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         plays_in plays_in = (plays_in) o;
-        return playsIn_id == plays_in.playsIn_id && Artist_id == plays_in.Artist_id && Plays_id == plays_in.Plays_id;
+        return Id == plays_in.Id && Artist_id == plays_in.Artist_id && Plays_id == plays_in.Plays_id;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(playsIn_id, Artist_id, Plays_id);
+        return Objects.hash(Id, Artist_id, Plays_id);
     }
 
     @Override
     public String toString() {
         return "plays_in{" +
-                "playsIn_id=" + playsIn_id +
+                "playsIn_id=" + Id +
                 ", Artist_id=" + Artist_id +
                 ", Plays_id=" + Plays_id +
                 '}';
     }
 
 
-    @Override
-    public int getId() {
-        return 0;
-    }
 
-    @Override
-    public void setId(int anInt) {
-
-    }
 }

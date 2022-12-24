@@ -14,7 +14,7 @@ import java.util.Properties;
  * @author Adna Herak
  */
 public class Plays extends PlaysDaoSQLimpl implements Idable {
-    private int play_id;
+    private int Id;
     private String play_name;
     private String genre;
     private Date date;
@@ -48,9 +48,7 @@ public class Plays extends PlaysDaoSQLimpl implements Idable {
      * setters and getters for each private attribute
      */
 
-    public void setPlay_id(int play_id) {
-        this.play_id = play_id;
-    }
+
 
     public void setPlay_name(String play_name) {
         this.play_name = play_name;
@@ -76,9 +74,6 @@ public class Plays extends PlaysDaoSQLimpl implements Idable {
         this.writer = writer;
     }
 
-    public int getPlay_id() {
-        return play_id;
-    }
 
     public String getPlay_name() {
         return play_name;
@@ -109,7 +104,7 @@ public class Plays extends PlaysDaoSQLimpl implements Idable {
     @Override
     public String toString() {
         return "Plays{" +
-                "play_id=" + play_id +
+                "play_id=" + Id +
                 ", play_name='" + play_name + '\'' +
                 ", genre='" + genre + '\'' +
                 ", date=" + date +
@@ -122,7 +117,7 @@ public class Plays extends PlaysDaoSQLimpl implements Idable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(play_id, play_name, genre, date, price, Description, director, writer);
+        return Objects.hash(Id, play_name, genre, date, price, Description, director, writer);
     }
 
     @Override
@@ -130,17 +125,17 @@ public class Plays extends PlaysDaoSQLimpl implements Idable {
         if(this==o) return true;
         if(o==null || getClass()!=o.getClass()) return false;
         Plays p=(Plays) o;
-        return play_id==p.play_id;
+        return Id==p.Id;
     }
 
 
     @Override
     public int getId() {
-        return 0;
+        return Id;
     }
 
     @Override
     public void setId(int anInt) {
-
+this.Id=anInt;
     }
 }
