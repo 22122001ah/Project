@@ -11,6 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -25,6 +26,7 @@ import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
 public class ShowPlaysController {
     public static ObservableList<String> list;
+    public static int brojac=0;
     @FXML
     public void initialize() {
 
@@ -32,25 +34,24 @@ public class ShowPlaysController {
     public ObservableList<String>getList(){
         return this.list;
     }
+    public int getBrojac(){
+        return this.brojac;
+    }
     public void PlayDesription(ActionEvent actionEvent) throws IOException {
-        try{
+        try{        Button numberButton = (Button) actionEvent.getTarget();
+            list= FXCollections.observableArrayList(numberButton.getText());
 
-                    Button numberButton = (Button) actionEvent.getTarget();
-                    list= FXCollections.observableArrayList(numberButton.getText());
-PlayInfoController i=new PlayInfoController();
+            ListView<String> s=new ListView<>();
+            PlayInfoController p=new PlayInfoController();
+            s.setItems(list);
+            p.setString(s);
             Stage Secondstage=new Stage();
             FXMLLoader fl=new FXMLLoader(getClass().getResource("/fxml/InfoPlays.fxml"));
-            fl.setController(i.getShowPlaysController());
-            Parent root =null;
-            root=fl.load();
+            Parent root =fl.load();
             PlayInfoController noviprozor=fl.getController();
             Secondstage.setTitle("Login");
             Secondstage.setScene(new Scene(root,USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
-            //Alert alert=new Alert(Alert.AlertType.INFORMATION);
-            //alert.setTitle("Pozdrav");
-            //alert.show();
             Secondstage.show();
-
 
         }
         catch(Exception e){
