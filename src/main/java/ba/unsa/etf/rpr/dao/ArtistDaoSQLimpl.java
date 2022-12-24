@@ -28,7 +28,7 @@ public class ArtistDaoSQLimpl  extends AbstractDao1<Artist> implements ArtistDao
     @Override
     public Artist row2object(ResultSet rs) throws Exception {
        try{ Artist artist = new Artist();
-        artist.setArtist_id(rs.getInt("artist_id"));
+        artist.setId(rs.getInt("artist_id"));
         artist.setArtist_name(rs.getString("artist_name"));
 
         return artist;}
@@ -42,7 +42,7 @@ public class ArtistDaoSQLimpl  extends AbstractDao1<Artist> implements ArtistDao
     public Map<String, Object> object2row(Artist object) {
         Map<String, Object> item = new TreeMap<String, Object>();
         item.put("artist_name",object.getArtist_name());
-        item.put("artist_id",object.getArtist_id());
+        item.put("artist_id",object.getId());
         return item;
     }
 

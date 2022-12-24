@@ -47,6 +47,7 @@ public class UserDaoSQLimpl extends AbstractDao1<Users> implements UsersDao{
         row.put("location",object.getLocation());
         return row;
     }
+    @Override
     public Users searchByUsername(String user){
         String query = "SELECT * FROM Users WHERE username = ?";
         try {

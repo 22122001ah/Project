@@ -38,7 +38,7 @@ public abstract class AbstractDao1 <T extends Idable> implements Dao<T> {
     public T getById(int id) throws Exception {
         String query = "SELECT * FROM "+this.Table+" WHERE id = ?";
         try {
-            PreparedStatement stmt = this.connection.prepareStatement(query);
+            PreparedStatement stmt = getConnection().prepareStatement(query);
             stmt.setInt(1, id);
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) { // result set is iterator.

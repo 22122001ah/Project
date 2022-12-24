@@ -9,32 +9,28 @@ import java.util.Objects;
  * @author Adna Herak
  */
 public class Artist extends ArtistDaoSQLimpl implements Idable {
-    private int artist_id;
+    private int Id;
     private String artist_name;
 
-    public void setArtist_id(int artist_id) {
-        this.artist_id = artist_id;
-    }
+
 
     public void setArtist_name(String artist_name) {
         this.artist_name = artist_name;
     }
 
-    public int getArtist_id() {
-        return artist_id;
-    }
+
 
     public String getArtist_name() {
         return artist_name;
     }
     @Override
     public String toString(){
-        return "Artist{ id="+artist_id+
+        return "Artist{ id="+Id+
                 ",name="+artist_name;
     }
     @Override
     public int hashCode(){
-        return Objects.hash(artist_id,artist_name);
+        return Objects.hash(Id,artist_name);
     }
     @Override
     public boolean equals(Object o){
@@ -42,16 +38,16 @@ public class Artist extends ArtistDaoSQLimpl implements Idable {
         if(o==null || o.getClass()!=getClass())
             return false;
         Artist A=(Artist) o;
-        return A.artist_id==artist_id;
+        return A.Id==Id;
     }
 
     @Override
     public int getId() {
-        return 0;
+        return Id;
     }
 
     @Override
     public void setId(int anInt) {
-
+this.Id=anInt;
     }
 }
