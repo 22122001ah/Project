@@ -25,6 +25,15 @@ public class Directors extends DirectorsDaoSQLimpl implements Idable {
         return last_name;
     }
     @Override
+    public int getId() {
+        return Id;
+    }
+
+    @Override
+    public void setId(int anInt) {
+        this.Id=anInt;
+    }
+    @Override
     public String toString(){
         return "Director{ id="+Id+
                 ",first name="+first_name+
@@ -42,13 +51,5 @@ public class Directors extends DirectorsDaoSQLimpl implements Idable {
         return Objects.hash(Id,first_name,last_name);
     }
 
-    @Override
-    public int getId() {
-return Id;
-}
 
-    @Override
-    public void setId(int anInt) {
-this.Id=anInt;
-    }
 }

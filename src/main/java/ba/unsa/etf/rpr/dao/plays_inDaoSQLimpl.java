@@ -5,12 +5,15 @@ import ba.unsa.etf.rpr.domain.Plays;
 import ba.unsa.etf.rpr.domain.Users;
 import ba.unsa.etf.rpr.domain.plays_in;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class plays_inDaoSQLimpl extends AbstractDao1<plays_in> implements plays_inDao{
-    int id;
     public plays_inDaoSQLimpl() {
         super("plays_in");
     }
@@ -31,7 +34,12 @@ public class plays_inDaoSQLimpl extends AbstractDao1<plays_in> implements plays_
 
     @Override
     public Map<String, Object> object2row(plays_in object) {
-        return null;
+
+        Map<String, Object> item = new TreeMap<String, Object>();
+        item.put("play_id",object.getPlays_id());
+        item.put("playsIn_id",object.getId());
+        item.put("artist_id",object.getArtist_id());
+        return item;
     }
 
     @Override
@@ -41,11 +49,49 @@ public class plays_inDaoSQLimpl extends AbstractDao1<plays_in> implements plays_
 
     @Override
     public List<Plays> searchByArtist(Artist artist) {
+        String query = "SELECT * FROM plays_in WHERE artist_id = ? ";
+        try {
+            PreparedStatement stmt = getConnection().prepareStatement(query);
+            stmt.setInt(1, artist.getId());
+            ResultSet rs = stmt.executeQuery();
+            Plays p=new Plays();
+            ArrayList<Plays> PlaysLista = new ArrayList<>();
+            while (rs.next()) {
+                int s=row2object(rs).getPlays_id();
+                p=p.getById(s);
+                PlaysLista.add(p);
+            }
+            rs.close();
+            return PlaysLista;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
         return null;
-    }
+}
 
     @Override
     public List<Artist> searchByPlay(Plays play) {
+        String query = "SELECT * FROM plays_in WHERE plays_id = ? ";
+        try {
+            PreparedStatement stmt = getConnection().prepareStatement(query);
+            stmt.setInt(1, play.getId());
+            ResultSet rs = stmt.executeQuery();
+            Artist p=new Artist();
+            ArrayList<Artist> ArtistLista = new ArrayList<>();
+            while (rs.next()) {
+                int s=row2object(rs).getArtist_id();
+                p=p.getById(s);
+                ArtistLista.add(p);
+            }
+            rs.close();
+            return ArtistLista;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
         return null;
     }
 }

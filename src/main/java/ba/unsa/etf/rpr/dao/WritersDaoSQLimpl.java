@@ -12,17 +12,6 @@ public class WritersDaoSQLimpl extends AbstractDao1<Writers> implements WritersD
 
     public WritersDaoSQLimpl(){
         super("Writer");
-     /*   try {
-            FileReader reader = new FileReader("src/main/resources/database.properties");
-            Properties p = new Properties();
-            p.load(reader);
-            String url = p.getProperty("url");
-            String user = p.getProperty("username");
-            String password = p.getProperty("password");
-            this.connection = DriverManager.getConnection(url,user,password);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }*/
     }
 
     @Override
@@ -91,7 +80,6 @@ public class WritersDaoSQLimpl extends AbstractDao1<Writers> implements WritersD
         return null ;
 
     }
-
     @Override
     public Writers add(Writers write) throws Exception {
         return null;
