@@ -34,7 +34,7 @@ public abstract class AbstractDao1 <T extends Idable> implements Dao<T> {
     public abstract T row2object(ResultSet rs) throws Exception;
 
     public abstract Map<String, Object> object2row(T object);
-
+@Override
     public T getById(int id) throws Exception {
         String query = "SELECT * FROM "+this.Table+" WHERE id = ?";
         try {
@@ -55,6 +55,7 @@ public abstract class AbstractDao1 <T extends Idable> implements Dao<T> {
     public Connection getConnection(){
         return this.connection;
     }
+    @Override
     public List<T> getAll() throws Exception {
         String query = "SELECT * FROM "+ Table;
         List<T> results = new ArrayList<T>();
@@ -71,6 +72,7 @@ public abstract class AbstractDao1 <T extends Idable> implements Dao<T> {
             throw new Exception(e.getMessage(), e);
         }
     }
+    @Override
     public T add(T item) throws Exception{
         Map<String, Object> row = object2row(item);
         Map.Entry<String, String> columns = prepareInsertParts(row);
@@ -101,6 +103,7 @@ public abstract class AbstractDao1 <T extends Idable> implements Dao<T> {
         }
         return item;
     }
+
     private Map.Entry<String, String> prepareInsertParts(Map<String, Object> row){
         StringBuilder columns = new StringBuilder();
         StringBuilder questions = new StringBuilder();
