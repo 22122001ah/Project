@@ -3,6 +3,7 @@ package ba.unsa.etf.rpr.dao;
 import ba.unsa.etf.rpr.domain.Idable;
 
 import ba.unsa.etf.rpr.domain.Idable;
+import ba.unsa.etf.rpr.exceptions.PlaysException;
 
 import java.io.IOException;
 import java.sql.*;
@@ -120,5 +121,23 @@ public abstract class AbstractDao1 <T extends Idable> implements Dao<T> {
             }
         }
         return new AbstractMap.SimpleEntry<String,String>(columns.toString(), questions.toString());
+    }
+    public List<T> executeQuery(String query, Object[] params) throws  PlaysException {
+        try {
+            PreparedStatement stmt = getConnection().prepareStatement(query);
+            if (params != null){
+                for(int i = 1; i <= params.length; i++){
+                    stmt.setObject(i, params[i-1]);
+                }
+            }
+            ResultSet rs = stmt.executeQuery();
+            ArrayList<T> resultList = new ArrayList<>();
+            while (rs.next()) {
+                resultList.add(row2object(rs));
+            }
+            return resultList;
+        } catch (Exception e) {
+            throw new PlaysException(e.getMessage(), e);
+        }
     }
 }
