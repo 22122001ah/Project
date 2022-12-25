@@ -48,18 +48,6 @@ public class UserDaoSQLimpl extends AbstractDao1<Users> implements UsersDao{
     }
     @Override
     public Users searchByUsername(String user) throws PlaysException{
-        String query = "SELECT * FROM Users WHERE username = ?";
-        try {
-            PreparedStatement stmt = getConnection().prepareStatement(query);
-            stmt.setString(1, user);
-            ResultSet rs = stmt.executeQuery();
-            if (rs.next()) { // result set is iterator.
-return row2object(rs);
-            } else {
-                return null; // if there is no elements in the result set return null
-            }
-        }catch (Exception e) {
-            throw new PlaysException(e.getMessage(),e);
-        }
+        return executeQueryUnique("SELECT * FROM Users WHERE username = ?",new Object[]{user});
     }
 }

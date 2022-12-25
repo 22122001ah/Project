@@ -39,40 +39,7 @@ public class WritersDaoSQLimpl extends AbstractDao1<Writers> implements WritersD
 
 
 
-    @Override
-    public Writers getById(int id) throws PlaysException {
-        String query = "SELECT * FROM Writers where Writer_id = ?";
-        try{
 
-            PreparedStatement stmt = getConnection().prepareStatement(query);
-            stmt.setObject(1,id);
-            ResultSet rs = stmt.executeQuery();
-            if (rs.next()){ // result set is iterator.
-                return row2object(rs);
-            }
-
-        } catch (Exception e) {
-            throw new PlaysException(e.getMessage(),e);
-        }
-        return null;
-
-    }
-
-    @Override
-    public List<Writers> getAll() throws PlaysException {
-        String query = "SELECT * FROM Writers";
-        List<Writers> writers = new ArrayList<Writers>();
-        try{
-            PreparedStatement stmt = getConnection().prepareStatement(query);
-            ResultSet rs = stmt.executeQuery();
-            while (rs.next()){ // result set is iterator.
-                writers.add(row2object(rs));
-            }
-            return  writers;
-        } catch (Exception e) {
-            throw new PlaysException(e.getMessage(),e);
-        }
-    }
     @Override
     public Writers add(Writers write) throws PlaysException {
         return null;
