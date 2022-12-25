@@ -1,6 +1,8 @@
 package ba.unsa.etf.rpr.business;
 
 import ba.unsa.etf.rpr.dao.DaoFactory;
+import ba.unsa.etf.rpr.domain.Directors;
+import ba.unsa.etf.rpr.domain.Users;
 import ba.unsa.etf.rpr.domain.Writers;
 import ba.unsa.etf.rpr.exceptions.PlaysException;
 
@@ -11,6 +13,15 @@ public class WritersManager {
         return DaoFactory.writersDao.searchByWriterName(name);
     }
     public Writers searchById(int Id) throws PlaysException{
-        return DaoFactory.writersDao.getById(Id);
+        return DaoFactory.writersDao.searchById(Id);
+    }
+    public List<Writers> getAll() throws PlaysException{
+        return DaoFactory.writersDao.getAll();
+    }
+    public Writers add(Writers item) throws PlaysException{
+        return DaoFactory.writersDao.add(item);
+    }
+    public Writers getById(int id) throws PlaysException {
+        return DaoFactory.writersDao.getById(id);
     }
 }
