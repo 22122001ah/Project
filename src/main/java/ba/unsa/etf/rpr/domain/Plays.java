@@ -1,5 +1,6 @@
 package ba.unsa.etf.rpr.domain;
 import ba.unsa.etf.rpr.dao.PlaysDaoSQLimpl;
+import ba.unsa.etf.rpr.exceptions.PlaysException;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -34,7 +35,7 @@ public class Plays extends PlaysDaoSQLimpl implements Idable {
 
 
 
-    public Plays() throws SQLException, IOException {
+    public Plays() throws PlaysException {
     /*    FileReader reader = new FileReader("src/main/resources/database.properties");
         Properties p = new Properties();
         p.load(reader);
