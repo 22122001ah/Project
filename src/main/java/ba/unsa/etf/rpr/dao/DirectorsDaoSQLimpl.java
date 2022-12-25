@@ -4,7 +4,7 @@ import ba.unsa.etf.rpr.domain.Artist;
 import ba.unsa.etf.rpr.domain.Directors;
 import ba.unsa.etf.rpr.domain.Plays;
 import ba.unsa.etf.rpr.domain.Writers;
-
+import ba.unsa.etf.rpr.exceptions.PlaysException;
 import java.io.FileReader;
 import java.sql.*;
 import java.util.*;
@@ -16,7 +16,7 @@ public class DirectorsDaoSQLimpl extends AbstractDao1<Directors> implements Dire
     }
 
     @Override
-    public Directors row2object(ResultSet rs) throws Exception {
+    public Directors row2object(ResultSet rs) throws PlaysException {
         try{
 
             Directors d=new Directors();
@@ -25,9 +25,8 @@ public class DirectorsDaoSQLimpl extends AbstractDao1<Directors> implements Dire
           d.setFirst_name(rs.getString("first_name"));
             return d;}
         catch (Exception e){
-            System.out.println(e);
+            throw new PlaysException(e.getMessage(),e);
         }
-        return null;
     }
 
     @Override
@@ -40,7 +39,7 @@ public class DirectorsDaoSQLimpl extends AbstractDao1<Directors> implements Dire
     }
 
     @Override
-    public Directors add(Directors director) throws Exception {
+    public Directors add(Directors director) throws PlaysException {
         return null;
     }
 }

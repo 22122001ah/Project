@@ -1,5 +1,7 @@
 package ba.unsa.etf.rpr.dao;
 
+import ba.unsa.etf.rpr.exceptions.PlaysException;
+
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -14,9 +16,7 @@ public class DaoFactory {
     static {
         try {
             playsDao = new PlaysDaoSQLimpl();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
+        } catch (PlaysException e) {
             throw new RuntimeException(e);
         }
     }

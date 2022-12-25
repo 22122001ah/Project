@@ -11,24 +11,24 @@ import java.io.IOException;
 import java.util.*;
 import java.sql.*;
 import java.util.Date;
-
+import ba.unsa.etf.rpr.exceptions.PlaysException;
 import static java.sql.DriverManager.getConnection;
 
 public class PlaysDaoSQLimpl extends AbstractDao1<Plays> implements PlaysDao{
 
 
-    public PlaysDaoSQLimpl() throws SQLException, IOException {
+    public PlaysDaoSQLimpl() throws PlaysException {
 
         super("Plays");
     }
 
     @Override
-    public Plays add(Plays play) throws Exception {
+    public Plays add(Plays play) throws PlaysException {
         return null;
     }
 
     @Override
-    public Plays row2object(ResultSet rs) throws Exception {
+    public Plays row2object(ResultSet rs) throws PlaysException {
 try{
             Plays play = new Plays();
             play.setId(rs.getInt("play_id"));
@@ -41,9 +41,8 @@ try{
     play.setDirector(DaoFactory.directorsDao().getById(rs.getInt("dir_id")));
         return play;}
 catch (Exception e){
-    System.out.println(e);
+   throw new PlaysException(e.getMessage(),e);
 }
-return null;
     }
 
     @Override
@@ -66,7 +65,7 @@ return null;
      * @return List of Plays with wanted price
      */
     @Override
-    public List<Plays> searchByPrice(int prices){
+    public List<Plays> searchByPrice(int prices) throws PlaysException{
         String query = "SELECT * FROM Plays WHERE price = ? ";
         try {
             PreparedStatement stmt = getConnection().prepareStatement(query);
@@ -78,12 +77,9 @@ return null;
             }
             rs.close();
             return PlaysLista;
-        } catch (SQLException e) {
-            e.printStackTrace();
         } catch (Exception e) {
-            throw new RuntimeException(e);
+           throw new PlaysException(e.getMessage(),e);
         }
-        return null;
     }
 
     /**
@@ -92,10 +88,9 @@ return null;
      * @return List of Plays in given price range
      */
     @Override
-   public List<Plays> searchByPrices(int price1,int price2) throws Exception {
+   public List<Plays> searchByPrices(int price1,int price2) throws PlaysException {
         List<Plays> plays = new ArrayList<>();
         try{
-
             PreparedStatement stmt = getConnection().prepareStatement("SELECT * FROM Plays WHERE price BETWEEN ? AND ?;");
             stmt.setObject(1, price1);
             stmt.setObject(2, price2);
@@ -105,10 +100,8 @@ return null;
             }
             rs.close();
             return plays;
-        }catch (SQLException e){
-            throw new Exception(e.getMessage(), e);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+        }catch (Exception e){
+            throw new PlaysException(e.getMessage(), e);
         }
     }
 
@@ -118,7 +111,7 @@ return null;
      * @return List of Plays written by wanted writer
      */
     @Override
-   public List<Plays> searchByWriter(Writers writer){
+   public List<Plays> searchByWriter(Writers writer) throws PlaysException{
         String query = "SELECT * FROM Plays WHERE writer LIKE concat('%', ?, '%')";
         try {
             PreparedStatement stmt = getConnection().prepareStatement(query);
@@ -131,13 +124,10 @@ return null;
             }
             rs.close();
             return PlaysLista;
-        } catch (SQLException e) {
-            e.printStackTrace();
         } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-        return null;
-    }
+throw new PlaysException(e.getMessage(),e);
+}
+}
 
     /**
      * Searches for Plays directed by wanted director
@@ -145,7 +135,7 @@ return null;
      * @return List of Plays directed by wanted director
      */
     @Override
-    public List<Plays> searchByDirector(Directors director){
+    public List<Plays> searchByDirector(Directors director)throws PlaysException{
         String query = "SELECT * FROM Plays WHERE director LIKE concat('%', ?, '%')";
         try {
             PreparedStatement stmt = getConnection().prepareStatement(query);
@@ -158,12 +148,9 @@ return null;
             }
             rs.close();
             return PlaysLista;
-        } catch (SQLException e) {
-            e.printStackTrace();
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            throw new PlaysException(e.getMessage(),e);
         }
-        return null;
     }
 
     /**
@@ -172,7 +159,7 @@ return null;
      * @return List of Plays playing on a certain date
      */
     @Override
-    public List<Plays> searchByDate(Date date){
+    public List<Plays> searchByDate(Date date) throws PlaysException{
         String query = "SELECT * FROM Plays WHERE date LIKE concat('%', ?, '%')";
         try {
             PreparedStatement stmt = getConnection().prepareStatement(query);
@@ -185,12 +172,9 @@ return null;
             }
             rs.close();
             return PlaysLista;
-        } catch (SQLException e) {
-            e.printStackTrace();
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            throw new PlaysException(e.getMessage(),e);
         }
-        return null;
     }
 
     /**
@@ -199,7 +183,7 @@ return null;
      * @return Play with that name
      */
     @Override
-   public Plays searchByPlayName(String play_name){
+   public Plays searchByPlayName(String play_name)throws PlaysException{
         String query = "SELECT * FROM Plays WHERE play_name = ?";
         try {
             PreparedStatement stmt = getConnection().prepareStatement(query);
@@ -211,21 +195,16 @@ return null;
             } else {
                 return null; // if there is no elements in the result set return null
             }
-        } catch (SQLException e) {
-            e.printStackTrace(); // poor error handling
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            throw new PlaysException(e.getMessage(),e);
         }
-        return null;
     }
     @Override
-    public List<String>getAllGenres(){
+    public List<String>getAllGenres() throws PlaysException{
         Plays p= null;
         try {
             p = new Plays();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
         ArrayList<String>genres=new ArrayList<String>();
@@ -234,7 +213,7 @@ return null;
             play=(ArrayList<Plays>) p.getAll();
         }
         catch (Exception e){
-            System.out.println(e);
+            throw new PlaysException(e.getMessage(),e);
         }
         genres.add(play.get(0).getGenre());
         for(int i=0;i<play.size();i++)
@@ -250,7 +229,7 @@ return null;
         return genres;
     }
     @Override
-    public List<Plays> searchByGenre(String genre){
+    public List<Plays> searchByGenre(String genre) throws PlaysException{
         String query = "SELECT * FROM Plays WHERE genre LIKE concat('%', ?, '%')";
         try {
             PreparedStatement stmt = getConnection().prepareStatement(query);
@@ -263,12 +242,9 @@ return null;
             }
             rs.close();
             return PlaysLista;
-        } catch (SQLException e) {
-            e.printStackTrace();
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            throw new PlaysException(e.getMessage(),e);
         }
-        return null;
     }
 
 }

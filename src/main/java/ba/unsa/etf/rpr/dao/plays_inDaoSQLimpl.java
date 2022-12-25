@@ -4,6 +4,7 @@ import ba.unsa.etf.rpr.domain.Artist;
 import ba.unsa.etf.rpr.domain.Plays;
 import ba.unsa.etf.rpr.domain.Users;
 import ba.unsa.etf.rpr.domain.plays_in;
+import ba.unsa.etf.rpr.exceptions.PlaysException;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -19,7 +20,7 @@ public class plays_inDaoSQLimpl extends AbstractDao1<plays_in> implements plays_
     }
 
     @Override
-    public plays_in row2object(ResultSet rs) throws Exception {
+    public plays_in row2object(ResultSet rs) throws PlaysException {
         try {
             plays_in plays_in = new plays_in();
             plays_in.setId(rs.getInt("plays_in"));
@@ -27,14 +28,12 @@ public class plays_inDaoSQLimpl extends AbstractDao1<plays_in> implements plays_
             plays_in.setPlays_id(rs.getInt("password"));
             return plays_in;
         } catch (Exception e) {
-            System.out.println(e);
+            throw new PlaysException(e.getMessage(),e);
         }
-        return null;
     }
 
     @Override
     public Map<String, Object> object2row(plays_in object) {
-
         Map<String, Object> item = new TreeMap<String, Object>();
         item.put("play_id",object.getPlays_id());
         item.put("playsIn_id",object.getId());
@@ -43,12 +42,12 @@ public class plays_inDaoSQLimpl extends AbstractDao1<plays_in> implements plays_
     }
 
     @Override
-    public plays_in add(plays_in playsin) throws Exception {
+    public plays_in add(plays_in playsin) throws PlaysException {
         return null;
     }
 
     @Override
-    public List<Plays> searchByArtist(Artist artist) {
+    public List<Plays> searchByArtist(Artist artist) throws PlaysException {
         String query = "SELECT * FROM plays_in WHERE artist_id = ? ";
         try {
             PreparedStatement stmt = getConnection().prepareStatement(query);
@@ -57,22 +56,18 @@ public class plays_inDaoSQLimpl extends AbstractDao1<plays_in> implements plays_
             Plays p=new Plays();
             ArrayList<Plays> PlaysLista = new ArrayList<>();
             while (rs.next()) {
-                int s=row2object(rs).getPlays_id();
-                p=p.getById(s);
+                p=p.getById(row2object(rs).getPlays_id());
                 PlaysLista.add(p);
             }
             rs.close();
             return PlaysLista;
-        } catch (SQLException e) {
-            e.printStackTrace();
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            throw new PlaysException(e.getMessage(),e);
         }
-        return null;
 }
 
     @Override
-    public List<Artist> searchByPlay(Plays play) {
+    public List<Artist> searchByPlay(Plays play) throws PlaysException {
         String query = "SELECT * FROM plays_in WHERE plays_id = ? ";
         try {
             PreparedStatement stmt = getConnection().prepareStatement(query);
@@ -87,11 +82,8 @@ public class plays_inDaoSQLimpl extends AbstractDao1<plays_in> implements plays_
             }
             rs.close();
             return ArtistLista;
-        } catch (SQLException e) {
-            e.printStackTrace();
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            throw new PlaysException(e.getMessage(),e);
         }
-        return null;
     }
 }

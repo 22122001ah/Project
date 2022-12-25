@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Map;
 import java.util.TreeMap;
-
+import ba.unsa.etf.rpr.exceptions.PlaysException;
 public class UserDaoSQLimpl extends AbstractDao1<Users> implements UsersDao{
 
     public UserDaoSQLimpl() {
@@ -15,7 +15,7 @@ public class UserDaoSQLimpl extends AbstractDao1<Users> implements UsersDao{
     }
 
     @Override
-    public Users row2object(ResultSet rs) throws Exception {
+    public Users row2object(ResultSet rs) throws PlaysException{
         try {
             Users user = new Users();
           user.setId(rs.getInt("user_id"));
@@ -28,9 +28,8 @@ public class UserDaoSQLimpl extends AbstractDao1<Users> implements UsersDao{
           user.setDate_of_birth(rs.getDate("date_of_birth"));
             return user;
         } catch (Exception e) {
-            System.out.println(e);
+            throw new PlaysException(e.getMessage(),e);
         }
-        return null;
     }
 
 
@@ -48,7 +47,7 @@ public class UserDaoSQLimpl extends AbstractDao1<Users> implements UsersDao{
         return row;
     }
     @Override
-    public Users searchByUsername(String user){
+    public Users searchByUsername(String user) throws PlaysException{
         String query = "SELECT * FROM Users WHERE username = ?";
         try {
             PreparedStatement stmt = getConnection().prepareStatement(query);
@@ -59,11 +58,8 @@ return row2object(rs);
             } else {
                 return null; // if there is no elements in the result set return null
             }
-        } catch (SQLException e) {
-            e.printStackTrace(); // poor error handling
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+        }catch (Exception e) {
+            throw new PlaysException(e.getMessage(),e);
         }
-    return null;
     }
 }

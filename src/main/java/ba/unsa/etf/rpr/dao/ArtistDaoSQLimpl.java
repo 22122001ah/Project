@@ -2,7 +2,7 @@ package ba.unsa.etf.rpr.dao;
 
 import ba.unsa.etf.rpr.domain.Artist;
 import ba.unsa.etf.rpr.domain.Plays;
-
+import ba.unsa.etf.rpr.exceptions.PlaysException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,16 +26,15 @@ public class ArtistDaoSQLimpl  extends AbstractDao1<Artist> implements ArtistDao
     }
 
     @Override
-    public Artist row2object(ResultSet rs) throws Exception {
+    public Artist row2object(ResultSet rs) throws PlaysException {
        try{ Artist artist = new Artist();
         artist.setId(rs.getInt("artist_id"));
         artist.setArtist_name(rs.getString("artist_name"));
 
         return artist;}
        catch(Exception e){
-           System.out.println(e);
+           throw new PlaysException(e.getMessage(),e);
        }
-       return null;
     }
 
     @Override
@@ -47,26 +46,22 @@ public class ArtistDaoSQLimpl  extends AbstractDao1<Artist> implements ArtistDao
     }
 
     @Override
-    public Artist getById(int id) {
-        String query = "SELECT * FROM Artist where artist_id=?";
-        try{
+    public Artist getById(int id) throws PlaysException{
+        try { String query = "SELECT * FROM Artist where artist_id=?";
+
             PreparedStatement stmt = getConnection().prepareStatement(query);
             ResultSet rs = stmt.executeQuery();
-            if (rs.next()){ // result set is iterator.
-              return row2object(rs);
+            if (rs.next()) { // result set is iterator.
+                return row2object(rs);
             }
-
-        }catch (SQLException e){
-            e.printStackTrace(); // poor error handling
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+            return null;
+        }catch (Exception e){
+            throw new PlaysException(e.getMessage(),e);
         }
-        return null;
-
     }
 
     @Override
-    public List<Artist> getAll() {
+    public List<Artist> getAll() throws PlaysException{
         String query = "SELECT * FROM Artist";
         List<Artist> artists = new ArrayList<Artist>();
         try{
@@ -77,17 +72,13 @@ public class ArtistDaoSQLimpl  extends AbstractDao1<Artist> implements ArtistDao
                 artists.add(row2object(rs));
             }
             return artists;
-        }catch (SQLException e){
-            e.printStackTrace(); // poor error handling
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+        }catch (Exception e){
+            throw new PlaysException(e.getMessage(),e);
         }
-        return null ;
-
     }
 
     @Override
-    public Artist add(Artist A) throws Exception {
+    public Artist add(Artist A) throws PlaysException {
         return null;
     }
 }
