@@ -36,42 +36,15 @@ public abstract class AbstractDao1 <T extends Idable> implements Dao<T> {
 
     public abstract Map<String, Object> object2row(T object);
 @Override
-    public T getById(int id) throws Exception {
-        String query = "SELECT * FROM "+this.Table+" WHERE id = ?";
-        try {
-            PreparedStatement stmt = getConnection().prepareStatement(query);
-            stmt.setInt(1, id);
-            ResultSet rs = stmt.executeQuery();
-            if (rs.next()) { // result set is iterator.
-                T result = row2object(rs);
-                rs.close();
-                return result;
-            } else {
-                throw new Exception("Object not found");
-            }
-        } catch (SQLException e) {
-            throw new Exception(e.getMessage(), e);
-        }
+    public T getById(int id) throws PlaysException {
+    return executeQueryUnique("SELECT * FROM "+this.Table+" WHERE id = ?", new Object[]{id});
     }
     public Connection getConnection(){
         return this.connection;
     }
     @Override
-    public List<T> getAll() throws Exception {
-        String query = "SELECT * FROM "+ Table;
-        List<T> results = new ArrayList<T>();
-        try{
-            PreparedStatement stmt = getConnection().prepareStatement(query);
-            ResultSet rs = stmt.executeQuery();
-            while (rs.next()){ // result set is iterator.
-                T object = row2object(rs);
-                results.add(object);
-            }
-            rs.close();
-            return results;
-        }catch (SQLException e){
-            throw new Exception(e.getMessage(), e);
-        }
+    public List<T> getAll() throws PlaysException {
+        return executeQuery("SELECT * FROM "+ Table, null);
     }
     @Override
     public T add(T item) throws Exception{
@@ -103,6 +76,14 @@ public abstract class AbstractDao1 <T extends Idable> implements Dao<T> {
             System.out.println(e);
         }
         return item;
+    }
+    public T executeQueryUnique(String query, Object[] params) throws PlaysException{
+        List<T> result = executeQuery(query, params);
+        if (result != null && result.size() == 1){
+            return result.get(0);
+        }else{
+            throw new PlaysException("Object not found");
+        }
     }
 
     private Map.Entry<String, String> prepareInsertParts(Map<String, Object> row){
