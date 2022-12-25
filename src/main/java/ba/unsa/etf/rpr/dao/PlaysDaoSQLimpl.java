@@ -17,16 +17,10 @@ import static java.sql.DriverManager.getConnection;
 public class PlaysDaoSQLimpl extends AbstractDao1<Plays> implements PlaysDao{
 
 
-    public PlaysDaoSQLimpl() throws PlaysException {
+    public PlaysDaoSQLimpl(){
 
         super("Plays");
     }
-
-    @Override
-    public Plays add(Plays play) throws PlaysException {
-        return null;
-    }
-
     @Override
     public Plays row2object(ResultSet rs) throws PlaysException {
 try{
@@ -86,7 +80,7 @@ return executeQuery("SELECT * FROM Plays WHERE price BETWEEN ? AND ?",new Object
      */
     @Override
    public List<Plays> searchByWriter(Writers writer) throws PlaysException{
-        return executeQuery("SELECT * FROM Plays WHERE writer LIKE concat('%', ?, '%')",new Object[]{writer.getId()});
+        return executeQuery("SELECT * FROM Plays WHERE writer_id LIKE concat('%', ?, '%')",new Object[]{writer.getId()});
 }
 
     /**
@@ -96,7 +90,7 @@ return executeQuery("SELECT * FROM Plays WHERE price BETWEEN ? AND ?",new Object
      */
     @Override
     public List<Plays> searchByDirector(Directors director)throws PlaysException{
-        return executeQuery("SELECT * FROM Plays WHERE director LIKE concat('%', ?, '%')",new Object[]{director.getId()});
+        return executeQuery("SELECT * FROM Plays WHERE director_id LIKE concat('%', ?, '%')",new Object[]{director.getId()});
     }
 
     /**

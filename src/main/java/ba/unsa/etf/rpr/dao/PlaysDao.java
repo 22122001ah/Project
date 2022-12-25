@@ -25,7 +25,7 @@ public interface PlaysDao extends Dao<Plays> {
      * @param price1,price2
      * @return List of Plays in given price range
      */
-    List<Plays> searchByPrices(int price1,int price2) throws Exception;
+    List<Plays> searchByPrices(int price1,int price2) throws PlaysException;
 
     /**
      * searches for Plays written by wanted writer
