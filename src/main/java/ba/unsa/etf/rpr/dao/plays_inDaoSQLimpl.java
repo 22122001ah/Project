@@ -40,26 +40,16 @@ public class plays_inDaoSQLimpl extends AbstractDao1<plays_in> implements plays_
         item.put("artist_id",object.getArtist_id());
         return item;
     }
-
-    @Override
-    public plays_in add(plays_in playsin) throws PlaysException {
-        return null;
-    }
-
     @Override
     public List<Plays> searchByArtist(Artist artist) throws PlaysException {
-        String query = "SELECT * FROM plays_in WHERE artist_id = ? ";
+        List<plays_in> p=executeQuery("SELECT * FROM plays_in WHERE artist_id = ? ",new Object[]{artist.getId()});
         try {
-            PreparedStatement stmt = getConnection().prepareStatement(query);
-            stmt.setInt(1, artist.getId());
-            ResultSet rs = stmt.executeQuery();
-            Plays p=new Plays();
+            Plays play=new Plays();
             ArrayList<Plays> PlaysLista = new ArrayList<>();
-            while (rs.next()) {
-                p=p.getById(row2object(rs).getPlays_id());
-                PlaysLista.add(p);
-            }
-            rs.close();
+           for(int i=0;i<p.size();i++)
+           {
+               PlaysLista.add(play.getById(p.get(i).getId()));
+           }
             return PlaysLista;
         } catch (Exception e) {
             throw new PlaysException(e.getMessage(),e);
@@ -68,19 +58,14 @@ public class plays_inDaoSQLimpl extends AbstractDao1<plays_in> implements plays_
 
     @Override
     public List<Artist> searchByPlay(Plays play) throws PlaysException {
-        String query = "SELECT * FROM plays_in WHERE plays_id = ? ";
+        List<plays_in>p = executeQuery("SELECT * FROM plays_in WHERE plays_id = ? ",new Object[]{play.getId()});
         try {
-            PreparedStatement stmt = getConnection().prepareStatement(query);
-            stmt.setInt(1, play.getId());
-            ResultSet rs = stmt.executeQuery();
-            Artist p=new Artist();
+
+            Artist artist=new Artist();
             ArrayList<Artist> ArtistLista = new ArrayList<>();
-            while (rs.next()) {
-                int s=row2object(rs).getArtist_id();
-                p=p.getById(s);
-                ArtistLista.add(p);
-            }
-            rs.close();
+         for(int i=0;i<p.size();i++){
+             ArtistLista.add(artist.getById(p.get(i).getId()));
+         }
             return ArtistLista;
         } catch (Exception e) {
             throw new PlaysException(e.getMessage(),e);
