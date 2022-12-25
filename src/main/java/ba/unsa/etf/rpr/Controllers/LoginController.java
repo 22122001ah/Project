@@ -17,6 +17,8 @@ public PasswordField fieldPass;
 Users u=new Users();
     public void zatvoriProzorPropuhJe(ActionEvent actionEvent){
         Users k=new Users();
+        try{
+
         k=k.searchByUsername(fieldUsername.getText());
         if (k!=null) {
             if(!Objects.equals(k.getPassword(), fieldPass.getText()))
@@ -25,5 +27,9 @@ return;
             s.close();}
         else return;
 
+    }
+        catch (Exception e){
+            System.out.println(e);
+        }
     }
 }

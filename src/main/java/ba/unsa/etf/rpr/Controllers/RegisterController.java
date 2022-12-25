@@ -35,7 +35,9 @@ public class RegisterController {
         if (fieldUsername.getText().isEmpty()  || fieldFirstname.getText().isEmpty() || fieldLastname.getText().isEmpty() || fieldPass.getText().isEmpty())
             return;
         Users   k=new Users();
-        k=k.searchByUsername(fieldUsername.getText());
+       try {
+           k=k.searchByUsername(fieldUsername.getText());
+
         if (k!=null)
             return;
         u.setFirst_name(fieldFirstname.getText());
@@ -53,6 +55,8 @@ public class RegisterController {
         Stage stage = (Stage) okBttn.getScene().getWindow();
         stage.close();
 
-
+    }
+       catch (Exception e){
+           System.out.println(e);}
     }
 }

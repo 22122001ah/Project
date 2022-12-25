@@ -1,6 +1,7 @@
 package ba.unsa.etf.rpr.Controllers;
 
 import ba.unsa.etf.rpr.domain.Plays;
+import ba.unsa.etf.rpr.exceptions.PlaysException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -22,9 +23,7 @@ public class PlayInfoController extends ShowPlaysController{
     public PlayInfoController() {
         try {
             p=new Plays();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
+        } catch (PlaysException e) {
             throw new RuntimeException(e);
         }
         ArrayList<Plays>plays=new ArrayList<>();

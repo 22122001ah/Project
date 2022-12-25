@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="700.0" prefWidth="1350.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.Controllers.ShowPlaysController">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+       <ImageView fitHeight="118.0" fitWidth="87.0" pickOnBounds="true" preserveRatio="true">
+           <Image url="https://www.kamerniteatar55.ba/wp-content/uploads/2021/12/umri-muski-Plakat-B4-FINAL-940x1329-1.jpg" />
+       </ImageView>
+       <ImageView fitHeight="117.0" fitWidth="95.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
+           <Image url="https://www.kamerniteatar55.ba/wp-content/uploads/2022/01/Sjecas-li-se-Doli-Bel.jpg" />
+       </ImageView>
+       <ImageView fitHeight="120.0" fitWidth="91.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
+           <Image url="https://www.kamerniteatar55.ba/wp-content/uploads/2022/01/nas-razred.jpg" />
+       </ImageView>
+       <ImageView fitHeight="114.0" fitWidth="87.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+           <Image url="https://www.kamerniteatar55.ba/wp-content/uploads/2021/12/Knjiga_Mojih_Zivota.jpg" />
+       </ImageView>
+       <ImageView fitHeight="115.0" fitWidth="95.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+           <Image url="https://www.kamerniteatar55.ba/wp-content/uploads/2021/12/Mirna_Bosna.jpg" />
+       </ImageView>
+       <ImageView fitHeight="138.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="1">
+           <Image url="https://www.kamerniteatar55.ba/wp-content/uploads/2021/12/Kad_Bi_Naglas.jpg" />
+       </ImageView>
+       <ImageView fitHeight="117.0" fitWidth="92.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
+           <Image url="https://www.kamerniteatar55.ba/wp-content/uploads/2021/12/plakat-final-RADNJA-NA-UGLU-940x1329-1.jpg" />
+       </ImageView>
+       <ImageView fitHeight="116.0" fitWidth="92.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
+           <Image url="https://www.kamerniteatar55.ba/wp-content/uploads/2021/12/ZABA-plakat-B1-680x980mm-5mm-prepusta.jpg" />
+       </ImageView>
+       <ImageView fitHeight="117.0" fitWidth="94.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="2">
+           <Image url="https://www.kamerniteatar55.ba/wp-content/uploads/2021/12/HELVER-PLAKAT-940x1337-1.jpg" />
+       </ImageView>
+       <ImageView fitHeight="117.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="3">
+           <Image url="https://www.kamerniteatar55.ba/wp-content/uploads/2021/12/Hadersfild-1.jpg" />
+       </ImageView>
+       <ImageView fitHeight="116.0" fitWidth="104.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="3">
+           <Image url="https://www.kamerniteatar55.ba/wp-content/uploads/2022/01/tri-sestre.jpg" />
+       </ImageView>
+       <ImageView fitHeight="117.0" fitWidth="107.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="3">
+           <Image url="https://www.kamerniteatar55.ba/wp-content/uploads/2022/01/slavna-florens.jpg" />
+       </ImageView>
+       <ImageView fitHeight="119.0" fitWidth="111.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="4">
+           <Image url="http://www.pozoristemladih.ba/slike/clanci/IH,%20KAKO%20BIH%20TE%20JA%20-%20PLAKATv2%20-%20Copy1554895941.png" />
+       </ImageView>
+       <ImageView fitHeight="118.0" fitWidth="112.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="5">
+           <Image url="https://pozorista.ba/wp-content/uploads/2020/10/pozoriste-za-pocetnike.gif" />
+       </ImageView>
+       <ImageView fitHeight="118.0" fitWidth="94.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="4">
+           <Image url="https://avaz.ba/media/2021/02/20/1443780/thumbs/w873.jpg" />
+       </ImageView>
+       <ImageView fitHeight="90.0" fitWidth="99.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="5">
+           <Image url="https://www.njuskalo.hr/image-w920x690/knjige-knjizevnost/kulenovic-skender-djelidba-slika-67808426.jpg" />
+       </ImageView>
+       <ImageView fitHeight="120.0" fitWidth="91.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="4">
+           <Image url="https://sarajevo.co.ba/wp-content/uploads/2017/06/demoni-550x309.jpg" />
+       </ImageView>
+       <ImageView fitHeight="116.0" fitWidth="105.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="5">
+<Image url="https://www.kamerniteatar55.ba/wp-content/uploads/2021/12/slide-mob-2.jpg" />
+       </ImageView>
+      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" text="Buy tickets" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" text="Buy tickets" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" text="Buy tickets" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="99.0" text="Buy tickets" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="99.0" text="Buy tickets" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="93.0" text="Buy tickets" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
+      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="81.0" text="Buy tickets" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="84.0" text="Buy tickets" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="83.0" text="Buy tickets" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="84.0" text="Buy tickets" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="85.0" text="Buy tickets" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="83.0" text="Buy tickets" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="85.0" text="Buy tickets" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" text="Buy tickets" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="84.0" text="Buy tickets" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" text="Buy tickets" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="88.0" text="Buy tickets" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" text="Buy tickets" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
+      <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="342.0" text="Button" visible="false" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="5" GridPane.valignment="TOP">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="362.0" text="Button" visible="false" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="TOP">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="366.0" text="Button" visible="false" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="TOP">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="363.0" text="Button" visible="false" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="TOP">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="349.0" text="Button" visible="false" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="TOP">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="366.0" text="Button" visible="false" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.valignment="TOP">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="368.0" text="Button" visible="false" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="TOP">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="369.0" text="Button" visible="false" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="TOP">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button mnemonicParsing="false"  onAction="#PlayDesription" prefHeight="34.0" prefWidth="372.0" text="Button" visible="false" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="TOP">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button mnemonicParsing="false" onAction="#PlayDesription" prefHeight="37.0" prefWidth="368.0" text="Button" visible="false" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="TOP">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button mnemonicParsing="false"  onAction="#PlayDesription" prefHeight="34.0" prefWidth="368.0" text="Button" visible="false" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="TOP">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button mnemonicParsing="false" onAction="#PlayDesription" prefHeight="41.0" prefWidth="384.0" text="Button" visible="false" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="5" GridPane.valignment="TOP">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button mnemonicParsing="false"  onAction="#PlayDesription" prefHeight="40.0" prefWidth="373.0" text="Button" visible="false" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="TOP">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button mnemonicParsing="false"  onAction="#PlayDesription" prefHeight="40.0" prefWidth="363.0" text="Button" visible="false" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="TOP">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button mnemonicParsing="false" onAction="#PlayDesription" prefHeight="35.0" prefWidth="369.0" text="Button" visible="false" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="TOP">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button mnemonicParsing="false"  onAction="#PlayDesription" prefHeight="33.0" prefWidth="357.0" text="Button" visible="false" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="TOP">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button mnemonicParsing="false"  onAction="#PlayDesription" prefHeight="41.0" prefWidth="371.0" text="Button" visible="false" GridPane.halignment="RIGHT" GridPane.rowIndex="5" GridPane.valignment="TOP">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button  onAction="#PlayDesription" accessibleRole="TEXT" mnemonicParsing="false"  prefHeight="38.0" prefWidth="366.0" style="-fx-background-color: white;" text="Umri muški" GridPane.halignment="RIGHT" GridPane.valignment="TOP">
+         <font>
+            <Font name="Arial Black" size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <effect>
+            <Blend />
+         </effect>
+      </Button>
+      <Button mnemonicParsing="false"  onAction="#PlayDesription"  prefHeight="38.0" prefWidth="370.0" style="-fx-background-color: white;" text="Knjiga mojih života" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="TOP">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="Arial Black" size="17.0" />
+         </font>
+      </Button>
+      <Button  onAction="#PlayDesription" mnemonicParsing="false" prefHeight="38.0" prefWidth="368.0" style="-fx-background-color: White;" text="Radnja na uglu" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="TOP">
+         <font>
+            <Font name="Arial Black" size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button  onAction="#PlayDesription" mnemonicParsing="false" prefHeight="38.0" prefWidth="368.0" style="-fx-background-color: white;" text="Hadersfild" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="TOP">
+         <font>
+            <Font name="Arial Black" size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button  onAction="#PlayDesription" mnemonicParsing="false" prefHeight="38.0" prefWidth="356.0" style="-fx-background-color: white;" text="Bez portfelja" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="TOP">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="Arial Black" size="17.0" />
+         </font>
+      </Button>
+      <Button  onAction="#PlayDesription" mnemonicParsing="false" prefHeight="38.0" prefWidth="366.0" style="-fx-background-color: WHITE;" text="Sjećaš li se Doli Bel" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="TOP">
+         <font>
+            <Font name="Arial Black" size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button  onAction="#PlayDesription" mnemonicParsing="false" prefHeight="38.0" prefWidth="367.0" style="-fx-background-color: WHITE;" text="Mirna Bosna" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="TOP">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="Arial Black" size="17.0" />
+         </font>
+      </Button>
+      <Button  onAction="#PlayDesription" mnemonicParsing="false" prefHeight="38.0" prefWidth="368.0" style="-fx-background-color: white;" text="Žaba" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="TOP">
+         <font>
+            <Font name="Arial Black" size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button  onAction="#PlayDesription" mnemonicParsing="false" prefHeight="38.0" prefWidth="372.0" style="-fx-background-color: white;" text="Ljubičasto" GridPane.halignment="RIGHT" GridPane.rowIndex="5" GridPane.valignment="TOP">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="Arial Black" size="17.0" />
+         </font>
+      </Button>
+      <Button  onAction="#PlayDesription" mnemonicParsing="false" prefHeight="38.0" prefWidth="366.0" style="-fx-background-color: white;" text="Tri sestre" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="TOP">
+         <font>
+            <Font name="Arial Black" size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button  onAction="#PlayDesription" mnemonicParsing="false" prefHeight="38.0" prefWidth="364.0" style="-fx-background-color: white;" text="Schindlerov lift" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="TOP">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="Arial Black" size="17.0" />
+         </font>
+      </Button>
+      <Button  onAction="#PlayDesription" mnemonicParsing="false" prefHeight="38.0" prefWidth="380.0" style="-fx-background-color: white;" text="Djelidba" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="5" GridPane.valignment="TOP">
+         <font>
+            <Font name="Arial Black" size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button  onAction="#PlayDesription"  mnemonicParsing="false" prefHeight="38.0" prefWidth="363.0" style="-fx-background-color: white;" text="Naš razred" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.valignment="TOP">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="Arial Black" size="17.0" />
+         </font>
+      </Button>
+      <Button  onAction="#PlayDesription" mnemonicParsing="false" prefHeight="38.0" prefWidth="346.0" style="-fx-background-color: white;" text="Kad bi naglas govorili" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="TOP">
+         <font>
+            <Font name="Arial Black" size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button  onAction="#PlayDesription" mnemonicParsing="false" prefHeight="38.0" prefWidth="369.0" style="-fx-background-color: white;" text="Helverova noć" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="TOP">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="Arial Black" size="17.0" />
+         </font>
+      </Button>
+      <Button  onAction="#PlayDesription" mnemonicParsing="false" prefHeight="38.0" prefWidth="367.0" style="-fx-background-color: white;" text="Slavna Florens" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="TOP">
+         <font>
+            <Font name="Arial Black" size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button  onAction="#PlayDesription" mnemonicParsing="false" prefHeight="38.0" prefWidth="359.0" style="-fx-background-color: white;" text="Ih, kako sam te ja" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="TOP">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="Arial Black" size="17.0" />
+         </font>
+      </Button>
+      <Button  onAction="#PlayDesription" mnemonicParsing="false" prefHeight="38.0" prefWidth="345.0" style="-fx-background-color: white;" text="Pozorište za početnike" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="5" GridPane.valignment="TOP">
+         <font>
+            <Font name="Arial Black" size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+   </children>
+</GridPane>
