@@ -1,4 +1,4 @@
-package ba.unsa.etf.rpr;
+package ba.unsa.etf.rpr.Controllers;
 
 import ba.unsa.etf.rpr.dao.UserDaoSQLimpl;
 import ba.unsa.etf.rpr.domain.Users;

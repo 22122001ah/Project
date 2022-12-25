@@ -1,6 +1,5 @@
-package ba.unsa.etf.rpr;
+package ba.unsa.etf.rpr.Controllers;
 
-import ba.unsa.etf.rpr.domain.Plays;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -10,7 +9,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -22,6 +20,7 @@ import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 public class MainController  {
     public Label labels;
     public TextField fieldUsername;
+    public static ObservableList<String> list;
     @FXML
     public void initialize() {
 }
@@ -77,7 +76,7 @@ Secondstage.show();}
         }
     }
 
-    public static ObservableList<String> list;
+
     public ObservableList<String> getList(){
         return this.list;
     }
@@ -85,10 +84,8 @@ Secondstage.show();}
     public void PlayDesription(ActionEvent actionEvent) throws IOException {
         try{       Button numberButton = (Button) actionEvent.getTarget();
             list= FXCollections.observableArrayList(numberButton.getText());
-
-            ListView<String> s=new ListView<>();
-            PlayInfoController p=new PlayInfoController();s.setItems(list);
-            p.setString(s);
+            PlayInfoController p=new PlayInfoController();
+            p.setString(list);
             Stage Secondstage=new Stage();
             FXMLLoader fl=new FXMLLoader(getClass().getResource("/fxml/InfoPlays.fxml"));
             Parent root =fl.load();
