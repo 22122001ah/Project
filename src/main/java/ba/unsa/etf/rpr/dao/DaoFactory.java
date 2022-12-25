@@ -16,7 +16,7 @@ public class DaoFactory {
     public static final ArtistDao artistDao=new ArtistDaoSQLimpl();
     public static final WritersDao writersDao=new WritersDaoSQLimpl();
     public static final DirectorsDao directorsDao=new DirectorsDaoSQLimpl();
-
+public static final UsersDao usersDao=new UserDaoSQLimpl();
     public DaoFactory() {
     }
     public static PlaysDao playsDao(){
@@ -34,4 +34,5 @@ public class DaoFactory {
     public static DirectorsDao directorsDao(){
         return directorsDao;
     }
+    public static UsersDao usersDao(){return usersDao;}
 }

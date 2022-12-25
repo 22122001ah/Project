@@ -39,10 +39,10 @@ public class DirectorsDaoSQLimpl extends AbstractDao1<Directors> implements Dire
     }
     @Override
     public List<Directors> searchByDirectorName(String name) throws PlaysException {
-        return executeQuery("SELECT * FROM Directors WHERE concat(first_name,last_name) = ?",new Object[]{name});
+        return executeQuery("SELECT * FROM Directors WHERE first_name||' '||last_name = ?",new Object[]{name});
     }
     @Override
     public Directors searchById(int Id) throws PlaysException{
-        return executeQueryUnique("SELECT * FROM Directors WHERE id = ?",new Object[]{Id});
+        return getById(Id);
     }
 }

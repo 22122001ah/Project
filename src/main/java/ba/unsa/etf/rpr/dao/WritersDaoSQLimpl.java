@@ -33,16 +33,16 @@ public class WritersDaoSQLimpl extends AbstractDao1<Writers> implements WritersD
 
         Map<String, Object> item = new TreeMap<String, Object>();
         item.put("writer_id",object.getId());
-        item.put("first_name",object.getFirst_name());
-        item.put("last_name",object.getLast_name());
+        item.put("FirstName",object.getFirst_name());
+        item.put("LastName",object.getLast_name());
         return item;
     }
     @Override
     public List<Writers> searchByWriterName(String name) throws PlaysException {
-        return executeQuery("SELECT * FROM Writers WHERE concat(FirstName,LastName) = ?",new Object[]{name});
+        return executeQuery("SELECT * FROM Writers WHERE FirstName||' ' ||LastName = ?",new Object[]{name});
     }
     @Override
     public Writers searchById(int Id) throws PlaysException{
-        return executeQueryUnique("SELECT * FROM Writers WHERE id = ?",new Object[]{Id});
+        return getById(Id);
     }
 }
