@@ -37,9 +37,12 @@ public class DirectorsDaoSQLimpl extends AbstractDao1<Directors> implements Dire
         item.put("last_name",object.getLast_name());
         return item;
     }
-
     @Override
-    public Directors add(Directors director) throws PlaysException {
-        return null;
+    public List<Directors> searchByDirectorName(String name) throws PlaysException {
+        return executeQuery("SELECT * FROM Directors WHERE concat(first_name,last_name) = ?",new Object[]{name});
+    }
+    @Override
+    public Directors searchById(int Id) throws PlaysException{
+        return executeQueryUnique("SELECT * FROM Directors WHERE id = ?",new Object[]{Id});
     }
 }
