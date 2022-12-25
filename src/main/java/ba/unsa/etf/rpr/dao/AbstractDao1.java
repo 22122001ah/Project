@@ -37,7 +37,7 @@ public abstract class AbstractDao1 <T extends Idable> implements Dao<T> {
     public abstract Map<String, Object> object2row(T object);
 @Override
     public T getById(int id) throws PlaysException {
-    return executeQueryUnique("SELECT * FROM "+this.Table+" WHERE id = ?", new Object[]{id});
+    return executeQueryUnique("SELECT * FROM "+this.Table+" WHERE " +this.Table.substring(0,Table.length()-1).toLowerCase()+ "_id = ?", new Object[]{id});
     }
     public Connection getConnection(){
         return this.connection;
@@ -60,8 +60,8 @@ public abstract class AbstractDao1 <T extends Idable> implements Dao<T> {
             PreparedStatement stmt = getConnection().prepareStatement(builder.toString(), Statement.RETURN_GENERATED_KEYS);
             // bind params. IMPORTANT treeMap is used to keep columns sorted so params are bind correctly
             int counter = 1;
-            for (Map.Entry<String, Object> entry: row.entrySet()) {
-                if (entry.getKey().equals("id")) continue; // skip ID
+           for (Map.Entry<String, Object> entry: row.entrySet()) {
+                if (entry.getKey().equals(this.Table.substring(0,Table.length()-1).toLowerCase()+ "_id")) continue; // skip ID
                 stmt.setObject(counter, entry.getValue());
                 counter++;
             }
@@ -78,7 +78,7 @@ public abstract class AbstractDao1 <T extends Idable> implements Dao<T> {
         return item;
     }
     public void delete(int id) throws PlaysException {
-        String sql = "DELETE FROM "+Table+" WHERE id = ?";
+        String sql = "DELETE FROM "+Table+" WHERE " +this.Table.substring(0,Table.length()-1).toLowerCase()+ "_id = ?";
         try{
             PreparedStatement stmt = getConnection().prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             stmt.setObject(1, id);
@@ -95,13 +95,14 @@ public abstract class AbstractDao1 <T extends Idable> implements Dao<T> {
                 .append(Table)
                 .append(" SET ")
                 .append(updateColumns)
-                .append(" WHERE id = ?");
+                .append(" WHERE " +this.Table.substring(0,Table.length()-1).toLowerCase()+"_id = ?");
 
         try{
             PreparedStatement stmt = getConnection().prepareStatement(builder.toString());
             int counter = 1;
             for (Map.Entry<String, Object> entry: row.entrySet()) {
-                if (entry.getKey().equals("id")) continue; // skip ID
+                if (entry.getKey().equals(this.Table.substring(0,Table.length()-1).toLowerCase()+ "_id"))
+                    continue; // skip ID
                 stmt.setObject(counter, entry.getValue());
                 counter++;
             }
@@ -118,7 +119,7 @@ public abstract class AbstractDao1 <T extends Idable> implements Dao<T> {
         int counter = 0;
         for (Map.Entry<String, Object> entry: row.entrySet()) {
             counter++;
-            if (entry.getKey().equals("id")) continue; //skip update of id due where clause
+            if (entry.getKey().equals(this.Table.substring(0,Table.length()-1).toLowerCase()+ "_id")) continue; //skip update of id due where clause
             columns.append(entry.getKey()).append("= ?");
             if (row.size() != counter) {
                 columns.append(",");
@@ -142,7 +143,8 @@ public abstract class AbstractDao1 <T extends Idable> implements Dao<T> {
         int counter = 0;
         for (Map.Entry<String, Object> entry: row.entrySet()) {
             counter++;
-            if (entry.getKey().equals("id")) continue; //skip insertion of id due autoincrement
+            if (entry.getKey().equals(this.Table.substring(0,Table.length()-1).toLowerCase()+ "_id"))
+                continue; //skip insertion of id due autoincrement
             columns.append(entry.getKey());
             questions.append("?");
             if (row.size() != counter) {

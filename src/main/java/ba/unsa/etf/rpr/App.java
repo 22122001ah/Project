@@ -15,10 +15,9 @@ public class App
 {
     private static void testiranje(){
       try{  Plays play=new Plays();
-         List<String> p=new ArrayList<>();
-        p=(play.getAllGenres());
+         List<Plays> p=play.getAll();
         for(int i=0;i<p.size();i++)
-            System.out.println(p.get(i).toString());
+            System.out.println(p.get(i).toString()+"\n");
       }
       catch (Exception e)
       {
