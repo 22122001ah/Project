@@ -12,7 +12,7 @@ import ba.unsa.etf.rpr.exceptions.PlaysException;
 public class WritersDaoSQLimpl extends AbstractDao1<Writers> implements WritersDao {
 
     public WritersDaoSQLimpl(){
-        super("Writer");
+        super("Writers");
     }
 
     @Override
