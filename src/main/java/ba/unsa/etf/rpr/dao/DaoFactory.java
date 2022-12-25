@@ -11,16 +11,7 @@ import java.sql.SQLException;
  * @author Adna Herak
  */
 public class DaoFactory {
-    public static final PlaysDao playsDao;
-
-    static {
-        try {
-            playsDao = new PlaysDaoSQLimpl();
-        } catch (PlaysException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
+    public static final PlaysDao playsDao=new PlaysDaoSQLimpl();
     public static final plays_inDao playsin_Dao=new plays_inDaoSQLimpl();
     public static final ArtistDao artistDao=new ArtistDaoSQLimpl();
     public static final WritersDao writersDao=new WritersDaoSQLimpl();

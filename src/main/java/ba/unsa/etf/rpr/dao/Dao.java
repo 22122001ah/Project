@@ -1,5 +1,7 @@
 package ba.unsa.etf.rpr.dao;
 
+import ba.unsa.etf.rpr.exceptions.PlaysException;
+
 import java.util.List;
 
 /**
@@ -14,13 +16,13 @@ public interface Dao<T> {
      * @param id primary key of entity
      * @return Entity from database
      */
-    T getById(int id) throws Exception;
+    T getById(int id) throws PlaysException;
 
 
     /**
      * Lists all entities from database. WARNING: Very slow operation because it reads all records.
      * @return List of entities from database
      */
-    List<T> getAll() throws Exception;
-    T add( T item) throws Exception;
+    List<T> getAll() throws PlaysException;
+    T add( T item) throws PlaysException;
 }
