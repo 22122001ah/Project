@@ -1,6 +1,7 @@
 package ba.unsa.etf.rpr.dao;
 
 import ba.unsa.etf.rpr.domain.Artist;
+import ba.unsa.etf.rpr.domain.Directors;
 import ba.unsa.etf.rpr.domain.Plays;
 import ba.unsa.etf.rpr.exceptions.PlaysException;
 import java.sql.*;
@@ -33,10 +34,12 @@ public class ArtistDaoSQLimpl  extends AbstractDao1<Artist> implements ArtistDao
         item.put("artist_id",object.getId());
         return item;
     }
-
-
     @Override
-    public Artist add(Artist A) throws PlaysException {
-        return null;
+    public List<Artist> searchByArtistName(String name) throws PlaysException {
+        return executeQuery("SELECT * FROM Artist WHERE artist_name = ?",new Object[]{name});
+    }
+    @Override
+    public Artist searchById(int Id) throws PlaysException{
+        return executeQueryUnique("SELECT * FROM Artist WHERE id = ?",new Object[]{Id});
     }
 }
