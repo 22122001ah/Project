@@ -1,5 +1,6 @@
 package ba.unsa.etf.rpr.dao;
 
+import ba.unsa.etf.rpr.domain.Artist;
 import ba.unsa.etf.rpr.domain.Directors;
 import ba.unsa.etf.rpr.domain.Plays;
 import ba.unsa.etf.rpr.domain.Writers;
@@ -36,12 +37,12 @@ public class WritersDaoSQLimpl extends AbstractDao1<Writers> implements WritersD
         item.put("last_name",object.getLast_name());
         return item;
     }
-
-
-
-
     @Override
-    public Writers add(Writers write) throws PlaysException {
-        return null;
+    public List<Writers> searchByWriterName(String name) throws PlaysException {
+        return executeQuery("SELECT * FROM Writers WHERE concat(FirstName,LastName) = ?",new Object[]{name});
+    }
+    @Override
+    public Writers searchById(int Id) throws PlaysException{
+        return executeQueryUnique("SELECT * FROM Writers WHERE id = ?",new Object[]{Id});
     }
 }
