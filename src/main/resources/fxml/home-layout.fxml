@@ -11,8 +11,10 @@
       <GridPane fx:id="grid" prefHeight="282.0" prefWidth="557.0" style="-fx-background-color: beige;" BorderPane.alignment="CENTER">
         <columnConstraints>
           <ColumnConstraints />
+            <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -23,14 +25,16 @@
           <RowConstraints maxHeight="92.0" minHeight="10.0" prefHeight="92.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="66.0" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="131.0" minHeight="10.0" prefHeight="131.0" vgrow="SOMETIMES" />
-            <RowConstraints />
+            <RowConstraints maxHeight="131.0" minHeight="10.0" prefHeight="131.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="131.0" minHeight="10.0" prefHeight="131.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
         </rowConstraints>
          <children>
-             <ImageView fitHeight="380.0" fitWidth="602.0" pickOnBounds="true" preserveRatio="true" GridPane.columnSpan="2147483647" GridPane.rowSpan="2147483647">
+             <ImageView fx:id="kamerni" fitHeight="385.0" fitWidth="602.0" pickOnBounds="true" preserveRatio="true" GridPane.columnSpan="2147483647" GridPane.rowSpan="2147483647">
 
                  <Image url="https://www.kamerniteatar55.ba/wp-content/uploads/2021/04/nov-kamerni-1.jpg" />
              </ImageView>
-            <GridPane prefHeight="372.0" prefWidth="200.0" style="-fx-background-color: beige;" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.rowIndex="2" GridPane.rowSpan="4">
+            <GridPane prefHeight="339.0" prefWidth="227.0" style="-fx-background-color: beige;" GridPane.columnIndex="5" GridPane.columnSpan="2147483647" GridPane.rowSpan="2147483647">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -38,10 +42,10 @@
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <GridPane prefHeight="113.0" prefWidth="173.0" style="-fx-background-color: #FFF0F4;" GridPane.columnSpan="2" GridPane.rowIndex="1">
+                  <GridPane prefHeight="113.0" prefWidth="173.0" style="-fx-background-color: beige;" GridPane.columnSpan="2" GridPane.rowIndex="1">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -49,39 +53,60 @@
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                     </columnConstraints>
                     <rowConstraints>
+                      <RowConstraints />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label prefHeight="67.0" prefWidth="50.0" style="-fx-background-color: white;" text="22" textAlignment="CENTER" GridPane.columnSpan="2" GridPane.rowSpan="3">
+                        <Label prefHeight="45.0" prefWidth="64.0" style="-fx-background-color: white;" text="22" textAlignment="CENTER" GridPane.columnSpan="2" GridPane.rowIndex="1" GridPane.rowSpan="3">
                            <font>
                               <Font name="System Bold" size="41.0" />
                            </font>
                         </Label>
-                        <Label prefHeight="66.0" prefWidth="150.0" text="  Mirna Bosna" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowSpan="3" GridPane.valignment="BOTTOM">
+                        <Label prefHeight="66.0" prefWidth="150.0" text="  Mirna Bosna" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="1" GridPane.rowSpan="3" GridPane.valignment="BOTTOM">
                            <font>
                               <Font name="System Bold" size="19.0" />
                            </font>
                         </Label>
-                        <Separator prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
-                        <Label prefHeight="17.0" prefWidth="56.0" style="-fx-background-color: white;" text="    Dec" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                        <Separator prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="3" GridPane.valignment="BOTTOM" />
+                        <Label prefHeight="17.0" prefWidth="66.0" style="-fx-background-color: white;" text="    Dec" textAlignment="CENTER" GridPane.halignment="LEFT" GridPane.rowIndex="4">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Label>
-                        <Label prefHeight="19.0" prefWidth="60.0" style="-fx-background-color: white;" text="  20:00" GridPane.rowIndex="5">
+                        <Label prefHeight="19.0" prefWidth="71.0" style="-fx-background-color: white;" text="  20:00" GridPane.rowIndex="6">
                            <font>
                               <Font name="System Bold" size="13.0" />
                            </font>
                         </Label>
-                        <Button mnemonicParsing="false" style="-fx-background-color: white; -fx-border-color: pink;" text="Buy tickets" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="4" />
+                        <Button mnemonicParsing="false" style="-fx-background-color: beige; -fx-border-color: white;" text="Buy tickets" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="5" />
+                        <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="150.0" style="-fx-text-fill: transparent; -fx-background-color: transparent;" text="Mirna Bosna" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.rowIndex="1" GridPane.rowSpan="3">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#PlayDesription" prefHeight="79.0" prefWidth="238.0" style="-fx-background-color: transparent; -fx-text-fill: transparent;" text="Mirna Bosna" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.rowIndex="1" GridPane.rowSpan="3">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <font>
+                              <Font name="Bodoni MT Bold Italic" size="18.0" />
+                           </font></Button>
+                        <Button mnemonicParsing="false" onAction="#buy" prefHeight="25.0" prefWidth="72.0" style="-fx-background-color: transparent; -fx-text-fill: transparent;" text="Mirna Bosna" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="5">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Separator prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" />
+                        <Separator prefWidth="200.0" GridPane.columnSpan="2147483647" GridPane.rowIndex="7" />
                      </children>
                   </GridPane>
-                  <GridPane style="-fx-background-color: #FFDCE5;" GridPane.columnSpan="2" GridPane.rowIndex="2">
+                  <GridPane style="-fx-background-color: beige;" GridPane.columnSpan="2" GridPane.rowIndex="2">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -99,7 +124,7 @@
                         <RowConstraints />
                     </rowConstraints>
                       <children>
-                          <Label prefHeight="67.0" prefWidth="50.0" style="-fx-background-color: white;" text="22" textAlignment="CENTER" GridPane.columnSpan="2" GridPane.rowSpan="3">
+                          <Label prefHeight="59.0" prefWidth="64.0" style="-fx-background-color: white;" text="22" textAlignment="CENTER" GridPane.columnSpan="2" GridPane.rowSpan="3">
                               <font>
                                   <Font name="System Bold" size="41.0" />
                               </font>
@@ -110,33 +135,54 @@
                               </font>
                           </Label>
                           <Separator prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
-                          <Label prefHeight="17.0" prefWidth="56.0" style="-fx-background-color: white;" text="    Dec" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                          <Label prefHeight="17.0" prefWidth="71.0" style="-fx-background-color: white;" text="    Dec" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="3">
                               <font>
                                   <Font name="System Bold" size="12.0" />
                               </font>
                           </Label>
-                          <Label prefHeight="19.0" prefWidth="60.0" style="-fx-background-color: white;" text="  20:00" GridPane.rowIndex="5">
+                          <Label prefHeight="19.0" prefWidth="70.0" style="-fx-background-color: white;" text="  20:00" GridPane.rowIndex="5">
                               <font>
                                   <Font name="System Bold" size="13.0" />
                               </font>
                           </Label>
-                          <Button mnemonicParsing="false" style="-fx-background-color: white; -fx-border-color: pink;" text="Buy tickets" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="4" />
+                          <Button mnemonicParsing="false" style="-fx-background-color: beige; -fx-border-color: white;" text="Buy tickets" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="4" />
+                        <Button mnemonicParsing="false" onAction="#PlayDesription" prefHeight="96.0" prefWidth="296.0" style="-fx-background-color: transparent; -fx-text-fill: transparent;" text="Umri muški" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.rowSpan="3">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <font>
+                              <Font name="Bodoni MT Bold Italic" size="18.0" />
+                           </font>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#buy" style="-fx-background-color: transparent; -fx-text-fill: transparent;" text="Umri muški" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="4">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
                       </children>
                   </GridPane>
                   <Label prefHeight="39.0" prefWidth="192.0" style="-fx-background-color: white; -fx-border-color: beige;" text="Upcoming plays" GridPane.columnSpan="2" GridPane.halignment="CENTER">
                      <font>
-                        <Font name="Arial Black" size="20.0" />
+                        <Font name="Bodoni MT Bold Italic" size="25.0" />
                      </font>
                   </Label>
                </children>
             </GridPane>
+            <StackPane prefHeight="194.0" prefWidth="172.0" style="-fx-background-color: rgba(255,255,255,0.5);" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.rowIndex="3" GridPane.rowSpan="3">
+               <children>
+                  <Label prefHeight="195.0" prefWidth="344.0" style="-fx-background-color: transparent;" text="       Kamerni teatar 55" textAlignment="CENTER">
+                     <font>
+                        <Font name="Brush Script MT Italic" size="36.0" />
+                     </font>
+                  </Label>
+               </children></StackPane>
          </children>
       </GridPane>
    </center>
    <top>
       <MenuBar style="-fx-background-color: beige;">
         <menus>
-          <Menu mnemonicParsing="false" onAction="#showPlays" text="Plays">
+          <Menu mnemonicParsing="false" text="Plays">
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#showPlays" text="All plays" />
                   <MenuItem mnemonicParsing="false" text="Buy tickets" />
@@ -151,9 +197,8 @@
             <Menu mnemonicParsing="false" text="Managment">
               <items>
                 <MenuItem mnemonicParsing="false" text="Add plays" />
-                  <MenuItem mnemonicParsing="false" text="Add actors" />
-                  <MenuItem mnemonicParsing="false" text="Add director" />
-                  <MenuItem mnemonicParsing="false" text="Add writer" />
+                  <MenuItem mnemonicParsing="false" text="Edit plays" />
+                  <MenuItem mnemonicParsing="false" text="Delete plays" />
               </items>
             </Menu>
         </menus>
@@ -163,6 +208,9 @@
       <GridPane prefHeight="39.0" prefWidth="603.0" style="-fx-background-color: beige;" BorderPane.alignment="CENTER">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
@@ -171,12 +219,20 @@
         </rowConstraints>
          <children>
             <Separator prefWidth="200.0" GridPane.columnSpan="2147483647" />
-            <Button mnemonicParsing="false" onAction="#RegisterBttn" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: beige;" text="Register" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+            <Button mnemonicParsing="false" onAction="#RegisterBttn" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: beige;" text="Register" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button mnemonicParsing="false" onAction="#LoginBttn" prefHeight="25.0" prefWidth="108.0" style="-fx-background-color: beige;" text="Login" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+            <Button mnemonicParsing="false" onAction="#LoginBttn" prefHeight="25.0" prefWidth="108.0" style="-fx-background-color: beige;" text="Login" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+            <Button fx:id="seeAll" mnemonicParsing="false" onAction="#showPlays" prefHeight="30.0" prefWidth="117.0" style="-fx-background-color: beige; -fx-border-color: white;" text="See all" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
          </children>
       </GridPane>
    </bottom>

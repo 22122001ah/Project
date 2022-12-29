@@ -1,5 +1,5 @@
 package ba.unsa.etf.rpr.domain;
-import ba.unsa.etf.rpr.dao.ArtistDaoSQLimpl;
+import ba.unsa.etf.rpr.dao.ArtistsDaoSQLimpl;
 
 import java.util.Objects;
 
@@ -8,7 +8,7 @@ import java.util.Objects;
  * List of possible actors for plays
  * @author Adna Herak
  */
-public class Artist extends ArtistDaoSQLimpl implements Idable {
+public class Artists extends ArtistsDaoSQLimpl implements Idable {
     private int Id;
     private String artist_name;
 
@@ -37,7 +37,7 @@ public class Artist extends ArtistDaoSQLimpl implements Idable {
         if(this==o) return true;
         if(o==null || o.getClass()!=getClass())
             return false;
-        Artist A=(Artist) o;
+        Artists A=(Artists) o;
         return A.Id==Id;
     }
 
