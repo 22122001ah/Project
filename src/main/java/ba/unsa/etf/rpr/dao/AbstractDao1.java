@@ -172,4 +172,5 @@ public abstract class AbstractDao1 <T extends Idable> implements Dao<T> {
             throw new PlaysException(e.getMessage(), e);
         }
     }
+
 }

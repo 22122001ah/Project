@@ -1,14 +1,11 @@
 package ba.unsa.etf.rpr.dao;
 
-import ba.unsa.etf.rpr.domain.Artist;
+import ba.unsa.etf.rpr.domain.Artists;
 import ba.unsa.etf.rpr.domain.Plays;
-import ba.unsa.etf.rpr.domain.Users;
 import ba.unsa.etf.rpr.domain.plays_in;
 import ba.unsa.etf.rpr.exceptions.PlaysException;
 
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -23,9 +20,9 @@ public class plays_inDaoSQLimpl extends AbstractDao1<plays_in> implements plays_
     public plays_in row2object(ResultSet rs) throws PlaysException {
         try {
             plays_in plays_in = new plays_in();
-            plays_in.setId(rs.getInt("plays_in"));
-            plays_in.setArtist_id(rs.getInt("username"));
-            plays_in.setPlays_id(rs.getInt("password"));
+            plays_in.setId(rs.getInt("playsIn_id"));
+            plays_in.setArtist_id(rs.getInt("artist_id"));
+            plays_in.setPlays_id(rs.getInt("play_id"));
             return plays_in;
         } catch (Exception e) {
             throw new PlaysException(e.getMessage(),e);
@@ -41,8 +38,8 @@ public class plays_inDaoSQLimpl extends AbstractDao1<plays_in> implements plays_
         return item;
     }
     @Override
-    public List<Plays> searchByArtist(Artist artist) throws PlaysException {
-        List<plays_in> p=executeQuery("SELECT * FROM plays_in WHERE artist_id = ? ",new Object[]{artist.getId()});
+    public List<Plays> searchByArtist(Artists artists) throws PlaysException {
+        List<plays_in> p=executeQuery("SELECT * FROM plays_in WHERE artist_id = ? ",new Object[]{artists.getId()});
         try {
             Plays play=new Plays();
             ArrayList<Plays> PlaysLista = new ArrayList<>();
@@ -57,16 +54,14 @@ public class plays_inDaoSQLimpl extends AbstractDao1<plays_in> implements plays_
 }
 
     @Override
-    public List<Artist> searchByPlay(Plays play) throws PlaysException {
-        List<plays_in>p = executeQuery("SELECT * FROM plays_in WHERE plays_id = ? ",new Object[]{play.getId()});
+    public List<Artists> searchByPlay(Plays play) throws PlaysException {
+        List<plays_in>p = executeQuery("SELECT * FROM plays_in WHERE play_id = ? ",new Object[]{play.getId()});
         try {
-
-            Artist artist=new Artist();
-            ArrayList<Artist> ArtistLista = new ArrayList<>();
+            List<Artists> artistsLista = new ArrayList<>();
          for(int i=0;i<p.size();i++){
-             ArtistLista.add(artist.getById(p.get(i).getId()));
+             artistsLista.add(DaoFactory.artistDao().getById(p.get(i).getId()));
          }
-            return ArtistLista;
+            return artistsLista;
         } catch (Exception e) {
             throw new PlaysException(e.getMessage(),e);
         }
