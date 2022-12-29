@@ -21,26 +21,7 @@ public class PlayInfoController extends ShowPlaysController{
     public static ListView<String> string;
 
     public PlayInfoController() {
-        try {
-            p=new Plays();
-        } catch (PlaysException e) {
-            throw new RuntimeException(e);
-        }
-        ArrayList<Plays>plays=new ArrayList<>();
-        try {
-            plays= (ArrayList<Plays>) p.getAll();
-        }
-        catch (Exception e)
-        {
-            System.out.println(e);
-        }
-        ArrayList<String> n=new ArrayList<>();
-        ObservableList<String> names = null;
-        for(int i=0;i< plays.size();i++)
-            n.add(plays.get(i).getPlay_name());
-        names=FXCollections.observableArrayList(n);
-        string.refresh();
-        string.setItems( names);
+
     }
     @FXML
     public void initialize()  {

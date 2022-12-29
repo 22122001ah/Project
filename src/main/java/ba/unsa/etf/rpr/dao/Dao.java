@@ -25,4 +25,6 @@ public interface Dao<T> {
      */
     List<T> getAll() throws PlaysException;
     T add( T item) throws PlaysException;
+
+    T update(T item) throws PlaysException;
 }

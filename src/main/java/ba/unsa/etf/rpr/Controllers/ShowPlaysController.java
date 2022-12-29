@@ -1,5 +1,5 @@
 package ba.unsa.etf.rpr.Controllers;
-import javafx.collections.FXCollections;
+import ba.unsa.etf.rpr.dao.DaoFactory;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -28,14 +28,13 @@ public class ShowPlaysController {
     }
     public void PlayDesription(ActionEvent actionEvent) throws IOException {
         try{        Button numberButton = (Button) actionEvent.getTarget();
-            list= FXCollections.observableArrayList(numberButton.getText());
-            PlayInfoController p=new PlayInfoController();
-            p.setString(list);
+
             Stage Secondstage=new Stage();
-            FXMLLoader fl=new FXMLLoader(getClass().getResource("/fxml/InfoPlays.fxml"));
+            FXMLLoader fl=new FXMLLoader(getClass().getResource("/fxml/Info.fxml"));
             Parent root =fl.load();
-            PlayInfoController noviprozor=fl.getController();
-            Secondstage.setTitle("Login");
+            InfoController noviprozor=fl.getController();
+            noviprozor.setText(DaoFactory.playsDao().searchByPlayName(numberButton.getText()).getPlay_name());
+            Secondstage.setTitle("Play description");
             Secondstage.setScene(new Scene(root,USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
             Secondstage.show();
 

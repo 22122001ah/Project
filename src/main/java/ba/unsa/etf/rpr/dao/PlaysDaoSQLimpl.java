@@ -1,13 +1,9 @@
 package ba.unsa.etf.rpr.dao;
-import ba.unsa.etf.rpr.domain.Artist;
 import ba.unsa.etf.rpr.domain.Directors;
 import ba.unsa.etf.rpr.domain.Plays;
 import ba.unsa.etf.rpr.domain.Writers;
 
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.*;
 import java.sql.*;
 import java.util.Date;
@@ -111,7 +107,7 @@ return executeQuery("SELECT * FROM Plays WHERE price BETWEEN ? AND ?",new Object
      */
     @Override
    public Plays searchByPlayName(String play_name)throws PlaysException{
-        return executeQueryUnique("SELECT * FROM Plays WHERE play_name = ?",new Object[]{play_name});
+        return executeQueryUnique("SELECT * FROM Plays WHERE play_name LIKE concat('%', ?, '%')",new Object[]{play_name});
     }
     @Override
     public List<String>getAllGenres() throws PlaysException{
@@ -145,6 +141,10 @@ return executeQuery("SELECT * FROM Plays WHERE price BETWEEN ? AND ?",new Object
     @Override
     public List<Plays> searchByGenre(String genre) throws PlaysException{
         return executeQuery("SELECT * FROM Plays WHERE genre LIKE concat('%', ?, '%')",new Object[]{genre});
+    }
+    @Override
+    public Plays randomPlay() throws PlaysException {
+        return executeQueryUnique("SELECT * FROM Plays ORDER BY RAND() LIMIT 1",null);
     }
 
 }

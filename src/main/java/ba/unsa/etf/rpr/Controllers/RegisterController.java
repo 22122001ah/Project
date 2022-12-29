@@ -36,6 +36,7 @@ public class RegisterController {
             return;
         Users   k=new Users();
        try {
+           k=null;
            k=k.searchByUsername(fieldUsername.getText());
 
         if (k!=null)
@@ -48,10 +49,9 @@ public class RegisterController {
         try {
             dao.add(u);
         } catch (Exception e) {
-            System.out.println("Problem with adding a new category in the database");
+            System.out.println("Problem with adding a new user in the database");
             throw new RuntimeException(e);
         }
-        //Ovdje bi trebali da dodamo ako je prazno polje da izbaci error al nema veze
         Stage stage = (Stage) okBttn.getScene().getWindow();
         stage.close();
 

@@ -1,11 +1,7 @@
 package ba.unsa.etf.rpr.dao;
 
-import ba.unsa.etf.rpr.domain.Artist;
-import ba.unsa.etf.rpr.domain.Directors;
-import ba.unsa.etf.rpr.domain.Plays;
 import ba.unsa.etf.rpr.domain.Writers;
 
-import java.io.FileReader;
 import java.sql.*;
 import java.util.*;
 import ba.unsa.etf.rpr.exceptions.PlaysException;

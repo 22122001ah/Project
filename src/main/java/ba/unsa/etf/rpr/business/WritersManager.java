@@ -10,18 +10,18 @@ import java.util.List;
 
 public class WritersManager {
     public List<Writers> searchByWriterName(String name) throws PlaysException{
-        return DaoFactory.writersDao.searchByWriterName(name);
+        return DaoFactory.writersDao().searchByWriterName(name);
     }
     public Writers searchById(int Id) throws PlaysException{
-        return DaoFactory.writersDao.searchById(Id);
+        return DaoFactory.writersDao().searchById(Id);
     }
     public List<Writers> getAll() throws PlaysException{
-        return DaoFactory.writersDao.getAll();
+        return DaoFactory.writersDao().getAll();
     }
     public Writers add(Writers item) throws PlaysException{
-        return DaoFactory.writersDao.add(item);
+        return DaoFactory.writersDao().add(item);
     }
     public Writers getById(int id) throws PlaysException {
-        return DaoFactory.writersDao.getById(id);
+        return DaoFactory.writersDao().getById(id);
     }
 }

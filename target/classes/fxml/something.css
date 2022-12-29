@@ -1,9 +1,0 @@
-#loginBtn {
-   -fx-background-color: lightskyblue;
-}
-.poljeNijeIspravno {
-   -fx-background-color: red;
-}
-.poljeJeIspravno {
--fx-background-color: yellowgreen;
-}

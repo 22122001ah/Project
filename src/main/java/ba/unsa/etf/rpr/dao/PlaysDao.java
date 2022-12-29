@@ -1,5 +1,4 @@
 package ba.unsa.etf.rpr.dao;
-import ba.unsa.etf.rpr.domain.Artist;
 import ba.unsa.etf.rpr.domain.Directors;
 import ba.unsa.etf.rpr.domain.Plays;
 import ba.unsa.etf.rpr.domain.Writers;
@@ -57,5 +56,6 @@ public interface PlaysDao extends Dao<Plays> {
     Plays searchByPlayName(String play_name) throws PlaysException;
     List<String>getAllGenres() throws PlaysException;
     List<Plays>searchByGenre(String genre) throws PlaysException;
+    Plays randomPlay() throws PlaysException;
 
 }

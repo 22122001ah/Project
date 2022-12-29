@@ -1,14 +1,11 @@
 package ba.unsa.etf.rpr.domain;
+import ba.unsa.etf.rpr.dao.DaoFactory;
 import ba.unsa.etf.rpr.dao.PlaysDaoSQLimpl;
 import ba.unsa.etf.rpr.exceptions.PlaysException;
-
-import java.io.FileReader;
-import java.io.IOException;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import ba.unsa.etf.rpr.domain.plays_in;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Objects;
-import java.util.Properties;
 
 /**
  * Java bean class for table Plays
@@ -103,17 +100,22 @@ public class Plays extends PlaysDaoSQLimpl implements Idable {
     }
 
     @Override
-    public String toString() {
-        return "Plays{" +
-                "play_id=" + Id +
-                ", play_name='" + play_name + '\'' +
-                ", genre='" + genre + '\'' +
-                ", date=" + date +
-                ", price=" + price +
-                ", About='" + Description + '\'' +
-                ", director=" + director +
-                ", writer=" + writer +
-                '}';
+    public String toString(){
+        ArrayList<Artists> artists= null;
+        try {
+            artists = (ArrayList<Artists>) DaoFactory.playsin_Dao().searchByPlay(getById(Id));
+        } catch (PlaysException e) {
+            throw new RuntimeException(e);
+        }
+        String ret= play_name+"\nGenre: "+genre+"\nDate: "+date+"\nDirector: "+ director.getFirst_name()+" "+director.getLast_name()
+                +"\nWriter: "+writer.getFirst_name()+" "+writer.getLast_name()
+                +"Actors: ";
+        for(int i=0;i<artists.size();i++)
+        {    ret+=artists.get(i);
+        if(i!=artists.size()-1)
+        ret+=",";
+        }
+        return ret;
     }
 
     @Override
