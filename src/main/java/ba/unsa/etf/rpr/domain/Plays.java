@@ -29,17 +29,17 @@ public class Plays extends PlaysDaoSQLimpl implements Idable {
     private String Description;
     private Directors director;
     private Writers writer;
+    private Users user;
 
+    public Users getUser() {
+        return user;
+    }
 
+    public void setUser(Users user) {
+        this.user = user;
+    }
 
     public Plays() throws PlaysException {
-    /*    FileReader reader = new FileReader("src/main/resources/database.properties");
-        Properties p = new Properties();
-        p.load(reader);
-        String url = p.getProperty("url");
-        String user = p.getProperty("username");
-        String password = p.getProperty("password");
-        this.connection = DriverManager.getConnection(url,user,password);*/
     }
 
     /**
@@ -109,7 +109,7 @@ public class Plays extends PlaysDaoSQLimpl implements Idable {
         }
         String ret= play_name+"\nGenre: "+genre+"\nDate: "+date+"\nDirector: "+ director.getFirst_name()+" "+director.getLast_name()
                 +"\nWriter: "+writer.getFirst_name()+" "+writer.getLast_name()
-                +"Actors: ";
+                +"\nActors: ";
         for(int i=0;i<artists.size();i++)
         {    ret+=artists.get(i).getArtist_name();
         if(i!=artists.size()-1)
@@ -120,7 +120,7 @@ public class Plays extends PlaysDaoSQLimpl implements Idable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(Id, play_name, genre, date, price, Description, director, writer);
+        return Objects.hash(Id, play_name, genre, date, price, Description, director, writer,user);
     }
 
     @Override
