@@ -1,5 +1,6 @@
 package ba.unsa.etf.rpr.Controllers;
 import ba.unsa.etf.rpr.dao.DaoFactory;
+import ba.unsa.etf.rpr.exceptions.PlaysException;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -27,13 +28,12 @@ public class ShowPlaysController {
         return this.brojac;
     }
     public void PlayDesription(ActionEvent actionEvent) throws IOException {
-        try{        Button numberButton = (Button) actionEvent.getTarget();
-
+        try{     Button numberButton = (Button) actionEvent.getTarget();
             Stage Secondstage=new Stage();
             FXMLLoader fl=new FXMLLoader(getClass().getResource("/fxml/Info.fxml"));
             Parent root =fl.load();
             InfoController noviprozor=fl.getController();
-            noviprozor.setText(DaoFactory.playsDao().searchByPlayName(numberButton.getText()).getPlay_name());
+            noviprozor.setText(DaoFactory.playsDao().searchByPlayName(numberButton.getText()).toString());
             Secondstage.setTitle("Play description");
             Secondstage.setScene(new Scene(root,USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
             Secondstage.show();
@@ -43,6 +43,17 @@ public class ShowPlaysController {
             System.out.println(e);
         }
     }
-
+    public void buy(ActionEvent actionEvent) throws IOException, PlaysException {
+        Button numberButton = (Button) actionEvent.getTarget();
+        Stage secondstage=new Stage();
+        FXMLLoader fl=new FXMLLoader(getClass().getResource("/fxml/BuyTickets.fxml"));
+        Parent root=fl.load();
+        BuyTicketsController buyTicketsController=fl.getController();
+        buyTicketsController.setPrice(DaoFactory.playsDao().searchByPlayName(numberButton.getText()).getPrice());
+        buyTicketsController.setName(numberButton.getText());
+        secondstage.setTitle("Buy tickets");
+        secondstage.setScene(new Scene(root,USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
+        secondstage.show();
+    }
 
 }
