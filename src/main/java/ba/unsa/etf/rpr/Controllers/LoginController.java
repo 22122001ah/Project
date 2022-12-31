@@ -3,9 +3,7 @@ package ba.unsa.etf.rpr.Controllers;
 import ba.unsa.etf.rpr.dao.UserDaoSQLimpl;
 import ba.unsa.etf.rpr.domain.Users;
 import javafx.event.ActionEvent;
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.util.Objects;
@@ -21,14 +19,17 @@ Users u=new Users();
         k=k.searchByUsername(fieldUsername.getText());
         if (k!=null) {
             if(!Objects.equals(k.getPassword(), fieldPass.getText()))
-return;
+            {
+                new Alert(Alert.AlertType.NONE,"incorrect password", ButtonType.OK).show();
+            }
+            u=k;
             Stage s=(Stage) loginbttn.getScene().getWindow();
             s.close();}
-        else return;
-
     }
         catch (Exception e){
-            System.out.println(e);
+            {
+                new Alert(Alert.AlertType.NONE,"invalid username", ButtonType.OK).show();
+            }
         }
     }
 }

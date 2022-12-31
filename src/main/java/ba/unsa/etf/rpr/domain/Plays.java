@@ -29,14 +29,14 @@ public class Plays extends PlaysDaoSQLimpl implements Idable {
     private String Description;
     private Directors director;
     private Writers writer;
-    private Users user;
+    private Users management;
 
-    public Users getUser() {
-        return user;
+    public Users getManagement() {
+        return management;
     }
 
-    public void setUser(Users user) {
-        this.user = user;
+    public void setManagement(Users user) {
+        this.management = user;
     }
 
     public Plays() throws PlaysException {
@@ -120,7 +120,7 @@ public class Plays extends PlaysDaoSQLimpl implements Idable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(Id, play_name, genre, date, price, Description, director, writer,user);
+        return Objects.hash(Id, play_name, genre, date, price, Description, director, writer,management);
     }
 
     @Override

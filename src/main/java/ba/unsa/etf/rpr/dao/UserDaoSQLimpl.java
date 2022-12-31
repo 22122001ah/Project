@@ -8,6 +8,9 @@ import java.sql.SQLException;
 import java.util.Map;
 import java.util.TreeMap;
 import ba.unsa.etf.rpr.exceptions.PlaysException;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+
 public class UserDaoSQLimpl extends AbstractDao1<Users> implements UsersDao{
 
     public UserDaoSQLimpl() {
@@ -47,7 +50,9 @@ public class UserDaoSQLimpl extends AbstractDao1<Users> implements UsersDao{
         return row;
     }
     @Override
-    public Users searchByUsername(String user) throws PlaysException{
-        return executeQueryUnique("SELECT * FROM Users WHERE username = ?",new Object[]{user});
+    public Users searchByUsername(String user)throws PlaysException{
+
+            return executeQueryUnique("SELECT * FROM Users WHERE username = ?", new Object[]{user});
+
     }
 }

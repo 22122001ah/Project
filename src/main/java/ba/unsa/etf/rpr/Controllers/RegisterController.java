@@ -18,29 +18,18 @@ public class RegisterController {
     private UserDaoSQLimpl dao=new UserDaoSQLimpl();
     public void zatvoriProzorPropuhJe(ActionEvent actionEvent) {
         u=new Users();
-        fieldUsername.getStyleClass().add("poljeNijeIspravno");
+        if (fieldUsername.getText().isEmpty()  || fieldFirstname.getText().isEmpty() || fieldLastname.getText().isEmpty() || fieldPass.getText().isEmpty()) {
 
-        fieldUsername.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observableValue, String o, String n) {
-                if (fieldUsername.getText().trim().isEmpty()) {
-                    fieldUsername.getStyleClass().removeAll("poljeJeIspravno");
-                    fieldUsername.getStyleClass().add("poljeNijeIspravno");
-                } else {
-                    fieldUsername.getStyleClass().removeAll("poljeNijeIspravno");
-                    fieldUsername.getStyleClass().add("poljeJeIspravno");
-                }
-            }
-        });
-        if (fieldUsername.getText().isEmpty()  || fieldFirstname.getText().isEmpty() || fieldLastname.getText().isEmpty() || fieldPass.getText().isEmpty())
-            return;
+            new Alert(Alert.AlertType.NONE,"Invalid registration",ButtonType.OK).show();
+        }
+
         Users   k=new Users();
        try {
-           k=null;
            k=k.searchByUsername(fieldUsername.getText());
 
-        if (k!=null)
-            return;
+        if (k!=null) {
+            new Alert(Alert.AlertType.NONE,"Username already taken",ButtonType.OK).show();
+        }
         u.setFirst_name(fieldFirstname.getText());
         u.setLast_name(fieldLastname.getText());
         u.setPassword(fieldPass.getText());
