@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="315.0" prefWidth="461.0" style="-fx-background-color: beige;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.Controllers.BuyTicketsController">
   <columnConstraints>
@@ -14,6 +16,31 @@
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-       <Spinner fx:id="spinner" editable="true" opacity="0.55" style="-fx-background-color: beige; -fx-border-color: beige;" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
+       <Spinner fx:id="spinner" editable="true" opacity="0.55" prefHeight="27.0" prefWidth="91.0" style="-fx-background-color: beige; -fx-border-color: white;" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
+      <ChoiceBox fx:id="choiceBox" prefHeight="27.0" prefWidth="124.0" style="-fx-background-color: beige; -fx-border-color: white;" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+      <Label text="Pick up location" GridPane.columnIndex="1" GridPane.rowIndex="1">
+         <font>
+            <Font name="Bodoni MT" size="14.0" />
+         </font>
+      </Label>
+      <Label text="Number of tickets" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+         <font>
+            <Font name="Bodoni MT" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="name" GridPane.columnIndex="1" GridPane.valignment="BOTTOM">
+         <font>
+            <Font name="Bodoni MT Bold Italic" size="22.0" />
+         </font>
+      </Label>
+      <Label prefHeight="34.0" prefWidth="81.0" text="Total invoice:" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="TOP">
+         <font>
+            <Font name="Bodoni MT" size="14.0" />
+         </font></Label>
+      <Text fx:id="price" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="22.13671875" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="TOP">
+         <GridPane.margin>
+            <Insets right="20.0" top="10.0" />
+         </GridPane.margin>
+      </Text>
    </children>
 </GridPane>
