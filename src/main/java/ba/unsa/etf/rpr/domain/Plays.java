@@ -111,7 +111,7 @@ public class Plays extends PlaysDaoSQLimpl implements Idable {
                 +"\nWriter: "+writer.getFirst_name()+" "+writer.getLast_name()
                 +"Actors: ";
         for(int i=0;i<artists.size();i++)
-        {    ret+=artists.get(i);
+        {    ret+=artists.get(i).getArtist_name();
         if(i!=artists.size()-1)
         ret+=",";
         }

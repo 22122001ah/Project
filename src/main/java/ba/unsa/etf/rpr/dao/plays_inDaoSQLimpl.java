@@ -59,7 +59,7 @@ public class plays_inDaoSQLimpl extends AbstractDao1<plays_in> implements plays_
         try {
             List<Artists> artistsLista = new ArrayList<>();
          for(int i=0;i<p.size();i++){
-             artistsLista.add(DaoFactory.artistDao().getById(p.get(i).getId()));
+             artistsLista.add(DaoFactory.artistDao().getById(p.get(i).getArtist_id()));
          }
             return artistsLista;
         } catch (Exception e) {
