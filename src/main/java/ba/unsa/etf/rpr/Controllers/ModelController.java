@@ -26,12 +26,12 @@ import java.util.ArrayList;
 /**
  * JavaFX controller for creation and alteration of Quote object
  *
- * @author Dino Keco
+ * @author Adna Herak
  */
 public class ModelController {
     // helper components
     @FXML
-    public GridPane aouQuotePane;
+    public GridPane addPlays;
 
     // managers
     private final PlaysManager playsManager = new PlaysManager();
@@ -50,8 +50,9 @@ public class ModelController {
     // form fields
     public TextArea Play_name;
     public DatePicker date;
-    public ComboBox<Directors> directorId;
-    public ComboBox<Writers> writer;
+    public TextField directorId;
+    public TextField writer;
+    public TextField artists;
 
     public ModelController(Integer editQuoteId){
         this.editPlayId = editQuoteId;
@@ -59,12 +60,10 @@ public class ModelController {
 
     public void initialize(){
         try{
-            directorId.setItems(FXCollections.observableList((directorsManager.getAll())));
+
             Play_name.textProperty().bindBidirectional(model.play_name);
             date.valueProperty().bindBidirectional(model.date);
-            directorId.valueProperty().bindBidirectional(model.director);
-            writer.valueProperty().bindBidirectional(model.writer);
-
+            writer.textProperty().bindBidirectional(model.writer);
             if (editPlayId != null) {
                 model.fromPlay(playsManager.getById(editPlayId));
             }
@@ -78,7 +77,7 @@ public class ModelController {
      * @param event
      */
     public void cancelAoUForm(ActionEvent event){
-        aouQuotePane.getScene().getWindow().hide();
+        addPlays.getScene().getWindow().hide();
     }
 
     /**
@@ -94,7 +93,7 @@ public class ModelController {
             }else{
                 playsManager.add(q);
             }
-            aouQuotePane.getScene().getWindow().hide();
+            addPlays.getScene().getWindow().hide();
         }catch (PlaysException e){
             new Alert(Alert.AlertType.NONE, e.getMessage(), ButtonType.OK).show();
         }
@@ -113,9 +112,9 @@ public class ModelController {
         public SimpleStringProperty genre = new SimpleStringProperty("");
         public SimpleStringProperty description = new SimpleStringProperty("");
         public SimpleObjectProperty<Directors> director = new SimpleObjectProperty<Directors>();
-        public SimpleObjectProperty<Writers> writer = new SimpleObjectProperty<Writers>();
-        public ArrayList<SimpleObjectProperty<Artists>> artist= new ArrayList<>();
-        public SimpleObjectProperty<plays_in> plays_in=new SimpleObjectProperty<plays_in>();
+        public SimpleObjectProperty<String> writer = new SimpleObjectProperty<String>();
+     //   public ArrayList<SimpleObjectProperty<Artists>> artist= new ArrayList<>();
+       // public SimpleObjectProperty<plays_in> plays_in=new SimpleObjectProperty<plays_in>();
 
         public void fromPlay(Plays q) throws PlaysException {
             this.play_name.set(q.getPlay_name());
@@ -124,14 +123,14 @@ public class ModelController {
             this.genre.set(q.getGenre());
             this.description.set(q.getDescription());
             this.director.set(q.getDirector());
-            this.writer.set(q.getWriter());
+            this.writer.set(q.getWriter().getFirst_name());
             this.director.set(directorsManager.searchById(q.getDirector().getId()));
-            ArrayList<Artists>a=(ArrayList<Artists>) plays_inManager.searchByPlay(q);
+          /*  ArrayList<Artists>a=(ArrayList<Artists>) plays_inManager.searchByPlay(q);
             for(int i=0;i<a.size();i++){
                 SimpleObjectProperty<Artists> ar=new SimpleObjectProperty<>();
                 ar.set(a.get(i));
                 artist.set(i,ar);
-            }
+            }*/
         }
 
         public Plays toPlay() throws PlaysException {
@@ -140,7 +139,7 @@ public class ModelController {
             q.setPrice(this.price.getValue());
             q.setDate(Date.valueOf(this.date.getValue()));
             q.setDirector(this.director.getValue());
-            q.setWriter(this.writer.getValue());
+            q.setWriter(writersManager.searchByWriterName(this.writer.getValue()));
             q.setGenre(this.genre.getName());
             q.setDescription(this.description.getValue());
             return q;

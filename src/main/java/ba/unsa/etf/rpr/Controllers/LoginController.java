@@ -12,7 +12,12 @@ public class LoginController {
    public Button loginbttn;
 public TextField fieldUsername;
 public PasswordField fieldPass;
-Users u=new Users();
+public Users u=new Users();
+
+    public Users getU() {
+        return u;
+    }
+
     public void zatvoriProzorPropuhJe(ActionEvent actionEvent){
         Users k=new Users();
         try{

@@ -34,8 +34,8 @@ public class WritersDaoSQLimpl extends AbstractDao1<Writers> implements WritersD
         return item;
     }
     @Override
-    public List<Writers> searchByWriterName(String name) throws PlaysException {
-        return executeQuery("SELECT * FROM Writers WHERE FirstName||' ' ||LastName = ?",new Object[]{name});
+    public Writers searchByWriterName(String name) throws PlaysException {
+        return executeQueryUnique("SELECT * FROM Writers WHERE FirstName||' ' ||LastName = ?",new Object[]{name});
     }
     @Override
     public Writers searchById(int Id) throws PlaysException{

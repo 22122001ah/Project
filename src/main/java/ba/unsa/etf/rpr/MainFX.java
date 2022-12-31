@@ -6,6 +6,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 public class MainFX extends Application {
     public void start(Stage stage) throws Exception {
@@ -17,6 +19,7 @@ public class MainFX extends Application {
             fl.setController(controller);
             Parent root = null;
             root = fl.load();
+            stage.initStyle(StageStyle.UTILITY);
             stage.setTitle("BuyTickets.com");
             stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
             stage.show();

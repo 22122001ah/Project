@@ -9,6 +9,6 @@ import java.util.List;
  * @author Adna Herak
  */
 public interface WritersDao extends Dao<Writers> {
-    public List<Writers> searchByWriterName(String name) throws PlaysException;
+    public Writers searchByWriterName(String name) throws PlaysException;
     public Writers searchById(int Id) throws PlaysException;
 }

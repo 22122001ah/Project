@@ -8,12 +8,21 @@ import java.util.Objects;
 public class Users extends UserDaoSQLimpl implements Idable {
 private String username;
 private int Id;
+private int management;
 private String first_name;
 private String last_name;
 private String gender;
 private String password;
 private String location;
 private Date date_of_birth;
+
+    public int getManagement() {
+        return management;
+    }
+
+    public void setManagement(int management) {
+        this.management = management;
+    }
 
     public String getUsername() {
         return username;

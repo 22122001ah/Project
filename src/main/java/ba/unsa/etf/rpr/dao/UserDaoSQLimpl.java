@@ -29,6 +29,7 @@ public class UserDaoSQLimpl extends AbstractDao1<Users> implements UsersDao{
           user.setLocation(rs.getString("location"));
           user.setGender(rs.getString("gender"));
           user.setDate_of_birth(rs.getDate("date_of_birth"));
+          user.setManagement(rs.getInt("Management"));
             return user;
         } catch (Exception e) {
             throw new PlaysException(e.getMessage(),e);
@@ -47,12 +48,11 @@ public class UserDaoSQLimpl extends AbstractDao1<Users> implements UsersDao{
         row.put("password",object.getPassword());
         row.put("gender",object.getGender());
         row.put("location",object.getLocation());
+        row.put("Management",object.getManagement());
         return row;
     }
     @Override
     public Users searchByUsername(String user)throws PlaysException{
-
             return executeQueryUnique("SELECT * FROM Users WHERE username = ?", new Object[]{user});
-
     }
 }

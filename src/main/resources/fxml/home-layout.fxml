@@ -195,7 +195,7 @@
             </Menu>
             <Menu mnemonicParsing="false" text="Managment">
               <items>
-                <MenuItem mnemonicParsing="false" text="Add plays" />
+                <MenuItem mnemonicParsing="false" onAction="#addPlay" text="Add plays" />
                   <MenuItem mnemonicParsing="false" text="Edit plays" />
                   <MenuItem mnemonicParsing="false" text="Delete plays" />
               </items>
