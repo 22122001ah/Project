@@ -63,7 +63,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label prefHeight="45.0" prefWidth="64.0" style="-fx-background-color: white;" text="22" textAlignment="CENTER" GridPane.columnSpan="2" GridPane.rowIndex="1" GridPane.rowSpan="3">
+                        <Label prefHeight="45.0" prefWidth="64.0" style="-fx-background-color: white;" text="03" textAlignment="CENTER" GridPane.columnSpan="2" GridPane.rowIndex="1" GridPane.rowSpan="3">
                            <font>
                               <Font name="System Bold" size="41.0" />
                            </font>
@@ -185,7 +185,6 @@
           <Menu mnemonicParsing="false" text="Plays">
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#showPlays" text="All plays" />
-                  <MenuItem mnemonicParsing="false" text="Buy tickets" />
                   <MenuItem mnemonicParsing="false" text="Search" />
                </items></Menu>
             <Menu mnemonicParsing="false" text="About us">

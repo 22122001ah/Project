@@ -18,7 +18,7 @@
    <children>
        <Spinner fx:id="spinner" editable="true" opacity="0.55" prefHeight="27.0" prefWidth="91.0" style="-fx-background-color: beige; -fx-border-color: white;" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
       <ChoiceBox fx:id="choiceBox" prefHeight="27.0" prefWidth="124.0" style="-fx-background-color: beige; -fx-border-color: white;" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
-      <Label text="Pick up location" GridPane.columnIndex="1" GridPane.rowIndex="1">
+      <Label prefHeight="0.0" prefWidth="96.0" text="Pick up location" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <font>
             <Font name="Bodoni MT" size="14.0" />
          </font>
@@ -28,7 +28,7 @@
             <Font name="Bodoni MT" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="name" GridPane.columnIndex="1" GridPane.valignment="BOTTOM">
+      <Label fx:id="name" GridPane.columnIndex="1" GridPane.valignment="CENTER">
          <font>
             <Font name="Bodoni MT Bold Italic" size="22.0" />
          </font>
@@ -42,5 +42,25 @@
             <Insets right="20.0" top="10.0" />
          </GridPane.margin>
       </Text>
+      <Label prefHeight="44.0" prefWidth="44.0" text="Price" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP">
+         <font>
+            <Font name="Bodoni MT" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="Price1" prefHeight="33.0" prefWidth="33.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="TOP">
+         <font>
+            <Font name="Bodoni MT" size="14.0" />
+         </font>
+      </Label>
+      <Label prefHeight="17.0" prefWidth="41.0" text="Date" GridPane.columnIndex="1" GridPane.valignment="BOTTOM">
+         <font>
+            <Font name="Bodoni MT" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="date" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="BOTTOM">
+         <font>
+            <Font name="Bodoni MT" size="14.0" />
+         </font>
+      </Label>
    </children>
 </GridPane>
