@@ -43,24 +43,24 @@ public class plays_inDaoSQLimpl extends AbstractDao1<plays_in> implements plays_
         try {
             Plays play=new Plays();
             ArrayList<Plays> PlaysLista = new ArrayList<>();
-           for(int i=0;i<p.size();i++)
-           {
-               PlaysLista.add(play.getById(p.get(i).getId()));
-           }
+            for(int i=0;i<p.size();i++)
+            {
+                PlaysLista.add(play.getById(p.get(i).getId()));
+            }
             return PlaysLista;
         } catch (Exception e) {
             throw new PlaysException(e.getMessage(),e);
         }
-}
+    }
 
     @Override
     public List<Artists> searchByPlay(Plays play) throws PlaysException {
         List<plays_in>p = executeQuery("SELECT * FROM plays_in WHERE play_id = ? ",new Object[]{play.getId()});
         try {
             List<Artists> artistsLista = new ArrayList<>();
-         for(int i=0;i<p.size();i++){
-             artistsLista.add(DaoFactory.artistDao().getById(p.get(i).getArtist_id()));
-         }
+            for(int i=0;i<p.size();i++){
+                artistsLista.add(DaoFactory.artistDao().getById(p.get(i).getArtist_id()));
+            }
             return artistsLista;
         } catch (Exception e) {
             throw new PlaysException(e.getMessage(),e);

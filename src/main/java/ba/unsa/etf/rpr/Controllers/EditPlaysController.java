@@ -30,7 +30,7 @@ public class EditPlaysController{
     // helper components
     @FXML
     public BorderPane playScreen;
-private final PlaysManager PlaysManager=new PlaysManager();
+    private final PlaysManager PlaysManager=new PlaysManager();
     // components
     public TableView playsTable;
     public TextField search;

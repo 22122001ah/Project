@@ -6,7 +6,7 @@ import javafx.scene.text.Text;
 public class InfoController {
     public InfoController() {
     }
- public Text text=new Text();
+    public Text text=new Text();
 
 
 

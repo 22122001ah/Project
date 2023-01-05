@@ -14,12 +14,12 @@ public class WritersDaoSQLimpl extends AbstractDao1<Writers> implements WritersD
     @Override
     public Writers row2object(ResultSet rs) throws PlaysException {
         try{
-           Writers w=new Writers();
+            Writers w=new Writers();
             w.setId(rs.getInt("writer_id"));
             w.setFirst_name(rs.getString("FirstName"));
-           return w;}
+            return w;}
         catch (Exception e){
-          throw new PlaysException(e.getMessage(),e);
+            throw new PlaysException(e.getMessage(),e);
         }
     }
 

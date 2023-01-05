@@ -24,7 +24,7 @@ public class plays_inManager {
     public plays_in getById(int id) throws PlaysException {
         return DaoFactory.playsin_Dao().getById(id);
     } public plays_in update(plays_in item) throws PlaysException{
-     return DaoFactory.playsin_Dao().update(item);
+        return DaoFactory.playsin_Dao().update(item);
     }
 
 }

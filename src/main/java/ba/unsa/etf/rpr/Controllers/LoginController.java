@@ -9,10 +9,10 @@ import javafx.stage.Stage;
 import java.util.Objects;
 
 public class LoginController {
-   public Button loginbttn;
-public TextField fieldUsername;
-public PasswordField fieldPass;
-public Users u=new Users();
+    public Button loginbttn;
+    public TextField fieldUsername;
+    public PasswordField fieldPass;
+    public Users u=new Users();
 
     public Users getU() {
         return u;
@@ -21,16 +21,16 @@ public Users u=new Users();
     public void zatvoriProzorPropuhJe(ActionEvent actionEvent){
         Users k=new Users();
         try{
-        k=k.searchByUsername(fieldUsername.getText());
-        if (k!=null) {
-            if(!Objects.equals(k.getPassword(), fieldPass.getText()))
-            {
-                new Alert(Alert.AlertType.NONE,"incorrect password", ButtonType.OK).show();
-            }
-            u=k;
-            Stage s=(Stage) loginbttn.getScene().getWindow();
-            s.close();}
-    }
+            k=k.searchByUsername(fieldUsername.getText());
+            if (k!=null) {
+                if(!Objects.equals(k.getPassword(), fieldPass.getText()))
+                {
+                    new Alert(Alert.AlertType.NONE,"incorrect password", ButtonType.OK).show();
+                }
+                u=k;
+                Stage s=(Stage) loginbttn.getScene().getWindow();
+                s.close();}
+        }
         catch (Exception e){
             {
                 new Alert(Alert.AlertType.NONE,"invalid username", ButtonType.OK).show();

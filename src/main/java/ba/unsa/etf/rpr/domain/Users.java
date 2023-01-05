@@ -6,15 +6,15 @@ import java.util.Date;
 import java.util.Objects;
 
 public class Users extends UserDaoSQLimpl implements Idable {
-private String username;
-private int Id;
-private int management;
-private String first_name;
-private String last_name;
-private String gender;
-private String password;
-private String location;
-private Date date_of_birth;
+    private String username;
+    private int Id;
+    private int management;
+    private String first_name;
+    private String last_name;
+    private String gender;
+    private String password;
+    private String location;
+    private Date date_of_birth;
 
     public int getManagement() {
         return management;
@@ -116,6 +116,6 @@ private Date date_of_birth;
 
     @Override
     public void setId(int anInt) {
-Id=anInt;
+        Id=anInt;
     }
 }

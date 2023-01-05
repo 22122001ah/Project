@@ -11,8 +11,8 @@ import java.util.List;
 
 public class PlaysManager {
     public List<Plays> getAll() throws PlaysException {
-    return DaoFactory.playsDao().getAll();
-}
+        return DaoFactory.playsDao().getAll();
+    }
 
     public List<Plays> searchByPrice(int price) throws PlaysException {
         return DaoFactory.playsDao().searchByPrice(price);
@@ -27,30 +27,30 @@ public class PlaysManager {
         return DaoFactory.playsDao().searchByWriter(writer);
     }
     public List<Plays> searchByDirector(Directors director)throws PlaysException {
-    return DaoFactory.playsDao().searchByDirector(director);
+        return DaoFactory.playsDao().searchByDirector(director);
     }
     public List<Plays> searchByDate(Date date) throws PlaysException {
-    return DaoFactory.playsDao().searchByDate(date);
+        return DaoFactory.playsDao().searchByDate(date);
     }
     public List<Plays> searchByPlayName(String play_name)throws PlaysException {
         return DaoFactory.playsDao().searchByPlayName(play_name);
     }
     public List<String>getAllGenres() throws PlaysException {
-    return DaoFactory.playsDao().getAllGenres();
+        return DaoFactory.playsDao().getAllGenres();
     }
     public List<Plays> searchByGenre(String genre) throws PlaysException {
         return DaoFactory.playsDao().searchByGenre(genre);
     }
 
     public Plays update(Plays q) throws PlaysException {
-     return   DaoFactory.playsDao().update(q);
+        return   DaoFactory.playsDao().update(q);
     }
 
     public Plays add(Plays q) throws PlaysException {
-return DaoFactory.playsDao().add(q);
+        return DaoFactory.playsDao().add(q);
     }
     public void delete(int id) throws PlaysException {
-         DaoFactory.playsDao().delete(id);
+        DaoFactory.playsDao().delete(id);
     }
     public Plays randomPlay() throws PlaysException{
         return DaoFactory.playsDao().randomPlay();

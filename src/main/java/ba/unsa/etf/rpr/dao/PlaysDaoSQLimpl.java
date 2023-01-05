@@ -19,19 +19,19 @@ public class PlaysDaoSQLimpl extends AbstractDao1<Plays> implements PlaysDao{
     }
     @Override
     public Plays row2object(ResultSet rs) throws PlaysException {
-try{
+        try{
             Plays play = new Plays();
             play.setId(rs.getInt("play_id"));
             play.setPlay_name(rs.getString("play_name"));
             play.setDate(rs.getDate("date"));
             play.setPrice(rs.getInt("price"));
             play.setGenre(rs.getString("genre"));
-       play.setWriter(DaoFactory.writersDao().getById(rs.getInt("writer_id")));
-    play.setDirector(DaoFactory.directorsDao().getById(rs.getInt("dir_id")));
-        return play;}
-catch (Exception e){
-   throw new PlaysException(e.getMessage(),e);
-}
+            play.setWriter(DaoFactory.writersDao().getById(rs.getInt("writer_id")));
+            play.setDirector(DaoFactory.directorsDao().getById(rs.getInt("dir_id")));
+            return play;}
+        catch (Exception e){
+            throw new PlaysException(e.getMessage(),e);
+        }
     }
 
     @Override
@@ -63,8 +63,8 @@ catch (Exception e){
      * @return List of Plays in given price range
      */
     @Override
-   public List<Plays> searchByPrices(int price1,int price2) throws PlaysException {
-return executeQuery("SELECT * FROM Plays WHERE price BETWEEN ? AND ?",new Object[]{price1,price2});
+    public List<Plays> searchByPrices(int price1,int price2) throws PlaysException {
+        return executeQuery("SELECT * FROM Plays WHERE price BETWEEN ? AND ?",new Object[]{price1,price2});
     }
 
     /**
@@ -73,9 +73,9 @@ return executeQuery("SELECT * FROM Plays WHERE price BETWEEN ? AND ?",new Object
      * @return List of Plays written by wanted writer
      */
     @Override
-   public List<Plays> searchByWriter(Writers writer) throws PlaysException{
+    public List<Plays> searchByWriter(Writers writer) throws PlaysException{
         return executeQuery("SELECT * FROM Plays WHERE writer_id LIKE concat('%', ?, '%')",new Object[]{writer.getId()});
-}
+    }
 
     /**
      * Searches for Plays directed by wanted director
@@ -104,7 +104,7 @@ return executeQuery("SELECT * FROM Plays WHERE price BETWEEN ? AND ?",new Object
      * @return Play with that name
      */
     @Override
-   public List<Plays> searchByPlayName(String play_name)throws PlaysException{
+    public List<Plays> searchByPlayName(String play_name)throws PlaysException{
         return executeQuery("SELECT * FROM Plays WHERE play_name LIKE concat('%', ?, '%')",new Object[]{play_name});
     }
     @Override

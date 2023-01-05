@@ -19,8 +19,8 @@ public class RegisterController {
     public TextField fieldUsername,fieldFirstname,fieldLastname,L;
     public PasswordField fieldPass;
     public DatePicker date;
-public CheckBox F=new CheckBox();
-public CheckBox M=new CheckBox();
+    public CheckBox F=new CheckBox();
+    public CheckBox M=new CheckBox();
 
     public Users getU() {
         return u;
@@ -36,36 +36,36 @@ public CheckBox M=new CheckBox();
         }
 
         Users   k=new Users();
-       try {
-           k=k.searchByUsername(fieldUsername.getText());
+        try {
+            k=k.searchByUsername(fieldUsername.getText());
 
 
             new Alert(Alert.AlertType.NONE,"Username already taken",ButtonType.OK).show();
 
 
-    }
-       catch (Exception e){
-           if(M.isSelected() && F.isSelected())
-           new Alert(Alert.AlertType.NONE,"You can only choose one",ButtonType.OK).show();
-           u.setFirst_name(fieldFirstname.getText());
-           u.setLast_name(fieldLastname.getText());
-           u.setPassword(fieldPass.getText());
-           u.setUsername(fieldUsername.getText());
-           u.setDate_of_birth(Date.valueOf(date.getValue()));
-          u.setLocation(L.getText());
+        }
+        catch (Exception e){
+            if(M.isSelected() && F.isSelected())
+                new Alert(Alert.AlertType.NONE,"You can only choose one",ButtonType.OK).show();
+            u.setFirst_name(fieldFirstname.getText());
+            u.setLast_name(fieldLastname.getText());
+            u.setPassword(fieldPass.getText());
+            u.setUsername(fieldUsername.getText());
+            u.setDate_of_birth(Date.valueOf(date.getValue()));
+            u.setLocation(L.getText());
 
-             if(F.isSelected())
-              u.setGender("F");
-          else if(M.isSelected())
-              u.setGender("M");
+            if(F.isSelected())
+                u.setGender("F");
+            else if(M.isSelected())
+                u.setGender("M");
 
-           try {
-               DaoFactory.usersDao().add(u);
-           } catch (Exception e1) {
-               System.out.println("Problem with adding a new user in the database");
-               throw new RuntimeException(e1);
-           }
-           Stage stage = (Stage) okBttn.getScene().getWindow();
-           stage.close();}
+            try {
+                DaoFactory.usersDao().add(u);
+            } catch (Exception e1) {
+                System.out.println("Problem with adding a new user in the database");
+                throw new RuntimeException(e1);
+            }
+            Stage stage = (Stage) okBttn.getScene().getWindow();
+            stage.close();}
     }
 }

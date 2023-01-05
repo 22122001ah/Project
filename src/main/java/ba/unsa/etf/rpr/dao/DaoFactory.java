@@ -11,7 +11,7 @@ public class DaoFactory {
     public static final ArtistsDao ARTISTS_DAO =new ArtistsDaoSQLimpl();
     public static final WritersDao writersDao=new WritersDaoSQLimpl();
     public static final DirectorsDao directorsDao=new DirectorsDaoSQLimpl();
-public static final UsersDao usersDao=new UserDaoSQLimpl();
+    public static final UsersDao usersDao=new UserDaoSQLimpl();
     public DaoFactory() {
     }
     public static PlaysDao playsDao(){

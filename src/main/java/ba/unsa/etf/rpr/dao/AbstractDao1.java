@@ -13,11 +13,11 @@ public abstract class AbstractDao1 <T extends Idable> implements Dao<T> {
     private static Connection connection=null;
     private String Table;
     public AbstractDao1(String tableName){
-       this.Table=tableName;
-       if(connection==null) createConnection();
+        this.Table=tableName;
+        if(connection==null) createConnection();
     }
     private static void createConnection(){
-       if(AbstractDao1.connection==null) try{
+        if(AbstractDao1.connection==null) try{
             Properties p=new Properties();
             p.load(ClassLoader.getSystemResource("database.properties").openStream());
             String url=p.getProperty("url");
@@ -25,9 +25,9 @@ public abstract class AbstractDao1 <T extends Idable> implements Dao<T> {
             String pass=p.getProperty("password");
             AbstractDao1.connection= DriverManager.getConnection(url,user,pass);
         } catch (Exception e){
-           e.printStackTrace();
-           System.exit(0);
-       }
+            e.printStackTrace();
+            System.exit(0);
+        }
     }
     public void setConnection(Connection connection){
         if(AbstractDao1.connection!=null) {
@@ -58,9 +58,9 @@ public abstract class AbstractDao1 <T extends Idable> implements Dao<T> {
     public abstract T row2object(ResultSet rs) throws Exception;
 
     public abstract Map<String, Object> object2row(T object);
-@Override
+    @Override
     public T getById(int id) throws PlaysException {
-    return executeQueryUnique("SELECT * FROM "+this.Table+" WHERE " +this.Table.substring(0,Table.length()-1).toLowerCase()+ "_id = ?", new Object[]{id});
+        return executeQueryUnique("SELECT * FROM "+this.Table+" WHERE " +this.Table.substring(0,Table.length()-1).toLowerCase()+ "_id = ?", new Object[]{id});
     }
     public Connection getConnection(){
         return this.connection;
@@ -83,7 +83,7 @@ public abstract class AbstractDao1 <T extends Idable> implements Dao<T> {
             PreparedStatement stmt = getConnection().prepareStatement(builder.toString(), Statement.RETURN_GENERATED_KEYS);
             // bind params. IMPORTANT treeMap is used to keep columns sorted so params are bind correctly
             int counter = 1;
-           for (Map.Entry<String, Object> entry: row.entrySet()) {
+            for (Map.Entry<String, Object> entry: row.entrySet()) {
                 if (entry.getKey().equals(this.Table.substring(0,Table.length()-1).toLowerCase()+ "_id")) continue; // skip ID
                 stmt.setObject(counter, entry.getValue());
                 counter++;

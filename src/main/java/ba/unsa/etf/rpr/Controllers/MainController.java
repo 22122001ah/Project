@@ -29,28 +29,28 @@ public class MainController  {
 
 
     public void RegisterBttn(ActionEvent actionEvent) throws IOException {
-       try{
+        try{
 
-        Stage Secondstage=new Stage();
-        FXMLLoader fl=new FXMLLoader(getClass().getResource("/fxml/Register.fxml"));
-        Parent root =fl.load();
-        noviprozor2=fl.getController();
-        Secondstage.setTitle("Register");
-       Secondstage.setScene(new Scene(root,USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
-        //Alert alert=new Alert(Alert.AlertType.INFORMATION);
-        //alert.setTitle("Pozdrav");
-        //alert.show();
-Secondstage.show();}
-       catch(Exception e){
-           System.out.println(e);
-       }
+            Stage Secondstage=new Stage();
+            FXMLLoader fl=new FXMLLoader(getClass().getResource("/fxml/Register.fxml"));
+            Parent root =fl.load();
+            noviprozor2=fl.getController();
+            Secondstage.setTitle("Register");
+            Secondstage.setScene(new Scene(root,USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
+            //Alert alert=new Alert(Alert.AlertType.INFORMATION);
+            //alert.setTitle("Pozdrav");
+            //alert.show();
+            Secondstage.show();}
+        catch(Exception e){
+            System.out.println(e);
+        }
     }
     public void LoginBttn(ActionEvent actionEvent) throws IOException {
         try{
             Stage Secondstage=new Stage();
             FXMLLoader fl=new FXMLLoader(getClass().getResource("/fxml/Login.fxml"));
             Parent root =fl.load();
-             noviprozor1=fl.getController();
+            noviprozor1=fl.getController();
             Secondstage.setTitle("Login");
             Secondstage.setScene(new Scene(root,USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
             //Alert alert=new Alert(Alert.AlertType.INFORMATION);
@@ -94,18 +94,18 @@ Secondstage.show();}
             System.out.println(e);
         }
     }
-public void buy(ActionEvent actionEvent) throws IOException, PlaysException {
-    Button numberButton = (Button) actionEvent.getTarget();
+    public void buy(ActionEvent actionEvent) throws IOException, PlaysException {
+        Button numberButton = (Button) actionEvent.getTarget();
         Stage secondstage=new Stage();
         FXMLLoader fl=new FXMLLoader(getClass().getResource("/fxml/BuyTickets.fxml"));
         Parent root=fl.load();
         BuyTicketsController buyTicketsController=fl.getController();
-         buyTicketsController.setPrice(DaoFactory.playsDao().searchByPlayName(numberButton.getText()).get(0).getPrice());
-         buyTicketsController.setName(numberButton.getText());
+        buyTicketsController.setPrice(DaoFactory.playsDao().searchByPlayName(numberButton.getText()).get(0).getPrice());
+        buyTicketsController.setName(numberButton.getText());
         secondstage.setTitle("Buy tickets");
         secondstage.setScene(new Scene(root,USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
         secondstage.show();
-}
+    }
     public void editPlay(Integer play_id){
         try{
 
@@ -121,19 +121,19 @@ public void buy(ActionEvent actionEvent) throws IOException, PlaysException {
         }
     }
 
-public void search(ActionEvent actionEvent){
-    try{
+    public void search(ActionEvent actionEvent){
+        try{
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/searchPlays.fxml"));
-        loader.setController(new SearchController());
-        Stage stage = new Stage();
-        stage.setScene(new Scene(loader.load(), USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
-        stage.setTitle("Search play");
-        stage.show();
-    }catch (Exception e){
-        new Alert(Alert.AlertType.NONE, e.getMessage(), ButtonType.OK).show();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/searchPlays.fxml"));
+            loader.setController(new SearchController());
+            Stage stage = new Stage();
+            stage.setScene(new Scene(loader.load(), USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+            stage.setTitle("Search play");
+            stage.show();
+        }catch (Exception e){
+            new Alert(Alert.AlertType.NONE, e.getMessage(), ButtonType.OK).show();
+        }
     }
-}
     /**
      * Event handler for creation of quote
      * @param event
@@ -144,7 +144,7 @@ public void search(ActionEvent actionEvent){
         else if(noviprozor1!=null && noviprozor1.getU().getManagement()!=1)
             new Alert(Alert.AlertType.NONE,"You are not authorised to add plays",ButtonType.OK).show();
         else
-        editPlay(null);
+            editPlay(null);
     }
 
 }

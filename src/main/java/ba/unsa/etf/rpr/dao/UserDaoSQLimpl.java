@@ -21,15 +21,15 @@ public class UserDaoSQLimpl extends AbstractDao1<Users> implements UsersDao{
     public Users row2object(ResultSet rs) throws PlaysException{
         try {
             Users user = new Users();
-          user.setId(rs.getInt("user_id"));
-          user.setUsername(rs.getString("username"));
-          user.setPassword(rs.getString("password"));
-          user.setFirst_name(rs.getString("first_name"));
-          user.setLast_name(rs.getString("last_name"));
-          user.setLocation(rs.getString("location"));
-          user.setGender(rs.getString("gender"));
-          user.setDate_of_birth(rs.getDate("date_of_birth"));
-          user.setManagement(rs.getInt("Management"));
+            user.setId(rs.getInt("user_id"));
+            user.setUsername(rs.getString("username"));
+            user.setPassword(rs.getString("password"));
+            user.setFirst_name(rs.getString("first_name"));
+            user.setLast_name(rs.getString("last_name"));
+            user.setLocation(rs.getString("location"));
+            user.setGender(rs.getString("gender"));
+            user.setDate_of_birth(rs.getDate("date_of_birth"));
+            user.setManagement(rs.getInt("Management"));
             return user;
         } catch (Exception e) {
             throw new PlaysException(e.getMessage(),e);
@@ -53,6 +53,6 @@ public class UserDaoSQLimpl extends AbstractDao1<Users> implements UsersDao{
     }
     @Override
     public Users searchByUsername(String user)throws PlaysException{
-            return executeQueryUnique("SELECT * FROM Users WHERE username = ?", new Object[]{user});
+        return executeQueryUnique("SELECT * FROM Users WHERE username = ?", new Object[]{user});
     }
 }

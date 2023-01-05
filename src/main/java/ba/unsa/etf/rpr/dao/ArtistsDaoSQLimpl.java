@@ -14,14 +14,14 @@ public class ArtistsDaoSQLimpl extends AbstractDao1<Artists> implements ArtistsD
 
     @Override
     public Artists row2object(ResultSet rs) throws PlaysException {
-       try{ Artists artists = new Artists();
-        artists.setId(rs.getInt("artist_id"));
-        artists.setArtist_name(rs.getString("artist_name"));
+        try{ Artists artists = new Artists();
+            artists.setId(rs.getInt("artist_id"));
+            artists.setArtist_name(rs.getString("artist_name"));
 
-        return artists;}
-       catch(Exception e){
-           throw new PlaysException(e.getMessage(),e);
-       }
+            return artists;}
+        catch(Exception e){
+            throw new PlaysException(e.getMessage(),e);
+        }
     }
 
     @Override

@@ -99,16 +99,16 @@ public class ModelController {
     public void saveAoUForm(ActionEvent event){
         try{
             Plays q = model.toPlay().getKey();
-           ArrayList<plays_in> p=model.toPlay().getValue();
+            ArrayList<plays_in> p=model.toPlay().getValue();
             if (editPlayId != null){
                 q.setId(editPlayId);
                 playsManager.update(q);
                 for(int i=0;i<p.size();i++)
-                plays_inManager.update(p.get(i));
+                    plays_inManager.update(p.get(i));
             }else{
                 playsManager.add(q);
                 for(int i=0;i<p.size();i++)
-                plays_inManager.add(p.get(i));
+                    plays_inManager.add(p.get(i));
             }
             addPlays.getScene().getWindow().hide();
         }catch (PlaysException e){
@@ -129,7 +129,7 @@ public class ModelController {
         public SimpleStringProperty genre = new SimpleStringProperty("");
         public SimpleObjectProperty<String> director = new SimpleObjectProperty<String>();
         public SimpleObjectProperty<String> writer = new SimpleObjectProperty<String>();
-       public SimpleObjectProperty<String> artist= new SimpleObjectProperty<>();
+        public SimpleObjectProperty<String> artist= new SimpleObjectProperty<>();
 
         public void fromPlay(Plays q) throws PlaysException {
             this.play_name.set(q.getPlay_name());
@@ -166,6 +166,6 @@ public class ModelController {
             Pair<Plays,ArrayList<plays_in>> pl=new Pair<>(q,p);
             return pl;
 
-    }
+        }
     }
 }

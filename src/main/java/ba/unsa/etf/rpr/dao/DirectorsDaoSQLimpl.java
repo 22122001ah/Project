@@ -18,7 +18,7 @@ public class DirectorsDaoSQLimpl extends AbstractDao1<Directors> implements Dire
 
             Directors d=new Directors();
             d.setId(rs.getInt("director_id"));
-          d.setFirst_name(rs.getString("first_name"));
+            d.setFirst_name(rs.getString("first_name"));
             return d;}
         catch (Exception e){
             throw new PlaysException(e.getMessage(),e);
