@@ -4,64 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="319f1908-2fd8-4f73-bc25-c0b4d1ffe4cf" name="Changes" comment="small changes(added price in search and edit + home-layout minor changes(font))">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/Controllers/EditPlaysController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/Controllers/EditPlaysController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/Controllers/InfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/Controllers/InfoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/Controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/Controllers/LoginController.java" afterDir="false" />
+    <list default="true" id="319f1908-2fd8-4f73-bc25-c0b4d1ffe4cf" name="Changes" comment="small changes(added price and genre in search + home-layout minor changes(font))">
       <change beforePath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/Controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/Controllers/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/Controllers/ModelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/Controllers/ModelController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/Controllers/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/Controllers/RegisterController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/Controllers/SearchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/Controllers/SearchController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/business/PlaysManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/business/PlaysManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/business/plays_inManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/business/plays_inManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/dao/AbstractDao1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/dao/AbstractDao1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/dao/ArtistsDaoSQLimpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/dao/ArtistsDaoSQLimpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/dao/DaoFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/dao/DaoFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/dao/DirectorsDaoSQLimpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/dao/DirectorsDaoSQLimpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/dao/PlaysDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/dao/PlaysDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/dao/PlaysDaoSQLimpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/dao/PlaysDaoSQLimpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/dao/UserDaoSQLimpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/dao/UserDaoSQLimpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/dao/WritersDaoSQLimpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/dao/WritersDaoSQLimpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/dao/plays_inDaoSQLimpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/dao/plays_inDaoSQLimpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/domain/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/domain/Users.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/AddPlays.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/AddPlays.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/EditPlays.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/EditPlays.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/Register.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/Register.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/buytickets.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/buytickets.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/home-layout.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/home-layout.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/searchPlays.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/searchPlays.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Project-0.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ba/unsa/etf/rpr/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ba/unsa/etf/rpr/App.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ba/unsa/etf/rpr/Controllers/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ba/unsa/etf/rpr/Controllers/LoginController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ba/unsa/etf/rpr/Controllers/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ba/unsa/etf/rpr/Controllers/MainController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ba/unsa/etf/rpr/Controllers/RegisterController$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ba/unsa/etf/rpr/Controllers/RegisterController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ba/unsa/etf/rpr/Controllers/RegisterController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ba/unsa/etf/rpr/Controllers/ShowPlaysController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ba/unsa/etf/rpr/Controllers/ShowPlaysController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ba/unsa/etf/rpr/MainFX.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ba/unsa/etf/rpr/MainFX.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ba/unsa/etf/rpr/dao/AbstractDao1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ba/unsa/etf/rpr/dao/AbstractDao1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ba/unsa/etf/rpr/dao/DirectorsDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ba/unsa/etf/rpr/dao/DirectorsDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ba/unsa/etf/rpr/dao/DirectorsDaoSQLimpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ba/unsa/etf/rpr/dao/DirectorsDaoSQLimpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ba/unsa/etf/rpr/dao/PlaysDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ba/unsa/etf/rpr/dao/PlaysDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ba/unsa/etf/rpr/dao/PlaysDaoSQLimpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ba/unsa/etf/rpr/dao/PlaysDaoSQLimpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ba/unsa/etf/rpr/dao/UserDaoSQLimpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ba/unsa/etf/rpr/dao/UserDaoSQLimpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ba/unsa/etf/rpr/dao/WritersDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ba/unsa/etf/rpr/dao/WritersDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ba/unsa/etf/rpr/dao/WritersDaoSQLimpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ba/unsa/etf/rpr/dao/WritersDaoSQLimpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ba/unsa/etf/rpr/dao/plays_inDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ba/unsa/etf/rpr/dao/plays_inDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ba/unsa/etf/rpr/dao/plays_inDaoSQLimpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ba/unsa/etf/rpr/dao/plays_inDaoSQLimpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ba/unsa/etf/rpr/domain/Directors.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ba/unsa/etf/rpr/domain/Directors.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ba/unsa/etf/rpr/domain/Plays.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ba/unsa/etf/rpr/domain/Plays.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ba/unsa/etf/rpr/domain/Users.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ba/unsa/etf/rpr/domain/Users.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ba/unsa/etf/rpr/domain/Writers.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ba/unsa/etf/rpr/domain/Writers.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/database.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/database.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/fxml/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fxml/Login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/fxml/Register.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fxml/Register.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/fxml/buytickets.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fxml/buytickets.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/fxml/home-layout.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fxml/home-layout.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/fxml/showPlays.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fxml/showPlays.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/Controllers/ShowPlaysController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/Controllers/ShowPlaysController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,19 +44,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/User/IdeaProjects/Project",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "Console"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/IdeaProjects/Project&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;Console&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\User\IdeaProjects\Project\.idea" />
@@ -188,13 +133,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1670591333241</updated>
-    </task>
-    <task id="LOCAL-00027" summary="new window first try(Prof Vedran example)">
-      <created>1671042522250</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1671042522250</updated>
     </task>
     <task id="LOCAL-00028" summary="second try new window, changes in first window">
       <created>1671052046391</created>
@@ -532,7 +470,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671967940055</updated>
     </task>
-    <option name="localTasksCounter" value="76" />
+    <task id="LOCAL-00076" summary="small changes(added price and genre in search + home-layout minor changes(font))">
+      <created>1672945588478</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1672945588479</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -547,7 +492,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="refactor Director" />
     <MESSAGE value="small changes in GUI(still not finished)" />
     <MESSAGE value="HomeController fixed(not finished)" />
     <MESSAGE value="GUI changed" />
@@ -572,7 +516,8 @@
     <MESSAGE value="executeQuery added" />
     <MESSAGE value="executeQueryUnique added getById and getAll updated" />
     <MESSAGE value="PlaysDaoSQLimp refactor" />
-    <option name="LAST_COMMIT_MESSAGE" value="PlaysDaoSQLimp refactor" />
+    <MESSAGE value="small changes(added price and genre in search + home-layout minor changes(font))" />
+    <option name="LAST_COMMIT_MESSAGE" value="small changes(added price and genre in search + home-layout minor changes(font))" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -598,7 +543,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/Controllers/MainController.java</url>
-          <line>97</line>
+          <line>104</line>
           <option name="timeStamp" value="68" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -617,7 +562,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/Controllers/ShowPlaysController.java</url>
-          <line>39</line>
+          <line>44</line>
           <properties class="ba.unsa.etf.rpr.Controllers.ShowPlaysController">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
@@ -626,7 +571,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/Controllers/MainController.java</url>
-          <line>85</line>
+          <line>87</line>
           <properties class="ba.unsa.etf.rpr.Controllers.MainController">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />

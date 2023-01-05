@@ -7,7 +7,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -15,18 +17,21 @@ import java.io.IOException;
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
 public class ShowPlaysController {
-    public static ObservableList<String> list;
-    public static int brojac=0;
     @FXML
     public void initialize() {
 
     }
-    public ObservableList<String>getList(){
-        return this.list;
+ RegisterController m1;
+    LoginController m2;
+
+    public void setM1(RegisterController m1) {
+        this.m1 = m1;
     }
-    public int getBrojac(){
-        return this.brojac;
+
+    public void setM2(LoginController m2) {
+        this.m2 = m2;
     }
+
     public void PlayDesription(ActionEvent actionEvent) throws IOException {
         try{     Button numberButton = (Button) actionEvent.getTarget();
             Stage Secondstage=new Stage();
@@ -44,7 +49,10 @@ public class ShowPlaysController {
         }
     }
     public void buy(ActionEvent actionEvent) throws IOException, PlaysException {
-        Button numberButton = (Button) actionEvent.getTarget();
+     if(m1==null && m2==null){
+         new Alert(Alert.AlertType.NONE,"You need to have an account and be logged in in order to buy tickets.", ButtonType.OK).show();
+     }
+      else{  Button numberButton = (Button) actionEvent.getTarget();
         Stage secondstage=new Stage();
         FXMLLoader fl=new FXMLLoader(getClass().getResource("/fxml/BuyTickets.fxml"));
         Parent root=fl.load();
@@ -53,7 +61,7 @@ public class ShowPlaysController {
         buyTicketsController.setName(numberButton.getText());
         secondstage.setTitle("Buy tickets");
         secondstage.setScene(new Scene(root,USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
-        secondstage.show();
+        secondstage.show();}
     }
 
 }
