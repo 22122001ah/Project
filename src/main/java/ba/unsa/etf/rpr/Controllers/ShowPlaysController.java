@@ -49,7 +49,7 @@ public class ShowPlaysController {
         FXMLLoader fl=new FXMLLoader(getClass().getResource("/fxml/BuyTickets.fxml"));
         Parent root=fl.load();
         BuyTicketsController buyTicketsController=fl.getController();
-        buyTicketsController.setPrice(DaoFactory.playsDao().searchByPlayName(numberButton.getText()).getPrice());
+        buyTicketsController.setPrice(DaoFactory.playsDao().searchByPlayName(numberButton.getText()).get(0).getPrice());
         buyTicketsController.setName(numberButton.getText());
         secondstage.setTitle("Buy tickets");
         secondstage.setScene(new Scene(root,USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));

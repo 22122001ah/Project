@@ -32,7 +32,7 @@ public class PlaysManager {
     public List<Plays> searchByDate(Date date) throws PlaysException {
     return DaoFactory.playsDao().searchByDate(date);
     }
-    public Plays searchByPlayName(String play_name)throws PlaysException {
+    public List<Plays> searchByPlayName(String play_name)throws PlaysException {
         return DaoFactory.playsDao().searchByPlayName(play_name);
     }
     public List<String>getAllGenres() throws PlaysException {
@@ -48,5 +48,8 @@ public class PlaysManager {
 
     public Plays add(Plays q) throws PlaysException {
 return DaoFactory.playsDao().add(q);
+    }
+    public void delete(int id) throws PlaysException {
+         DaoFactory.playsDao().delete(id);
     }
 }

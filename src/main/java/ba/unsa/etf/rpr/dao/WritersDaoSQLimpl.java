@@ -17,7 +17,6 @@ public class WritersDaoSQLimpl extends AbstractDao1<Writers> implements WritersD
            Writers w=new Writers();
             w.setId(rs.getInt("writer_id"));
             w.setFirst_name(rs.getString("FirstName"));
-            w.setLast_name(rs.getString("LastName"));
            return w;}
         catch (Exception e){
           throw new PlaysException(e.getMessage(),e);
@@ -30,12 +29,11 @@ public class WritersDaoSQLimpl extends AbstractDao1<Writers> implements WritersD
         Map<String, Object> item = new TreeMap<String, Object>();
         item.put("writer_id",object.getId());
         item.put("FirstName",object.getFirst_name());
-        item.put("LastName",object.getLast_name());
         return item;
     }
     @Override
     public Writers searchByWriterName(String name) throws PlaysException {
-        return executeQueryUnique("SELECT * FROM Writers WHERE FirstName||' ' ||LastName = ?",new Object[]{name});
+        return executeQueryUnique("SELECT * FROM Writers WHERE FirstName = ?",new Object[]{name});
     }
     @Override
     public Writers searchById(int Id) throws PlaysException{

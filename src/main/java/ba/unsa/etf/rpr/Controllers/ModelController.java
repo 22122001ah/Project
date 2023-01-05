@@ -5,6 +5,7 @@ import ba.unsa.etf.rpr.business.PlaysManager;
 import ba.unsa.etf.rpr.business.DirectorsManager;
 import ba.unsa.etf.rpr.business.WritersManager;
 import ba.unsa.etf.rpr.business.ArtistManager;
+import ba.unsa.etf.rpr.dao.DaoFactory;
 import ba.unsa.etf.rpr.domain.Plays;
 import ba.unsa.etf.rpr.domain.Directors;
 import ba.unsa.etf.rpr.domain.Writers;
@@ -21,6 +22,7 @@ import ba.unsa.etf.rpr.domain.plays_in;
 import ba.unsa.etf.rpr.business.plays_inManager;
 import java.sql.Date;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
 
 /**
@@ -58,12 +60,15 @@ public class ModelController {
         this.editPlayId = editQuoteId;
     }
 
-    public void initialize(){
+    public void initialize() {
         try{
 
             Play_name.textProperty().bindBidirectional(model.play_name);
+
             date.valueProperty().bindBidirectional(model.date);
             writer.textProperty().bindBidirectional(model.writer);
+            artists.textProperty().bindBidirectional(model.artist);
+            directorId.textProperty().bindBidirectional(model.director);
             if (editPlayId != null) {
                 model.fromPlay(playsManager.getById(editPlayId));
             }
@@ -110,39 +115,44 @@ public class ModelController {
         public SimpleObjectProperty<Integer> price = new SimpleObjectProperty<Integer>();
         public SimpleObjectProperty<LocalDate> date = new SimpleObjectProperty<LocalDate>();
         public SimpleStringProperty genre = new SimpleStringProperty("");
-        public SimpleStringProperty description = new SimpleStringProperty("");
-        public SimpleObjectProperty<Directors> director = new SimpleObjectProperty<Directors>();
+        public SimpleObjectProperty<String> director = new SimpleObjectProperty<String>();
         public SimpleObjectProperty<String> writer = new SimpleObjectProperty<String>();
-     //   public ArrayList<SimpleObjectProperty<Artists>> artist= new ArrayList<>();
-       // public SimpleObjectProperty<plays_in> plays_in=new SimpleObjectProperty<plays_in>();
+       public SimpleObjectProperty<String> artist= new SimpleObjectProperty<>();
+        public SimpleObjectProperty<plays_in> plays_in=new SimpleObjectProperty<plays_in>();
 
         public void fromPlay(Plays q) throws PlaysException {
             this.play_name.set(q.getPlay_name());
             this.date.set(((Date)q.getDate()).toLocalDate());
-            this.price.set(q.getPrice());
-            this.genre.set(q.getGenre());
-            this.description.set(q.getDescription());
-            this.director.set(q.getDirector());
+           // this.price.set(q.getPrice());
+          //  this.genre.set(q.getGenre());
+            this.director.set(q.getDirector().getFirst_name());
             this.writer.set(q.getWriter().getFirst_name());
-            this.director.set(directorsManager.searchById(q.getDirector().getId()));
-          /*  ArrayList<Artists>a=(ArrayList<Artists>) plays_inManager.searchByPlay(q);
+            ArrayList<Artists>a=(ArrayList<Artists>) plays_inManager.searchByPlay(q);
             for(int i=0;i<a.size();i++){
-                SimpleObjectProperty<Artists> ar=new SimpleObjectProperty<>();
-                ar.set(a.get(i));
-                artist.set(i,ar);
-            }*/
+                artist.set(a.get(i).getArtist_name());
+
+            }
         }
 
         public Plays toPlay() throws PlaysException {
             Plays q = new Plays();
+            ArrayList<plays_in >p=new ArrayList<>();
             q.setPlay_name(this.play_name.getValue());
-            q.setPrice(this.price.getValue());
+            //  q.setPrice(this.price.getValue());
             q.setDate(Date.valueOf(this.date.getValue()));
-            q.setDirector(this.director.getValue());
+            q.setDirector(directorsManager.searchByDirectorName(this.director.getValue()));
             q.setWriter(writersManager.searchByWriterName(this.writer.getValue()));
-            q.setGenre(this.genre.getName());
-            q.setDescription(this.description.getValue());
+            //  q.setGenre(this.genre.getName());
+
+            String[] a;
+            a=this.artist.getValue().split(",");
+            for (int i=0;i<a.length;i++)
+            {  plays_in plays_in1=new plays_in();
+                plays_in1.setPlays_id(q.getId());
+                plays_in1.setArtist_id(artistManager.searchByArtistName(a[i]).getId());
+                p.add(plays_in1);}
             return q;
-        }
+
+    }
     }
 }

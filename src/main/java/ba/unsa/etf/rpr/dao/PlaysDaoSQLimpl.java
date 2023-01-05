@@ -25,7 +25,6 @@ try{
             play.setPlay_name(rs.getString("play_name"));
             play.setDate(rs.getDate("date"));
             play.setPrice(rs.getInt("price"));
-            play.setDescription(rs.getString("Description"));
             play.setGenre(rs.getString("genre"));
        play.setWriter(DaoFactory.writersDao().getById(rs.getInt("writer_id")));
     play.setDirector(DaoFactory.directorsDao().getById(rs.getInt("dir_id")));
@@ -41,10 +40,9 @@ catch (Exception e){
         item.put("play_name",object.getPlay_name());
         item.put("play_id",object.getId());
         item.put("genre",object.getGenre());
-        item.put("Description",object.getDescription());
         item.put("price",object.getPrice());
-        item.put("writer_id",object.getWriter());
-        item.put("dir_id",object.getDirector());
+        item.put("writer_id",object.getWriter().getId());
+        item.put("dir_id",object.getDirector().getId());
         item.put("date",object.getDate());
         return item;
     }
@@ -106,8 +104,8 @@ return executeQuery("SELECT * FROM Plays WHERE price BETWEEN ? AND ?",new Object
      * @return Play with that name
      */
     @Override
-   public Plays searchByPlayName(String play_name)throws PlaysException{
-        return executeQueryUnique("SELECT * FROM Plays WHERE play_name LIKE concat('%', ?, '%')",new Object[]{play_name});
+   public List<Plays> searchByPlayName(String play_name)throws PlaysException{
+        return executeQuery("SELECT * FROM Plays WHERE play_name LIKE concat('%', ?, '%')",new Object[]{play_name});
     }
     @Override
     public List<String>getAllGenres() throws PlaysException{

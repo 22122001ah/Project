@@ -19,7 +19,6 @@ public class MainFX extends Application {
             fl.setController(controller);
             Parent root = null;
             root = fl.load();
-            stage.initStyle(StageStyle.UTILITY);
             stage.setTitle("BuyTickets.com");
             stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
             stage.show();

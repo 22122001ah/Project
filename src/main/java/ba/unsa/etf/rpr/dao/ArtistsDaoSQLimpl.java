@@ -32,8 +32,8 @@ public class ArtistsDaoSQLimpl extends AbstractDao1<Artists> implements ArtistsD
         return item;
     }
     @Override
-    public List<Artists> searchByArtistName(String name) throws PlaysException {
-        return executeQuery("SELECT * FROM Artist WHERE artist_name = ?",new Object[]{name});
+    public Artists searchByArtistName(String name) throws PlaysException {
+        return executeQueryUnique("SELECT * FROM Artists WHERE artist_name = ?",new Object[]{name});
     }
     @Override
     public Artists searchById(int Id) throws PlaysException{

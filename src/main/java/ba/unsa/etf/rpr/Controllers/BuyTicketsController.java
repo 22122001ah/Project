@@ -22,7 +22,7 @@ public class BuyTicketsController {
     public void setName(String ime){
         name.setText(ime);
         try {
-            date.setText(String.valueOf(DaoFactory.playsDao().searchByPlayName(ime).getDate()));
+            date.setText(String.valueOf(DaoFactory.playsDao().searchByPlayName(ime).get(0).getDate()));
         } catch (PlaysException e) {
             throw new RuntimeException(e);
         }

@@ -7,7 +7,7 @@ import ba.unsa.etf.rpr.exceptions.PlaysException;
 import java.util.List;
 
 public class ArtistManager {
-    public List<Artists> searchByArtistName(String name) throws PlaysException{
+    public Artists searchByArtistName(String name) throws PlaysException{
         return DaoFactory.artistDao().searchByArtistName(name);
     }
     public Artists searchById(int Id) throws PlaysException{

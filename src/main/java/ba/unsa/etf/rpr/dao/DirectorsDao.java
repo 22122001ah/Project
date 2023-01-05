@@ -9,7 +9,7 @@ import java.util.List;
  * @author Adna Herak
  */
 public interface DirectorsDao extends Dao<Directors> {
-    public List<Directors> searchByDirectorName(String name) throws PlaysException;
+    public Directors searchByDirectorName(String name) throws PlaysException;
     public Directors searchById(int Id) throws PlaysException;
 
 }

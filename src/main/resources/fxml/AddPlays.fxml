@@ -24,7 +24,7 @@
         <TextArea fx:id="Play_name" prefHeight="120.0" prefWidth="118.0" style="-fx-background-color: beige; -fx-border-color: white;" GridPane.columnIndex="1" />
         <Label text="Play">
          <font>
-            <Font name="Bodoni MT" size="16.0" />
+            <Font name="Bodoni MT Bold Italic" size="16.0" />
          </font></Label>
         <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="5">
             <children>
@@ -36,7 +36,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
                <font>
-                  <Font name="Bodoni MT" size="14.0" />
+                  <Font name="Bodoni MT Bold Italic" size="16.0" />
                </font>
                 </Button>
                 <Button mnemonicParsing="false" onAction="#cancelAoUForm" style="-fx-background-color: beige; -fx-border-color: white;" text="Cancel">
@@ -47,29 +47,29 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
                <font>
-                  <Font name="Bodoni MT" size="14.0" />
+                  <Font name="Bodoni MT Bold Italic" size="16.0" />
                </font>
                 </Button>
             </children>
         </HBox>
         <Label text="Date" GridPane.rowIndex="4">
          <font>
-            <Font name="Bodoni MT" size="16.0" />
+            <Font name="Bodoni MT Bold Italic" size="16.0" />
          </font></Label>
         <DatePicker fx:id="date" prefWidth="400.0" style="-fx-border-color: beige;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
         <Label text="Director" GridPane.rowIndex="3">
          <font>
-            <Font name="Bodoni MT" size="16.0" />
+            <Font name="Bodoni MT Bold Italic" size="16.0" />
          </font></Label>
         <TextField fx:id="directorId" prefHeight="0.0" prefWidth="400.0" style="-fx-background-color: beige; -fx-border-color: white; -fx-border-width: 5;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
         <Label text="Writer" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
          <font>
-            <Font name="Bodoni MT" size="16.0" />
+            <Font name="Bodoni MT Bold Italic" size="16.0" />
          </font></Label>
         <TextField fx:id="writer" prefWidth="400.0" style="-fx-background-color: beige; -fx-border-color: white; -fx-border-width: 5;" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
       <Label text="Actors(separate with coma)" GridPane.rowIndex="1">
          <font>
-            <Font name="Bodoni MT" size="16.0" />
+            <Font name="Bodoni MT Bold Italic" size="15.0" />
          </font>
       </Label>
       <TextField fx:id="artists" style="-fx-background-color: beige; -fx-border-color: white; -fx-border-width: 5;" GridPane.columnIndex="1" GridPane.rowIndex="1" />

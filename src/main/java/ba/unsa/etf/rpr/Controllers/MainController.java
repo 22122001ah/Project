@@ -33,7 +33,6 @@ public class MainController  {
         FXMLLoader fl=new FXMLLoader(getClass().getResource("/fxml/Register.fxml"));
         Parent root =fl.load();
         noviprozor2=fl.getController();
-        Secondstage.initStyle(StageStyle.UTILITY);
         Secondstage.setTitle("Register");
        Secondstage.setScene(new Scene(root,USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
         //Alert alert=new Alert(Alert.AlertType.INFORMATION);
@@ -50,7 +49,6 @@ Secondstage.show();}
             FXMLLoader fl=new FXMLLoader(getClass().getResource("/fxml/Login.fxml"));
             Parent root =fl.load();
              noviprozor1=fl.getController();
-            Secondstage.initStyle(StageStyle.UTILITY);
             Secondstage.setTitle("Login");
             Secondstage.setScene(new Scene(root,USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
             //Alert alert=new Alert(Alert.AlertType.INFORMATION);
@@ -67,7 +65,6 @@ Secondstage.show();}
             FXMLLoader fl=new FXMLLoader(getClass().getResource("/fxml/showPlays.fxml"));
             Parent root =fl.load();
             ShowPlaysController noviprozor=fl.getController();
-            Secondstage.initStyle(StageStyle.UTILITY);
             Secondstage.setTitle("Plays");
             Secondstage.setScene(new Scene(root,USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
             //Alert alert=new Alert(Alert.AlertType.INFORMATION);
@@ -86,7 +83,6 @@ Secondstage.show();}
             Parent root =fl.load();
             InfoController noviprozor=fl.getController();
             noviprozor.setText(DaoFactory.playsDao().searchByPlayName(numberButton.getText()).toString());
-            Secondstage.initStyle(StageStyle.UTILITY);
             Secondstage.setTitle("Play description");
             Secondstage.setScene(new Scene(root,USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
             Secondstage.show();
@@ -102,22 +98,20 @@ public void buy(ActionEvent actionEvent) throws IOException, PlaysException {
         FXMLLoader fl=new FXMLLoader(getClass().getResource("/fxml/BuyTickets.fxml"));
         Parent root=fl.load();
         BuyTicketsController buyTicketsController=fl.getController();
-         buyTicketsController.setPrice(DaoFactory.playsDao().searchByPlayName(numberButton.getText()).getPrice());
+         buyTicketsController.setPrice(DaoFactory.playsDao().searchByPlayName(numberButton.getText()).get(0).getPrice());
          buyTicketsController.setName(numberButton.getText());
-    secondstage.initStyle(StageStyle.UTILITY);
         secondstage.setTitle("Buy tickets");
         secondstage.setScene(new Scene(root,USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
         secondstage.show();
 }
-BorderPane playScreen;
     public void editPlay(Integer play_id){
         try{
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/AddPlays.fxml"));
-            loader.setController(new ModelController(play_id));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/EditPlays.fxml"));
+
+            loader.setController(new EditPlaysController());
             Stage stage = new Stage();
             stage.setScene(new Scene(loader.load(), USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
-            stage.initStyle(StageStyle.UTILITY);
             stage.setTitle("Edit Play");
             stage.show();
         }catch (Exception e){

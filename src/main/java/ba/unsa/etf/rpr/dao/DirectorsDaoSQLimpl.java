@@ -18,7 +18,6 @@ public class DirectorsDaoSQLimpl extends AbstractDao1<Directors> implements Dire
 
             Directors d=new Directors();
             d.setId(rs.getInt("director_id"));
-          d.setLast_name(rs.getString("last_name"));
           d.setFirst_name(rs.getString("first_name"));
             return d;}
         catch (Exception e){
@@ -31,12 +30,12 @@ public class DirectorsDaoSQLimpl extends AbstractDao1<Directors> implements Dire
         Map<String, Object> item = new TreeMap<String, Object>();
         item.put("director_id",object.getId());
         item.put("first_name",object.getFirst_name());
-        item.put("last_name",object.getLast_name());
         return item;
     }
     @Override
-    public List<Directors> searchByDirectorName(String name) throws PlaysException {
-        return executeQuery("SELECT * FROM Directors WHERE first_name||' '||last_name = ?",new Object[]{name});
+    public Directors searchByDirectorName(String name) throws PlaysException {
+
+        return executeQueryUnique("SELECT * FROM Directors WHERE first_name = ?",new Object[]{name});
     }
     @Override
     public Directors searchById(int Id) throws PlaysException{

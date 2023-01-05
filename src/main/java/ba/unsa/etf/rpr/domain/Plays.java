@@ -17,16 +17,6 @@ public class Plays extends PlaysDaoSQLimpl implements Idable {
     private String genre;
     private Date date;
     private int price;
-
-    public String getDescription() {
-        return Description;
-    }
-
-    public void setDescription(String about) {
-        Description = about;
-    }
-
-    private String Description;
     private Directors director;
     private Writers writer;
     private Users management;
@@ -107,8 +97,8 @@ public class Plays extends PlaysDaoSQLimpl implements Idable {
         } catch (PlaysException e) {
             throw new RuntimeException(e);
         }
-        String ret= play_name+"\nGenre: "+genre+"\nDate: "+date+"\nDirector: "+ director.getFirst_name()+" "+director.getLast_name()
-                +"\nWriter: "+writer.getFirst_name()+" "+writer.getLast_name()
+        String ret= play_name+"\nGenre: "+genre+"\nDate: "+date+"\nDirector: "+ director.getFirst_name()
+                +"\nWriter: "+writer.getFirst_name()
                 +"\nActors: ";
         for(int i=0;i<artists.size();i++)
         {    ret+=artists.get(i).getArtist_name();
@@ -120,7 +110,7 @@ public class Plays extends PlaysDaoSQLimpl implements Idable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(Id, play_name, genre, date, price, Description, director, writer,management);
+        return Objects.hash(Id, play_name, genre, date, price, director, writer,management);
     }
 
     @Override

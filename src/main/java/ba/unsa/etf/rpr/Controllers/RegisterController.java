@@ -46,7 +46,7 @@ public CheckBox M=new CheckBox();
     }
        catch (Exception e){
            if(M.isSelected() && F.isSelected())
-           new Alert(Alert.AlertType.NONE,"You can only choose one",ButtonType.CLOSE).show();
+           new Alert(Alert.AlertType.NONE,"You can only choose one",ButtonType.OK).show();
            u.setFirst_name(fieldFirstname.getText());
            u.setLast_name(fieldLastname.getText());
            u.setPassword(fieldPass.getText());
