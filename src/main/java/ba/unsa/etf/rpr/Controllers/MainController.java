@@ -1,7 +1,9 @@
 package ba.unsa.etf.rpr.Controllers;
 
+import ba.unsa.etf.rpr.business.PlaysManager;
 import ba.unsa.etf.rpr.dao.DaoFactory;
 import ba.unsa.etf.rpr.exceptions.PlaysException;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -119,7 +121,19 @@ public void buy(ActionEvent actionEvent) throws IOException, PlaysException {
         }
     }
 
+public void search(ActionEvent actionEvent){
+    try{
 
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/searchPlays.fxml"));
+        loader.setController(new SearchController());
+        Stage stage = new Stage();
+        stage.setScene(new Scene(loader.load(), USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+        stage.setTitle("Search play");
+        stage.show();
+    }catch (Exception e){
+        new Alert(Alert.AlertType.NONE, e.getMessage(), ButtonType.OK).show();
+    }
+}
     /**
      * Event handler for creation of quote
      * @param event

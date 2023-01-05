@@ -52,4 +52,7 @@ return DaoFactory.playsDao().add(q);
     public void delete(int id) throws PlaysException {
          DaoFactory.playsDao().delete(id);
     }
+    public Plays randomPlay() throws PlaysException{
+        return DaoFactory.playsDao().randomPlay();
+    }
 }

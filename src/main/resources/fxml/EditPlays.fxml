@@ -5,9 +5,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane fx:id="quoteScreen" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="playScreen" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
     <center>
-        <TableView fx:id="quotesTable" style="-fx-background-color: beige;" BorderPane.alignment="CENTER">
+        <TableView fx:id="playsTable" style="-fx-background-color: beige;" BorderPane.alignment="CENTER">
             <columns>
                 <TableColumn fx:id="idColumn" minWidth="30.0" prefWidth="-1.0" style="-fx-background-color: beige; -fx-border-color: white;" text="ID" />
                 <TableColumn fx:id="quoteColumn" minWidth="300.0" prefWidth="-1.0" style="-fx-background-color: beige; -fx-border-color: white;" text="Play" />
@@ -29,7 +29,7 @@
                <font>
                   <Font name="Bodoni MT Bold Italic" size="12.0" />
                </font></TextField>
-                <Button minWidth="60.0" mnemonicParsing="false" onAction="#searchQuotes" style="-fx-background-color: beige; -fx-border-color: white;" text="Search">
+                <Button minWidth="60.0" mnemonicParsing="false" onAction="#searchPlays" style="-fx-background-color: beige; -fx-border-color: white;" text="Search">
                     <HBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                     </HBox.margin>

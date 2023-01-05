@@ -11,6 +11,7 @@ import ba.unsa.etf.rpr.domain.Directors;
 import ba.unsa.etf.rpr.domain.Writers;
 import ba.unsa.etf.rpr.domain.Artists;
 import ba.unsa.etf.rpr.exceptions.PlaysException;
+import com.google.protobuf.StringValue;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -20,6 +21,8 @@ import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import ba.unsa.etf.rpr.domain.plays_in;
 import ba.unsa.etf.rpr.business.plays_inManager;
+import javafx.util.Pair;
+
 import java.sql.Date;
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -55,6 +58,8 @@ public class ModelController {
     public TextField directorId;
     public TextField writer;
     public TextField artists;
+    public TextField price;
+    public TextField genre;
 
     public ModelController(Integer editQuoteId){
         this.editPlayId = editQuoteId;
@@ -69,6 +74,8 @@ public class ModelController {
             writer.textProperty().bindBidirectional(model.writer);
             artists.textProperty().bindBidirectional(model.artist);
             directorId.textProperty().bindBidirectional(model.director);
+            price.textProperty().bindBidirectional(model.price);
+            genre.textProperty().bindBidirectional(model.genre);
             if (editPlayId != null) {
                 model.fromPlay(playsManager.getById(editPlayId));
             }
@@ -91,12 +98,17 @@ public class ModelController {
      */
     public void saveAoUForm(ActionEvent event){
         try{
-            Plays q = model.toPlay();
+            Plays q = model.toPlay().getKey();
+           ArrayList<plays_in> p=model.toPlay().getValue();
             if (editPlayId != null){
                 q.setId(editPlayId);
                 playsManager.update(q);
+                for(int i=0;i<p.size();i++)
+                plays_inManager.update(p.get(i));
             }else{
                 playsManager.add(q);
+                for(int i=0;i<p.size();i++)
+                plays_inManager.add(p.get(i));
             }
             addPlays.getScene().getWindow().hide();
         }catch (PlaysException e){
@@ -112,19 +124,18 @@ public class ModelController {
      */
     public class PlayModel{
         public SimpleStringProperty play_name = new SimpleStringProperty("");
-        public SimpleObjectProperty<Integer> price = new SimpleObjectProperty<Integer>();
+        public SimpleObjectProperty<String> price = new SimpleObjectProperty<String>();
         public SimpleObjectProperty<LocalDate> date = new SimpleObjectProperty<LocalDate>();
         public SimpleStringProperty genre = new SimpleStringProperty("");
         public SimpleObjectProperty<String> director = new SimpleObjectProperty<String>();
         public SimpleObjectProperty<String> writer = new SimpleObjectProperty<String>();
        public SimpleObjectProperty<String> artist= new SimpleObjectProperty<>();
-        public SimpleObjectProperty<plays_in> plays_in=new SimpleObjectProperty<plays_in>();
 
         public void fromPlay(Plays q) throws PlaysException {
             this.play_name.set(q.getPlay_name());
             this.date.set(((Date)q.getDate()).toLocalDate());
-           // this.price.set(q.getPrice());
-          //  this.genre.set(q.getGenre());
+            this.price.set(String.valueOf(q.getPrice()));
+            this.genre.set(q.getGenre());
             this.director.set(q.getDirector().getFirst_name());
             this.writer.set(q.getWriter().getFirst_name());
             ArrayList<Artists>a=(ArrayList<Artists>) plays_inManager.searchByPlay(q);
@@ -134,15 +145,16 @@ public class ModelController {
             }
         }
 
-        public Plays toPlay() throws PlaysException {
+        public Pair<Plays,ArrayList<plays_in>> toPlay() throws PlaysException {
+
             Plays q = new Plays();
             ArrayList<plays_in >p=new ArrayList<>();
             q.setPlay_name(this.play_name.getValue());
-            //  q.setPrice(this.price.getValue());
+            q.setPrice(Integer.parseInt(this.price.getValue()));
             q.setDate(Date.valueOf(this.date.getValue()));
             q.setDirector(directorsManager.searchByDirectorName(this.director.getValue()));
             q.setWriter(writersManager.searchByWriterName(this.writer.getValue()));
-            //  q.setGenre(this.genre.getName());
+            q.setGenre(this.genre.getName());
 
             String[] a;
             a=this.artist.getValue().split(",");
@@ -151,7 +163,8 @@ public class ModelController {
                 plays_in1.setPlays_id(q.getId());
                 plays_in1.setArtist_id(artistManager.searchByArtistName(a[i]).getId());
                 p.add(plays_in1);}
-            return q;
+            Pair<Plays,ArrayList<plays_in>> pl=new Pair<>(q,p);
+            return pl;
 
     }
     }

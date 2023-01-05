@@ -22,5 +22,8 @@ public interface plays_inDao extends Dao<plays_in> {
      * @return List of actors that play in given Play
      */
     List<Artists> searchByPlay(Plays play) throws PlaysException;
+    @Override
+    public plays_in update(plays_in item) throws PlaysException;
+
 }
 

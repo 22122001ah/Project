@@ -15,7 +15,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Callback;
-
+import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 import java.util.Date;
 import java.util.Optional;
 
@@ -23,42 +23,42 @@ import java.util.Optional;
  * Controller for managing Quotes Entity
  * @author Dino Keco
  */
-public class EditPlaysController extends TableCell<Plays, Button>{
+public class EditPlaysController{
     // managers
-    private final PlaysManager quoteManager = new PlaysManager();
+    private final PlaysManager playsManager= new PlaysManager();
 
     // helper components
     @FXML
-    public BorderPane quoteScreen;
+    public BorderPane playScreen;
 private final PlaysManager PlaysManager=new PlaysManager();
     // components
-    public TableView quotesTable;
+    public TableView playsTable;
     public TextField search;
 
     public TableColumn<Plays, String> idColumn;
-    public TableColumn<Plays, String> quoteColumn;
+    public TableColumn<Plays, String> playsColumn;
     public TableColumn<Plays, Date> createdColumn;
     public TableColumn<Plays, Integer> actionColumn;
     Button edit=new Button("Edit");
 
     public void initialize(){
         idColumn.setCellValueFactory(new PropertyValueFactory<Plays, String>("Id"));
-        quoteColumn.setCellValueFactory(new PropertyValueFactory<Plays, String>("play_name"));
+        playsColumn.setCellValueFactory(new PropertyValueFactory<Plays, String>("play_name"));
         createdColumn.setCellValueFactory(new PropertyValueFactory<Plays, Date>("date"));
         actionColumn.setCellValueFactory(new PropertyValueFactory<Plays, Integer>("Id"));
 
-        refreshQuotes();
+        refreshPlays();
     }
 
 
     /**
-     * search quote event handler
+     * search plays event handler
      * @param event
      */
-    public void searchQuotes(ActionEvent event){
+    public void searchPlays(ActionEvent event){
         try {
-            quotesTable.setItems(FXCollections.observableList(PlaysManager.searchByPlayName(search.getText())));
-            quotesTable.refresh();
+            playsTable.setItems(FXCollections.observableList(PlaysManager.searchByPlayName(search.getText())));
+            playsTable.refresh();
         } catch (PlaysException e) {
             new Alert(Alert.AlertType.NONE, e.getMessage(), ButtonType.OK).show();
         }
@@ -74,7 +74,7 @@ private final PlaysManager PlaysManager=new PlaysManager();
             Optional<ButtonType> result = confirmation.showAndWait();
             if (!result.get().getButtonData().isCancelButton()){
                 PlaysManager.delete(quoteId);
-                refreshQuotes();
+                refreshPlays();
             }
         } catch (PlaysException e) {
             new Alert(Alert.AlertType.NONE, e.getMessage(), ButtonType.OK).show();
@@ -88,7 +88,7 @@ private final PlaysManager PlaysManager=new PlaysManager();
      */
     public void editQuoteScene(Integer quoteId){
         try{
-            ((Stage)quoteScreen.getScene().getWindow()).hide();
+            ((Stage)playScreen.getScene().getWindow()).hide();
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/AddPlays.fxml"));
             loader.setController(new ModelController(quoteId));
@@ -98,8 +98,8 @@ private final PlaysManager PlaysManager=new PlaysManager();
             stage.setTitle("Edit Quote");
             stage.show();
             stage.setOnHiding(event -> {
-                ((Stage)quoteScreen.getScene().getWindow()).show();
-                refreshQuotes();
+                ((Stage)playScreen.getScene().getWindow()).show();
+                refreshPlays();
             });
         }catch (Exception e){
             new Alert(Alert.AlertType.NONE, e.getMessage(), ButtonType.OK).show();
@@ -118,10 +118,10 @@ private final PlaysManager PlaysManager=new PlaysManager();
     /**
      * fetch quotes from DB
      */
-    private void refreshQuotes(){
+    private void refreshPlays(){
         try {
-            quotesTable.setItems(FXCollections.observableList(quoteManager.getAll()));
-            quotesTable.refresh();
+            playsTable.setItems(FXCollections.observableList(playsManager.getAll()));
+            playsTable.refresh();
         } catch (PlaysException e) {
             new Alert(Alert.AlertType.NONE, e.getMessage(), ButtonType.OK).show();
         }

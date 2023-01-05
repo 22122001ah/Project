@@ -185,7 +185,7 @@
           <Menu mnemonicParsing="false" text="Plays">
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#showPlays" text="All plays" />
-                  <MenuItem mnemonicParsing="false" text="Search" />
+                  <MenuItem mnemonicParsing="false" onAction="#search" text="Search" />
                </items></Menu>
             <Menu mnemonicParsing="false" text="About us">
               <items>
@@ -195,9 +195,7 @@
             </Menu>
             <Menu mnemonicParsing="false" text="Managment">
               <items>
-                <MenuItem mnemonicParsing="false" onAction="#addPlay" text="Add plays" />
-                  <MenuItem mnemonicParsing="false" onAction="#addPlay" text="Edit plays" />
-                  <MenuItem mnemonicParsing="false" text="Delete plays" />
+                  <MenuItem mnemonicParsing="false" onAction="#addPlay" text="Edit" />
               </items>
             </Menu>
         </menus>
@@ -229,7 +227,10 @@
             <Button mnemonicParsing="false" onAction="#LoginBttn" prefHeight="25.0" prefWidth="108.0" style="-fx-background-color: beige; -fx-border-color: white; -fx-border-width: 3;" text="Login" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                <font>
                   <Font name="System Bold Italic" size="14.0" />
-               </font></Button>
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
             <Button fx:id="seeAll" mnemonicParsing="false" onAction="#showPlays" prefHeight="30.0" prefWidth="117.0" style="-fx-background-color: beige; -fx-border-color: white; -fx-border-width: 3;" text="See all" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                <cursor>
                   <Cursor fx:constant="HAND" />
