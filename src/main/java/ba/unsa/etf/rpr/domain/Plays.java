@@ -78,9 +78,6 @@ public class Plays extends PlaysDaoSQLimpl implements Idable {
     public int getPrice() {
         return price;
     }
-
-
-
     public Directors getDirector() {
         return director;
     }
