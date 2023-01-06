@@ -22,16 +22,10 @@ import java.util.Date;
 import java.util.Optional;
 
 /**
- * Controller for managing Quotes Entity
- * @author Dino Keco
+ * Controller for managing Plays
  */
 public class SearchController{
-    // managers
     private final PlaysManager playsManager= new PlaysManager();
-
-    // helper components
-    @FXML
-    public BorderPane playScreen;
     private final PlaysManager PlaysManager=new PlaysManager();
     // components
     public TableView playsTable;
@@ -65,7 +59,7 @@ public class SearchController{
     }
 
     /**
-     * fetch quotes from DB
+     * fetch plays from DB
      */
     private void refreshPlays(){
         try {

@@ -1,5 +1,6 @@
 package ba.unsa.etf.rpr.Controllers;
 
+import ba.unsa.etf.rpr.MainFX;
 import ba.unsa.etf.rpr.dao.DaoFactory;
 import ba.unsa.etf.rpr.dao.UserDaoSQLimpl;
 import ba.unsa.etf.rpr.domain.Users;
@@ -39,10 +40,7 @@ public class RegisterController {
         try {
             k=k.searchByUsername(fieldUsername.getText());
 
-
             new Alert(Alert.AlertType.NONE,"Username already taken",ButtonType.OK).show();
-
-
         }
         catch (Exception e){
             if(M.isSelected() && F.isSelected())

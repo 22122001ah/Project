@@ -1,5 +1,6 @@
 package ba.unsa.etf.rpr.Controllers;
 
+import ba.unsa.etf.rpr.MainFX;
 import ba.unsa.etf.rpr.dao.UserDaoSQLimpl;
 import ba.unsa.etf.rpr.domain.Users;
 import javafx.event.ActionEvent;
@@ -20,6 +21,7 @@ public class LoginController {
 
     public void zatvoriProzorPropuhJe(ActionEvent actionEvent){
         Users k=new Users();
+        u=null;
         try{
             k=k.searchByUsername(fieldUsername.getText());
             if (k!=null) {
@@ -33,6 +35,7 @@ public class LoginController {
         }
         catch (Exception e){
             {
+
                 new Alert(Alert.AlertType.NONE,"invalid username", ButtonType.OK).show();
             }
         }
