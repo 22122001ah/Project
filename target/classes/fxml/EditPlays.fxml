@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane fx:id="playScreen" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+    <center>
+        <TableView fx:id="playsTable" style="-fx-background-color: beige;" BorderPane.alignment="CENTER">
+            <columns>
+                <TableColumn fx:id="idColumn" minWidth="30.0" prefWidth="-1.0" style="-fx-background-color: beige; -fx-border-color: white;" text="ID" />
+                <TableColumn fx:id="playsColumn" minWidth="300.0" prefWidth="-1.0" style="-fx-background-color: beige; -fx-border-color: white;" text="Play" />
+                <TableColumn fx:id="createdColumn" minWidth="100.0" prefWidth="-1.0" style="-fx-background-color: beige; -fx-border-color: white;" text="Date" />
+                <TableColumn fx:id="actionColumn" minWidth="120.0" prefWidth="162.0" style="-fx-background-color: beige; -fx-border-color: white;" text="Actions" />
+            </columns>
+            <padding>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+        </TableView>
+    </center>
+    <top>
+        <HBox style="-fx-background-color: beige;" BorderPane.alignment="BOTTOM_RIGHT">
+            <children>
+                <TextField fx:id="search" alignment="CENTER" promptText="Search..." style="-fx-background-color: beige; -fx-border-color: white; -fx-border-width: 3;">
+                    <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                    </HBox.margin>
+                    <font>
+                        <Font name="Bodoni MT Bold Italic" size="12.0" />
+                    </font></TextField>
+                <Button minWidth="60.0" mnemonicParsing="false" onAction="#searchPlays" style="-fx-background-color: beige; -fx-border-color: white;" text="Search">
+                    <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                    </HBox.margin>
+                    <font>
+                        <Font name="Bodoni MT Bold Italic" size="14.0" />
+                    </font></Button>
+                <Button alignment="CENTER" minWidth="60.0" mnemonicParsing="false" onAction="#addPlay" style="-fx-background-color: beige; -fx-border-color: white;" text="Add">
+                    <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                    </HBox.margin>
+                    <font>
+                        <Font name="Bodoni MT Bold Italic" size="14.0" />
+                    </font>
+                </Button>
+            </children>
+        </HBox>
+    </top>
+</BorderPane>
