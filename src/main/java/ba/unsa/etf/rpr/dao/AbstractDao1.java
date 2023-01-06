@@ -162,15 +162,17 @@ public abstract class AbstractDao1 <T extends Idable> implements Dao<T> {
     private Map.Entry<String, String> prepareInsertParts(Map<String, Object> row){
         StringBuilder columns = new StringBuilder();
         StringBuilder questions = new StringBuilder();
-
         int counter = 0;
+        boolean id=false;
         for (Map.Entry<String, Object> entry: row.entrySet()) {
             counter++;
             if (entry.getKey().equals(this.Table.substring(0,Table.length()-1).toLowerCase()+ "_id"))
-                continue; //skip insertion of id due autoincrement
+            { id=true;  continue;} //skip insertion of id due autoincrement
             columns.append(entry.getKey());
             questions.append("?");
             if (row.size() != counter) {
+                if(counter==row.size()-1 && id==false)
+                    continue;
                 columns.append(",");
                 questions.append(",");
             }

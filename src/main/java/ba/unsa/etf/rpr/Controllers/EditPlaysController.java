@@ -20,8 +20,7 @@ import java.util.Date;
 import java.util.Optional;
 
 /**
- * Controller for managing Quotes Entity
- * @author Dino Keco
+ * Controller for managing Plays
  */
 public class EditPlaysController{
     // managers
@@ -65,15 +64,15 @@ public class EditPlaysController{
     }
 
     /**
-     * Event handler for deletion of quote. It has confirm box before deletion
-     * @param quoteId
+     * Event handler for deletion of plays. It has a confirm box before deletion
+     * @param playId
      */
-    public void deleteQuote(Integer quoteId){
+    public void deletePlays(Integer playId){
         try {
             Alert confirmation = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to delete");
             Optional<ButtonType> result = confirmation.showAndWait();
             if (!result.get().getButtonData().isCancelButton()){
-                PlaysManager.delete(quoteId);
+                PlaysManager.delete(playId);
                 refreshPlays();
             }
         } catch (PlaysException e) {
@@ -82,20 +81,20 @@ public class EditPlaysController{
     }
 
     /**
-     * Open form for editing or creating quote
+     * Open form for editing or creating plays
      *
-     * @param quoteId - only for edit if we know which quote is being edited.
+     * @param playId - only for edit if we know which play is being edited.
      */
-    public void editQuoteScene(Integer quoteId){
+    public void editPlayScene(Integer playId){
         try{
             ((Stage)playScreen.getScene().getWindow()).hide();
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/AddPlays.fxml"));
-            loader.setController(new ModelController(quoteId));
+            loader.setController(new ModelController(playId));
             Stage stage = new Stage();
             stage.setScene(new Scene(loader.load(), USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
             stage.initStyle(StageStyle.UTILITY);
-            stage.setTitle("Edit Quote");
+            stage.setTitle("Edit");
             stage.show();
             stage.setOnHiding(event -> {
                 ((Stage)playScreen.getScene().getWindow()).show();
@@ -108,15 +107,15 @@ public class EditPlaysController{
 
 
     /**
-     * Event handler for creation of quote
+     * Event handler for creation of plays
      * @param event
      */
     public void addPlay(ActionEvent event){
-        editQuoteScene(null);
+        editPlayScene(null);
     }
 
     /**
-     * fetch quotes from DB
+     * fetch plays from DB
      */
     private void refreshPlays(){
         try {

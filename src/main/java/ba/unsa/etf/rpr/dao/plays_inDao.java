@@ -1,5 +1,5 @@
 package ba.unsa.etf.rpr.dao;
-import ba.unsa.etf.rpr.domain.plays_in;
+import ba.unsa.etf.rpr.domain.plays_ins;
 import java.util.List;
 import ba.unsa.etf.rpr.domain.Plays;
 import ba.unsa.etf.rpr.domain.Artists;
@@ -9,7 +9,7 @@ import ba.unsa.etf.rpr.exceptions.PlaysException;
  * Dao interface for plays_in domain bean
  * @author Adna Herak
  */
-public interface plays_inDao extends Dao<plays_in> {
+public interface plays_inDao extends Dao<plays_ins> {
     /**
      * searches for all Plays in which given actor plays
      * @param artists
@@ -23,7 +23,7 @@ public interface plays_inDao extends Dao<plays_in> {
      */
     List<Artists> searchByPlay(Plays play) throws PlaysException;
     @Override
-    public plays_in update(plays_in item) throws PlaysException;
+    public plays_ins update(plays_ins item) throws PlaysException;
 
 }
 

@@ -10,12 +10,10 @@ import javafx.stage.StageStyle;
 
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 public class MainFX extends Application {
+
     public void start(Stage stage) throws Exception {
-        try{
-            FXMLLoader fl=new FXMLLoader(getClass().getResource("/fxml/home-layout.fxml"));
-
+        try{ FXMLLoader fl=new FXMLLoader(getClass().getResource("/fxml/home-layout.fxml"));
             MainController controller = new MainController();
-
             fl.setController(controller);
             Parent root = null;
             root = fl.load();

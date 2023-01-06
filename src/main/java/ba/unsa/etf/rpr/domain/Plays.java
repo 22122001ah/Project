@@ -2,7 +2,7 @@ package ba.unsa.etf.rpr.domain;
 import ba.unsa.etf.rpr.dao.DaoFactory;
 import ba.unsa.etf.rpr.dao.PlaysDaoSQLimpl;
 import ba.unsa.etf.rpr.exceptions.PlaysException;
-import ba.unsa.etf.rpr.domain.plays_in;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Objects;

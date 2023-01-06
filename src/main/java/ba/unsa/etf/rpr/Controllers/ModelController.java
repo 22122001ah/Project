@@ -5,40 +5,32 @@ import ba.unsa.etf.rpr.business.PlaysManager;
 import ba.unsa.etf.rpr.business.DirectorsManager;
 import ba.unsa.etf.rpr.business.WritersManager;
 import ba.unsa.etf.rpr.business.ArtistManager;
-import ba.unsa.etf.rpr.dao.DaoFactory;
 import ba.unsa.etf.rpr.domain.Plays;
-import ba.unsa.etf.rpr.domain.Directors;
-import ba.unsa.etf.rpr.domain.Writers;
 import ba.unsa.etf.rpr.domain.Artists;
 import ba.unsa.etf.rpr.exceptions.PlaysException;
-import com.google.protobuf.StringValue;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
-import ba.unsa.etf.rpr.domain.plays_in;
+import ba.unsa.etf.rpr.domain.plays_ins;
 import ba.unsa.etf.rpr.business.plays_inManager;
 import javafx.util.Pair;
 
 import java.sql.Date;
 import java.time.LocalDate;
-import java.time.ZoneId;
 import java.util.ArrayList;
 
 /**
- * JavaFX controller for creation and alteration of Quote object
+ * JavaFX controller for creation and alteration of plays and plays_in(connects plays and actors) object
  *
  * @author Adna Herak
  */
 public class ModelController {
-    // helper components
     @FXML
     public GridPane addPlays;
 
-    // managers
     private final PlaysManager playsManager = new PlaysManager();
     private final DirectorsManager directorsManager = new DirectorsManager();
     private final WritersManager writersManager=new WritersManager();
@@ -46,13 +38,10 @@ public class ModelController {
     private final ArtistManager artistManager=new ArtistManager();
 
 
-    // model
     private PlayModel model = new PlayModel();
 
-    // id of quote that is edited
     private Integer editPlayId;
 
-    // form fields
     public TextArea Play_name;
     public DatePicker date;
     public TextField directorId;
@@ -61,8 +50,8 @@ public class ModelController {
     public TextField price;
     public TextField genre;
 
-    public ModelController(Integer editQuoteId){
-        this.editPlayId = editQuoteId;
+    public ModelController(Integer editPlayId){
+        this.editPlayId = editPlayId;
     }
 
     public void initialize() {
@@ -93,13 +82,13 @@ public class ModelController {
     }
 
     /**
-     * save button event handler (update and add quote)
+     * save button event handler (update and add plays)
      * @param event
      */
     public void saveAoUForm(ActionEvent event){
         try{
             Plays q = model.toPlay().getKey();
-            ArrayList<plays_in> p=model.toPlay().getValue();
+            ArrayList<plays_ins> p=model.toPlay().getValue();
             if (editPlayId != null){
                 q.setId(editPlayId);
                 playsManager.update(q);
@@ -118,8 +107,7 @@ public class ModelController {
 
 
     /**
-     * Helper Model class that supports 2 way data binding with form for Quote management
-     * @author Dino Keco
+     * Helper Model class that supports 2 way data binding with form for play management
      *
      */
     public class PlayModel{
@@ -145,27 +133,27 @@ public class ModelController {
             }
         }
 
-        public Pair<Plays,ArrayList<plays_in>> toPlay() throws PlaysException {
+        public Pair<Plays,ArrayList<plays_ins>> toPlay() throws PlaysException {
 
             Plays q = new Plays();
-            ArrayList<plays_in >p=new ArrayList<>();
+            ArrayList<plays_ins>p=new ArrayList<>();
             q.setPlay_name(this.play_name.getValue());
             q.setPrice(Integer.parseInt(this.price.getValue()));
             q.setDate(Date.valueOf(this.date.getValue()));
             q.setDirector(directorsManager.searchByDirectorName(this.director.getValue()));
             q.setWriter(writersManager.searchByWriterName(this.writer.getValue()));
-            q.setGenre(this.genre.getName());
-
+            q.setGenre(this.genre.getValue());
             String[] a;
             a=this.artist.getValue().split(",");
             for (int i=0;i<a.length;i++)
-            {  plays_in plays_in1=new plays_in();
+            {  plays_ins plays_in1=new plays_ins();
+                if(q.getId()!=0)
                 plays_in1.setPlays_id(q.getId());
+                else plays_in1.setPlays_id(q.getAll().size());
                 plays_in1.setArtist_id(artistManager.searchByArtistName(a[i]).getId());
                 p.add(plays_in1);}
-            Pair<Plays,ArrayList<plays_in>> pl=new Pair<>(q,p);
+            Pair<Plays,ArrayList<plays_ins>> pl=new Pair<>(q,p);
             return pl;
-
         }
     }
 }
