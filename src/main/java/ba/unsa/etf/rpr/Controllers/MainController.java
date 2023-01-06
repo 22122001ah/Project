@@ -26,20 +26,14 @@ public class MainController  {
     LoginController noviprozor1;
     @FXML
     public void initialize() throws PlaysException {}
-
-
     public void RegisterBttn(ActionEvent actionEvent) throws IOException {
         try{
-
             Stage Secondstage=new Stage();
             FXMLLoader fl=new FXMLLoader(getClass().getResource("/fxml/Register.fxml"));
             Parent root =fl.load();
             noviprozor2=fl.getController();
             Secondstage.setTitle("Register");
             Secondstage.setScene(new Scene(root,USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
-            //Alert alert=new Alert(Alert.AlertType.INFORMATION);
-            //alert.setTitle("Pozdrav");
-            //alert.show();
             Secondstage.show();}
         catch(Exception e){
             System.out.println(e);
@@ -53,9 +47,6 @@ public class MainController  {
             noviprozor1=fl.getController();
             Secondstage.setTitle("Login");
             Secondstage.setScene(new Scene(root,USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
-            //Alert alert=new Alert(Alert.AlertType.INFORMATION);
-            //alert.setTitle("Pozdrav");
-            //alert.show();
             Secondstage.show();}
         catch(Exception e){
             System.out.println(e);
@@ -71,9 +62,6 @@ public class MainController  {
             noviprozor.setM2(noviprozor1);
             Secondstage.setTitle("Plays");
             Secondstage.setScene(new Scene(root,USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
-            //Alert alert=new Alert(Alert.AlertType.INFORMATION);
-            //alert.setTitle("Pozdrav");
-            //alert.show();
             Secondstage.show();}
         catch(Exception e){
             System.out.println(e);
@@ -102,6 +90,10 @@ public class MainController  {
            new Alert(Alert.AlertType.NONE,"You need to have an account and be logged in in order to buy tickets.",ButtonType.OK).show();
 
        }
+       else if(noviprozor1.getU()==null)
+       {
+           new Alert(Alert.AlertType.NONE,"You need to have an account and be logged in in order to buy tickets.",ButtonType.OK).show();
+       }
         else{Button numberButton = (Button) actionEvent.getTarget();
         Stage secondstage=new Stage();
         FXMLLoader fl=new FXMLLoader(getClass().getResource("/fxml/BuyTickets.fxml"));
@@ -114,7 +106,17 @@ public class MainController  {
         secondstage.show();}
     }
     public void editPlay(Integer play_id){
-        try{
+        try{   if(noviprozor2==null && noviprozor1==null)
+        {
+            new Alert(Alert.AlertType.NONE,"You are not authorised for this action",ButtonType.OK).show();
+
+        }
+        else if(noviprozor1!=null && noviprozor1.getU().getManagement()!=1)
+            new Alert(Alert.AlertType.NONE,"You are not authorised for this action",ButtonType.OK).show();
+        else if(noviprozor2!=null && noviprozor2.getU().getManagement()!=1)
+            new Alert(Alert.AlertType.NONE,"You are not authorised for this action",ButtonType.OK).show();
+
+        else{
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/EditPlays.fxml"));
 
@@ -123,7 +125,7 @@ public class MainController  {
             stage.setScene(new Scene(loader.load(), USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
             stage.setTitle("Edit Play");
             stage.show();
-        }catch (Exception e){
+        }}catch (Exception e){
             new Alert(Alert.AlertType.NONE, e.getMessage(), ButtonType.OK).show();
         }
     }
