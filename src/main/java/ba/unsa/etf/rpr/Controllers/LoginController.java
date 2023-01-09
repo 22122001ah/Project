@@ -1,7 +1,4 @@
 package ba.unsa.etf.rpr.Controllers;
-
-import ba.unsa.etf.rpr.MainFX;
-import ba.unsa.etf.rpr.dao.UserDaoSQLimpl;
 import ba.unsa.etf.rpr.domain.Users;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;

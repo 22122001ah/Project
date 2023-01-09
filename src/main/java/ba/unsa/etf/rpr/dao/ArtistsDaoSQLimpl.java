@@ -3,7 +3,6 @@ package ba.unsa.etf.rpr.dao;
 import ba.unsa.etf.rpr.domain.Artists;
 import ba.unsa.etf.rpr.exceptions.PlaysException;
 import java.sql.*;
-import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 

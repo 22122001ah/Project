@@ -1,15 +1,10 @@
 package ba.unsa.etf.rpr.dao;
 
 import ba.unsa.etf.rpr.domain.Users;
-
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.Map;
 import java.util.TreeMap;
 import ba.unsa.etf.rpr.exceptions.PlaysException;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
 
 public class UserDaoSQLimpl extends AbstractDao1<Users> implements UsersDao{
 

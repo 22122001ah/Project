@@ -5,21 +5,10 @@ import ba.unsa.etf.rpr.domain.Plays;
 import ba.unsa.etf.rpr.exceptions.PlaysException;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.BorderPane;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
-import javafx.util.Callback;
-import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
-
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Optional;
 
 /**
  * Controller for managing Plays
@@ -27,7 +16,6 @@ import java.util.Optional;
 public class SearchController{
     private final PlaysManager playsManager= new PlaysManager();
     private final PlaysManager PlaysManager=new PlaysManager();
-    // components
     public TableView playsTable;
     public TextField search;
 

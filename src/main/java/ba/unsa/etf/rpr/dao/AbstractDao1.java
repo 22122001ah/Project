@@ -1,11 +1,7 @@
 package ba.unsa.etf.rpr.dao;
 
 import ba.unsa.etf.rpr.domain.Idable;
-
-import ba.unsa.etf.rpr.domain.Idable;
 import ba.unsa.etf.rpr.exceptions.PlaysException;
-
-import java.io.IOException;
 import java.sql.*;
 import java.util.*;
 

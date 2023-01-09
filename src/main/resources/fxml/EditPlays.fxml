@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.*?>
+<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
@@ -35,7 +36,10 @@
                     </HBox.margin>
                     <font>
                         <Font name="Bodoni MT Bold Italic" size="14.0" />
-                    </font></Button>
+                    </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
                 <Button alignment="CENTER" minWidth="60.0" mnemonicParsing="false" onAction="#addPlay" style="-fx-background-color: beige; -fx-border-color: white;" text="Add">
                     <HBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

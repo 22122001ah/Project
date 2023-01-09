@@ -1,15 +1,8 @@
 package ba.unsa.etf.rpr.Controllers;
 
-import ba.unsa.etf.rpr.MainFX;
 import ba.unsa.etf.rpr.dao.DaoFactory;
-import ba.unsa.etf.rpr.dao.UserDaoSQLimpl;
 import ba.unsa.etf.rpr.domain.Users;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 

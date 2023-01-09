@@ -1,8 +1,6 @@
 package ba.unsa.etf.rpr.domain;
 
 import ba.unsa.etf.rpr.dao.WritersDaoSQLimpl;
-
-import java.util.Map;
 import java.util.Objects;
 
 public class Writers extends WritersDaoSQLimpl implements Idable {

@@ -8,7 +8,6 @@ import java.util.*;
 import java.sql.*;
 import java.util.Date;
 import ba.unsa.etf.rpr.exceptions.PlaysException;
-import static java.sql.DriverManager.getConnection;
 
 public class PlaysDaoSQLimpl extends AbstractDao1<Plays> implements PlaysDao{
 
