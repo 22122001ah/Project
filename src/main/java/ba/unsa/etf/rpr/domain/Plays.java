@@ -20,6 +20,15 @@ public class Plays extends PlaysDaoSQLimpl implements Idable {
     private Directors director;
     private Writers writer;
     private Users management;
+    private int maxcap;
+
+    public int getMaxcap() {
+        return maxcap;
+    }
+
+    public void setMaxcap(int maxcap) {
+        this.maxcap = maxcap;
+    }
 
     public Users getManagement() {
         return management;
@@ -107,7 +116,7 @@ public class Plays extends PlaysDaoSQLimpl implements Idable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(Id, play_name, genre, date, price, director, writer,management);
+        return Objects.hash(Id, play_name, genre, date, price, director, writer,management,maxcap);
     }
 
     @Override

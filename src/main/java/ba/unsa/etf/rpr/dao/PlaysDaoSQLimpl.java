@@ -27,6 +27,7 @@ public class PlaysDaoSQLimpl extends AbstractDao1<Plays> implements PlaysDao{
             play.setGenre(rs.getString("genre"));
             play.setWriter(DaoFactory.writersDao().getById(rs.getInt("writer_id")));
             play.setDirector(DaoFactory.directorsDao().getById(rs.getInt("dir_id")));
+            play.setMaxcap(rs.getInt("maxcap"));
             return play;}
         catch (Exception e){
             throw new PlaysException(e.getMessage(),e);
@@ -43,6 +44,7 @@ public class PlaysDaoSQLimpl extends AbstractDao1<Plays> implements PlaysDao{
         item.put("writer_id",object.getWriter().getId());
         item.put("dir_id",object.getDirector().getId());
         item.put("date",object.getDate());
+        item.put("maxcap",object.getMaxcap());
         return item;
     }
 
