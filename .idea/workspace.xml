@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="319f1908-2fd8-4f73-bc25-c0b4d1ffe4cf" name="Changes" comment="small changes in GUI(Buytickets changes)">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/Controllers/BuyTicketsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/Controllers/BuyTicketsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/dao/PlaysDaoSQLimpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/dao/PlaysDaoSQLimpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/domain/Plays.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/domain/Plays.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/buytickets.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/buytickets.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/fxml/EditPlays.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fxml/EditPlays.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/fxml/searchPlays.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fxml/searchPlays.fxml" afterDir="false" />
-    </list>
+    <list default="true" id="bf248112-1200-4b47-907d-a335c41029f4" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -45,6 +37,7 @@
     <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectId" id="2Ig7N2caIwcYh0jej4fJgAycycW" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -611,6 +604,9 @@
       <FILTER>ba.unsa.etf.rpr.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/Project$App.ic" NAME="App Coverage Results" MODIFIED="1671439111350" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>ba.unsa.etf.rpr.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Project$CategoryManagerTest.ic" NAME="CategoryManagerTest Coverage Results" MODIFIED="1673302765388" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>ba.unsa.etf.rpr.*</FILTER>
     </SUITE>
   </component>
