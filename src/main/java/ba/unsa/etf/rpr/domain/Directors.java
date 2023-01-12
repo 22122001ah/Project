@@ -27,8 +27,7 @@ public class Directors extends DirectorsDaoSQLimpl implements Idable {
     }
     @Override
     public String toString(){
-        return "Director{ id="+Id+
-                ",first name="+first_name;}
+        return first_name;}
     @Override
     public boolean equals(Object o){
         if(this==o) return true;
