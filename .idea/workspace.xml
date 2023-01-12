@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bf248112-1200-4b47-907d-a335c41029f4" name="Changes" comment="" />
+    <list default="true" id="bf248112-1200-4b47-907d-a335c41029f4" name="Changes" comment="small" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -131,13 +131,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1670591333241</updated>
-    </task>
-    <task id="LOCAL-00031" summary="refactoring Dao">
-      <created>1671402470898</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1671402470898</updated>
     </task>
     <task id="LOCAL-00032" summary="minor changes in classes, new database connection">
       <created>1671601725968</created>
@@ -475,7 +468,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673265423723</updated>
     </task>
-    <option name="localTasksCounter" value="80" />
+    <task id="LOCAL-00080" summary="small">
+      <created>1673560565812</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1673560565813</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -490,7 +490,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="GUI changed" />
     <MESSAGE value="Small changes Plays" />
     <MESSAGE value="Minor changes" />
     <MESSAGE value="new window(not finished)" />
@@ -515,7 +514,8 @@
     <MESSAGE value="small changes(added price and genre in search + home-layout minor changes(font))" />
     <MESSAGE value="Edit plays update" />
     <MESSAGE value="small changes in GUI(Buytickets changes)" />
-    <option name="LAST_COMMIT_MESSAGE" value="small changes in GUI(Buytickets changes)" />
+    <MESSAGE value="small" />
+    <option name="LAST_COMMIT_MESSAGE" value="small" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
