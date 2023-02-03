@@ -6,6 +6,7 @@ import java.util.Objects;
 
 public class Directors extends DirectorsDaoSQLimpl implements Idable {
     private int Id;
+
     private String first_name;
 
     public void setFirst_name(String first_name) {

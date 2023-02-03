@@ -25,8 +25,7 @@ public class Artists extends ArtistsDaoSQLimpl implements Idable {
     }
     @Override
     public String toString(){
-        return "Artist{ id="+Id+
-                ",name="+artist_name;
+        return artist_name;
     }
     @Override
     public int hashCode(){

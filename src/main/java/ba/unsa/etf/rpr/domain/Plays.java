@@ -41,6 +41,10 @@ public class Plays extends PlaysDaoSQLimpl implements Idable {
     public Plays() throws PlaysException {
     }
 
+    public Plays(String play_name) {
+        this.play_name = play_name;
+    }
+
     /**
      * setters and getters for each private attribute
      */
