@@ -22,6 +22,7 @@ public class MainFX extends Application {
         }
 
     catch(Exception E){
+
         System.out.println(E);}
     }
 

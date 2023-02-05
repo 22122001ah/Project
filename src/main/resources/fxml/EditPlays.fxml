@@ -47,6 +47,9 @@
                     <font>
                         <Font name="Bodoni MT Bold Italic" size="14.0" />
                     </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
                 </Button>
             </children>
         </HBox>
