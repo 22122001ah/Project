@@ -1,12 +1,15 @@
 package ba.unsa.etf.rpr.Controllers;
 
 import ba.unsa.etf.rpr.business.PlaysManager;
+import ba.unsa.etf.rpr.dao.DaoFactory;
 import ba.unsa.etf.rpr.domain.Plays;
 import ba.unsa.etf.rpr.exceptions.PlaysException;
+import com.sun.glass.events.ViewEvent;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -14,6 +17,8 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
+
+import java.io.IOException;
 import java.util.Date;
 import java.util.Optional;
 
@@ -43,10 +48,39 @@ public class EditPlaysController{
         playsColumn.setCellValueFactory(new PropertyValueFactory<Plays, String>("play_name"));
         createdColumn.setCellValueFactory(new PropertyValueFactory<Plays, Date>("date"));
         actionColumn.setCellValueFactory(new PropertyValueFactory<Plays, Integer>("Id"));
-
+        actionColumn.setCellFactory(new ButtonFactory(editEvent -> {
+            int quoteId = Integer.parseInt(((Button)editEvent.getSource()).getUserData().toString());
+            editPlayScene(quoteId);
+        }, (deleteEvent -> {
+            int quoteId = Integer.parseInt(((Button)deleteEvent.getSource()).getUserData().toString());
+            deletePlays(quoteId);
+        }),(ViewEvent -> {
+            int qouteId=Integer.parseInt(((Button) ViewEvent.getSource()).getUserData().toString());
+            try {
+                PlayDesription(qouteId);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        })));
         refreshPlays();
     }
+    public void PlayDesription(int id) throws IOException {
+        try{
 
+            Stage Secondstage=new Stage();
+            FXMLLoader fl=new FXMLLoader(getClass().getResource("/fxml/Info.fxml"));
+            Parent root =fl.load();
+            InfoController noviprozor=fl.getController();
+            noviprozor.setText(DaoFactory.playsDao().getById(id).getPlay_name());
+            Secondstage.setTitle("Play description");
+            Secondstage.setScene(new Scene(root,USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
+            Secondstage.show();
+
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+    }
 
     /**
      * search plays event handler

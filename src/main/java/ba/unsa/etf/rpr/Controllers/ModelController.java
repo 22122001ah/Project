@@ -92,8 +92,12 @@ public class ModelController {
             if (editPlayId != null){
                 q.setId(editPlayId);
                 playsManager.update(q);
-                for(int i=0;i<p.size();i++)
+                for(int i=0;i<p.size();i++) {
+                    if(p.get(i).getId()==0)
+                        plays_inManager.add(p.get(i));
+                    else
                     plays_inManager.update(p.get(i));
+                }
             }else{
                 playsManager.add(q);
                 for(int i=0;i<p.size();i++)
@@ -127,10 +131,11 @@ public class ModelController {
             this.director.set(q.getDirector().getFirst_name());
             this.writer.set(q.getWriter().getFirst_name());
             ArrayList<Artists>a=(ArrayList<Artists>) plays_inManager.searchByPlay(q);
+            String k=new String();
             for(int i=0;i<a.size();i++){
-                artist.set(a.get(i).getArtist_name());
-
+              k+=a.get(i).getArtist_name()+",";
             }
+            this.artist.set(k);
         }
 
         public Pair<Plays,ArrayList<plays_ins>> toPlay() throws PlaysException {
@@ -143,6 +148,7 @@ public class ModelController {
             q.setDirector(directorsManager.searchByDirectorName(this.director.getValue()));
             q.setWriter(writersManager.searchByWriterName(this.writer.getValue()));
             q.setGenre(this.genre.getValue());
+            q.setId(q.searchByPlayName(this.play_name.getValue()).get(0).getId());
             String[] a;
             a=this.artist.getValue().split(",");
             for (int i=0;i<a.length;i++)

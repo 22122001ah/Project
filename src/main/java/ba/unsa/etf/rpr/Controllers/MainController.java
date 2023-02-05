@@ -107,7 +107,21 @@ public class MainController  {
     }
     public void editPlay(Integer play_id){
         try{
+if((noviprozor1!=null && noviprozor1.getU().getManagement()!=1 ))
+{
+    new Alert(Alert.AlertType.NONE,"You do not have management privileges needed to perform this action.",ButtonType.OK).show();
 
+}
+else if(noviprozor2!=null && noviprozor2.getU().getManagement()!=1)
+{
+    new Alert(Alert.AlertType.NONE,"You do not have management privileges needed to perform this action.",ButtonType.OK).show();
+
+}else if(noviprozor2==null && noviprozor1==null)
+{
+    new Alert(Alert.AlertType.NONE,"You do not have management privileges needed to perform this action.",ButtonType.OK).show();
+
+}
+else{
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/EditPlays.fxml"));
 
             loader.setController(new EditPlaysController());
@@ -115,9 +129,10 @@ public class MainController  {
             stage.setScene(new Scene(loader.load(), USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
             stage.setTitle("Edit Play");
             stage.show();
-        }catch (Exception e){
+        }}catch (Exception e){
             new Alert(Alert.AlertType.NONE, e.getMessage(), ButtonType.OK).show();
         }
+
     }
 
     public void search(ActionEvent actionEvent){
