@@ -85,6 +85,22 @@ public class MainController  {
             System.out.println(e);
         }
     }
+    public void Contact(ActionEvent actionEvent) throws IOException {
+        try{
+
+            Stage Secondstage=new Stage();
+            FXMLLoader fl=new FXMLLoader(getClass().getResource("/fxml/contact.fxml"));
+            Parent root =fl.load();
+            ContactController noviprozor=fl.getController();
+            Secondstage.setTitle("Contact");
+            Secondstage.setScene(new Scene(root,USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
+            Secondstage.show();
+
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+    }
     public void buy(ActionEvent actionEvent) throws IOException, PlaysException {
        if(noviprozor2==null && noviprozor1==null)
        {
