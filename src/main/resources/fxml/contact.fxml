@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: beige;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.Controllers.ContactController">
+  <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <Label prefHeight="342.0" prefWidth="600.0" style="-fx-background-color: white;" GridPane.columnSpan="2147483647" GridPane.rowIndex="1" GridPane.rowSpan="5" />
+      <Button mnemonicParsing="false" onAction="#MAPS" text="Mapa" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+       <Button mnemonicParsing="false" onAction="#INSTAGRAM" prefHeight="44.0" prefWidth="58.0" style="-fx-background-color: white; -fx-border-color: beige;" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+         <graphic>
+            <ImageView fitHeight="34.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="https://freepngimg.com/download/temp_png/62837-instagram-icons-photography-computer-logo-icon.jpeg" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+       </Button>
+      <Button mnemonicParsing="false" onAction="#FACEBOOK" prefHeight="45.0" prefWidth="53.0" style="-fx-background-color: WHITE; -fx-border-color: beige;" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="TOP">
+         <graphic>
+            <ImageView fitHeight="33.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="data:image/png;base64,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" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+         </graphic></Button>
+   </children>
+</GridPane>
