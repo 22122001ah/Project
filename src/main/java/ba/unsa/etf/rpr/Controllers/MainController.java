@@ -13,7 +13,9 @@ import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 
 
+import java.awt.event.KeyEvent;
 import java.io.IOException;
+import java.security.Key;
 
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
