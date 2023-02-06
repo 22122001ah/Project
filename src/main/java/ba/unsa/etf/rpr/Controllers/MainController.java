@@ -22,48 +22,31 @@ import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 public class MainController  {
     RegisterController noviprozor2;
     LoginController noviprozor1;
-    @FXML
-    public void initialize() throws PlaysException {}
-
-
     public void RegisterBttn(ActionEvent actionEvent) throws IOException {
         try{
-
-            Stage Secondstage=new Stage();
-            FXMLLoader fl=new FXMLLoader(getClass().getResource("/fxml/Register.fxml"));
-            Parent root =fl.load();
-            noviprozor2=fl.getController();
-            Secondstage.setTitle("Register");
-            Secondstage.setScene(new Scene(root,USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
-            Secondstage.show();}
+            noviprozor2=new RegisterController();
+OpenStage("/fxml/Register.fxml","Register",noviprozor2);
+           }
         catch(Exception e){
             System.out.println(e);
         }
     }
     public void LoginBttn(ActionEvent actionEvent) throws IOException {
         try{
-            Stage Secondstage=new Stage();
-            FXMLLoader fl=new FXMLLoader(getClass().getResource("/fxml/Login.fxml"));
-            Parent root =fl.load();
-            noviprozor1=fl.getController();
-            Secondstage.setTitle("Login");
-            Secondstage.setScene(new Scene(root,USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
-            Secondstage.show();}
+            noviprozor1=new LoginController();
+            OpenStage("/fxml/Login.fxml","Login",noviprozor1);
+           }
         catch(Exception e){
             System.out.println(e);
         }
     }
     public void showPlays(ActionEvent actionEvent) throws IOException{
         try{
-            Stage Secondstage=new Stage();
-            FXMLLoader fl=new FXMLLoader(getClass().getResource("/fxml/showPlays.fxml"));
-            Parent root =fl.load();
-            ShowPlaysController noviprozor=fl.getController();
+            ShowPlaysController noviprozor=new ShowPlaysController();
             noviprozor.setM1(noviprozor2);
             noviprozor.setM2(noviprozor1);
-            Secondstage.setTitle("Plays");
-            Secondstage.setScene(new Scene(root,USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
-            Secondstage.show();}
+            OpenStage("/fxml/showPlays.fxml","Plays",noviprozor);
+            }
         catch(Exception e){
             System.out.println(e);
         }
@@ -79,7 +62,6 @@ public class MainController  {
             Secondstage.setTitle("Play description");
             Secondstage.setScene(new Scene(root,USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
             Secondstage.show();
-
         }
         catch(Exception e){
             System.out.println(e);
@@ -87,15 +69,8 @@ public class MainController  {
     }
     public void Contact(ActionEvent actionEvent) throws IOException {
         try{
-
-            Stage Secondstage=new Stage();
-            FXMLLoader fl=new FXMLLoader(getClass().getResource("/fxml/contact.fxml"));
-            Parent root =fl.load();
-            ContactController noviprozor=fl.getController();
-            Secondstage.setTitle("Contact");
-            Secondstage.setScene(new Scene(root,USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
-            Secondstage.show();
-
+            ContactController np=new ContactController();
+            OpenStage("/fxml/contact.fxml","Contact",np);
         }
         catch(Exception e){
             System.out.println(e);
@@ -112,16 +87,18 @@ public class MainController  {
            new Alert(Alert.AlertType.NONE,"You need to have an account and be logged in in order to buy tickets.",ButtonType.OK).show();
        }
         else{
-        Button numberButton = (Button) actionEvent.getTarget();
-        Stage secondstage=new Stage();
-        FXMLLoader fl=new FXMLLoader(getClass().getResource("/fxml/BuyTickets.fxml"));
-        Parent root=fl.load();
-        BuyTicketsController buyTicketsController=fl.getController();
-        buyTicketsController.setPrice(DaoFactory.playsDao().searchByPlayName(numberButton.getText()).get(0).getPrice());
-        buyTicketsController.setName(numberButton.getText());
-        secondstage.setTitle("Buy tickets");
-        secondstage.setScene(new Scene(root,USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
-        secondstage.show();}
+           Button numberButton = (Button) actionEvent.getTarget();
+           Stage secondstage=new Stage();
+           FXMLLoader fl=new FXMLLoader(getClass().getResource("/fxml/BuyTickets.fxml"));
+           Parent root=fl.load();
+           BuyTicketsController buyTicketsController=fl.getController();
+           buyTicketsController.setPrice(DaoFactory.playsDao().searchByPlayName(numberButton.getText()).get(0).getPrice());
+           buyTicketsController.setName(numberButton.getText());
+           secondstage.setTitle("Buy tickets");
+           secondstage.setScene(new Scene(root,USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
+           secondstage.show();}
+
+
     }
     public void editPlay(Integer play_id){
         try{
@@ -140,13 +117,9 @@ else if(noviprozor2!=null && noviprozor2.getU().getManagement()!=1)
 
 }
 else{
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/EditPlays.fxml"));
+    EditPlaysController e=new EditPlaysController();
+    OpenStage("/fxml/EditPlays.fxml","Edit Play",e);
 
-            loader.setController(new EditPlaysController());
-            Stage stage = new Stage();
-            stage.setScene(new Scene(loader.load(), USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
-            stage.setTitle("Edit Play");
-            stage.show();
         }}catch (Exception e){
             new Alert(Alert.AlertType.NONE, e.getMessage(), ButtonType.OK).show();
         }
@@ -154,16 +127,14 @@ else{
     }
 
     public void search(ActionEvent actionEvent){
-        try{
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/searchPlays.fxml"));
-            loader.setController(new SearchController());
-            Stage stage = new Stage();
-            stage.setScene(new Scene(loader.load(), USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
-            stage.setTitle("Search play");
-            stage.show();
-        }catch (Exception e){
-            new Alert(Alert.AlertType.NONE, e.getMessage(), ButtonType.OK).show();
-        }
+            SearchController s=new SearchController();
+            try {
+                OpenStage("/fxml/searchPlays.fxml","SearchPlay",s);
+            }
+            catch (IOException e){
+                new Alert(Alert.AlertType.NONE, e.getMessage(), ButtonType.OK).show();
+            }
+
     }
     /**
      * Event handler for creation of quote
@@ -176,6 +147,18 @@ else{
             new Alert(Alert.AlertType.NONE,"You are not authorised to add plays",ButtonType.OK).show();
         else
             editPlay(null);
+    }
+
+    public void OpenStage(String File,String name,Object Controller) throws IOException{
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(File));
+            loader.setController(Controller);
+            Stage Secondstage=new Stage();
+            Secondstage.setTitle(name);
+            Secondstage.setScene(new Scene(loader.load(),USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
+            Secondstage.show();
+
+
     }
 
 }
