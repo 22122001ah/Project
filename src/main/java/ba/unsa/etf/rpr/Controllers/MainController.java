@@ -22,6 +22,12 @@ import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 public class MainController  {
     RegisterController noviprozor2;
     LoginController noviprozor1;
+
+    /**
+     * opens new register window
+     * @param actionEvent
+     * @throws IOException
+     */
     public void RegisterBttn(ActionEvent actionEvent) throws IOException {
         try{
             noviprozor2=new RegisterController();
@@ -31,6 +37,12 @@ OpenStage("/fxml/Register.fxml","Register",noviprozor2);
             System.out.println(e);
         }
     }
+
+    /**
+     * opens new login window
+     * @param actionEvent
+     * @throws IOException
+     */
     public void LoginBttn(ActionEvent actionEvent) throws IOException {
         try{
             noviprozor1=new LoginController();
@@ -40,6 +52,11 @@ OpenStage("/fxml/Register.fxml","Register",noviprozor2);
             System.out.println(e);
         }
     }
+    /**
+     * opening new window with  a list of plays
+     * @param actionEvent
+     * @throws IOException
+     */
     public void showPlays(ActionEvent actionEvent) throws IOException{
         try{
             ShowPlaysController noviprozor=new ShowPlaysController();
@@ -51,6 +68,11 @@ OpenStage("/fxml/Register.fxml","Register",noviprozor2);
             System.out.println(e);
         }
     }
+    /**
+     * opening new window with the description of the selected play
+     * @param actionEvent
+     * @throws IOException
+     */
     public void PlayDesription(ActionEvent actionEvent) throws IOException {
         try{
             Button numberButton = (Button) actionEvent.getTarget();
@@ -67,6 +89,12 @@ OpenStage("/fxml/Register.fxml","Register",noviprozor2);
             System.out.println(e);
         }
     }
+
+    /**
+     * opens new window with contact information about Chamber Theatre 55
+     * @param actionEvent
+     * @throws IOException
+     */
     public void Contact(ActionEvent actionEvent) throws IOException {
         try{
             ContactController np=new ContactController();
@@ -76,6 +104,14 @@ OpenStage("/fxml/Register.fxml","Register",noviprozor2);
             System.out.println(e);
         }
     }
+    /**
+     * opening new window to buy tickets
+     * firstly it checks if the person has logged in or is registered
+     * if not it does not allow to buy tickets
+     * @param actionEvent
+     * @throws IOException
+     * @throws PlaysException
+     */
     public void buy(ActionEvent actionEvent) throws IOException, PlaysException {
        if(noviprozor2==null && noviprozor1==null)
        {
@@ -100,6 +136,13 @@ OpenStage("/fxml/Register.fxml","Register",noviprozor2);
 
 
     }
+    /**
+     * Method to add plays
+     * firstly it checks for privileges
+     * if the person is not part of the management team it does not allow to add plays
+     * otherwise it opens a new window to add or edit plays
+     * @param play_id
+     */
     public void editPlay(Integer play_id){
         try{
 if((noviprozor1!=null && noviprozor1.getU().getManagement()!=1 ))
@@ -137,7 +180,10 @@ else{
 
     }
     /**
-     * Event handler for creation of quote
+     * Method to add plays
+     * firstly it checks for privileges
+     * if the person is not part of the management team it does not allow to add plays
+     * otherwise it opens a new window to add plays
      * @param event
      */
     public void addPlay(ActionEvent event){
@@ -149,6 +195,13 @@ else{
             editPlay(null);
     }
 
+    /**
+     * generic method that opends a new window
+     * @param File
+     * @param name
+     * @param Controller
+     * @throws IOException
+     */
     public void OpenStage(String File,String name,Object Controller) throws IOException{
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource(File));

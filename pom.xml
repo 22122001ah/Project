@@ -118,7 +118,7 @@
               <archive>
                 <manifest>
                   <addClasspath>true</addClasspath>
-                  <mainClass>ba.unsa.etf.rpr.AppFX</mainClass>
+                  <mainClass>ba.unsa.etf.rpr.MainFX</mainClass>
                 </manifest>
               </archive>
             </configuration>
@@ -147,9 +147,6 @@
     </profile>
     <profile>
       <id>cli-app</id>
-      <activation>
-        <activeByDefault>true</activeByDefault>
-      </activation>
       <build>
         <finalName>${project.name}-cli</finalName>
         <plugins>

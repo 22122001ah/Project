@@ -23,49 +23,48 @@ public class LoginController {
         return u;
     }
 
+    /**
+     * Closes window if Login button is clicked
+     * @param actionEvent
+     */
     public void zatvoriProzorPropuhJe(ActionEvent actionEvent){
-        Users k=new Users();
-        u=null;
-        try{
-            k=k.searchByUsername(fieldUsername.getText());
-            if (k!=null) {
-                if(!Objects.equals(k.getPassword(), fieldPass.getText()))
-                {
-                    new Alert(Alert.AlertType.NONE,"incorrect password", ButtonType.OK).show();
-                }
-                u=k;
-                Stage s=(Stage) loginbttn.getScene().getWindow();
-                s.close();}
-        }
-        catch (Exception e){
-            {
-
-                new Alert(Alert.AlertType.NONE,"invalid username", ButtonType.OK).show();
-            }
-        }
+  Closing();
     }
+
+    /**
+     * Closes window if ENTER key is hit
+     * @param keyEvent
+     */
     public void ENTER(KeyEvent keyEvent){
         if(keyEvent.getCode()== KeyCode.ENTER) {
-            Users k=new Users();
-            u=null;
-            try{
-                k=k.searchByUsername(fieldUsername.getText());
-                if (k!=null) {
-                    if(!Objects.equals(k.getPassword(), fieldPass.getText()))
-                    {
-                        new Alert(Alert.AlertType.NONE,"incorrect password", ButtonType.OK).show();
-                    }
-                    u=k;
-                    Stage s=(Stage) loginbttn.getScene().getWindow();
-                    s.close();}
-            }
-            catch (Exception e){
-                {
-
-                    new Alert(Alert.AlertType.NONE,"invalid username", ButtonType.OK).show();
-                }
-            }
+           Closing();
         }
     }
 
+    /**
+     * this method checks if the given username is valid(that is it checks if there is a user with that username in DB)
+     * if yes, it checks if the password is correct
+     * if all requirements are met, the user has successfully logged in and the window is closed
+     */
+    public void Closing(){
+    Users k=new Users();
+    u=null;
+    try{
+        k=k.searchByUsername(fieldUsername.getText());
+        if (k!=null) {
+            if(!Objects.equals(k.getPassword(), fieldPass.getText()))
+            {
+                new Alert(Alert.AlertType.NONE,"incorrect password", ButtonType.OK).show();
+            }
+            u=k;
+            Stage s=(Stage) loginbttn.getScene().getWindow();
+            s.close();}
+    }
+    catch (Exception e){
+        {
+
+            new Alert(Alert.AlertType.NONE,"invalid username", ButtonType.OK).show();
+        }
+    }
+}
 }

@@ -64,6 +64,11 @@ public class EditPlaysController{
         })));
         refreshPlays();
     }
+    /**
+     * opening new window with the description of the selected play
+     * @param id
+     * @throws IOException
+     */
     public void PlayDesription(int id) throws IOException {
         try{
 

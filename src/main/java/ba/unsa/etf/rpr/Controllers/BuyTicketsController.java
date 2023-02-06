@@ -36,6 +36,11 @@ public class BuyTicketsController {
     PlaysManager playsManager=new PlaysManager();
     public Label Price1=new Label();
     public Label date=new Label();
+
+    /**
+     * Helper method to set the name of the play
+     * @param ime
+     */
     public void setName(String ime){
         name.setText(ime);
         try {
@@ -57,6 +62,13 @@ public class BuyTicketsController {
         SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 10, initialValue);
         spinner.setValueFactory(valueFactory);
     }
+
+    /**
+     * method that checks whether the play is sold out
+     * if the play is not sold out, it changes the capacity in DB
+     * @param actionEvent
+     * @throws PlaysException
+     */
     public void Buy(ActionEvent actionEvent) throws PlaysException {
         Plays P=new Plays();
         P=P.searchByPlayName(name.getText()).get(0);
@@ -71,6 +83,10 @@ public class BuyTicketsController {
             s.close();
         }
     }
+    /**
+     * Helper Model class that supports 2 way data binding with form for play management
+     *
+     */
     public class PlayModel{
         public SimpleStringProperty play_name = new SimpleStringProperty("");
         public SimpleObjectProperty<String> price = new SimpleObjectProperty<String>();

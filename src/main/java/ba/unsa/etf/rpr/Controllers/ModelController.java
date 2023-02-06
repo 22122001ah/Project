@@ -148,13 +148,12 @@ public class ModelController {
             q.setDirector(directorsManager.searchByDirectorName(this.director.getValue()));
             q.setWriter(writersManager.searchByWriterName(this.writer.getValue()));
             q.setGenre(this.genre.getValue());
-            q.setId(q.searchByPlayName(this.play_name.getValue()).get(0).getId());
             String[] a;
             a=this.artist.getValue().split(",");
             for (int i=0;i<a.length;i++)
             {  plays_ins plays_in1=new plays_ins();
-                if(q.getId()!=0)
-                plays_in1.setPlays_id(q.getId());
+                if(playsManager.searchByPlayName(q.getPlay_name())!=null)
+                plays_in1.setPlays_id(playsManager.searchByPlayName(q.getPlay_name()).get(0).getId());
                 else plays_in1.setPlays_id(q.getAll().size());
                 plays_in1.setArtist_id(artistManager.searchByArtistName(a[i]).getId());
                 p.add(plays_in1);}

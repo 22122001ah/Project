@@ -15,7 +15,6 @@ public class PlayInfoController extends ShowPlaysController{
     public static ListView<String> string;
 
     public PlayInfoController() {
-
     }
     @FXML
     public void initialize()  {

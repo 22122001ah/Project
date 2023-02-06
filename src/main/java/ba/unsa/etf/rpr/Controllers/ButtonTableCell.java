@@ -25,8 +25,9 @@ public class ButtonTableCell<T> extends TableCell<T, T> {
 
     /**
      * Default constructor
-     * @param buttonOne - event handler for action on first button (Edit)
-     * @param buttonTwo - event handler for action on second button (Delete)
+     * @param buttonOne
+     * @param buttonTwo
+     * @param buttonThree
      */
     public ButtonTableCell(EventHandler<ActionEvent> buttonOne, EventHandler<ActionEvent> buttonTwo, EventHandler<ActionEvent> buttonThree){
         edit = new Button("Edit");

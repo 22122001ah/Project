@@ -19,8 +19,9 @@ public class ButtonFactory<T> implements Callback<TableColumn<T, T>, TableCell<T
 
     /**
      *
-     * @param buttonOne - event handler for first button (Edit)
-     * @param buttonTwo - event handler for second button (Delete)
+     * @param buttonOne
+     * @param buttonTwo
+     * @param buttonThree
      */
     public ButtonFactory(EventHandler<ActionEvent> buttonOne, EventHandler<ActionEvent> buttonTwo,EventHandler<ActionEvent> buttonThree){
         this.buttonOne = buttonOne;

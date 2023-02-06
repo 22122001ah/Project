@@ -15,6 +15,10 @@ import java.io.IOException;
 
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
+/**
+ * Controller for ticket sales and description
+ * @author Adna Herak
+ */
 public class ShowPlaysController {
     @FXML
     public void initialize() {
@@ -31,6 +35,11 @@ public class ShowPlaysController {
         this.m2 = m2;
     }
 
+    /**
+     * opening new window with the description of the selected play
+     * @param actionEvent
+     * @throws IOException
+     */
     public void PlayDesription(ActionEvent actionEvent) throws IOException {
         try{     Button numberButton = (Button) actionEvent.getTarget();
             Stage Secondstage=new Stage();
@@ -47,6 +56,15 @@ public class ShowPlaysController {
             System.out.println(e);
         }
     }
+
+    /**
+     * opening new window to buy tickets
+     * firstly it checks if the person has logged in or is registered
+     * if not it does not allow to buy tickets
+     * @param actionEvent
+     * @throws IOException
+     * @throws PlaysException
+     */
     public void buy(ActionEvent actionEvent) throws IOException, PlaysException {
      if(m1==null && m2==null){
          new Alert(Alert.AlertType.NONE,"You need to have an account and be logged in in order to buy tickets.", ButtonType.OK).show();
