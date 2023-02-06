@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
@@ -170,11 +171,33 @@
                                 </Button>
                             </children>
                         </GridPane>
-                        <Label prefHeight="39.0" prefWidth="192.0" style="-fx-background-color: white; -fx-border-color: beige;" text="Upcoming plays" GridPane.columnSpan="2" GridPane.halignment="CENTER">
+                        <Label prefHeight="39.0" prefWidth="192.0" style="-fx-background-color: white; -fx-border-color: beige;" text="Upcoming plays" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                             <font>
                                 <Font name="Bodoni MT Bold Italic" size="25.0" />
                             </font>
+                     <GridPane.margin>
+                        <Insets top="40.0" />
+                     </GridPane.margin>
                         </Label>
+                      <Button mnemonicParsing="false" onAction="#LoginBttn" prefHeight="25.0" prefWidth="108.0" style="-fx-background-color: beige; -fx-border-color: white; -fx-border-width: 3;" text="Login" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="TOP">
+                          <font>
+                              <Font name="Bodoni MT Bold Italic" size="15.0" />
+                          </font>
+                          <cursor>
+                              <Cursor fx:constant="HAND" />
+                          </cursor>
+                  </Button>
+                      <Button mnemonicParsing="false" onAction="#RegisterBttn" prefHeight="12.0" prefWidth="100.0" style="-fx-background-color: beige; -fx-border-color: white; -fx-border-width: 3;" text="Register" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+                          <cursor>
+                              <Cursor fx:constant="HAND" />
+                          </cursor>
+                          <font>
+                              <Font name="Bodoni MT Bold Italic" size="14.0" />
+                          </font>
+                     <GridPane.margin>
+                        <Insets right="60.0" />
+                     </GridPane.margin>
+                      </Button>
                     </children>
                 </GridPane>
                 <StackPane prefHeight="194.0" prefWidth="172.0" style="-fx-background-color: rgba(255,255,255,0.5);" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.rowIndex="3" GridPane.rowSpan="3">
@@ -224,21 +247,6 @@
             </rowConstraints>
             <children>
                 <Separator prefWidth="200.0" GridPane.columnSpan="2147483647" />
-                <Button mnemonicParsing="false" onAction="#RegisterBttn" prefHeight="12.0" prefWidth="100.0" style="-fx-background-color: beige; -fx-border-color: white; -fx-border-width: 3;" text="Register" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                    <font>
-                        <Font name="Bodoni MT Bold Italic" size="14.0" />
-                    </font>
-                </Button>
-                <Button mnemonicParsing="false" onAction="#LoginBttn" prefHeight="25.0" prefWidth="108.0" style="-fx-background-color: beige; -fx-border-color: white; -fx-border-width: 3;" text="Login" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
-                    <font>
-                        <Font name="Bodoni MT Bold Italic" size="15.0" />
-                    </font>
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor></Button>
                 <Button fx:id="seeAll" mnemonicParsing="false" onAction="#showPlays" prefHeight="30.0" prefWidth="117.0" style="-fx-background-color: beige; -fx-border-color: white; -fx-border-width: 3;" text="See all" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                     <cursor>
                         <Cursor fx:constant="HAND" />
