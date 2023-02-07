@@ -21,7 +21,7 @@ public class plays_inDaoSQLimpl extends AbstractDao1<plays_ins> implements plays
         try {
             plays_ins plays_in = new plays_ins();
             plays_in.setId(rs.getInt("plays_in_id"));
-            plays_in.setArtist_id(rs.getInt("artist_id"));
+            plays_in.setArtist_id(rs.getInt("Artist_id"));
             plays_in.setPlays_id(rs.getInt("play_id"));
             return plays_in;
         } catch (Exception e) {
@@ -34,18 +34,18 @@ public class plays_inDaoSQLimpl extends AbstractDao1<plays_ins> implements plays
         Map<String, Object> item = new TreeMap<String, Object>();
         item.put("plays_in_id",object.getId());
         item.put("play_id",object.getPlays_id());
-        item.put("artist_id",object.getArtist_id());
+        item.put("Artist_id",object.getArtist_id());
         return item;
     }
     @Override
     public List<Plays> searchByArtist(Artists artists) throws PlaysException {
-        List<plays_ins> p=executeQuery("SELECT * FROM plays_ins WHERE artist_id = ? ",new Object[]{artists.getId()});
+        List<plays_ins> p=executeQuery("SELECT * FROM plays_ins WHERE Artist_id = ? ",new Object[]{artists.getId()});
         try {
             Plays play=new Plays();
             ArrayList<Plays> PlaysLista = new ArrayList<>();
             for(int i=0;i<p.size();i++)
             {
-                PlaysLista.add(play.getById(p.get(i).getId()));
+                PlaysLista.add(play.getById(p.get(i).getPlays_id()));
             }
             return PlaysLista;
         } catch (Exception e) {
