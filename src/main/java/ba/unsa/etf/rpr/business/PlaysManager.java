@@ -6,6 +6,7 @@ import ba.unsa.etf.rpr.domain.Plays;
 import ba.unsa.etf.rpr.domain.Writers;
 import ba.unsa.etf.rpr.exceptions.PlaysException;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -33,7 +34,11 @@ public class PlaysManager {
         return DaoFactory.playsDao().searchByDate(date);
     }
     public List<Plays> searchByPlayName(String play_name)throws PlaysException {
-        return DaoFactory.playsDao().searchByPlayName(play_name);
+        ArrayList<Plays>P= (ArrayList<Plays>) DaoFactory.playsDao().searchByPlayName(play_name);
+    if(P.size()==0) {
+        throw new PlaysException("No such play");
+    }
+    return P;
     }
     public List<String>getAllGenres() throws PlaysException {
         return DaoFactory.playsDao().getAllGenres();
