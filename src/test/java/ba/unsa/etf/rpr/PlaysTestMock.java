@@ -40,6 +40,7 @@ public class PlaysTestMock {
         writer.setId(8);
         play.setId(1);
         play.setWriter(writer);
+        play.setPrice(30);
         ArrayList<Plays> p=new ArrayList<>();
         p.add(play);
         MockedStatic<DaoFactory> dao = Mockito.mockStatic(DaoFactory.class);

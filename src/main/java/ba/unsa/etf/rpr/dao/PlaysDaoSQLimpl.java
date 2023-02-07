@@ -25,7 +25,7 @@ public class PlaysDaoSQLimpl extends AbstractDao1<Plays> implements PlaysDao{
             play.setDate(rs.getDate("date"));
             play.setPrice(rs.getInt("price"));
             play.setGenre(rs.getString("genre"));
-            play.setWriter(DaoFactory.writersDao().getById(rs.getInt("writer_id")));
+            play.setWriter(DaoFactory.writersDao().getById(rs.getInt("Writer_id")));
             play.setDirector(DaoFactory.directorsDao().getById(rs.getInt("dir_id")));
             play.setMaxcap(rs.getInt("maxcap"));
             return play;}
@@ -41,7 +41,7 @@ public class PlaysDaoSQLimpl extends AbstractDao1<Plays> implements PlaysDao{
         item.put("play_id",object.getId());
         item.put("genre",object.getGenre());
         item.put("price",object.getPrice());
-        item.put("writer_id",object.getWriter().getId());
+        item.put("Writer_id",object.getWriter().getId());
         item.put("dir_id",object.getDirector().getId());
         item.put("date",object.getDate());
         item.put("maxcap",object.getMaxcap());
@@ -75,7 +75,7 @@ public class PlaysDaoSQLimpl extends AbstractDao1<Plays> implements PlaysDao{
      */
     @Override
     public List<Plays> searchByWriter(Writers writer) throws PlaysException{
-        return executeQuery("SELECT * FROM Plays WHERE writer_id LIKE concat('%', ?, '%')",new Object[]{writer.getId()});
+        return executeQuery("SELECT * FROM Plays WHERE Writer_id = ?",new Object[]{writer.getId()});
     }
 
     /**
