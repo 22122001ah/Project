@@ -23,7 +23,7 @@ public class UsersTest {
 
     @Test
     void validateuserExists() throws PlaysException {
-        //This is admin user that exist in DB Dump
+        //This is admin user that exist in DB
         String correctName = "aherak2";
         String correctPass = "a123";
 
