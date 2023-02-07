@@ -28,7 +28,10 @@ public class PlaysManager {
         return DaoFactory.playsDao().searchByWriter(writer);
     }
     public List<Plays> searchByDirector(Directors director)throws PlaysException {
-        return DaoFactory.playsDao().searchByDirector(director);
+        List<Plays> p= DaoFactory.playsDao().searchByDirector(director);
+        if(p.size()==0)
+            throw new PlaysException("There is no director with that name in out DB");
+        return p;
     }
     public List<Plays> searchByDate(Date date) throws PlaysException {
         return DaoFactory.playsDao().searchByDate(date);
