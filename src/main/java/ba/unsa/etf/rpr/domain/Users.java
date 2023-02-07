@@ -16,6 +16,14 @@ public class Users extends UserDaoSQLimpl implements Idable {
     private String location;
     private Date date_of_birth;
 
+    public Users() {
+    }
+
+    public Users(String username, String password) {
+        this.username=username;
+        this.password=password;
+    }
+
     public int getManagement() {
         return management;
     }
