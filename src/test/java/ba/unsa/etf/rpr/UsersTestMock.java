@@ -10,10 +10,10 @@ import org.junit.jupiter.api.Test;
 import org.mockito.MockedStatic;
 import org.mockito.Mockito;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
-public class UsersTest {
+public class UsersTestMock {
     UsersManager userManager;
 
     @BeforeEach
@@ -23,18 +23,14 @@ public class UsersTest {
 
     @Test
     void validateuserExists() throws PlaysException {
-        //This is admin user that exist in DB
-        String correctName = "aherak2";
-        String correctPass = "a123";
-
-        Users users1 = new Users("aherak2","a123");
         MockedStatic<DaoFactory> dao = Mockito.mockStatic(DaoFactory.class);
         UsersDao UD = Mockito.mock(UsersDao.class);
         when(DaoFactory.usersDao()).thenReturn(UD);
-        when(DaoFactory.usersDao().searchByUsername(correctName)).thenReturn((Users) users1);
+        when(DaoFactory.usersDao().searchByUsername("aherak2")).thenReturn(new Users("aherak2","a123"));
 
-        boolean x = UsersManager.validateUser(correctName,correctPass);
+        boolean x = UsersManager.validateUser("aherak2","a123");
         assertTrue(x);
+        dao.close();
     }
 
 }

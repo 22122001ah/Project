@@ -23,10 +23,10 @@ public interface plays_inDao extends Dao<plays_ins> {
      */
     List<Artists> searchByPlay(Plays play) throws PlaysException;
     @Override
-    public plays_ins update(plays_ins item) throws PlaysException;
+     plays_ins update(plays_ins item) throws PlaysException;
      void delete(int id) throws PlaysException;
-    public List<plays_ins> searchPlays(Plays play) throws PlaysException;
-    public List<plays_ins> searchArtists(Artists artists) throws PlaysException;
+     List<plays_ins> searchPlays(Plays play) throws PlaysException;
+     List<plays_ins> searchArtists(Artists artists) throws PlaysException;
 
 }
 

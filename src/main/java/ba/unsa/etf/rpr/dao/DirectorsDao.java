@@ -7,7 +7,7 @@ import ba.unsa.etf.rpr.exceptions.PlaysException;
  * @author Adna Herak
  */
 public interface DirectorsDao extends Dao<Directors> {
-    public Directors searchByDirectorName(String name) throws PlaysException;
-    public Directors searchById(int Id) throws PlaysException;
+     Directors searchByDirectorName(String name) throws PlaysException;
+     Directors searchById(int Id) throws PlaysException;
 
 }

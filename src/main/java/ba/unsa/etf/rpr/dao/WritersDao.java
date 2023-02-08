@@ -7,6 +7,6 @@ import ba.unsa.etf.rpr.exceptions.PlaysException;
  * @author Adna Herak
  */
 public interface WritersDao extends Dao<Writers> {
-    public Writers searchByWriterName(String name) throws PlaysException;
-    public Writers searchById(int Id) throws PlaysException;
+     Writers searchByWriterName(String name) throws PlaysException;
+     Writers searchById(int Id) throws PlaysException;
 }
