@@ -6,23 +6,37 @@ import ba.unsa.etf.rpr.domain.*;
 import ba.unsa.etf.rpr.exceptions.PlaysException;
 import org.junit.jupiter.api.Test;
 
+import javax.swing.plaf.PanelUI;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
+
+/**
+ * @author Adna Herak
+ * JUnit tests
+ */
 public class TESTS {
+    /**
+     * Test to see if  method searchByPlayName will throw exception
+     * if play name does not exist
+     * @throws PlaysException
+     */
     @Test
    public void searchByPlayNameTest() throws PlaysException {
-       //Test to see if  method searchByPlayName will throw exception
-       //if play name does not exist
+
         PlaysManager playsManager=new PlaysManager();
        assertThrows(PlaysException.class,()->playsManager.searchByPlayName("Neko ime"),"No such play");
     }
+
+    /**
+     * Test to see if  method searchByFullName will throw exception
+     *  if a director with that name does not exist
+     */
     @Test
     public void searchByDirectorsName(){
-        //Test to see if  method searchByFullName will throw exception
-        //if a director with that name does not exist
+
         PlaysManager playsManager=new PlaysManager();
         Directors d=new Directors();
         d.setId(4);
@@ -30,9 +44,15 @@ public class TESTS {
         assertThrows(PlaysException.class,()->playsManager.searchByDirector(d),"There is no director with that name in out DB");
 
     }
+
+    /**
+     * Test to see if searchByWriter return right plays for given writer
+     * @throws PlaysException
+     * @throws ParseException
+     */
     @Test
     public void writer() throws PlaysException, ParseException {
-        //Test to see if searchByWriter return right plays for given writer
+
         Writers writer=new Writers();
         writer.setId(1);
         writer.setFirst_name("Abdulah Sidran");
@@ -53,7 +73,13 @@ public class TESTS {
         plays.add(play);
         assertTrue(plays.equals(DaoFactory.playsDao().searchByWriter(writer)),"Problem with searchByWriter method");
             }
-            @Test
+
+    /**
+     * test to see if searchByArtist returns correct plays
+     * @throws PlaysException
+     * @throws ParseException
+     */
+    @Test
             public void Artists() throws PlaysException, ParseException {
                 Artists artists=new Artists();
                 artists.setId(3);
@@ -71,7 +97,6 @@ public class TESTS {
                 play.setGenre("comedy");
                 play.setMaxcap(0);
                 play.setPrice(30);
-
                 Date d=new SimpleDateFormat( "yyyy-MM-dd" ).parse( "2022-12-22" );
                 play.setDate(d);
                 Directors directors=new Directors();
@@ -80,5 +105,9 @@ public class TESTS {
                 plays.add(play);
 
                 assertEquals(playsArrayList,plays);
+    }
+    @Test
+    public void PlaysByArtists(){
+
     }
 }
