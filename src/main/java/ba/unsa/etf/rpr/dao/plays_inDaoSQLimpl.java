@@ -74,4 +74,5 @@ public class plays_inDaoSQLimpl extends AbstractDao1<plays_ins> implements plays
     public List<plays_ins> searchPlays(Plays play) throws PlaysException {
       return  executeQuery("SELECT * FROM plays_ins WHERE play_id = ? ",new Object[]{play.getId()});
     }
+
 }

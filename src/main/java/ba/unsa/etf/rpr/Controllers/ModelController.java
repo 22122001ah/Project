@@ -92,7 +92,7 @@ public class ModelController {
             if (editPlayId != null){
                 q.setId(editPlayId);
                 playsManager.update(q);
-                for(int i=0;i<p.size();i++) {
+                for(int i=0;i<plays_inManager.searchPlays(q).size();i++) {
 ArrayList<Plays> p2= (ArrayList<Plays>) plays_inManager.searchByArtist(artistManager.getById(p.get(i).getArtist_id()));
                             for(Plays p1:p2)
                        if(p1.getId()==q.getId())  alreadyInDB=true;
@@ -100,20 +100,23 @@ ArrayList<Plays> p2= (ArrayList<Plays>) plays_inManager.searchByArtist(artistMan
                         plays_inManager.add(p.get(i));
                    if(alreadyInDB==true){
                      if(p.size()<plays_inManager.searchArtists(artistManager.getById(p.get(i).getArtist_id())).size())
-                     { int m=0;
-                         while(m<p.size()){
-                             boolean deleted = false;
-                             ArrayList<plays_ins> playsins = (ArrayList<plays_ins>) plays_inManager.searchArtists(artistManager.getById(p.get(i).getArtist_id()));
-                             for (int l = 0; l < playsins.size(); l++) {
-                                 if (playsins.get(l).getPlays_id() == q.getId())
-                                     deleted = true;
+                     {
 
-                             }m++;
 
-                         if(deleted==false)
-                             plays_inManager.delete(p.get(i).getId());
-                     }}
+                             ArrayList<plays_ins> playsins = (ArrayList<plays_ins>) plays_inManager.searchPlays(playsManager.getById(p.get(i).getPlays_id()));
+                          for(plays_ins p4:playsins){boolean deleted = false;
+                              for(plays_ins p5:p)
+                              {
+                                  if(p5.getArtist_id()==p4.getArtist_id())
+                                      deleted=true;
+                              }
+                              if(deleted==false){
+                                  plays_inManager.delete(p4.getId());
+                              }
+                          }
+                     }
                    }
+                   break;
                 }
             }else{
                 playsManager.add(q);
