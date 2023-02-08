@@ -99,7 +99,7 @@ ArrayList<Plays> p2= (ArrayList<Plays>) plays_inManager.searchByArtist(artistMan
                             if(alreadyInDB==false)
                         plays_inManager.add(p.get(i));
                    if(alreadyInDB==true){
-                     if(p.size()<plays_inManager.searchArtists(artistManager.getById(p.get(i).getArtist_id())).size())
+                     if(p.size()<plays_inManager.searchPlays(q).size())
                      {
 
 
@@ -114,6 +114,20 @@ ArrayList<Plays> p2= (ArrayList<Plays>) plays_inManager.searchByArtist(artistMan
                                   plays_inManager.delete(p4.getId());
                               }
                           }
+                     }
+                     else if(p.size()>plays_inManager.searchPlays(q).size()){
+
+                         ArrayList<plays_ins> playsins = (ArrayList<plays_ins>) plays_inManager.searchPlays(playsManager.getById(p.get(i).getPlays_id()));
+                         for(plays_ins p4:p){boolean deleted = false;
+                             for(plays_ins p5:playsins)
+                             {
+                                 if(p5.getArtist_id()==p4.getArtist_id())
+                                     deleted=true;
+                             }
+                             if(deleted==false){
+                                 plays_inManager.add(p4);
+                             }
+                         }
                      }
                    }
                    break;
