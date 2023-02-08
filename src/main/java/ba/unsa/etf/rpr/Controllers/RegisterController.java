@@ -9,7 +9,6 @@ import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 import java.sql.Date;
-import java.util.Objects;
 
 public class RegisterController {
     public Button okBttn;

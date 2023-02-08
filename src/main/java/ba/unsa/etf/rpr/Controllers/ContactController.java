@@ -2,7 +2,6 @@ package ba.unsa.etf.rpr.Controllers;
 
 import javafx.event.ActionEvent;
 
-import javax.lang.model.type.UnionType;
 import java.awt.*;
 import java.io.IOException;
 import java.net.URI;

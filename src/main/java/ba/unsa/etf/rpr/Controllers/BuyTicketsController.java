@@ -4,9 +4,7 @@ import ba.unsa.etf.rpr.business.DirectorsManager;
 import ba.unsa.etf.rpr.business.PlaysManager;
 import ba.unsa.etf.rpr.business.WritersManager;
 import ba.unsa.etf.rpr.dao.DaoFactory;
-import ba.unsa.etf.rpr.domain.Artists;
 import ba.unsa.etf.rpr.domain.Plays;
-import ba.unsa.etf.rpr.domain.plays_ins;
 import ba.unsa.etf.rpr.exceptions.PlaysException;
 import javafx.beans.binding.IntegerBinding;
 import javafx.beans.property.ReadOnlyIntegerProperty;
@@ -18,13 +16,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.util.Pair;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
 
 import java.sql.Date;
 import java.time.LocalDate;
-import java.util.ArrayList;
 
 public class BuyTicketsController {
     public Spinner<Integer> spinner=new Spinner<>();

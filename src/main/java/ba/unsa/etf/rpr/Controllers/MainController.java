@@ -3,7 +3,6 @@ package ba.unsa.etf.rpr.Controllers;
 import ba.unsa.etf.rpr.dao.DaoFactory;
 import ba.unsa.etf.rpr.exceptions.PlaysException;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -12,10 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 
-
-import java.awt.event.KeyEvent;
 import java.io.IOException;
-import java.security.Key;
 
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
@@ -83,6 +79,7 @@ OpenStage("/fxml/Register.fxml","Register",noviprozor2);
             noviprozor.setText(DaoFactory.playsDao().searchByPlayName(numberButton.getText()).toString());
             Secondstage.setTitle("Play description");
             Secondstage.setScene(new Scene(root,USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
+            Secondstage.setResizable(false);
             Secondstage.show();
         }
         catch(Exception e){
@@ -118,10 +115,11 @@ OpenStage("/fxml/Register.fxml","Register",noviprozor2);
            new Alert(Alert.AlertType.NONE,"You need to have an account and be logged in in order to buy tickets.",ButtonType.OK).show();
 
        }
-       else if(noviprozor1.getU()==null)
+       else if(noviprozor1.getU()==null && noviprozor2.getU()==null)
        {
            new Alert(Alert.AlertType.NONE,"You need to have an account and be logged in in order to buy tickets.",ButtonType.OK).show();
        }
+
         else{
            Button numberButton = (Button) actionEvent.getTarget();
            Stage secondstage=new Stage();
@@ -132,6 +130,7 @@ OpenStage("/fxml/Register.fxml","Register",noviprozor2);
            buyTicketsController.setName(numberButton.getText());
            secondstage.setTitle("Buy tickets");
            secondstage.setScene(new Scene(root,USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
+           secondstage.setResizable(false);
            secondstage.show();}
 
 
@@ -209,6 +208,7 @@ else{
             Stage Secondstage=new Stage();
             Secondstage.setTitle(name);
             Secondstage.setScene(new Scene(loader.load(),USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
+            Secondstage.setResizable(false);
             Secondstage.show();
 
 

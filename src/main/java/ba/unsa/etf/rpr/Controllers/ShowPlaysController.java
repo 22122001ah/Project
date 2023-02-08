@@ -1,8 +1,8 @@
 package ba.unsa.etf.rpr.Controllers;
+
 import ba.unsa.etf.rpr.dao.DaoFactory;
 import ba.unsa.etf.rpr.exceptions.PlaysException;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -20,10 +20,6 @@ import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
  * @author Adna Herak
  */
 public class ShowPlaysController {
-    @FXML
-    public void initialize() {
-
-    }
  RegisterController m1;
     LoginController m2;
 
@@ -49,6 +45,7 @@ public class ShowPlaysController {
             noviprozor.setText(DaoFactory.playsDao().searchByPlayName(numberButton.getText()).toString());
             Secondstage.setTitle("Play description");
             Secondstage.setScene(new Scene(root,USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
+            Secondstage.setResizable(false);
             Secondstage.show();
 
         }
@@ -81,6 +78,7 @@ public class ShowPlaysController {
         buyTicketsController.setName(numberButton.getText());
         secondstage.setTitle("Buy tickets");
         secondstage.setScene(new Scene(root,USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
+        secondstage.setResizable(false);
         secondstage.show();}
     }
 

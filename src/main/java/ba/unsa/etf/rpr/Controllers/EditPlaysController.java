@@ -4,7 +4,6 @@ import ba.unsa.etf.rpr.business.PlaysManager;
 import ba.unsa.etf.rpr.dao.DaoFactory;
 import ba.unsa.etf.rpr.domain.Plays;
 import ba.unsa.etf.rpr.exceptions.PlaysException;
-import com.sun.glass.events.ViewEvent;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,11 +15,12 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
 import java.io.IOException;
 import java.util.Date;
 import java.util.Optional;
+
+import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
 /**
  * Controller for managing Plays
