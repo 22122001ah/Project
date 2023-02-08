@@ -66,4 +66,12 @@ public class plays_inDaoSQLimpl extends AbstractDao1<plays_ins> implements plays
             throw new PlaysException(e.getMessage(),e);
         }
     }
+    @Override
+    public List<plays_ins> searchArtists(Artists artists) throws PlaysException {
+        return executeQuery("SELECT * FROM plays_ins WHERE Artist_id = ? ",new Object[]{artists.getId()});
+    }
+    @Override
+    public List<plays_ins> searchPlays(Plays play) throws PlaysException {
+      return  executeQuery("SELECT * FROM plays_ins WHERE play_id = ? ",new Object[]{play.getId()});
+    }
 }

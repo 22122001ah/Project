@@ -86,17 +86,34 @@ public class ModelController {
      * @param event
      */
     public void saveAoUForm(ActionEvent event){
-        try{
+        try{boolean alreadyInDB=false;
             Plays q = model.toPlay().getKey();
             ArrayList<plays_ins> p=model.toPlay().getValue();
             if (editPlayId != null){
                 q.setId(editPlayId);
                 playsManager.update(q);
                 for(int i=0;i<p.size();i++) {
-                    if(p.get(i).getId()==0)
+ArrayList<Plays> p2= (ArrayList<Plays>) plays_inManager.searchByArtist(artistManager.getById(p.get(i).getArtist_id()));
+                            for(Plays p1:p2)
+                       if(p1.getId()==q.getId())  alreadyInDB=true;
+                            if(alreadyInDB==false)
                         plays_inManager.add(p.get(i));
-                    else
-                    plays_inManager.update(p.get(i));
+                   if(alreadyInDB==true){
+                     if(p.size()<plays_inManager.searchArtists(artistManager.getById(p.get(i).getArtist_id())).size())
+                     { int m=0;
+                         while(m<p.size()){
+                             boolean deleted = false;
+                             ArrayList<plays_ins> playsins = (ArrayList<plays_ins>) plays_inManager.searchArtists(artistManager.getById(p.get(i).getArtist_id()));
+                             for (int l = 0; l < playsins.size(); l++) {
+                                 if (playsins.get(l).getPlays_id() == q.getId())
+                                     deleted = true;
+
+                             }m++;
+
+                         if(deleted==false)
+                             plays_inManager.delete(p.get(i).getId());
+                     }}
+                   }
                 }
             }else{
                 playsManager.add(q);
@@ -152,7 +169,7 @@ public class ModelController {
             a=this.artist.getValue().split(",");
             for (int i=0;i<a.length;i++)
             {  plays_ins plays_in1=new plays_ins();
-                if(playsManager.searchByPlayName(q.getPlay_name())!=null)
+                if(playsManager.searchByPlayName(q.getPlay_name()).size()!=0)
                 plays_in1.setPlays_id(playsManager.searchByPlayName(q.getPlay_name()).get(0).getId());
                 else plays_in1.setPlays_id(q.getAll().size());
                 plays_in1.setArtist_id(artistManager.searchByArtistName(a[i]).getId());

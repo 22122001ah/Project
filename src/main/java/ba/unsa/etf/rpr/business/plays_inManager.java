@@ -26,5 +26,13 @@ public class plays_inManager {
     } public plays_ins update(plays_ins item) throws PlaysException{
         return DaoFactory.playsin_Dao().update(item);
     }
-
+public void delete(int item) throws PlaysException {
+    DaoFactory.playsin_Dao().delete(item);
+}
+    public List<plays_ins> searchPlays(Plays play) throws PlaysException{
+        return DaoFactory.playsin_Dao().searchPlays(play);
+    }
+    public List<plays_ins> searchArtists(Artists artists) throws PlaysException{
+        return DaoFactory.playsin_Dao().searchArtists(artists);
+    }
 }
