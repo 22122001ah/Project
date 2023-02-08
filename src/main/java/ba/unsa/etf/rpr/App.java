@@ -2,13 +2,18 @@ package ba.unsa.etf.rpr;
 
 import ba.unsa.etf.rpr.business.PlaysManager;
 import ba.unsa.etf.rpr.business.WritersManager;
+import ba.unsa.etf.rpr.dao.DaoFactory;
+import ba.unsa.etf.rpr.domain.Artists;
+import ba.unsa.etf.rpr.domain.Directors;
 import ba.unsa.etf.rpr.domain.Plays;
 import ba.unsa.etf.rpr.domain.Writers;
 import org.apache.commons.cli.*;
 
 import java.io.PrintWriter;
 import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -68,7 +73,13 @@ public class App {
         return writer;
 
     }
+    public static Artists searchThroughArtists(List<Artists> listOfWriters, String artistName) {
 
+        Artists artist = null;
+        artist = listOfWriters.stream().filter(cat -> cat.getArtist_name().toLowerCase().equals(artistName.toLowerCase())).findAny().get();
+        return artist;
+
+    }
 
     /**
      *
@@ -82,8 +93,6 @@ public class App {
         CommandLineParser commandLineParser = new DefaultParser();
 
         CommandLine cl = commandLineParser.parse(options, args);
-
-
         if((cl.hasOption(addPlays.getOpt()) || cl.hasOption(addPlays.getLongOpt())) && cl.hasOption((writerDefinition.getLongOpt()))){
             WritersManager writerManager = new WritersManager();
             PlaysManager playManager = new PlaysManager();
