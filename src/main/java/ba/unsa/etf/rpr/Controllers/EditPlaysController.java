@@ -76,7 +76,7 @@ public class EditPlaysController{
             FXMLLoader fl=new FXMLLoader(getClass().getResource("/fxml/Info.fxml"));
             Parent root =fl.load();
             InfoController noviprozor=fl.getController();
-            noviprozor.setText(DaoFactory.playsDao().getById(id).getPlay_name());
+            noviprozor.setText(DaoFactory.playsDao().getById(id).toString());
             Secondstage.setTitle("Play description");
             Secondstage.setScene(new Scene(root,USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
             Secondstage.show();
