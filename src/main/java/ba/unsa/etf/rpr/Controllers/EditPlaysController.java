@@ -12,6 +12,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -93,11 +95,19 @@ public class EditPlaysController{
      * @param event
      */
     public void searchPlays(ActionEvent event){
-        try {
-            playsTable.setItems(FXCollections.observableList(PlaysManager.searchByPlayName(search.getText())));
-            playsTable.refresh();
-        } catch (PlaysException e) {
-            new Alert(Alert.AlertType.NONE, e.getMessage(), ButtonType.OK).show();
+       search();
+    }
+public void search(){
+    try {
+        playsTable.setItems(FXCollections.observableList(PlaysManager.searchByPlayName(search.getText())));
+        playsTable.refresh();
+    } catch (PlaysException e) {
+        new Alert(Alert.AlertType.NONE, e.getMessage(), ButtonType.OK).show();
+    }
+}
+    public void ENTERs(KeyEvent keyEvent){
+        if(keyEvent.getCode()== KeyCode.ENTER) {
+            search();
         }
     }
 

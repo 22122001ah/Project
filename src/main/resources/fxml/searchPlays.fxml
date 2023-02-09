@@ -23,14 +23,14 @@
     <top>
         <HBox style="-fx-background-color: beige;" BorderPane.alignment="BOTTOM_RIGHT">
             <children>
-                <TextField fx:id="search" alignment="CENTER" promptText="Search..." style="-fx-background-color: beige; -fx-border-color: white; -fx-border-width: 3;">
+                <TextField fx:id="search" alignment="CENTER" onKeyPressed="#ENTER" promptText="Search..." style="-fx-background-color: beige; -fx-border-color: white; -fx-border-width: 3;">
                     <HBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                     </HBox.margin>
                     <font>
                         <Font name="Bodoni MT Bold Italic" size="12.0" />
                     </font></TextField>
-                <Button minWidth="60.0" mnemonicParsing="false" onAction="#searchPlays" onKeyPressed="#ENTER" style="-fx-background-color: beige; -fx-border-color: white;" text="Search">
+                <Button minWidth="60.0" mnemonicParsing="false" onAction="#searchPlays" style="-fx-background-color: beige; -fx-border-color: white;" text="Search">
                     <HBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                     </HBox.margin>

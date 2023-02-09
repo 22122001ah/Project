@@ -23,7 +23,7 @@
     <top>
         <HBox style="-fx-background-color: beige;" BorderPane.alignment="BOTTOM_RIGHT">
             <children>
-                <TextField fx:id="search" alignment="CENTER" promptText="Search..." style="-fx-background-color: beige; -fx-border-color: white; -fx-border-width: 3;">
+                <TextField fx:id="search" alignment="CENTER" onKeyPressed="#ENTERs" promptText="Search..." style="-fx-background-color: beige; -fx-border-color: white; -fx-border-width: 3;">
                     <HBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                     </HBox.margin>
