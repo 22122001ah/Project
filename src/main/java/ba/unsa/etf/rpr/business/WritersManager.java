@@ -10,9 +10,7 @@ public class WritersManager {
     public Writers searchByWriterName(String name) throws PlaysException{
         return DaoFactory.writersDao().searchByWriterName(name);
     }
-    public Writers searchById(int Id) throws PlaysException{
-        return DaoFactory.writersDao().searchById(Id);
-    }
+
     public List<Writers> getAll() throws PlaysException{
         return DaoFactory.writersDao().getAll();
     }

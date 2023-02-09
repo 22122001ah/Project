@@ -37,8 +37,5 @@ public class DirectorsDaoSQLimpl extends AbstractDao1<Directors> implements Dire
 
         return executeQueryUnique("SELECT * FROM Directors WHERE first_name = ?",new Object[]{name});
     }
-    @Override
-    public Directors searchById(int Id) throws PlaysException{
-        return getById(Id);
-    }
+
 }

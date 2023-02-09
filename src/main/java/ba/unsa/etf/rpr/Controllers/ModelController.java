@@ -164,7 +164,9 @@ ArrayList<Plays> p2= (ArrayList<Plays>) plays_inManager.searchByArtist(artistMan
             ArrayList<Artists>a=(ArrayList<Artists>) plays_inManager.searchByPlay(q);
             String k=new String();
             for(int i=0;i<a.size();i++){
-              k+=a.get(i).getArtist_name()+",";
+              k+=a.get(i).getArtist_name();
+              if(i!=a.size()-1)
+                  k+=",";
             }
             this.artist.set(k);
         }

@@ -6,13 +6,15 @@ import ba.unsa.etf.rpr.exceptions.PlaysException;
 
 import java.util.List;
 
+/**
+ * business class for Artists table
+ * @author Adna Herak
+ */
 public class ArtistManager {
     public Artists searchByArtistName(String name) throws PlaysException{
         return DaoFactory.artistDao().searchByArtistName(name);
     }
-    public Artists searchById(int Id) throws PlaysException{
-        return DaoFactory.artistDao().getById(Id);
-    }
+
     public List<Artists> getAll() throws PlaysException{
         return DaoFactory.artistDao().getAll();
     }

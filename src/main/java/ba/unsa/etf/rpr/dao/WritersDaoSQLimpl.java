@@ -33,7 +33,7 @@ public class WritersDaoSQLimpl extends AbstractDao1<Writers> implements WritersD
     }
     @Override
     public Writers searchByWriterName(String name) throws PlaysException {
-        return executeQueryUnique("SELECT * FROM Writers WHERE FirstName = ?",new Object[]{name});
+        return executeQueryUnique("SELECT * FROM Writers WHERE FirstName LIKE concat('%', ?, '%')",new Object[]{name});
     }
     @Override
     public Writers searchById(int Id) throws PlaysException{

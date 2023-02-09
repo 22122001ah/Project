@@ -10,9 +10,7 @@ public class DirectorsManager {
     public Directors searchByDirectorName(String name) throws PlaysException{
         return DaoFactory.directorsDao().searchByDirectorName(name);
     }
-    public Directors searchById(int Id) throws PlaysException{
-        return DaoFactory.directorsDao().getById(Id);
-    }
+
     public List<Directors> getAll() throws PlaysException{
         return DaoFactory.directorsDao().getAll();
     }

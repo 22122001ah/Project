@@ -9,5 +9,4 @@ import ba.unsa.etf.rpr.exceptions.PlaysException;
  */
 public interface ArtistsDao extends Dao<Artists> {
      Artists searchByArtistName(String name) throws PlaysException;
-     Artists searchById(int Id) throws PlaysException;
 }
