@@ -168,7 +168,7 @@ else{
 
     }
 
-    public void search(ActionEvent actionEvent){
+    public void search(ActionEvent actionEvent) throws PlaysException {
             SearchController s=new SearchController();
             try {
                 OpenStage("/fxml/searchPlays.fxml","SearchPlay",s);

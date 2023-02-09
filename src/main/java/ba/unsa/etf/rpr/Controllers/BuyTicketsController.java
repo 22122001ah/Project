@@ -1,5 +1,4 @@
 package ba.unsa.etf.rpr.Controllers;
-
 import ba.unsa.etf.rpr.business.DirectorsManager;
 import ba.unsa.etf.rpr.business.PlaysManager;
 import ba.unsa.etf.rpr.business.WritersManager;
@@ -20,9 +19,11 @@ import javafx.stage.Stage;
 import java.sql.Date;
 import java.time.LocalDate;
 
-public class BuyTicketsController {
+
+public class BuyTicketsController  {
     public Spinner<Integer> spinner=new Spinner<>();
     public Text price=new Text();
+
     public ChoiceBox<String> choiceBox=new ChoiceBox<>();
     public Label name=new Label();
     DirectorsManager directorsManager;
