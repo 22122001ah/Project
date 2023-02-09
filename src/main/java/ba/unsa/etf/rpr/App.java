@@ -2,18 +2,14 @@ package ba.unsa.etf.rpr;
 
 import ba.unsa.etf.rpr.business.PlaysManager;
 import ba.unsa.etf.rpr.business.WritersManager;
-import ba.unsa.etf.rpr.dao.DaoFactory;
 import ba.unsa.etf.rpr.domain.Artists;
-import ba.unsa.etf.rpr.domain.Directors;
 import ba.unsa.etf.rpr.domain.Plays;
 import ba.unsa.etf.rpr.domain.Writers;
 import org.apache.commons.cli.*;
 
 import java.io.PrintWriter;
 import java.sql.Date;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -104,10 +100,6 @@ public class App {
                 System.exit(1);
             }
 
-//                if(!category.getName().equals(cl.getArgList().get(1))){
-//                    System.out.println("There is no category with passed name! Try again.");
-//                    System.exit(-1);
-//                }
             Plays play = new Plays();
             play.setWriter(category);
             play.setWriter(writerManager.searchByWriterName(cl.getArgList().get(0)));
