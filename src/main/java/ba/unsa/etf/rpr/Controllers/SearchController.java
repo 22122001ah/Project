@@ -3,16 +3,19 @@ package ba.unsa.etf.rpr.Controllers;
 import ba.unsa.etf.rpr.business.PlaysManager;
 import ba.unsa.etf.rpr.domain.Plays;
 import ba.unsa.etf.rpr.exceptions.PlaysException;
+import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.text.Font;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -41,7 +44,20 @@ public class SearchController{
         createdColumn.setCellValueFactory(new PropertyValueFactory<Plays, Date>("date"));
         price.setCellValueFactory(new PropertyValueFactory<Plays,Integer>("price"));
         genre.setCellValueFactory(new PropertyValueFactory<Plays,String>("genre"));
-        choice.setItems(FXCollections.observableList(playsManager.getAllGenres()));
+        Platform.runLater(() -> {
+            SkinBase<ChoiceBox<String>> skin = (SkinBase<ChoiceBox<String>>) choice.getSkin();
+            for (Node child : skin.getChildren()) {
+                if (child instanceof Label) {
+                    Label label = (Label) child;
+                    if (label.getText().isEmpty()) {
+                        label.setText("Genre");
+                        Font f=new Font("Bodoni MT Bold Italic",12);
+                        label.setFont(f);
+                    }
+                    return;
+                }
+            }
+        });
         maxprice.setText(Integer.toString((int)slider.getValue()));
         slider.valueProperty().addListener(
                 new ChangeListener<Number>() {
