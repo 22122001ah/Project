@@ -7,6 +7,9 @@ import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
+
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -38,11 +41,19 @@ public class SearchController{
      * @param event
      */
     public void searchPlays(ActionEvent event){
+      search();
+    }
+    public void search(){
         try {
             playsTable.setItems(FXCollections.observableList(PlaysManager.searchByPlayName(search.getText())));
             playsTable.refresh();
         } catch (PlaysException e) {
             new Alert(Alert.AlertType.NONE, e.getMessage(), ButtonType.OK).show();
+        }
+    }
+    public void ENTER(KeyEvent keyEvent){
+        if(keyEvent.getCode()== KeyCode.ENTER) {
+            search();
         }
     }
 
