@@ -43,13 +43,11 @@ public class SearchController{
         genre.setCellValueFactory(new PropertyValueFactory<Plays,String>("genre"));
         choice.setItems(FXCollections.observableList(playsManager.getAllGenres()));
         maxprice.setText(Integer.toString((int)slider.getValue()));
-        SimpleStringProperty p1=new SimpleStringProperty(String.valueOf(slider.getValue()));
         slider.valueProperty().addListener(
                 new ChangeListener<Number>() {
                     @Override
                     public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
-                        int k=(int) slider.getValue();
-                        maxprice.setText(Integer.toString(k));
+                        maxprice.setText(Integer.toString((int) slider.getValue()));
                     }
                 }
         );
@@ -66,7 +64,7 @@ public class SearchController{
     }
     public void search(){
         try {
-            playsTable.setItems(FXCollections.observableList(PlaysManager.searchByPlayName(search.getText())));
+            playsTable.setItems(FXCollections.observableList(PlaysManager.randomPlay().searchByPlaynameandPriceandGenre(search.getText(),Integer.parseInt(maxprice.getText()),choice.getValue())));
             playsTable.refresh();
         } catch (PlaysException e) {
             new Alert(Alert.AlertType.NONE, e.getMessage(), ButtonType.OK).show();
