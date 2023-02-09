@@ -100,10 +100,7 @@ ArrayList<Plays> p2= (ArrayList<Plays>) plays_inManager.searchByArtist(artistMan
                         plays_inManager.add(p.get(i));
                    if(alreadyInDB==true){
                      if(p.size()<plays_inManager.searchPlays(q).size())
-                     {
-
-
-                             ArrayList<plays_ins> playsins = (ArrayList<plays_ins>) plays_inManager.searchPlays(playsManager.getById(p.get(i).getPlays_id()));
+                     {    ArrayList<plays_ins> playsins = (ArrayList<plays_ins>) plays_inManager.searchPlays(playsManager.getById(p.get(i).getPlays_id()));
                           for(plays_ins p4:playsins){boolean deleted = false;
                               for(plays_ins p5:p)
                               {

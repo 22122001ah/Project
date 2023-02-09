@@ -41,28 +41,28 @@ public class EditPlaysController{
     public TableColumn<Plays, String> playsColumn;
     public TableColumn<Plays, Date> createdColumn;
     public TableColumn<Plays, Integer> actionColumn;
-    Button edit=new Button("Edit");
 
-    public void initialize(){
+    public void initialize() throws PlaysException {
         idColumn.setCellValueFactory(new PropertyValueFactory<Plays, String>("Id"));
         playsColumn.setCellValueFactory(new PropertyValueFactory<Plays, String>("play_name"));
         createdColumn.setCellValueFactory(new PropertyValueFactory<Plays, Date>("date"));
         actionColumn.setCellValueFactory(new PropertyValueFactory<Plays, Integer>("Id"));
         actionColumn.setCellFactory(new ButtonFactory(editEvent -> {
-            int quoteId = Integer.parseInt(((Button)editEvent.getSource()).getUserData().toString());
-            editPlayScene(quoteId);
+            int playId = Integer.parseInt(((Button)editEvent.getSource()).getUserData().toString());
+            editPlayScene(playId);
         }, (deleteEvent -> {
-            int quoteId = Integer.parseInt(((Button)deleteEvent.getSource()).getUserData().toString());
-            deletePlays(quoteId);
+            int playId = Integer.parseInt(((Button)deleteEvent.getSource()).getUserData().toString());
+            deletePlays(playId);
         }),(ViewEvent -> {
-            int qouteId=Integer.parseInt(((Button) ViewEvent.getSource()).getUserData().toString());
+            int playId=Integer.parseInt(((Button) ViewEvent.getSource()).getUserData().toString());
             try {
-                PlayDesription(qouteId);
+                PlayDesription(playId);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
         })));
-        refreshPlays();
+        playsTable.setItems(FXCollections.observableList(playsManager.getAll()));
+        playsTable.refresh();
     }
     /**
      * opening new window with the description of the selected play
@@ -79,6 +79,7 @@ public class EditPlaysController{
             noviprozor.setText(DaoFactory.playsDao().getById(id).toString());
             Secondstage.setTitle("Play description");
             Secondstage.setScene(new Scene(root,USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
+            Secondstage.setResizable(false);
             Secondstage.show();
 
         }
@@ -110,7 +111,8 @@ public class EditPlaysController{
             Optional<ButtonType> result = confirmation.showAndWait();
             if (!result.get().getButtonData().isCancelButton()){
                 PlaysManager.delete(playId);
-                refreshPlays();
+                playsTable.setItems(FXCollections.observableList(playsManager.getAll()));
+                playsTable.refresh();
             }
         } catch (PlaysException e) {
             new Alert(Alert.AlertType.NONE, e.getMessage(), ButtonType.OK).show();
@@ -124,14 +126,12 @@ public class EditPlaysController{
      */
     public void editPlayScene(Integer playId){
         try{
-            ((Stage)playScreen.getScene().getWindow()).hide();
-
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/AddPlays.fxml"));
             loader.setController(new ModelController(playId));
             Stage stage = new Stage();
             stage.setScene(new Scene(loader.load(), USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
-            stage.initStyle(StageStyle.UTILITY);
             stage.setTitle("Edit");
+            stage.setResizable(false);
             stage.show();
             stage.setOnHiding(event -> {
                 ((Stage)playScreen.getScene().getWindow()).show();
