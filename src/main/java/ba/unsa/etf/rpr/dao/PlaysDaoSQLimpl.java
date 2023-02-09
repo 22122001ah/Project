@@ -91,6 +91,15 @@ public class PlaysDaoSQLimpl extends AbstractDao1<Plays> implements PlaysDao{
 public List<Plays> searchByPlaynameandPriceandGenre(String play_name,int price,String genre) throws PlaysException {
         return executeQuery("SELECT * FROM Plays WHERE  play_name LIKE concat('%', ?, '%') AND price BETWEEN ? AND ? AND  genre LIKE concat('%', ?, '%') ",new Object[]{play_name,0,price,genre});
     }
+    @Override
+    public List<Plays> searchByPlaynameandGenre(String play_name,String genre) throws PlaysException {
+        return executeQuery("SELECT * FROM Plays WHERE  play_name LIKE concat('%', ?, '%')  AND  genre LIKE concat('%', ?, '%') ",new Object[]{play_name,genre});
+    }
+    @Override
+    public List<Plays> searchByPlaynameandPrice(String play_name,int price) throws PlaysException {
+        return executeQuery("SELECT * FROM Plays WHERE  play_name LIKE concat('%', ?, '%') AND price BETWEEN ? AND ? ",new Object[]{play_name,0,price});
+    }
+
     /**
      * searches for Plays that are playing on a certain date
      * @param date

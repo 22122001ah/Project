@@ -59,5 +59,6 @@ public interface PlaysDao extends Dao<Plays> {
     Plays randomPlay() throws PlaysException;
     void delete(int id) throws PlaysException;
     List<Plays> searchByPlaynameandPriceandGenre(String play_name,int price,String genre) throws PlaysException;
-
+     List<Plays> searchByPlaynameandGenre(String play_name,String genre) throws PlaysException;
+     List<Plays> searchByPlaynameandPrice(String play_name,int price) throws PlaysException;
 }

@@ -44,6 +44,7 @@ public class SearchController{
         createdColumn.setCellValueFactory(new PropertyValueFactory<Plays, Date>("date"));
         price.setCellValueFactory(new PropertyValueFactory<Plays,Integer>("price"));
         genre.setCellValueFactory(new PropertyValueFactory<Plays,String>("genre"));
+        choice.setItems(FXCollections.observableList(playsManager.getAllGenres()));
         Platform.runLater(() -> {
             SkinBase<ChoiceBox<String>> skin = (SkinBase<ChoiceBox<String>>) choice.getSkin();
             for (Node child : skin.getChildren()) {
@@ -60,12 +61,7 @@ public class SearchController{
         });
         maxprice.setText(Integer.toString((int)slider.getValue()));
         slider.valueProperty().addListener(
-                new ChangeListener<Number>() {
-                    @Override
-                    public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
-                        maxprice.setText(Integer.toString((int) slider.getValue()));
-                    }
-                }
+                (observableValue, number, t1) -> maxprice.setText(Integer.toString((int) slider.getValue()))
         );
         refreshPlays();
     }
@@ -80,7 +76,17 @@ public class SearchController{
     }
     public void search(){
         try {
-            playsTable.setItems(FXCollections.observableList(PlaysManager.randomPlay().searchByPlaynameandPriceandGenre(search.getText(),Integer.parseInt(maxprice.getText()),choice.getValue())));
+            if(Integer.parseInt(maxprice.getText())==0 && choice.getValue()==null)
+                playsTable.setItems(FXCollections.observableList(playsManager.searchByPlayName(search.getText())));
+           else if(Integer.parseInt(maxprice.getText())==0 && choice.getValue()!=null){
+playsTable.setItems(FXCollections.observableList(playsManager.searchByPlaynameandGenre(search.getText(),choice.getValue())));
+            }
+           else if(Integer.parseInt(maxprice.getText())!=0 && choice.getValue()==null){
+                playsTable.setItems(FXCollections.observableList(playsManager.searchByPlaynameandPrice(search.getText(),Integer.parseInt(maxprice.getText()))));
+            }
+            else {
+                playsTable.setItems(FXCollections.observableList(PlaysManager.searchByPlaynameandPriceandGenre(search.getText(),Integer.parseInt(maxprice.getText()),choice.getValue())));
+            }
             playsTable.refresh();
         } catch (PlaysException e) {
             new Alert(Alert.AlertType.NONE, e.getMessage(), ButtonType.OK).show();

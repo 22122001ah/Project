@@ -65,4 +65,14 @@ public class PlaysManager {
     public Plays randomPlay() throws PlaysException{
         return DaoFactory.playsDao().randomPlay();
     }
+
+    public List<Plays> searchByPlaynameandPriceandGenre(String text, int parseInt, String value) throws PlaysException {
+        return DaoFactory.playsDao().searchByPlaynameandPriceandGenre(text,parseInt,value);
+    }
+    public List<Plays> searchByPlaynameandGenre(String play_name,String genre) throws PlaysException{
+        return DaoFactory.playsDao().searchByPlaynameandGenre(play_name,genre);
+    }
+    public List<Plays> searchByPlaynameandPrice(String play_name,int price) throws PlaysException{
+        return DaoFactory.playsDao().searchByPlaynameandPrice(play_name,price);
+    }
 }
