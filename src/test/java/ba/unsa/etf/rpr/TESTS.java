@@ -6,7 +6,6 @@ import ba.unsa.etf.rpr.domain.*;
 import ba.unsa.etf.rpr.exceptions.PlaysException;
 import org.junit.jupiter.api.Test;
 
-import javax.swing.plaf.PanelUI;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -107,7 +106,28 @@ public class TESTS {
                 assertEquals(playsArrayList,plays);
     }
     @Test
-    public void PlaysByArtists(){
-
+    public void PlaysByArtists() throws PlaysException, ParseException {
+        Plays play=new Plays();
+        Writers writer=new Writers();
+        writer.setId(8);
+        writer.setFirst_name("Aldo Nikolaj");
+        play.setId(1);
+        play.setWriter(writer);
+        play.setPlay_name("Umri muški");
+        play.setGenre("comedy");
+        play.setMaxcap(0);
+        play.setPrice(30);
+        Date d=new SimpleDateFormat( "yyyy-MM-dd" ).parse( "2022-12-22" );
+        play.setDate(d);
+        Directors directors=new Directors();
+        directors= DaoFactory.directorsDao().getById(3);
+        play.setDirector(directors);
+        ArrayList<Artists> artists=new ArrayList<>();
+        artists=(ArrayList<Artists>) DaoFactory.playsin_Dao().searchByPlay(play);
+        ArrayList<Artists>artists1=new ArrayList<Artists>();
+        artists1.add(DaoFactory.artistDao().getById(2));
+        artists1.add(DaoFactory.artistDao().getById(4));
+        artists1.add(DaoFactory.artistDao().getById(3));
+        assertEquals(artists,artists1);
     }
 }
