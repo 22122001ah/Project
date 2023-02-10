@@ -188,4 +188,14 @@ public class TESTS {
         p.add(play);
         assertEquals(p,plays);
     }
+    @Test
+    public void searchByPrice() throws PlaysException {
+        List<Plays> plays=DaoFactory.playsDao().searchByPrice(30);
+        Plays plays1=DaoFactory.playsDao().getById(1);
+        List<Plays>plays2=new ArrayList<>();
+        plays2.add(plays1);
+        plays1=DaoFactory.playsDao().getById(2);
+        plays2.add(plays1);
+        assertEquals(plays2,plays);
+    }
 }
