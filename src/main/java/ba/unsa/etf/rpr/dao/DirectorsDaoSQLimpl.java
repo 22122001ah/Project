@@ -7,6 +7,18 @@ import java.sql.*;
 import java.util.*;
 
 public class DirectorsDaoSQLimpl extends AbstractDao1<Directors> implements DirectorsDao {
+    private static DirectorsDaoSQLimpl instance = null;
+    public static DirectorsDaoSQLimpl getInstance(){
+        if(instance==null)
+            instance = new DirectorsDaoSQLimpl();
+        return instance;
+    }
+
+    public static void removeInstance(){
+        if(instance!=null)
+            instance=null;
+    }
+
 
     public DirectorsDaoSQLimpl(){
         super("Directors");

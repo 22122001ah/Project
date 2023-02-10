@@ -12,6 +12,18 @@ import java.util.Map;
 import java.util.TreeMap;
 
 public class plays_inDaoSQLimpl extends AbstractDao1<plays_ins> implements plays_inDao{
+    private static plays_inDaoSQLimpl instance = null;
+    public static plays_inDaoSQLimpl getInstance(){
+        if(instance==null)
+            instance = new plays_inDaoSQLimpl();
+        return instance;
+    }
+
+    public static void removeInstance(){
+        if(instance!=null)
+            instance=null;
+    }
+
     public plays_inDaoSQLimpl() {
         super("plays_ins");
     }

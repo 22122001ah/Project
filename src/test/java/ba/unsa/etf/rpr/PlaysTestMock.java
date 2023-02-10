@@ -26,8 +26,6 @@ import static org.mockito.Mockito.when;
 public class PlaysTestMock {
     PlaysManager  playsManager = new PlaysManager();
     Plays play;
-
-
     public void initializeObjectsWeNeed() {
 
        play=new Plays("Umri muški");

@@ -6,6 +6,18 @@ import java.sql.*;
 import java.util.*;
 import ba.unsa.etf.rpr.exceptions.PlaysException;
 public class WritersDaoSQLimpl extends AbstractDao1<Writers> implements WritersDao {
+    private static WritersDaoSQLimpl instance = null;
+    public static WritersDaoSQLimpl getInstance(){
+        if(instance==null)
+            instance = new WritersDaoSQLimpl();
+        return instance;
+    }
+
+    public static void removeInstance(){
+        if(instance!=null)
+            instance=null;
+    }
+
 
     public WritersDaoSQLimpl(){
         super("Writers");

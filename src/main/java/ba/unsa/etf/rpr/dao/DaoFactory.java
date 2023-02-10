@@ -6,12 +6,12 @@ package ba.unsa.etf.rpr.dao;
  * @author Adna Herak
  */
 public class DaoFactory {
-    public static final PlaysDao playsDao=new PlaysDaoSQLimpl();
-    public static final plays_inDao playsin_Dao=new plays_inDaoSQLimpl();
-    public static final ArtistsDao ARTISTS_DAO =new ArtistsDaoSQLimpl();
-    public static final WritersDao writersDao=new WritersDaoSQLimpl();
-    public static final DirectorsDao directorsDao=new DirectorsDaoSQLimpl();
-    public static final UsersDao usersDao=new UserDaoSQLimpl();
+    private static final PlaysDao playsDao=PlaysDaoSQLimpl.getInstance();
+    private static final plays_inDao playsin_Dao=plays_inDaoSQLimpl.getInstance();
+    private static final ArtistsDao ARTISTS_DAO =ArtistsDaoSQLimpl.getInstance();
+    private static final WritersDao writersDao=WritersDaoSQLimpl.getInstance();
+    private static final DirectorsDao directorsDao=DirectorsDaoSQLimpl.getInstance();
+    private static final UsersDao usersDao=UserDaoSQLimpl.getInstance();
     public DaoFactory() {
     }
     public static PlaysDao playsDao(){

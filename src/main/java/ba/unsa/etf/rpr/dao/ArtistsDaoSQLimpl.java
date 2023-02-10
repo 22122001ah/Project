@@ -7,6 +7,18 @@ import java.util.Map;
 import java.util.TreeMap;
 
 public class ArtistsDaoSQLimpl extends AbstractDao1<Artists> implements ArtistsDao {
+    private static ArtistsDaoSQLimpl instance = null;
+      public static ArtistsDaoSQLimpl getInstance(){
+        if(instance==null)
+            instance = new ArtistsDaoSQLimpl();
+        return instance;
+    }
+
+    public static void removeInstance(){
+        if(instance!=null)
+            instance=null;
+    }
+
     public ArtistsDaoSQLimpl(){
         super("Artists");
     }

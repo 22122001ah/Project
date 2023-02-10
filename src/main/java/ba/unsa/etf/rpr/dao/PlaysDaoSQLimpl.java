@@ -11,6 +11,17 @@ import ba.unsa.etf.rpr.exceptions.PlaysException;
 
 public class PlaysDaoSQLimpl extends AbstractDao1<Plays> implements PlaysDao{
 
+    private static PlaysDaoSQLimpl instance = null;
+    public static PlaysDaoSQLimpl getInstance(){
+        if(instance==null)
+            instance = new PlaysDaoSQLimpl();
+        return instance;
+    }
+
+    public static void removeInstance(){
+        if(instance!=null)
+            instance=null;
+    }
 
     public PlaysDaoSQLimpl(){
 
