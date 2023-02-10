@@ -5,7 +5,7 @@ import ba.unsa.etf.rpr.dao.UserDaoSQLimpl;
 import java.util.Date;
 import java.util.Objects;
 
-public class Users extends UserDaoSQLimpl implements Idable {
+public class Users  implements Idable {
     private String username;
     private int Id;
     private int management;

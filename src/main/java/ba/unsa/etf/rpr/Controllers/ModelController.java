@@ -58,13 +58,12 @@ public class ModelController {
         try{
 
             Play_name.textProperty().bindBidirectional(model.play_name);
-
-            date.valueProperty().bindBidirectional(model.date);
-            writer.textProperty().bindBidirectional(model.writer);
-            artists.textProperty().bindBidirectional(model.artist);
-            directorId.textProperty().bindBidirectional(model.director);
-            price.textProperty().bindBidirectional(model.price);
             genre.textProperty().bindBidirectional(model.genre);
+            price.textProperty().bindBidirectional(model.price);
+            artists.textProperty().bindBidirectional(model.artist);
+            writer.textProperty().bindBidirectional(model.writer);
+            directorId.textProperty().bindBidirectional(model.director);
+            date.valueProperty().bindBidirectional(model.date);
             if (editPlayId != null) {
                 model.fromPlay(playsManager.getById(editPlayId));
             }

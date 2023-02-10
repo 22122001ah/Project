@@ -7,6 +7,18 @@ import java.util.TreeMap;
 import ba.unsa.etf.rpr.exceptions.PlaysException;
 
 public class UserDaoSQLimpl extends AbstractDao1<Users> implements UsersDao{
+    private static UserDaoSQLimpl instance = null;
+
+    public static UserDaoSQLimpl getInstance(){
+        if(instance==null)
+            instance = new UserDaoSQLimpl();
+        return instance;
+    }
+
+    public static void removeInstance(){
+        if(instance!=null)
+            instance=null;
+    }
 
     public UserDaoSQLimpl() {
         super("Users");

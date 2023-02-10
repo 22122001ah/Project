@@ -21,6 +21,9 @@ public class PlaysManager {
     public Plays getById(int Id) throws PlaysException{
         return DaoFactory.playsDao().getById(Id);
     }
+    public boolean isInDB(List<Plays> plays) throws PlaysException{
+        return DaoFactory.playsDao().isInDB(plays);
+    }
     public List<Plays> searchByPrices(int price1,int price2) throws PlaysException{
         return DaoFactory.playsDao().searchByPrices(price1,price2);
     }

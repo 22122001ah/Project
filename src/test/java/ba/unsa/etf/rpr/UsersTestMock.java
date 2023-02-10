@@ -10,16 +10,16 @@ import org.junit.jupiter.api.Test;
 import org.mockito.MockedStatic;
 import org.mockito.Mockito;
 
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 public class UsersTestMock {
-    UsersManager userManager;
-
-    @BeforeEach
-    public void initializeObjectsWeNeed() {
-        userManager = new UsersManager();
-    }
+    UsersManager userManager= new UsersManager();;
 
     @Test
     void validateuserExists() throws PlaysException {
@@ -28,9 +28,10 @@ public class UsersTestMock {
         when(DaoFactory.usersDao()).thenReturn(UD);
         when(DaoFactory.usersDao().searchByUsername("aherak2")).thenReturn(new Users("aherak2","a123"));
 
-        boolean x = UsersManager.validateUser("aherak2","a123");
+        boolean x = UsersManager.validateUser(DaoFactory.usersDao().searchByUsername("aherak2").getUsername(),DaoFactory.usersDao().searchByUsername("aherak2").getPassword());
         assertTrue(x);
         dao.close();
     }
+
 
 }

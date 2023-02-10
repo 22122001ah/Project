@@ -2,6 +2,8 @@ package ba.unsa.etf.rpr.dao;
 
 import ba.unsa.etf.rpr.domain.Idable;
 import ba.unsa.etf.rpr.exceptions.PlaysException;
+
+import java.io.FileReader;
 import java.sql.*;
 import java.util.*;
 
@@ -15,7 +17,7 @@ public abstract class AbstractDao1 <T extends Idable> implements Dao<T> {
     private static void createConnection(){
         if(AbstractDao1.connection==null) try{
             Properties p=new Properties();
-            p.load(ClassLoader.getSystemResource("database.properties").openStream());
+            p.load(new FileReader("C:\\Users\\User\\IdeaProjects\\Project\\src\\main\\resources\\database.properties"));
             String url=p.getProperty("url");
             String user=p.getProperty("username");
             String pass=p.getProperty("password");

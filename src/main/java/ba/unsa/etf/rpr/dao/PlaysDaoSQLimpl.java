@@ -57,6 +57,13 @@ public class PlaysDaoSQLimpl extends AbstractDao1<Plays> implements PlaysDao{
     public List<Plays> searchByPrice(int prices) throws PlaysException{
         return executeQuery("SELECT * FROM Plays WHERE price = ? ",new Object[]{prices});
     }
+    @Override
+    public  boolean isInDB(List<Plays> plays) throws PlaysException {
+        List<Plays>plays1=DaoFactory.playsDao().searchByPlayName(plays.get(0).getPlay_name());
+        if(plays1.size()==0)
+            return false;
+        return true;
+    }
 
     /**
      * searches for Plays in given price range
