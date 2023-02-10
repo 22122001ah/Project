@@ -130,4 +130,15 @@ public class TESTS {
         artists1.add(DaoFactory.artistDao().getById(3));
         assertEquals(artists,artists1);
     }
+    @Test
+    public void testPriceBetween() throws PlaysException {
+        List<Plays> plays=DaoFactory.playsDao().searchByPrices(27,30);
+        Plays plays1=DaoFactory.playsDao().getById(1);
+        List<Plays>plays2=new ArrayList<>();
+        plays2.add(plays1);
+        plays1=DaoFactory.playsDao().getById(2);
+        plays2.add(plays1);
+        assertEquals(plays2,plays);
+
+    }
 }
