@@ -81,25 +81,25 @@ public class TESTS {
     @Test
             public void Artists() throws PlaysException, ParseException {
                 Artists artists=new Artists();
-                artists.setId(3);
-                artists.setArtist_name("Senad Bašić");
+                artists.setId(10);
+                artists.setArtist_name("Moamer Kasumović");
                     List<Plays> playsArrayList=new ArrayList<>();
                 playsArrayList=DaoFactory.playsin_Dao().searchByArtist(artists);
     List<Plays> plays=new ArrayList<>();
     Plays play=new Plays();
                 Writers writer=new Writers();
-                writer.setId(8);
-                writer.setFirst_name("Aldo Nikolaj");
-                play.setId(1);
+                writer.setId(6);
+                writer.setFirst_name("Dubravko Mihanovic");
+                play.setId(3);
                 play.setWriter(writer);
-                play.setPlay_name("Umri muški");
-                play.setGenre("comedy");
-                play.setMaxcap(0);
-                play.setPrice(30);
+                play.setPlay_name("Žaba");
+                play.setGenre("drama");
+                play.setMaxcap(233);
+                play.setPrice(25);
                 Date d=new SimpleDateFormat( "yyyy-MM-dd" ).parse( "2022-12-22" );
                 play.setDate(d);
                 Directors directors=new Directors();
-                directors= DaoFactory.directorsDao().getById(3);
+                directors= DaoFactory.directorsDao().getById(2);
                 play.setDirector(directors);
                 plays.add(play);
 
