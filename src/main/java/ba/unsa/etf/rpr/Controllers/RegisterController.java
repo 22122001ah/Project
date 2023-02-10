@@ -56,7 +56,7 @@ public class RegisterController {
 
         Users   k=new Users();
         try {
-            k=k.searchByUsername(fieldUsername.getText());
+            k=DaoFactory.usersDao().searchByUsername(fieldUsername.getText());
 
             new Alert(Alert.AlertType.NONE,"Username already taken",ButtonType.OK).show();
         }
