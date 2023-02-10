@@ -11,7 +11,7 @@ import java.util.Objects;
  * Java bean class for table Plays
  * @author Adna Herak
  */
-public class Plays extends PlaysDaoSQLimpl implements Idable {
+public class Plays implements Idable {
     private int Id;
     private String play_name;
     private String genre;
@@ -103,7 +103,7 @@ public class Plays extends PlaysDaoSQLimpl implements Idable {
     public String toString(){
         ArrayList<Artists> artists= null;
         try {
-            artists = (ArrayList<Artists>) DaoFactory.playsin_Dao().searchByPlay(getById(Id));
+            artists = (ArrayList<Artists>) DaoFactory.playsin_Dao().searchByPlay(DaoFactory.playsDao().getById(Id));
         } catch (PlaysException e) {
             throw new RuntimeException(e);
         }

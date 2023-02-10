@@ -3,7 +3,7 @@ package ba.unsa.etf.rpr.domain;
 import ba.unsa.etf.rpr.dao.WritersDaoSQLimpl;
 import java.util.Objects;
 
-public class Writers extends WritersDaoSQLimpl implements Idable {
+public class Writers  implements Idable {
     private int Id;
     private String first_name;
 

@@ -4,7 +4,7 @@ import ba.unsa.etf.rpr.dao.plays_inDaoSQLimpl;
 
 import java.util.Objects;
 
-public class plays_ins extends plays_inDaoSQLimpl implements Idable {
+public class plays_ins  implements Idable {
     private int Id;
     private int Artist_id;
     private int Plays;

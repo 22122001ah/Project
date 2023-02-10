@@ -139,6 +139,24 @@ public class TESTS {
         plays1=DaoFactory.playsDao().getById(2);
         plays2.add(plays1);
         assertEquals(plays2,plays);
-
+    }
+    @Test
+    public void testsearchByGenre() throws PlaysException {
+        List<Plays> plays=DaoFactory.playsDao().searchByGenre("comedy");
+        List<Plays>plays1=new ArrayList<>();
+        Plays p= new Plays();
+        p=DaoFactory.playsDao().getById(1);
+        plays1.add(p);
+        p=DaoFactory.playsDao().getById(5);
+        plays1.add(p);
+        p=DaoFactory.playsDao().getById(8);
+        plays1.add(p);
+        p=DaoFactory.playsDao().getById(9);
+        plays1.add(p);
+        p=DaoFactory.playsDao().getById(11);
+        plays1.add(p);
+        p=DaoFactory.playsDao().getById(16);
+        plays1.add(p);
+        assertEquals(plays,plays1);
     }
 }

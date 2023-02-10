@@ -57,7 +57,7 @@ public class plays_inDaoSQLimpl extends AbstractDao1<plays_ins> implements plays
             ArrayList<Plays> PlaysLista = new ArrayList<>();
             for(int i=0;i<p.size();i++)
             {
-                PlaysLista.add(play.getById(p.get(i).getPlays_id()));
+                PlaysLista.add(DaoFactory.playsDao().getById(p.get(i).getPlays_id()));
             }
             return PlaysLista;
         } catch (Exception e) {

@@ -4,7 +4,7 @@ import ba.unsa.etf.rpr.dao.DirectorsDaoSQLimpl;
 
 import java.util.Objects;
 
-public class Directors extends DirectorsDaoSQLimpl implements Idable {
+public class Directors  implements Idable {
     private int Id;
 
     private String first_name;

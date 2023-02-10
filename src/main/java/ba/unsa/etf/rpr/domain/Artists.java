@@ -8,7 +8,7 @@ import java.util.Objects;
  * List of possible actors for plays
  * @author Adna Herak
  */
-public class Artists extends ArtistsDaoSQLimpl implements Idable {
+public class Artists implements Idable {
     private int Id;
     private String artist_name;
 

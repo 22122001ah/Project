@@ -149,7 +149,7 @@ public List<Plays> searchByPlaynameandPriceandGenre(String play_name,int price,S
         ArrayList<String>genres=new ArrayList<String>();
         ArrayList<Plays>play=new ArrayList<>();
         try {
-            play=(ArrayList<Plays>) p.getAll();
+            play=(ArrayList<Plays>) DaoFactory.playsDao().getAll();
         }
         catch (Exception e){
             throw new PlaysException(e.getMessage(),e);

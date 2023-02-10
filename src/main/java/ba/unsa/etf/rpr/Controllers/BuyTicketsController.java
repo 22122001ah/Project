@@ -66,7 +66,7 @@ public class BuyTicketsController  {
      */
     public void Buy(ActionEvent actionEvent) throws PlaysException {
         Plays P=new Plays();
-        P=P.searchByPlayName(name.getText()).get(0);
+        P=DaoFactory.playsDao().searchByPlayName(name.getText()).get(0);
         if(P.getMaxcap()==0)
             new Alert(Alert.AlertType.NONE,"SOLD OUT",ButtonType.OK).show();
       else {
