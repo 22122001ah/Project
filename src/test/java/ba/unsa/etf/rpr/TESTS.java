@@ -63,7 +63,6 @@ public class TESTS {
         play.setGenre("drama");
         play.setMaxcap(240);
         play.setPrice(30);
-
         Date d=new SimpleDateFormat( "yyyy-MM-dd" ).parse( "2022-10-24" );
         play.setDate(d);
         Directors directors=new Directors();
@@ -158,5 +157,35 @@ public class TESTS {
         p=DaoFactory.playsDao().getById(16);
         plays1.add(p);
         assertEquals(plays,plays1);
+    }
+    @Test
+    public void searchByWriterName() throws PlaysException {
+       Writers writers=DaoFactory.writersDao().searchByWriterName("Boris Lalic");
+       Writers w=new Writers();
+       w.setFirst_name("Boris Lalic");
+       w.setId(15);
+       assertEquals(w,writers);
+    }
+    @Test
+    public void searchByGenreAndPlayName() throws PlaysException, ParseException {
+        List<Plays> plays=DaoFactory.playsDao().searchByPlaynameandGenre("Umri muški","comedy");
+        Plays play=new Plays();
+        Writers writer=new Writers();
+        writer.setId(8);
+        writer.setFirst_name("Aldo Nikolaj");
+        play.setId(1);
+        play.setWriter(writer);
+        play.setPlay_name("Umri muški");
+        play.setGenre("comedy");
+        play.setMaxcap(0);
+        play.setPrice(30);
+        Date d=new SimpleDateFormat( "yyyy-MM-dd" ).parse( "2022-12-22" );
+        play.setDate(d);
+        Directors directors=new Directors();
+        directors= DaoFactory.directorsDao().getById(3);
+        play.setDirector(directors);
+        List<Plays>p=new ArrayList<>();
+        p.add(play);
+        assertEquals(p,plays);
     }
 }
