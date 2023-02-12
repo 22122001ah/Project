@@ -18,6 +18,7 @@ import javafx.stage.Stage;
 
 import java.sql.Date;
 import java.time.LocalDate;
+import java.util.Calendar;
 
 
 public class BuyTicketsController  {
@@ -65,13 +66,16 @@ public class BuyTicketsController  {
      * @throws PlaysException
      */
     public void Buy(ActionEvent actionEvent) throws PlaysException {
-        Plays P=new Plays();
-        P=DaoFactory.playsDao().searchByPlayName(name.getText()).get(0);
-        if(P.getMaxcap()==0)
+        Plays P=playsManager.searchByPlayName(name.getText()).get(0);
+        if(P.getMaxcap()-P.getSoldtickets()==0)
             new Alert(Alert.AlertType.NONE,"SOLD OUT",ButtonType.OK).show();
+
+        else if(P.getDate().compareTo(Calendar.getInstance().getTime())<0){
+            new Alert(Alert.AlertType.NONE,"We are sorry, you are late! This play was already performed.",ButtonType.OK).show();
+        }
       else {
-          int p=P.getMaxcap()-(spinner.getValue());
-            P.setMaxcap(p);
+
+            P.setSoldtickets(P.getSoldtickets()+spinner.getValue());
             playsManager.update(P);
             Button b=(Button) actionEvent.getTarget();
             Stage s=(Stage) b.getScene().getWindow();

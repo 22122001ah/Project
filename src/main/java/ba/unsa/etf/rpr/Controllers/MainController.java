@@ -1,5 +1,6 @@
 package ba.unsa.etf.rpr.Controllers;
 
+
 import ba.unsa.etf.rpr.dao.DaoFactory;
 import ba.unsa.etf.rpr.domain.Plays;
 import ba.unsa.etf.rpr.exceptions.PlaysException;
@@ -11,14 +12,20 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.apache.poi.ss.usermodel.Font;
 import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.XSSFPivotCache;
+import org.apache.poi.xssf.usermodel.XSSFTable;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.apache.poi.xssf.usermodel.XSSFSheet.*;
 import java.awt.*;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
 public class MainController  {
@@ -202,17 +209,21 @@ else{
     }
 
     public void SaveReport( FileOutputStream out) throws IOException, PlaysException {
+
         Workbook workbook = new XSSFWorkbook();
         //Create a blank sheet
         Sheet sheet = workbook.createSheet("Plays report");
-        String[] columnHeads={"Play name","Genre","Price","Date","Director","Writer","Tickets left"};
+
+        String[] columnHeads={"Play name","Genre","Date","Director","Writer","Capacity","Sold","Price","Profit"};
        Font headerFont=  workbook.createFont();
         headerFont.setFontHeightInPoints((short) 12);
         headerFont.setColor(IndexedColors.BLACK.index);
-        headerFont.setBoldweight((short) 5);
+        headerFont.setBold(true);
         CellStyle headerStyle=workbook.createCellStyle();
         headerStyle.setFont( headerFont);
+
         Row headerRow=sheet.createRow(0);
+
         for(int i=0;i<columnHeads.length;i++) {
             Cell cell = headerRow.createCell(i);
             cell.setCellValue(columnHeads[i]);
@@ -229,14 +240,26 @@ else{
             Row row = sheet.createRow(rownum++);
             row.createCell(0).setCellValue(i.getPlay_name());
             row.createCell(1).setCellValue(i.getGenre());
-            row.createCell(2).setCellValue(i.getPrice());
-            row.createCell(4).setCellValue(i.getDirector().toString());
-            row.createCell(5).setCellValue(i.getWriter().toString());
-            row.createCell(6).setCellValue(i.getMaxcap());
-            Cell dateCell = row.createCell(3);
+            row.createCell(7).setCellValue(i.getPrice());
+            row.createCell(3).setCellValue(i.getDirector().toString());
+            row.createCell(4).setCellValue(i.getWriter().toString());
+            row.createCell(5).setCellValue(i.getMaxcap());
+            row.createCell(6).setCellValue(i.getSoldtickets());
+            Cell dateCell = row.createCell(2);
             dateCell.setCellValue(i.getDate());
             dateCell.setCellStyle(dateStyle);
+            row.createCell(8).setCellValue(i.getSoldtickets()*i.getPrice());
         }
+        Row sumRow = sheet.createRow(rownum);
+        Cell sumRowTitle = sumRow.createCell(0);
+        sumRowTitle.setCellValue("Total");
+        sumRowTitle.setCellStyle(headerStyle);
+
+        String strFormula = "SUM(I2:I"+rownum+")";
+        Cell sumcell = sumRow.createCell(8);
+        sumcell.setCellFormula(strFormula);
+        sumcell.setCellValue(true);
+
 
         //Autosize columns
         for(int i=0;i<columnHeads.length;i++) {
@@ -264,6 +287,7 @@ else{
 
         }
         else {
+
             FileOutputStream out = new FileOutputStream(new File("Report.xslx"));
             SaveReport(out);
             File file = new File("Report.xslx");

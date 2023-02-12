@@ -22,6 +22,16 @@ public class Plays implements Idable {
     private Users management;
     private int maxcap;
 
+    public int getSoldtickets() {
+        return soldtickets;
+    }
+
+    public void setSoldtickets(int soldtickets) {
+        this.soldtickets = soldtickets;
+    }
+
+    private int soldtickets;
+
     public int getMaxcap() {
         return maxcap;
     }
@@ -120,7 +130,7 @@ public class Plays implements Idable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(Id, play_name, genre, date, price, director, writer,management,maxcap);
+        return Objects.hash(Id, play_name, genre, date, price, director, writer,management,maxcap,soldtickets);
     }
 
     @Override
