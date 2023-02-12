@@ -227,6 +227,7 @@
                 <Menu mnemonicParsing="false" text="Managment">
                     <items>
                         <MenuItem mnemonicParsing="false" onAction="#addPlay" text="Edit" />
+                  <MenuItem mnemonicParsing="false" onAction="#OpenReport" text="Report" />
                     </items>
                 </Menu>
             </menus>

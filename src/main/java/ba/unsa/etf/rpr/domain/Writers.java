@@ -19,8 +19,7 @@ public class Writers  implements Idable {
 
     @Override
     public String toString(){
-     return "Writer{ id="+Id+
-     ",first name="+first_name;
+     return first_name;
     }
     @Override
     public boolean equals(Object o){
