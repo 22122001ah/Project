@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: sql7.freemysqlhosting.net
--- Generation Time: Feb 10, 2023 at 03:44 PM
+-- Generation Time: Feb 12, 2023 at 07:18 PM
 -- Server version: 5.5.62-0ubuntu0.14.04.1
 -- PHP Version: 7.0.33-0ubuntu0.16.04.16
 
@@ -113,35 +113,35 @@ CREATE TABLE `Plays` (
   `genre` varchar(45) CHARACTER SET latin1 NOT NULL,
   `date` datetime NOT NULL,
   `price` int(11) NOT NULL,
-  `Description` varchar(512) CHARACTER SET latin1 DEFAULT NULL,
   `dir_id` int(11) DEFAULT NULL,
   `Writer_id` int(11) DEFAULT NULL,
-  `maxcap` int(11) DEFAULT NULL
+  `maxcap` int(11) DEFAULT '0',
+  `soldtickets` int(11) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin2 COLLATE=latin2_bin;
 
 --
 -- Dumping data for table `Plays`
 --
 
-INSERT INTO `Plays` (`play_id`, `play_name`, `genre`, `date`, `price`, `Description`, `dir_id`, `Writer_id`, `maxcap`) VALUES
-(1, 'Umri muški', 'comedy', '2022-12-22 00:00:00', 30, '', 3, 8, 0),
-(2, 'Sjecaš li se Doli Bel', 'drama', '2022-10-24 00:00:00', 30, '', 4, 1, 0),
-(3, 'Žaba', 'drama', '2022-10-26 20:00:00', 25, '', 2, 6, 233),
-(4, 'Ljubicasto', 'drama', '2022-12-12 20:00:00', 10, '', 1, 14, 90),
-(5, 'Mirna Bosna', 'comedy', '2022-12-03 00:00:00', 15, '', 5, 15, 0),
-(6, 'Schindlerov lift', 'drama', '2022-12-27 20:00:00', 15, '', 4, 13, 98),
-(7, 'Pozorište za pocetnike', 'drama', '2022-10-29 20:00:00', 10, '', 3, 12, 120),
-(8, 'Ih,kako bih te ja', 'comedy', '2022-12-15 00:00:00', 15, '', 12, 19, 0),
-(9, 'Bez potrfelja', 'comedy', '2022-12-16 20:00:00', 25, '', 13, 18, 150),
-(10, 'Naš razred', 'drama', '2022-12-17 20:00:00', 25, '', 14, 2, 200),
-(11, 'Djelidba', 'comedy', '2022-12-22 20:00:00', 10, '', 15, 16, 140),
-(12, 'Slavna Florens', 'drama', '2023-02-12 20:00:00', 25, '', 3, 11, 65),
-(13, 'Tri sestre', 'drama', '2021-09-06 20:00:00', 20, '', 11, 10, 90),
-(14, 'Hadersfild', 'drama', '2023-07-20 00:00:00', 10, '', 10, 9, 219),
-(15, 'Helverova noc', 'drama', '2022-04-14 20:00:00', 10, '', 7, 7, 87),
-(16, 'Radnja na uglu', 'comedy', '2023-01-23 20:00:00', 15, '', 9, 20, 55),
-(17, 'Kad bi naglas govorili', 'drama', '2024-03-13 20:00:00', 10, '', 8, 5, 95),
-(18, 'Knjiga mojih života', 'drama', '2022-11-13 20:00:00', 20, '', 6, 3, 105);
+INSERT INTO `Plays` (`play_id`, `play_name`, `genre`, `date`, `price`, `dir_id`, `Writer_id`, `maxcap`, `soldtickets`) VALUES
+(1, 'Umri muški', 'comedy', '2023-12-22 00:00:00', 30, 3, 8, 350, 350),
+(2, 'Sjecaš li se Doli Bel', 'drama', '2023-10-24 00:00:00', 30, 4, 1, 200, 110),
+(3, 'Žaba', 'drama', '2023-10-26 20:00:00', 25, 2, 6, 230, 200),
+(4, 'Ljubicasto', 'drama', '2023-12-12 00:00:00', 10, 1, 14, 90, 20),
+(5, 'Mirna Bosna', 'comedy', '2023-12-03 00:00:00', 15, 5, 15, 140, 31),
+(6, 'Schindlerov lift', 'drama', '2023-12-27 20:00:00', 15, 4, 13, 100, 10),
+(7, 'Pozorište za pocetnike', 'drama', '2023-10-29 20:00:00', 10, 3, 12, 120, 60),
+(8, 'Ih,kako bih te ja', 'comedy', '2023-12-15 00:00:00', 15, 12, 19, 95, 90),
+(9, 'Bez potrfelja', 'comedy', '2023-12-16 20:00:00', 25, 13, 18, 150, 75),
+(10, 'Naš razred', 'drama', '2023-12-17 20:00:00', 25, 14, 2, 200, 85),
+(11, 'Djelidba', 'comedy', '2023-12-22 20:00:00', 10, 15, 16, 140, 90),
+(12, 'Slavna Florens', 'drama', '2023-02-12 20:00:00', 25, 3, 11, 65, 25),
+(13, 'Tri sestre', 'drama', '2023-09-06 20:00:00', 20, 11, 10, 90, 35),
+(14, 'Hadersfild', 'drama', '2023-07-20 00:00:00', 10, 10, 9, 220, 205),
+(15, 'Helverova noc', 'drama', '2023-04-14 20:00:00', 10, 7, 7, 90, 15),
+(16, 'Radnja na uglu', 'comedy', '2023-01-23 20:00:00', 15, 9, 20, 55, 20),
+(17, 'Kad bi naglas govorili', 'drama', '2024-03-13 20:00:00', 10, 8, 5, 95, 50),
+(18, 'Knjiga mojih života', 'drama', '2023-11-13 20:00:00', 20, 6, 3, 105, 100);
 
 -- --------------------------------------------------------
 
@@ -168,7 +168,8 @@ CREATE TABLE `Users` (
 INSERT INTO `Users` (`user_id`, `username`, `first_name`, `last_name`, `date_of_birth`, `password`, `gender`, `Location`, `Management`) VALUES
 (1, 'aherak2', 'Adna', 'Herak', '2001-12-22', 'a123', 'F', 'Sarajevo', 1),
 (3, 'azunic3', 'Azra', 'Zunic', '2002-01-25', 'Grdonj24', 'F', 'Sarajevo', 0),
-(4, 'meraaaa', 'Merjem', 'Becirovic', NULL, 'mera', 'F', 'Sarajevo', 0);
+(4, 'meraaaa', 'Merjem', 'Becirovic', NULL, 'mera', 'F', 'Sarajevo', 0),
+(14, 'aherak', 'Ajla', 'Herak', '2023-01-29', 'a123', 'F', 'Sarajevo', 0);
 
 -- --------------------------------------------------------
 
@@ -368,7 +369,7 @@ ALTER TABLE `Plays`
 -- AUTO_INCREMENT for table `Users`
 --
 ALTER TABLE `Users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `Writers`
 --
