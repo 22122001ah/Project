@@ -16,7 +16,6 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.util.Date;
@@ -49,7 +48,7 @@ public class EditPlaysController{
         playsColumn.setCellValueFactory(new PropertyValueFactory<Plays, String>("play_name"));
         createdColumn.setCellValueFactory(new PropertyValueFactory<Plays, Date>("date"));
         actionColumn.setCellValueFactory(new PropertyValueFactory<Plays, Integer>("Id"));
-        actionColumn.setCellFactory(new ButtonFactory(editEvent -> {
+        actionColumn.setCellFactory(new ButtonFactory3Actions(editEvent -> {
             int playId = Integer.parseInt(((Button)editEvent.getSource()).getUserData().toString());
             editPlayScene(playId);
         }, (deleteEvent -> {

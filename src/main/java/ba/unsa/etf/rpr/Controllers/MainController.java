@@ -183,7 +183,7 @@ else{
     }
 
     public void search(ActionEvent actionEvent) throws PlaysException {
-            SearchController s=new SearchController();
+            SearchController s=new SearchController(noviprozor1,noviprozor2);
             try {
                 OpenStage("/fxml/searchPlays.fxml","SearchPlay",s);
             }

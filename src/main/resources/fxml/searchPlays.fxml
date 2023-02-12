@@ -10,10 +10,11 @@
     <center>
         <TableView fx:id="playsTable" style="-fx-background-color: beige;" BorderPane.alignment="CENTER">
             <columns>
-                <TableColumn fx:id="playsColumn" minWidth="254.0" prefWidth="278.0" style="-fx-background-color: beige; -fx-border-color: white;" text="Play" />
-                <TableColumn fx:id="createdColumn" minWidth="100.0" prefWidth="116.0" style="-fx-background-color: beige; -fx-border-color: white;" text="Date" />
-                <TableColumn fx:id="genre" prefWidth="112.0" style="-fx-background-color: beige; -fx-border-color: white;" text="Genre" />
-                <TableColumn fx:id="price" prefWidth="89.0" style="-fx-background-color: beige; -fx-border-color: white;" text="Price" />
+                <TableColumn fx:id="playsColumn" minWidth="186.0" prefWidth="186.0" style="-fx-background-color: beige; -fx-border-color: white;" text="Play" />
+                <TableColumn fx:id="createdColumn" minWidth="88.0" prefWidth="88.0" style="-fx-background-color: beige; -fx-border-color: white;" text="Date" />
+                <TableColumn fx:id="genre" prefWidth="95.0" style="-fx-background-color: beige; -fx-border-color: white;" text="Genre" />
+                <TableColumn fx:id="price" prefWidth="65.0" style="-fx-background-color: beige; -fx-border-color: white;" text="Price" />
+            <TableColumn fx:id="actionColumn" prefWidth="161.0" style="-fx-background-color: beige; -fx-border-color: white;" text="Options" />
             </columns>
             <padding>
                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

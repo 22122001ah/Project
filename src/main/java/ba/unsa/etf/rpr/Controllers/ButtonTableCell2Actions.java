@@ -16,25 +16,21 @@ import javafx.scene.paint.Color;
  *
  * @param <T> - Bean class represented in the table cells
  */
-public class ButtonTableCell<T> extends TableCell<T, T> {
+public class ButtonTableCell2Actions<T> extends TableCell<T, T> {
 
-    private Button edit;
-    private Button delete;
+    private Button buy;
     private Button view;
 
     /**
      * Default constructor
      * @param buttonOne
      * @param buttonTwo
-     * @param buttonThree
      */
-    public ButtonTableCell(EventHandler<ActionEvent> buttonOne, EventHandler<ActionEvent> buttonTwo, EventHandler<ActionEvent> buttonThree){
-        edit = new Button("Edit");
-        edit.setOnAction(buttonOne);
-        delete = new Button("Delete");
-        delete.setOnAction(buttonTwo);
-        view=new Button("View");
-        view.setOnAction(buttonThree);
+    public ButtonTableCell2Actions(EventHandler<ActionEvent> buttonOne, EventHandler<ActionEvent> buttonTwo){
+        buy = new Button("Buy");
+        buy.setOnAction(buttonOne);
+        view=new Button("Description");
+        view.setOnAction(buttonTwo);
     }
 
     @Override
@@ -43,18 +39,14 @@ public class ButtonTableCell<T> extends TableCell<T, T> {
         if (o != null) {
             HBox box = new HBox();
             box.setAlignment(Pos.CENTER);
-            edit.setUserData(o);
-            delete.setUserData(o);
+            buy.setUserData(o);
             view.setUserData(o);
-            box.getChildren().add(edit);
-            box.getChildren().add(delete);
+            box.getChildren().add(buy);
             box.getChildren().add(view);
             view.setBackground(Background.fill(Color.BEIGE));
-            delete.setBackground(Background.fill(Color.BEIGE));
-            edit.setBackground(Background.fill(Color.BEIGE));
+            buy.setBackground(Background.fill(Color.BEIGE));
             view.setBorder(Border.stroke(Color.WHITE));
-            delete.setBorder(Border.stroke(Color.WHITE));
-            edit.setBorder(Border.stroke(Color.WHITE));
+            buy.setBorder(Border.stroke(Color.WHITE));
             setGraphic(box);
 
         }

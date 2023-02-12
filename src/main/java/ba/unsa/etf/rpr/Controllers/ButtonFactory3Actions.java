@@ -10,7 +10,7 @@ import javafx.util.Callback;
  * Double button cell factory for creation of buttons for each cell in the table
  * @param <T>
  */
-public class ButtonFactory<T> implements Callback<TableColumn<T, T>, TableCell<T, T>> {
+public class ButtonFactory3Actions<T> implements Callback<TableColumn<T, T>, TableCell<T, T>> {
 
     private final EventHandler<ActionEvent> buttonOne;
 
@@ -23,7 +23,7 @@ public class ButtonFactory<T> implements Callback<TableColumn<T, T>, TableCell<T
      * @param buttonTwo
      * @param buttonThree
      */
-    public ButtonFactory(EventHandler<ActionEvent> buttonOne, EventHandler<ActionEvent> buttonTwo,EventHandler<ActionEvent> buttonThree){
+    public ButtonFactory3Actions(EventHandler<ActionEvent> buttonOne, EventHandler<ActionEvent> buttonTwo, EventHandler<ActionEvent> buttonThree){
         this.buttonOne = buttonOne;
         this.buttonTwo = buttonTwo;
         this.buttonThree=buttonThree;
@@ -31,6 +31,6 @@ public class ButtonFactory<T> implements Callback<TableColumn<T, T>, TableCell<T
 
     @Override
     public TableCell<T, T> call(TableColumn<T, T> quoteObjectTableColumn) {
-        return new ButtonTableCell<>(buttonOne, buttonTwo,buttonThree);
+        return new ButtonTableCell3Actions<>(buttonOne, buttonTwo,buttonThree);
     }
 }
