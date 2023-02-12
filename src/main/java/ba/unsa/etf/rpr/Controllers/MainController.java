@@ -1,6 +1,5 @@
 package ba.unsa.etf.rpr.Controllers;
 
-import ba.unsa.etf.rpr.dao.Dao;
 import ba.unsa.etf.rpr.dao.DaoFactory;
 import ba.unsa.etf.rpr.domain.Plays;
 import ba.unsa.etf.rpr.exceptions.PlaysException;
@@ -12,22 +11,15 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
-import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.ss.usermodel.Font;
-import org.apache.poi.xssf.usermodel.XSSFFont;
+import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-
+import java.awt.*;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.text.ParseException;
-import java.util.*;
-import java.awt.*;
-
-
+import java.util.ArrayList;
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
-import static org.apache.poi.ss.usermodel.FillPatternType.*;
 
 public class MainController  {
     RegisterController noviprozor2;
@@ -234,9 +226,7 @@ else{
         dateStyle.setDataFormat(creationHelper.createDataFormat().getFormat("MM/dd/yyyy"));
         int rownum =1;
         for(Plays i : a) {
-            //System.out.println("rownum-before"+(rownum));
             Row row = sheet.createRow(rownum++);
-            //System.out.println("rownum-after"+(rownum));
             row.createCell(0).setCellValue(i.getPlay_name());
             row.createCell(1).setCellValue(i.getGenre());
             row.createCell(2).setCellValue(i.getPrice());
@@ -268,6 +258,11 @@ else{
             new Alert(Alert.AlertType.NONE,"You are not authorised to see reports",ButtonType.OK).show();
         else if(noviprozor1!=null && noviprozor1.getU().getManagement()!=1)
             new Alert(Alert.AlertType.NONE,"You are not authorised to see reports",ButtonType.OK).show();
+        else if(noviprozor2==null && noviprozor1==null)
+        {
+            new Alert(Alert.AlertType.NONE,"You do not have management privileges needed to perform this action.",ButtonType.OK).show();
+
+        }
         else {
             FileOutputStream out = new FileOutputStream(new File("Report.xslx"));
             SaveReport(out);
