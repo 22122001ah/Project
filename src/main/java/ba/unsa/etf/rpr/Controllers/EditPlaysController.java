@@ -1,7 +1,6 @@
 package ba.unsa.etf.rpr.Controllers;
 
 import ba.unsa.etf.rpr.business.PlaysManager;
-import ba.unsa.etf.rpr.dao.DaoFactory;
 import ba.unsa.etf.rpr.domain.Plays;
 import ba.unsa.etf.rpr.exceptions.PlaysException;
 import javafx.collections.FXCollections;
@@ -77,7 +76,7 @@ public class EditPlaysController{
             FXMLLoader fl=new FXMLLoader(getClass().getResource("/fxml/Info.fxml"));
             Parent root =fl.load();
             InfoController noviprozor=fl.getController();
-            noviprozor.setText(DaoFactory.playsDao().getById(id).toString());
+            noviprozor.setText(playsManager.getById(id).toString());
             Secondstage.setTitle("Play description");
             Secondstage.setScene(new Scene(root,USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
             Secondstage.setResizable(false);

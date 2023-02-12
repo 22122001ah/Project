@@ -5,7 +5,6 @@ import ba.unsa.etf.rpr.business.PlaysManager;
 import ba.unsa.etf.rpr.business.DirectorsManager;
 import ba.unsa.etf.rpr.business.WritersManager;
 import ba.unsa.etf.rpr.business.ArtistManager;
-import ba.unsa.etf.rpr.dao.DaoFactory;
 import ba.unsa.etf.rpr.domain.Plays;
 import ba.unsa.etf.rpr.domain.Artists;
 import ba.unsa.etf.rpr.exceptions.PlaysException;
@@ -187,7 +186,7 @@ ArrayList<Plays> p2= (ArrayList<Plays>) plays_inManager.searchByArtist(artistMan
             {  plays_ins plays_in1=new plays_ins();
                 if(playsManager.searchByPlayName(q.getPlay_name()).size()!=0)
                 plays_in1.setPlays_id(playsManager.searchByPlayName(q.getPlay_name()).get(0).getId());
-                else plays_in1.setPlays_id(DaoFactory.playsDao().getAll().size());
+                else plays_in1.setPlays_id(playsManager.getAll().size());
                 plays_in1.setArtist_id(artistManager.searchByArtistName(a[i]).getId());
                 p.add(plays_in1);}
             Pair<Plays,ArrayList<plays_ins>> pl=new Pair<>(q,p);

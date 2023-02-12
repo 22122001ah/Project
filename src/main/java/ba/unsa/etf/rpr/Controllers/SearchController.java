@@ -1,7 +1,6 @@
 package ba.unsa.etf.rpr.Controllers;
 
 import ba.unsa.etf.rpr.business.PlaysManager;
-import ba.unsa.etf.rpr.dao.DaoFactory;
 import ba.unsa.etf.rpr.domain.Plays;
 import ba.unsa.etf.rpr.exceptions.PlaysException;
 import javafx.application.Platform;
@@ -110,8 +109,8 @@ public RegisterController noviprozor2;
             FXMLLoader fl=new FXMLLoader(getClass().getResource("/fxml/BuyTickets.fxml"));
             Parent root=fl.load();
             BuyTicketsController buyTicketsController=fl.getController();
-            buyTicketsController.setPrice(DaoFactory.playsDao().getById(Id).getPrice());
-            buyTicketsController.setName(DaoFactory.playsDao().getById(Id).getPlay_name());
+            buyTicketsController.setPrice(playsManager.getById(Id).getPrice());
+            buyTicketsController.setName(playsManager.getById(Id).getPlay_name());
             secondstage.setTitle("Buy tickets");
             secondstage.setScene(new Scene(root,USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
             secondstage.setResizable(false);
@@ -125,7 +124,7 @@ public RegisterController noviprozor2;
             FXMLLoader fl=new FXMLLoader(getClass().getResource("/fxml/Info.fxml"));
             Parent root =fl.load();
             InfoController noviprozor=fl.getController();
-            noviprozor.setText(DaoFactory.playsDao().getById(id).toString());
+            noviprozor.setText(playsManager.getById(id).toString());
             Secondstage.setTitle("Play description");
             Secondstage.setScene(new Scene(root,USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
             Secondstage.setResizable(false);

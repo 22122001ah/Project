@@ -2,7 +2,6 @@ package ba.unsa.etf.rpr.Controllers;
 import ba.unsa.etf.rpr.business.DirectorsManager;
 import ba.unsa.etf.rpr.business.PlaysManager;
 import ba.unsa.etf.rpr.business.WritersManager;
-import ba.unsa.etf.rpr.dao.DaoFactory;
 import ba.unsa.etf.rpr.domain.Plays;
 import ba.unsa.etf.rpr.exceptions.PlaysException;
 import javafx.beans.binding.IntegerBinding;
@@ -40,7 +39,7 @@ public class BuyTicketsController  {
     public void setName(String ime){
         name.setText(ime);
         try {
-            date.setText(String.valueOf(DaoFactory.playsDao().searchByPlayName(ime).get(0).getDate()));
+            date.setText(String.valueOf(playsManager.searchByPlayName(ime).get(0).getDate()));
         } catch (PlaysException e) {
             throw new RuntimeException(e);
         }

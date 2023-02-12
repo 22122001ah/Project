@@ -1,7 +1,7 @@
 package ba.unsa.etf.rpr.Controllers;
 
 
-import ba.unsa.etf.rpr.dao.DaoFactory;
+import ba.unsa.etf.rpr.business.PlaysManager;
 import ba.unsa.etf.rpr.domain.Plays;
 import ba.unsa.etf.rpr.exceptions.PlaysException;
 import javafx.event.ActionEvent;
@@ -12,14 +12,10 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.apache.poi.ss.usermodel.Font;
 import org.apache.poi.ss.usermodel.*;
-import org.apache.poi.xssf.usermodel.XSSFPivotCache;
-import org.apache.poi.xssf.usermodel.XSSFTable;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.apache.poi.xssf.usermodel.XSSFSheet.*;
+
 import java.awt.*;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -31,8 +27,7 @@ import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 public class MainController  {
     RegisterController noviprozor2;
     LoginController noviprozor1;
-    private static final String filename = "Report.exe";
-
+   PlaysManager playsManager=new PlaysManager();
     /**
      * opens new register window
      * @param actionEvent
@@ -90,7 +85,7 @@ OpenStage("/fxml/Register.fxml","Register",noviprozor2);
             FXMLLoader fl=new FXMLLoader(getClass().getResource("/fxml/Info.fxml"));
             Parent root =fl.load();
             InfoController noviprozor=fl.getController();
-            noviprozor.setText(DaoFactory.playsDao().searchByPlayName(numberButton.getText()).toString());
+            noviprozor.setText(playsManager.searchByPlayName(numberButton.getText()).toString());
             Secondstage.setTitle("Play description");
             Secondstage.setScene(new Scene(root,USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
             Secondstage.setResizable(false);
@@ -140,7 +135,7 @@ OpenStage("/fxml/Register.fxml","Register",noviprozor2);
            FXMLLoader fl=new FXMLLoader(getClass().getResource("/fxml/BuyTickets.fxml"));
            Parent root=fl.load();
            BuyTicketsController buyTicketsController=fl.getController();
-           buyTicketsController.setPrice(DaoFactory.playsDao().searchByPlayName(numberButton.getText()).get(0).getPrice());
+           buyTicketsController.setPrice(playsManager.searchByPlayName(numberButton.getText()).get(0).getPrice());
            buyTicketsController.setName(numberButton.getText());
            secondstage.setTitle("Buy tickets");
            secondstage.setScene(new Scene(root,USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
@@ -271,8 +266,8 @@ else{
     }
 
 
-    private static ArrayList<Plays> createData() throws PlaysException {
-        return   (ArrayList<Plays>) DaoFactory.playsDao().getAll();
+    private  ArrayList<Plays> createData() throws PlaysException {
+        return   (ArrayList<Plays>) playsManager.getAll();
     }
 
 

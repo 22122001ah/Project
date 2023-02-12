@@ -1,6 +1,6 @@
 package ba.unsa.etf.rpr.Controllers;
 
-import ba.unsa.etf.rpr.dao.DaoFactory;
+import ba.unsa.etf.rpr.business.UsersManager;
 import ba.unsa.etf.rpr.domain.Users;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
@@ -17,6 +17,7 @@ public class RegisterController {
     public DatePicker date;
     public CheckBox F=new CheckBox();
     public CheckBox M=new CheckBox();
+    public UsersManager usersManager=new UsersManager();
 
     public Users getU() {
         return u;
@@ -56,7 +57,7 @@ public class RegisterController {
 
         Users   k=new Users();
         try {
-            k=DaoFactory.usersDao().searchByUsername(fieldUsername.getText());
+            k=usersManager.searchByUsername(fieldUsername.getText());
 
             new Alert(Alert.AlertType.NONE,"Username already taken",ButtonType.OK).show();
         }
@@ -76,7 +77,7 @@ public class RegisterController {
                 u.setGender("M");
 
             try {
-                DaoFactory.usersDao().add(u);
+                usersManager.add(u);
             } catch (Exception e1) {
                 System.out.println("Problem with adding a new user in the database");
                 throw new RuntimeException(e1);

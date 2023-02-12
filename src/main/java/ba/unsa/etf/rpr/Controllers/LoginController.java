@@ -1,6 +1,6 @@
 package ba.unsa.etf.rpr.Controllers;
 
-import ba.unsa.etf.rpr.dao.DaoFactory;
+import ba.unsa.etf.rpr.business.UsersManager;
 import ba.unsa.etf.rpr.domain.Users;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
@@ -15,6 +15,7 @@ public class LoginController {
     public TextField fieldUsername;
     public PasswordField fieldPass;
     public Users u=new Users();
+    public UsersManager usersManager=new UsersManager();
 
     public Users getU() {
         return u;
@@ -47,7 +48,7 @@ public class LoginController {
     Users k=new Users();
     u=null;
     try{
-        k= DaoFactory.usersDao().searchByUsername(fieldUsername.getText());
+        k= usersManager.searchByUsername(fieldUsername.getText());
         if (k!=null) {
             if(!Objects.equals(k.getPassword(), fieldPass.getText()))
             {
