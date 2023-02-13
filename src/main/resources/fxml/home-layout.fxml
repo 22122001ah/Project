@@ -152,7 +152,7 @@
                                         <Font name="System Bold" size="13.0" />
                                     </font>
                                 </Label>
-                                <Button mnemonicParsing="false" style="-fx-background-color: beige; -fx-border-color: white;" text="Buy tickets" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="4">
+                                <Button fx:id="bt" mnemonicParsing="false"  style="-fx-background-color: beige; -fx-border-color: white;" text="Buy tickets" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="4">
                                     <font>
                                         <Font name="Bodoni MT Bold Italic" size="13.0" />
                                     </font></Button>
@@ -179,7 +179,7 @@
                         <Insets top="40.0" />
                      </GridPane.margin>
                         </Label>
-                      <Button mnemonicParsing="false" onAction="#LoginBttn" prefHeight="25.0" prefWidth="108.0" style="-fx-background-color: beige; -fx-border-color: white; -fx-border-width: 3;" text="Login" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="TOP">
+                      <Button fx:id="login" mnemonicParsing="false" onAction="#LoginBttn" prefHeight="25.0" prefWidth="108.0" style="-fx-background-color: beige; -fx-border-color: white; -fx-border-width: 3;" text="Login" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="TOP">
                           <font>
                               <Font name="Bodoni MT Bold Italic" size="15.0" />
                           </font>
@@ -187,7 +187,7 @@
                               <Cursor fx:constant="HAND" />
                           </cursor>
                   </Button>
-                      <Button mnemonicParsing="false" onAction="#RegisterBttn" prefHeight="12.0" prefWidth="100.0" style="-fx-background-color: beige; -fx-border-color: white; -fx-border-width: 3;" text="Register" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+                      <Button fx:id="register" mnemonicParsing="false" onAction="#RegisterBttn" prefHeight="12.0" prefWidth="100.0" style="-fx-background-color: beige; -fx-border-color: white; -fx-border-width: 3;" text="Register" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.valignment="TOP">
                           <cursor>
                               <Cursor fx:constant="HAND" />
                           </cursor>
@@ -198,6 +198,10 @@
                         <Insets right="60.0" />
                      </GridPane.margin>
                       </Button>
+                  <Label fx:id="l" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="TOP">
+                     <font>
+                        <Font name="Bodoni MT" size="12.0" />
+                     </font></Label>
                     </children>
                 </GridPane>
                 <StackPane prefHeight="194.0" prefWidth="172.0" style="-fx-background-color: rgba(255,255,255,0.5);" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.rowIndex="3" GridPane.rowSpan="3">

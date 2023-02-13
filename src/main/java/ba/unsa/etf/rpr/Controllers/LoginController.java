@@ -2,6 +2,7 @@ package ba.unsa.etf.rpr.Controllers;
 
 import ba.unsa.etf.rpr.business.UsersManager;
 import ba.unsa.etf.rpr.domain.Users;
+import ba.unsa.etf.rpr.exceptions.PlaysException;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
@@ -12,10 +13,19 @@ import java.util.Objects;
 
 public class LoginController {
     public Button loginbttn;
+    public Label l;
+    public Button loginbttn1;
     public TextField fieldUsername;
     public PasswordField fieldPass;
     public Users u=new Users();
+    public Button reg;
     public UsersManager usersManager=new UsersManager();
+
+    public void setLoginbttn(Button loginbttn1,Button reg1,Label l) {
+        this.loginbttn1 = loginbttn1;
+        this.reg=reg1;
+        this.l=l;
+    }
 
     public Users getU() {
         return u;
@@ -25,17 +35,25 @@ public class LoginController {
      * Closes window if Login button is clicked
      * @param actionEvent
      */
-    public void zatvoriProzorPropuhJe(ActionEvent actionEvent){
+    public void zatvoriProzorPropuhJe(ActionEvent actionEvent) throws PlaysException {
+
   Closing();
+  loginbttn1.setVisible(false);
+  reg.setVisible(false);
+  l.setText(usersManager.searchByUsername(fieldUsername.getText()).getFirst_name());
     }
 
     /**
      * Closes window if ENTER key is hit
      * @param keyEvent
      */
-    public void ENTER(KeyEvent keyEvent){
+    public void ENTER(KeyEvent keyEvent) throws PlaysException {
         if(keyEvent.getCode()== KeyCode.ENTER) {
            Closing();
+           loginbttn1.setVisible(false);
+           reg.setVisible(false);
+
+            l.setText("Cao,"+usersManager.searchByUsername(fieldUsername.getText()).getFirst_name());
         }
     }
 

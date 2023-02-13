@@ -25,9 +25,16 @@ import java.util.ArrayList;
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
 public class MainController  {
+    public javafx.scene.control.Label l;
+    public Button bt;
     RegisterController noviprozor2;
     LoginController noviprozor1;
    PlaysManager playsManager=new PlaysManager();
+public Button login;
+public Button register;
+
+
+
     /**
      * opens new register window
      * @param actionEvent
@@ -37,6 +44,9 @@ public class MainController  {
         try{
             noviprozor2=new RegisterController();
 OpenStage("/fxml/Register.fxml","Register",noviprozor2);
+Button l= (Button) actionEvent.getTarget();
+if(noviprozor1!=null)
+    l.setVisible(false);
            }
         catch(Exception e){
             System.out.println(e);
@@ -52,6 +62,8 @@ OpenStage("/fxml/Register.fxml","Register",noviprozor2);
         try{
             noviprozor1=new LoginController();
             OpenStage("/fxml/Login.fxml","Login",noviprozor1);
+            noviprozor1.setLoginbttn((Button) actionEvent.getTarget(),register,l);
+
            }
         catch(Exception e){
             System.out.println(e);
@@ -129,18 +141,24 @@ OpenStage("/fxml/Register.fxml","Register",noviprozor2);
            new Alert(Alert.AlertType.NONE,"You need to have an account and be logged in in order to buy tickets.",ButtonType.OK).show();
        }
 
+
         else{
            Button numberButton = (Button) actionEvent.getTarget();
-           Stage secondstage=new Stage();
-           FXMLLoader fl=new FXMLLoader(getClass().getResource("/fxml/BuyTickets.fxml"));
-           Parent root=fl.load();
-           BuyTicketsController buyTicketsController=fl.getController();
-           buyTicketsController.setPrice(playsManager.searchByPlayName(numberButton.getText()).get(0).getPrice());
-           buyTicketsController.setName(numberButton.getText());
-           secondstage.setTitle("Buy tickets");
-           secondstage.setScene(new Scene(root,USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
-           secondstage.setResizable(false);
-           secondstage.show();}
+           if(playsManager.searchByPlayName(numberButton.getText()).get(0).getMaxcap()-playsManager.searchByPlayName(numberButton.getText()).get(0).getSoldtickets()==0)
+bt.setText("SOLD OUT");
+
+           else {
+               Stage secondstage = new Stage();
+               FXMLLoader fl = new FXMLLoader(getClass().getResource("/fxml/BuyTickets.fxml"));
+               Parent root = fl.load();
+               BuyTicketsController buyTicketsController = fl.getController();
+               buyTicketsController.setPrice(playsManager.searchByPlayName(numberButton.getText()).get(0).getPrice());
+               buyTicketsController.setName(numberButton.getText());
+               secondstage.setTitle("Buy tickets");
+               secondstage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+               secondstage.setResizable(false);
+               secondstage.show();
+           }}
 
 
     }

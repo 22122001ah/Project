@@ -12,6 +12,12 @@ import java.sql.Date;
 
 public class RegisterController {
     public Button okBttn;
+    public Button rbttn;
+
+    public void setRbttnttn(Button okBttn) {
+        this.rbttn = okBttn;
+    }
+
     public TextField fieldUsername,fieldFirstname,fieldLastname,L;
     public PasswordField fieldPass;
     public DatePicker date;
@@ -31,6 +37,8 @@ public class RegisterController {
 
     public void zatvoriProzorPropuhJe(ActionEvent actionEvent) {
       Closing();
+        rbttn.setVisible(false);
+
     }
 
     /**
@@ -40,6 +48,7 @@ public class RegisterController {
     public void ENTER(KeyEvent keyEvent){
         if(keyEvent.getCode()== KeyCode.ENTER) {
       Closing();
+      rbttn.setVisible(false);
         }
     }
 
