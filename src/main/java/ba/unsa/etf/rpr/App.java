@@ -132,7 +132,7 @@ public class App {
 
         }else if(cl.hasOption(getWriters.getOpt()) || cl.hasOption(getWriters.getLongOpt())){
            PlaysManager categoryManager = new PlaysManager();
-            categoryManager.getAll().forEach(c -> System.out.println(c.getPlay_name()));
+            categoryManager.getAll().forEach(c -> System.out.println(c.getWriter()));
 
         }
         else if(cl.hasOption(getDirectors.getOpt()) || cl.hasOption(getDirectors.getLongOpt())){
