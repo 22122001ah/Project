@@ -229,7 +229,7 @@ else{
         ArrayList<Plays> a = createData();
         CreationHelper creationHelper= workbook.getCreationHelper();
         CellStyle dateStyle = workbook.createCellStyle();
-        dateStyle.setDataFormat(creationHelper.createDataFormat().getFormat("MM/dd/yyyy"));
+        dateStyle.setDataFormat(creationHelper.createDataFormat().getFormat("dd.mm.yyyy"));
         int rownum =1;
         for(Plays i : a) {
             Row row = sheet.createRow(rownum++);
@@ -254,6 +254,7 @@ else{
         Cell sumcell = sumRow.createCell(8);
         sumcell.setCellFormula(strFormula);
         sumcell.setCellValue(true);
+        sumcell.setCellStyle(headerStyle);
 
 
         //Autosize columns
